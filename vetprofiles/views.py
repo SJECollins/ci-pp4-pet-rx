@@ -92,3 +92,7 @@ def edit_profile(request):
         'edit_form': form
     }
     return render(request, 'vetprofiles/edit_profile.html', context)
+
+
+def user_restricted(request):
+    return render(request, 'vetprofiles/restricted.html', {})
