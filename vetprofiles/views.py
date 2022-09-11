@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate, logout
+from .models import Vet
 from .forms import RegistrationForm, AccountAuthenticationForm, AccountUpdateForm
 
 
@@ -16,7 +17,7 @@ def register(request):
             raw_password = form.cleaned_data.get('password1')
             account = authenticate(email=email, password=raw_password)
             login(request, account)
-            return redirect('index')
+            return redirect('vetprofiles:index')
         else:
             context = {
                 'registration_form': form
@@ -26,18 +27,18 @@ def register(request):
         context = {
             'registration_form': form
         }
-    return render(request, 'accounts/register.html', context)
+    return render(request, 'vetprofiles/register.html', context)
 
 
 def logout_view(request):
     logout(request)
-    return redirect('index')
+    return redirect('vetprofiles:index')
 
 
 def login_view(request):
     user = request.user
     if user.is_authenticated:
-        return redirect('index')
+        return redirect('vetprofiles:index')
 
     if request.POST:
         form = AccountAuthenticationForm(request.POST)
@@ -48,7 +49,7 @@ def login_view(request):
 
             if user:
                 login(request, user)
-                return redirect('index')
+                return redirect('vetprofiles:profile')
 
     else:
         form = AccountAuthenticationForm()
@@ -56,12 +57,18 @@ def login_view(request):
     context = {
         'login_form': form
     }
-    return render(request, 'accounts/login.html', context)
+    return render(request, 'vetprofiles/login.html', context)
+
+
+def profile(request):
+    if not request.user.is_authenticated:
+        return redirect('vetprofiles:login')
+    return render(request, 'vetprofiles/profile.html')
 
 
 def edit_profile(request):
     if not request.user.is_authenticated:
-        return redirect('login')
+        return redirect('vetprofiles:login')
     if request.POST:
         form = AccountUpdateForm(request.POST, instance=request.user)
         if form.is_valid():
@@ -85,4 +92,4 @@ def edit_profile(request):
     context = {
         'edit_form': form
     }
-    return render(request, 'accounts/edit_account.html', context)
+    return render(request, 'vetprofiles/edit_profile.html', context)

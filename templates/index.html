@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<section class="container-md">
+    <div class="row align-middle">
+        <div id="intro-blurb" class="col-md-8">
+            <h1>Welcome to PetR<sub>x</sub></h1>
+            <h3>This is a subtitle</h3>
+            <p>This is a paragraph of text that welcomes the site user to the page. It encourages the site user to log in or register with the app. It also encourages the user to scroll down if they want to learn more.</p>
+            <div>
+                <a href="{% url 'vetprofiles:register' %}">Register</a>
+                <a href="{% url 'vetprofiles:login' %}">Login</a>
+            </div>
+        </div>
+        <div class="col-md-4 text-center">
+            <img class="pics" src="#" alt="placeholder image">
+        </div>
+    </div>
+</section>
+<!-- If user not registered, index has this intro stuff:-->
+<section class="container-md">
+    <div class="row">
+        <div class="col-lg-4">
+            <h3 class="headings">About the site</h3>
+            <p>This is a blurb talking about how great the website is.</p>
+
+        </div>
+        <div class="col-lg-4">
+            <h3 class="headings">More About the site</h3>
+            <p>More great benefits about the site! Maybe this section is an image?</p>
+            <img class="pics" src="#" alt="placeholder image">
+        </div>
+        <div class="col-lg-4">
+            <h3 class="headings">Another great reason</h3>
+            <p>More wonderful information about how great the app is!</p>
+        </div>
+    </div>
+</section>
+
+<!-- if user is registered: more concise, -->
+
+<!--
+    <section>
+        <div>
+            <h1>Welcome, user</h1>
+            <ul>
+                <li>
+                    <a href='#'>Your Profile</a>
+                </li>
+                <li>
+                    <a href='#'>New Animal</a>
+                </li>
+                <li>
+                    <a href='#'>Animal Records</a>
+                </li>
+            </ul>
+        </div>
+    </section>
+    <section>
+        <div>
+            <h3>New to PetRx?</h3>
+            <div>
+                <h4>Your Profile: </h4>
+                <p>Go to your profile to view or edit your details.</p>
+                <p>You can also view all your previous prescriptions here.</p>
+            </div>
+             <div>
+                <h4>New Animal: </h4>
+                <p>To register a new animal on the database, fill in their details on the New Animal page.</p>
+                <p>Then you will be able to visit their record to prescribe their medications.</p>
+            </div>
+             <div>
+                <h4>Animal Records: </h4>
+                <p>You can search the records for existing animal records.</p>
+                <p>On an animal's record you can view or edit their details, prescribe new medications, and view all their previous prescriptions.</p>
+            </div>
+        </div>
+    </section>
+-->
+
+{% endblock %}

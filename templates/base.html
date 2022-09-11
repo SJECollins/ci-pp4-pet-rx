@@ -1,0 +1,34 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Pet Rx is a prescription app for veterinary professionals">
+    <meta name="keywords" content="pet, veterinary, medicine, prescription, professional">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <script src="https://kit.fontawesome.com/17ece91ea9.js" crossorigin="anonymous"></script>
+    <title>Pet Rx</title>
+</head>
+<body>
+    <!-- Header -->
+    {% include 'nav/header.html' %}
+
+<div class="container-md">
+  
+    {% block content %}
+    <!-- Call everything here! -->
+    {% endblock content %}
+
+</div>
+
+    <!-- Footer -->
+    {% include 'nav/footer.html' %}
+    <script src="https://unpkg.com/htmx.org@1.8.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>
