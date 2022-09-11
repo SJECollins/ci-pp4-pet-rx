@@ -10,6 +10,7 @@ class UsersManagersTests(TestCase):
         self.assertEqual(user.email, 'normal@user.com')
         self.assertEqual(user.first_name, 'bob')
         self.assertEqual(user.last_name, 'bobberson')
+        self.assertFalse(user.is_admin)
         self.assertTrue(user.is_active)
         self.assertFalse(user.is_staff)
         self.assertFalse(user.is_superuser)
@@ -32,6 +33,7 @@ class UsersManagersTests(TestCase):
         self.assertEqual(admin_user.email, 'super@user.com')
         self.assertEqual(admin_user.first_name, 'bob')
         self.assertEqual(admin_user.last_name, 'bobberson')
+        self.assertTrue(admin_user.is_admin)
         self.assertTrue(admin_user.is_active)
         self.assertTrue(admin_user.is_staff)
         self.assertTrue(admin_user.is_superuser)
@@ -41,6 +43,3 @@ class UsersManagersTests(TestCase):
             self.assertIsNone(admin_user.username)
         except AttributeError:
             pass
-        with self.assertRaises(ValueError):
-            User.objects.create_superuser(
-                email='super@user.com', first_name='bob', last_name='bobberson', password='foo', is_superuser=False)
