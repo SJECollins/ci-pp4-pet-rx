@@ -26,6 +26,8 @@ body {
 h1, h2, h3, h4 {
     font-family: "Montserrat", "Lato", sans-serif;
     font-weight: 900;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
 }
 
 .blue-text {
@@ -34,7 +36,7 @@ h1, h2, h3, h4 {
 
 .headings {
     letter-spacing: 3px;
-    margin: 2em auto;
+    margin: 1em auto;
 
 }
 
@@ -120,6 +122,10 @@ a {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
+}
+
+.list-spacing {
+    margin-bottom: 3em;
 }
 
 /* Footer styling */

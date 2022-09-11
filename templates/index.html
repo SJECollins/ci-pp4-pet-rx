@@ -1,6 +1,48 @@
 {% extends 'base.html' %}
 {% block content %}
 
+
+{% if user.is_authenticated %}
+<!-- if user is registered: -->
+    <section class="container-md">
+        <div class="row align-middle">
+            <h1>Welcome, {{ user.first_name }} {{ user.last_name }}</h1>
+            <ul>
+                <li class="list-spacing">
+                    <a class="pet-btns" href="{% url 'vetprofiles:profile' %}">Your Profile</a>
+                </li>
+                <li class="list-spacing">
+                    <a class="pet-btns" href='#'>New Animal</a>
+                </li>
+                <li class="list-spacing">
+                    <a class="pet-btns" href='#'>Animal Records</a>
+                </li>
+            </ul>
+        </div>
+    </section>
+    <section class="container-md">
+        <div class="row">
+            <h3>New to PetRx?</h3>
+            <div class="col-lg-4">
+                <h4 class="headings">Your Profile: </h4>
+                <p>Go to your profile to view or edit your details.</p>
+                <p>You can also view all your previous prescriptions here.</p>
+            </div>
+             <div class="col-lg-4">
+                <h4 class="headings">New Animal: </h4>
+                <p>To register a new animal on the database, fill in their details on the New Animal page.</p>
+                <p>Then you will be able to visit their record to prescribe their medications.</p>
+            </div>
+             <div class="col-lg-4">
+                <h4 class="headings">Animal Records: </h4>
+                <p>You can search the records for existing animal records.</p>
+                <p>On an animal's record you can view or edit their details, prescribe new medications, and view all their previous prescriptions.</p>
+            </div>
+        </div>
+    </section>
+
+{% else %}
+<!-- If user not registered: -->
 <section class="container-md">
     <div class="row align-middle">
         <div id="intro-blurb" class="col-md-8">
@@ -17,7 +59,6 @@
         </div>
     </div>
 </section>
-<!-- If user not registered, index has this intro stuff:-->
 <section class="container-md">
     <div class="row">
         <div class="col-lg-4">
@@ -37,45 +78,6 @@
     </div>
 </section>
 
-<!-- if user is registered: more concise, -->
-
-<!--
-    <section>
-        <div>
-            <h1>Welcome, user</h1>
-            <ul>
-                <li>
-                    <a href='#'>Your Profile</a>
-                </li>
-                <li>
-                    <a href='#'>New Animal</a>
-                </li>
-                <li>
-                    <a href='#'>Animal Records</a>
-                </li>
-            </ul>
-        </div>
-    </section>
-    <section>
-        <div>
-            <h3>New to PetRx?</h3>
-            <div>
-                <h4>Your Profile: </h4>
-                <p>Go to your profile to view or edit your details.</p>
-                <p>You can also view all your previous prescriptions here.</p>
-            </div>
-             <div>
-                <h4>New Animal: </h4>
-                <p>To register a new animal on the database, fill in their details on the New Animal page.</p>
-                <p>Then you will be able to visit their record to prescribe their medications.</p>
-            </div>
-             <div>
-                <h4>Animal Records: </h4>
-                <p>You can search the records for existing animal records.</p>
-                <p>On an animal's record you can view or edit their details, prescribe new medications, and view all their previous prescriptions.</p>
-            </div>
-        </div>
-    </section>
--->
+{% endif %}
 
 {% endblock %}
