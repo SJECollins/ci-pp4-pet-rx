@@ -20,4 +20,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('vetprofiles.urls'), name='vetprofile_urls'),
     path('prescriptions/', include('prescriptions.urls'), name='prescriptions_urls'),
+    path('records/', include('records.urls'), name='records_urls'),
 ]
