@@ -1,0 +1,11 @@
+<h3>Prescription History:</h3>
+<div>
+    <h4>prescriptions:</h4>
+        {% for prescription in prescrip_list %}
+
+        <p>{{ prescription }}</p>
+
+        {% empty %}
+        <p>No prescriptions</p>
+        {% endfor %}
+</div>

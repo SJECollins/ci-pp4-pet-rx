@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="card-container">
+
+    <!-- Blog Entries Column -->
+    <div class="col-12 mt-3 left">
+        <div class="card-deck">
+
+            {% for prescription in prescription_list %}
+                <div class="blog-card">
+                    <div>
+                        <hr>
+                            {{ prescription }}
+                            {% empty %}
+                            No prescriptions here
+                        <hr>
+                    </div>
+                </div>
+            {% endfor %}
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}

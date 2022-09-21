@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+      <div class="col-md-8 mt-3 offset-md-2">
+  
+  
+        <h1>Add Prescription</h1>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-8 mt-3 offset-md-2">
+  
+        <form class="form-text" method="POST" action="{% url 'prescriptions:add_prescrip' animal.id %}">
+          {% csrf_token %}
+          {{ prescr_form.as_p }}
+  
+          {% for field in prescr_form %}
+            {% for error in field.errors %}
+            <p>{{ error }}</p>
+            {% endfor %}
+          {% endfor %}
+  
+          {% if prescr_form.non_field_errors %}
+            {% for error in prescr_form.non_field_errors %}
+            <p> {{error}} </p>
+            {% endfor %}
+          {% endif %}
+          <button class="blog-links" type="submit">Add</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+
+{% endblock %}

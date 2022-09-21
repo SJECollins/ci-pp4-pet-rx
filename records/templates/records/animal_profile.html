@@ -45,7 +45,7 @@
                     <h4>Edit Profile:</h4>
                     <a href="{% url 'records:edit_animal' id=profile.id %}">Edit Profile</a>
                     <a href="#">Update Weight</a>
-                    <a href="#">Add Prescription</a>
+                    <a href="{% url 'prescriptions:add_prescrip' id=profile.id %}">Add Prescription</a>
                 </div>
                 <div>
                     <h4>Warnings:</h4>
@@ -58,7 +58,7 @@
         </div>
     </div>
 </section>
-<!-- <section hx-get="#" hx-trigger="load"> -->
-
+<section hx-get="{% url 'prescriptions:view_prescrip' %}" hx-trigger="load">
+    {% include 'prescriptions/view_prescrip.html' with id=profile.id %}
 </section>
 {% endblock %}
