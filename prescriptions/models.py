@@ -6,11 +6,13 @@ from vetprofiles.models import Vet
 ROUTES = (('IV', 'IV'), ('IM', 'IM'), ('SC', 'SC'), ('TOPICAL', 'Topical'))
 CATEGORIES = (('NSAID', 'NSAID'), ('ANTIBIOTIC', 'Antibiotic'), ('SEDATIVE', 'Sedative'), ('OPIOID', 'Opioid'))
 REPEAT = (('NO', 'No'), ('SID', 'SID'), ('BID', 'BID'), ('TID', 'TID'), ('TOPICAL', 'Topical'))
+MEASURE = (('ML', 'ml'), ('MG', 'mg'))
 
 
 class Drugs(models.Model):
     name = models.CharField(max_length=50)
     dose = models.DecimalField(max_digits=4, decimal_places=2)
+    measure = models.CharField(max_length=2, choices=MEASURE)
     category = models.CharField(max_length=20, choices=CATEGORIES)
     route = models.CharField(max_length=8, choices=ROUTES)
 
@@ -28,6 +30,7 @@ class Prescription(models.Model):
     drug = models.ForeignKey(Drugs, on_delete=models.PROTECT, default=None)
     drug_dose = models.DecimalField(max_digits=4, decimal_places=2, blank=True, null=True)
     dose = models.DecimalField(max_digits=5, decimal_places=2, blank=True, null=True)
+    measure = models.CharField(max_length=2, blank=True)
     date = models.DateTimeField(auto_now_add=True)
     route = models.CharField(max_length=8, blank=True)
 
@@ -42,4 +45,5 @@ class Prescription(models.Model):
         self.drug_dose = self.drug.dose
         self.dose = self.animal_weight * self.drug_dose
         self.route = self.drug.route
+        self.measure = self.drug.measure
         super().save(*args, **kwargs)
