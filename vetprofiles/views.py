@@ -95,4 +95,4 @@ def edit_profile(request):
 
 
 def user_restricted(request):
-    return render(request, 'vetprofiles/restricted.html', {})
+    return render(request, 'vetprofiles/restricted.html')
