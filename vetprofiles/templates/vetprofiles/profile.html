@@ -45,7 +45,7 @@
         </div>
     </div>
 </section>
-<section>
-    <h2 class="headings">Prescriptions</h2>
+<section hx-get="{% url 'prescriptions:vet_prescrip'%}" hx-trigger="load">
+    {% include 'prescriptions/view_prescrip.html' %}
 </section>
 {% endblock %}

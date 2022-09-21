@@ -38,6 +38,12 @@ def view_prescrip(request, id):
     return render(request, 'prescriptions/view_prescrip.html', context)
 
 
+def vet_prescrip(request):
+    prescrip_list = Prescription.objects.filter(vet=request.user).all()
+    context = {'prescrip_list': prescrip_list}
+    return render(request, 'prescriptions/view_prescrip.html', context)
+
+
 class PrescripList(generic.ListView):
     model = Prescription
     queryset = Prescription.objects.all()
