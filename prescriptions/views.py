@@ -32,8 +32,8 @@ def add_prescrip(request, id):
     return render(request, 'prescriptions/add_prescrip.html', context)
 
 
-def view_prescrip(request):
-    prescrip_list = Prescription.objects.all()
+def view_prescrip(request, id):
+    prescrip_list = Prescription.objects.filter(animal=id).all()
     context = {'prescrip_list': prescrip_list}
     return render(request, 'prescriptions/view_prescrip.html', context)
 

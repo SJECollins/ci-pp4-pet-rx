@@ -23,16 +23,20 @@ class Drugs(models.Model):
 
 class Prescription(models.Model):
     animal = models.ForeignKey(Record, on_delete=models.CASCADE, default=1)
-    animal_weight = models.DecimalField(max_digits=5, decimal_places=2)
+    animal_weight = models.DecimalField(max_digits=5, decimal_places=2, blank=True, null=True)
     vet = models.ForeignKey(Vet, on_delete=models.CASCADE, default=1)
     drug = models.ForeignKey(Drugs, on_delete=models.PROTECT, default=None)
     drug_dose = models.DecimalField(max_digits=4, decimal_places=2, blank=True, null=True)
+    dose = models.DecimalField(max_digits=5, decimal_places=2, blank=True, null=True)
+    date = models.DateField(auto_now_add=True)
     route = models.CharField(max_length=8, blank=True)
 
     def __str__(self):
-        return self.animal.name + " " + str(self.drug.dose) + " " + str(self.animal_weight) + " " + str(self.vet)
+        return self.animal.name + " " + str(self.dose) + " " + str(self.drug) + " " + str(self.vet) + " " + str(self.date)
 
     def save(self, *args, **kwargs):
         self.animal_weight = self.animal.weight
         self.drug_dose = self.drug.dose
+        self.dose = self.animal_weight * self.drug_dose
+        self.route = self.drug.route
         super().save(*args, **kwargs)

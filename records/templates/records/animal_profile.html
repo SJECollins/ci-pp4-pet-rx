@@ -58,7 +58,7 @@
         </div>
     </div>
 </section>
-<section hx-get="{% url 'prescriptions:view_prescrip' %}" hx-trigger="load">
-    {% include 'prescriptions/view_prescrip.html' with id=profile.id %}
+<section hx-get="{% url 'prescriptions:view_prescrip' id=profile.id %}" hx-trigger="load">
+    {% include 'prescriptions/view_prescrip.html' %}
 </section>
 {% endblock %}
