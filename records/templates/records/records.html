@@ -9,7 +9,7 @@
 
     {% if record_list %}
         {% for record in record_list %}
-        <p><a href="#">{{ record }}</a></p>
+        <p><a href="{% url 'records:animal_profile' record.id %}">{{ record }}</a></p>
         {% endfor %}
     {% else %}
         <p>No records</p>

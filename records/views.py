@@ -23,3 +23,34 @@ def add_animal(request):
         form = RecordForm()
     context['record_form'] = form
     return render(request, 'records/add_animal.html', context)
+
+
+def edit_animal(request, id):
+    record = Record.objects.get(id=id)
+    form = RecordForm(request.POST or None, instance=record)
+    if form.is_valid():
+        form.save()
+        return redirect('records:animal_profile', id=id)
+    else:
+        form = RecordForm(request.POST or None, instance=record)
+    context = {
+        'record': record,
+        'edit_form': form
+        }
+    return render(request, 'records/edit_animal.html', context)
+
+
+class AnimalRecord(View):
+
+    def get(self, request, id):
+        queryset = Record.objects.all()
+        profile = get_object_or_404(queryset, id=id)
+
+        context = {
+            'profile': profile,
+        }
+        return render(
+            request,
+            'records/animal_profile.html',
+            context
+        )
