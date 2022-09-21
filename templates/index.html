@@ -12,10 +12,10 @@
                     <a class="pet-btns" href="{% url 'vetprofiles:profile' %}">Your Profile</a>
                 </li>
                 <li class="list-spacing">
-                    <a class="pet-btns" href='#'>New Animal</a>
+                    <a class="pet-btns" href="{% url 'records:add_animal' %}">New Animal</a>
                 </li>
                 <li class="list-spacing">
-                    <a class="pet-btns" href='#'>Animal Records</a>
+                    <a class="pet-btns" href="{% url 'records:records' %}">Animal Records</a>
                 </li>
             </ul>
         </div>

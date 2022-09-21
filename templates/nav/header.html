@@ -16,7 +16,7 @@
             <a class="pet-links" href="{% url 'vetprofiles:profile' %}">Profile</a>
           </li>
           <li class="nav-item">
-            <a class="pet-links" href="#">Records</a>
+            <a class="pet-links" href="{% url 'records:records' %}">Records</a>
           </li>
           <li class="nav-item">
             <a class="pet-links" href="{% url 'vetprofiles:logout' %}">Logout</a>
@@ -24,7 +24,7 @@
           <li class="nav-item dropdown">
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
               <li><a class="dropdown-item" href="{% url 'vetprofiles:profile' %}">Profile</a></li>
-              <li><a class="dropdown-item" href="#">Records</a></li>
+              <li><a class="dropdown-item" href="{% url 'records:records' %}">Records</a></li>
               <li><a class="dropdown-item" href="{% url 'vetprofiles:logout' %}">Logout</a></li>
             </ul>
           </li>
