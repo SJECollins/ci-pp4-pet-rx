@@ -47,10 +47,10 @@
             </div>
           </li>
           <li class="nav-item">
-            <a class="pet-links" href="#">About</a>
+            <a class="pet-links" href="{% url 'vetprofiles:about' %}">About</a>
           </li>
           <li class="nav-item">
-            <a class="pet-links" href="#">Contact Us</a>
+            <a class="pet-links" href="{% url 'vetprofiles:contact' %}">Contact Us</a>
           </li>
           <li class="nav-item dropdown">
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -71,8 +71,8 @@
                   </div>
                 </div>
               </li>
-              <li><a class="dropdown-item" href="#">About</a></li>
-              <li><a class="dropdown-item" href="#">Contact Us</a></li>
+              <li><a class="dropdown-item" href="{% url 'vetprofiles:about' %}">About</a></li>
+              <li><a class="dropdown-item" href="{% url 'vetprofiles:contact' %}">Contact Us</a></li>
             </ul>
           </li>
           {% endif %}
