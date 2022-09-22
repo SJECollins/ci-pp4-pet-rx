@@ -12,3 +12,9 @@ class RecordForm(forms.ModelForm):
                 'unique_together': "A record already exists with the same %(field_labels)s.",
             }
         }
+
+
+class WeightForm(forms.ModelForm):
+    class Meta:
+        model = Record
+        fields = ['weight', ]

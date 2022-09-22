@@ -7,4 +7,5 @@ urlpatterns = [
     path('add-animal/', views.add_animal, name='add_animal'),
     path('animal-profile/<int:id>', views.AnimalRecord.as_view(), name='animal_profile'),
     path('edit-animal/<int:id>', views.edit_animal, name='edit_animal'),
+    path('update-weight/<int:id>', views.update_weight, name='update_weight'),
 ]

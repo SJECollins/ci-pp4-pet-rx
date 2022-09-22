@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
+from django.http import HttpResponse
 from django.views import View
-from .forms import RecordForm
+from .forms import RecordForm, WeightForm
 from .models import Record
 
 
@@ -40,6 +41,21 @@ def edit_animal(request, id):
     return render(request, 'records/edit_animal.html', context)
 
 
+def update_weight(request, id):
+    record = Record.objects.get(id=id)
+    form = WeightForm(request.POST or None, instance=record)
+    if form.is_valid():
+        form.save()
+        return HttpResponse(status=204, headers={'HX-Trigger': 'updateWeight'})
+    else:
+        form = WeightForm(request.POST or None, instance=record)
+    context = {
+        'record': record,
+        'update_weight': form,
+    }
+    return render(request, 'records/update_weight.html', context)
+
+
 class AnimalRecord(View):
 
     def get(self, request, id):
@@ -49,8 +65,4 @@ class AnimalRecord(View):
         context = {
             'profile': profile,
         }
-        return render(
-            request,
-            'records/animal_profile.html',
-            context
-        )
+        return render(request, 'records/animal_profile.html', context)

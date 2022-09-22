@@ -43,9 +43,12 @@
             <div class="col-md-6">
                 <div>
                     <h4>Edit Profile:</h4>
-                    <a href="{% url 'records:edit_animal' id=profile.id %}">Edit Profile</a>
-                    <a href="#">Update Weight</a>
-                    <a href="{% url 'prescriptions:add_prescrip' id=profile.id %}">Add Prescription</a>
+                    <a class="pet-btns" href="{% url 'records:edit_animal' id=profile.id %}">Edit Profile</a>
+                    <a class="pet-btns"
+                    hx-get="{% url 'records:update_weight' id=profile.id %}"
+                    hx-target="#weight-dialog">
+                        Update Weight</a>
+                    <a class="pet-btns" href="{% url 'prescriptions:add_prescrip' id=profile.id %}">Add Prescription</a>
                 </div>
                 <div>
                     <h4>Warnings:</h4>
@@ -58,6 +61,10 @@
         </div>
     </div>
 </section>
+<div id="animal-weight" class="modal">
+    <div id="weight-dialog" class="modal-dialog" hx-target="this">
+    </div>
+</div>
 <section id="animal-prescrip-list" hx-get="{% url 'prescriptions:list_prescrip' id=profile.id %}" hx-trigger="load">
     {% include 'prescriptions/list_prescrip.html' %}
 </section>
