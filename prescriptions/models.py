@@ -1,4 +1,6 @@
 from django.db import models
+from datetime import datetime, timedelta
+from django.utils import timezone
 from records.models import Record
 from vetprofiles.models import Vet
 
@@ -47,3 +49,8 @@ class Prescription(models.Model):
         self.route = self.drug.route
         self.measure = self.drug.measure
         super().save(*args, **kwargs)
+
+    @property
+    def under_day(self):
+        now = timezone.now()
+        return now-timedelta(hours=12) < self.date <= now

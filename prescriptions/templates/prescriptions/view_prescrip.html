@@ -1,11 +1,52 @@
-<h3>Prescription History:</h3>
-<div>
-    <h4>prescriptions:</h4>
-        {% for prescription in prescrip_list %}
+{% extends "base.html" %}
 
-        <p>{{ prescription }}</p>
+{% block content %}
 
-        {% empty %}
-        <p>No prescriptions</p>
-        {% endfor %}
-</div>
+<h3 class="headings">Prescription for {{ prescription.animal }}</h3>
+<small><em>You may delete prescriptions up to 24 hours after creating.</em></small>
+<table>
+    <tr>
+        <th>Animal:</th>
+        <td>{{ prescription.animal }}</td>
+    </tr>
+    <tr>
+        <th>Weight:</th>
+        <td>{{ prescription.animal_weight }}kg</td>
+    </tr>
+    <tr>
+        <th>Type:</th>
+        <td>{{ prescription.drug.category }}</td>
+    </tr>
+    <tr>
+        <th>Drug:</th>
+        <td>{{ prescription.drug }}</td>
+    </tr>
+    <tr>
+        <th>Dose:</th>
+        <td>{{ prescription.dose }} {{ prescription.measure }}</td>
+    </tr>
+    <tr>
+        <th>Route:</th>
+        <td>{{ prescription.route }}</td>
+    </tr>
+    <tr>
+        <th>Prescribing Vet:</th>
+        <td>{{ prescription.vet }}</td>
+    </tr>
+    <tr>
+        <th>Date:</th>
+        <td>{{ prescription.date|date:'d/m/y' }}</td>
+    </tr>
+</table>
+{% if user == prescription.vet and prescription.under_day %}
+<a href="#">Delete</a>
+{% else %}
+<p>You may not delete this prescription.</p>
+{% endif %}
+
+<a href="{% url 'vetprofiles:profile' %}">Your Profile</a>
+<a href="{% url 'records:animal_profile' prescription.animal.id %}">{{ prescription.animal.name }}'s Record</a>
+<a href="{% url 'records:records' %}">Records</a>
+
+
+{% endblock %}
