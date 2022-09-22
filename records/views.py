@@ -46,7 +46,7 @@ def update_weight(request, id):
     form = WeightForm(request.POST or None, instance=record)
     if form.is_valid():
         form.save()
-        return HttpResponse(status=204, headers={'HX-Trigger': 'updateWeight'})
+        return HttpResponse(status=204)
     else:
         form = WeightForm(request.POST or None, instance=record)
     context = {

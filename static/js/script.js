@@ -1,13 +1,13 @@
-const weightModal = new bootstrap.Modal(document.getElementById("animal-weight"))
+const weightModal = new bootstrap.Modal(document.getElementById("modal"))
 
 htmx.on("htmx:afterSwap", (e) => {
-    if (e.detail.target.id == "weight-dialog") {
+    if (e.detail.target.id == "modal-dialog") {
         weightModal.show()
     }
 })
 
 htmx.on("htmx:beforeSwap", (e) => {
-    if (e.detail.target.id == "weight-dialog" && !e.detail.xhr.response) {
+    if (e.detail.target.id == "modal-dialog" && !e.detail.xhr.response) {
         weightModal.hide()
         e.detail.shouldSwap = false
         location.reload()
@@ -15,5 +15,5 @@ htmx.on("htmx:beforeSwap", (e) => {
 })
 
 htmx.on("hidden.bs.modal", () => {
-    document.getElementById("weight-dialog").innerHTML = ""
+    document.getElementById("modal-dialog").innerHTML = ""
 })
