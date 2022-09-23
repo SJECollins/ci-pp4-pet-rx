@@ -41,7 +41,7 @@ def list_prescrip(request, id):
 def vet_prescrip(request):
     prescrip_list = Prescription.objects.filter(vet=request.user).all()
     context = {'prescrip_list': prescrip_list}
-    return render(request, 'prescriptions/list_prescrip.html', context)
+    return render(request, 'prescriptions/list_prescrip_vet.html', context)
 
 
 def detail_prescrip(request, prescrip_id):

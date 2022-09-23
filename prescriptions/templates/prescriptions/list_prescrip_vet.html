@@ -1,0 +1,28 @@
+<h3>Prescription History:</h3>
+<small><em>You may delete prescriptions up to 24 hours after creation.</em></small>
+<div>
+
+    <table>
+        <tr>
+            <th>Animal</th>
+            <th>Dose</th>
+            <th>Drug</th>
+            <th>Date</th>
+            <th>View</th>
+        </tr>
+        {% for prescription in prescrip_list %}
+        <tr>
+	        <td>{{ prescription.animal }}</td>
+            <td>{{ prescription.dose }}{{ prescription.measure }}</td>
+            <td>{{ prescription.drug }}</td>
+            <td>{{ prescription.date|date:'d/m/y' }}</td>
+            <td><a 
+            hx-get="{% url 'prescriptions:detail_prescrip' prescrip_id=prescription.id %}"
+            hx-target="#modal-dialog">View</a></td>
+        </tr>
+        {% empty %}
+        <p>No prescriptions</p>
+        {% endfor %}
+    </table>
+
+</div>

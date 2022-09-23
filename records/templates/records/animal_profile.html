@@ -63,10 +63,7 @@
         </div>
     </div>
 </section>
-<div id="modal" class="modal">
-    <div id="modal-dialog" class="modal-dialog" hx-target="this">
-    </div>
-</div>
+
 <section id="animal-prescrip-list" hx-get="{% url 'prescriptions:list_prescrip' id=profile.id %}" hx-trigger="load">
     {% include 'prescriptions/list_prescrip.html' %}
 </section>
