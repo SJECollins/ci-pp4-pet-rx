@@ -85,9 +85,7 @@ def edit_profile(request):
                 'last_name': request.POST['last_name'],
             }
             form.save()
-            context = {
-                'success_message': 'Updated'
-            }
+            return redirect('vetprofiles:profile')
     else:
         form = AccountUpdateForm(
             initial={
