@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block content %}
+<h3> Search Results </h3>
+<form method="GET" action="{% url 'records:record_search' %}">
+    {% csrf_token %}
+    <input type="text" name="query" placeholder="Search by name">
+    <input type="submit">
+</form>
+{% if record_list %}
+<table>
+    <tr>
+        <th>Animal</th>
+        <th>Species</th>
+        <th>Breed</th>
+        <th>DOB</th>
+    </tr>
+    {% for record in record_list %}
+    <tr>
+        <th><a href="{% url 'records:animal_profile' record.id %}">{{ record }}</a>
+        <th>{{ record.species }}</th>
+        <th>{{ record.breed }}</th>
+        <th>{{ record.date_of_birth }}</th>
+    <tr>
+        {% endfor %}
+</table>
+{% else %}
+<p>No record found.</p>
+{% endif %}
+
+<li class="list-spacing">
+    <a class="pet-btns" href="{% url 'records:records' %}">Records</a>
+</li>
+{% endblock %}

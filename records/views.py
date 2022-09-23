@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse
 from django.views import View
+from django.db.models import Q
 from .forms import RecordForm, WeightForm
 from .models import Record
 
@@ -9,6 +10,16 @@ def records(request):
     record_list = Record.objects.all()
     context = {'record_list': record_list}
     return render(request, 'records/records.html', context)
+
+
+def record_search(request):
+    query = request.GET.get('query')
+    record_qs = Record.objects.all()
+    if query is not None:
+        args = Q(name__icontains=query) | Q(surname__icontains=query)
+        record_qs = Record.objects.filter(args)
+    context = {'record_list': record_qs, }
+    return render(request, 'records/record_search.html', context)
 
 
 def add_animal(request):
