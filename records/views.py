@@ -37,12 +37,12 @@ def add_animal(request):
     return render(request, 'records/add_animal.html', context)
 
 
-def edit_animal(request, id):
-    record = Record.objects.get(id=id)
+def edit_animal(request, animal_id):
+    record = Record.objects.get(id=animal_id)
     form = RecordForm(request.POST or None, instance=record)
     if form.is_valid():
         form.save()
-        return redirect('records:animal_profile', id=id)
+        return redirect('records:animal_profile', id=animal_id)
     else:
         form = RecordForm(request.POST or None, instance=record)
     context = {
@@ -52,8 +52,8 @@ def edit_animal(request, id):
     return render(request, 'records/edit_animal.html', context)
 
 
-def update_weight(request, id):
-    record = Record.objects.get(id=id)
+def update_weight(request, animal_id):
+    record = Record.objects.get(id=animal_id)
     form = WeightForm(request.POST or None, instance=record)
     if form.is_valid():
         form.save()
@@ -69,9 +69,9 @@ def update_weight(request, id):
 
 class AnimalRecord(View):
 
-    def get(self, request, id):
+    def get(self, request, animal_id):
         queryset = Record.objects.all()
-        profile = get_object_or_404(queryset, id=id)
+        profile = get_object_or_404(queryset, id=animal_id)
 
         context = {
             'profile': profile,

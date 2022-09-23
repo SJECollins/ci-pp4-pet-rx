@@ -14,7 +14,7 @@
     <h4>All Records:</h4>
     {% if record_list %}
         {% for record in record_list %}
-        <p><a href="{% url 'records:animal_profile' record.id %}">{{ record }}</a></p>
+        <p><a href="{% url 'records:animal_profile' animal_id=record.id %}">{{ record }}</a></p>
         {% endfor %}
     {% else %}
         <p>No records</p>

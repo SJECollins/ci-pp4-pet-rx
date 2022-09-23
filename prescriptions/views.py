@@ -9,14 +9,14 @@ from .forms import PrescrForm
 # Create your views here.
 
 
-def add_prescrip(request, id):
-    animal = get_object_or_404(Record, id=id)
+def add_prescrip(request, animal_id):
+    animal = get_object_or_404(Record, id=animal_id)
     if request.method == 'POST':
         form = PrescrForm(request.POST)
         if form.is_valid():
             instance = form.save(commit=False)
             try:
-                animal = Record.objects.get(id=id)
+                animal = Record.objects.get(id=animal_id)
             except Record.DoesNotExist:
                 pass
             instance.animal = animal
@@ -32,8 +32,8 @@ def add_prescrip(request, id):
     return render(request, 'prescriptions/add_prescrip.html', context)
 
 
-def list_prescrip(request, id):
-    prescrip_list = Prescription.objects.filter(animal=id).all()
+def list_prescrip(request, animal_id):
+    prescrip_list = Prescription.objects.filter(animal=animal_id).all()
     context = {'prescrip_list': prescrip_list}
     return render(request, 'prescriptions/list_prescrip.html', context)
 
