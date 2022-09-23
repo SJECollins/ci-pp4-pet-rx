@@ -10,10 +10,10 @@ htmx.on("htmx:beforeSwap", (e) => {
     if (e.detail.target.id == "modal-dialog" && !e.detail.xhr.response) {
         weightModal.hide()
         e.detail.shouldSwap = false
-        location.reload()
     }
 })
 
 htmx.on("hidden.bs.modal", () => {
     document.getElementById("modal-dialog").innerHTML = ""
+    location.reload()
 })

@@ -1,5 +1,5 @@
+from datetime import timedelta
 from django.db import models
-from datetime import datetime, timedelta
 from django.utils import timezone
 from records.models import Record
 from vetprofiles.models import Vet

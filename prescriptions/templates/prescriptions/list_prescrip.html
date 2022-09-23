@@ -16,12 +16,13 @@
             <td>{{ prescription.drug }}</td>
             <td>{{ prescription.vet }}</td>
             <td>{{ prescription.date|date:'d/m/y' }}</td>
-            <td><a href="{% url 'prescriptions:view_prescrip' prescription.id %}">View</a></td>
+            <td><a 
+            hx-get="{% url 'prescriptions:view_prescrip' prescription.id %}"
+            hx-target="#modal-dialog">View</a></td>
         </tr>
         {% empty %}
         <p>No prescriptions</p>
         {% endfor %}
     </table>
-
 
 </div>

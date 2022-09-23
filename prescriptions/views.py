@@ -32,12 +32,6 @@ def add_prescrip(request, id):
     return render(request, 'prescriptions/add_prescrip.html', context)
 
 
-# def delete_prescrip(request, id):
-#     presc = get_object_or_404(Prescription, id=id)
-#     presc.delete()
-#     return redirect('prescriptions:view_prescrip')
-
-
 def list_prescrip(request, id):
     prescrip_list = Prescription.objects.filter(animal=id).all()
     context = {'prescrip_list': prescrip_list}
@@ -55,8 +49,11 @@ class ViewPrescrip(View):
     def get(self, request, id):
         queryset = Prescription.objects.all()
         prescription = get_object_or_404(queryset, id=id)
-
-        context = {
-            'prescription': prescription,
-        }
+        context = {'prescription': prescription, }
         return render(request, 'prescriptions/view_prescrip.html', context)
+
+
+def delete_prescrip(request, prescrip_id):
+    presc = get_object_or_404(Prescription, id=prescrip_id)
+    presc.delete()
+    return render(request, 'prescriptions/delete_confirm.html')
