@@ -5,7 +5,16 @@
     <h3 class="headings">Add Prescription</h3>
   </div>
   <div class="modal-body">
-    {{prescr_form.as_p}}
+    <label for="{{ prescr_form.drug.label }}">Drug:</label>
+    {{ prescr_form.drug }}
+    <br>
+    <label for="{{ prescr_form.frequency.label  }}">Frequency:</label>
+    {{ prescr_form.frequency }}
+    <br>
+    <label for="{{ prescr_form.length.label }}">Length:</label>
+    {{ prescr_form.length }}
+    <small><em>In days</em></small>
+
     {% for field in prescr_form %}
     {% for error in field.errors %}
     <p>{{ error }}</p>

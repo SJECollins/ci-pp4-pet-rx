@@ -5,10 +5,10 @@ from records.models import Record
 from vetprofiles.models import Vet
 
 
-ROUTES = (('IV', 'IV'), ('IM', 'IM'), ('SC', 'SC'), ('TOPICAL', 'Topical'))
-CATEGORIES = (('NSAID', 'NSAID'), ('ANTIBIOTIC', 'Antibiotic'), ('SEDATIVE', 'Sedative'), ('OPIOID', 'Opioid'))
-REPEAT = (('NO', 'No'), ('SID', 'SID'), ('BID', 'BID'), ('TID', 'TID'), ('TOPICAL', 'Topical'))
-MEASURE = (('ML', 'ml'), ('MG', 'mg'))
+ROUTES = (('PO', 'PO'), ('IV', 'IV'), ('IM', 'IM'), ('SC', 'SC'), ('Topical', 'Topical'))
+CATEGORIES = (('NSAID', 'NSAID'), ('Antibiotic', 'Antibiotic'), ('Sedative', 'Sedative'), ('Opioid', 'Opioid'))
+FREQUENCY = (('No Repeat', 'No Repeat'), ('SID', 'SID'), ('BID', 'BID'), ('TID', 'TID'), ('Topical', 'Topical'))
+MEASURE = (('ml', 'ml'), ('mg', 'mg'))
 
 
 class Drugs(models.Model):
@@ -17,6 +17,7 @@ class Drugs(models.Model):
     measure = models.CharField(max_length=2, choices=MEASURE)
     category = models.CharField(max_length=20, choices=CATEGORIES)
     route = models.CharField(max_length=8, choices=ROUTES)
+    warnings = models.CharField(max_length=300)
 
     def __str__(self):
         return self.name
@@ -33,8 +34,10 @@ class Prescription(models.Model):
     drug_dose = models.DecimalField(max_digits=4, decimal_places=2, blank=True, null=True)
     dose = models.DecimalField(max_digits=5, decimal_places=2, blank=True, null=True)
     measure = models.CharField(max_length=2, blank=True)
-    date = models.DateTimeField(auto_now_add=True)
+    frequency = models.CharField(max_length=10, choices=FREQUENCY)
+    length = models.PositiveIntegerField(default=0)
     route = models.CharField(max_length=8, blank=True)
+    date = models.DateTimeField(auto_now_add=True)
 
     class Meta:
         ordering = ['-date']

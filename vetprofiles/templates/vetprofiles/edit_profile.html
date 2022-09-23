@@ -11,9 +11,9 @@
 
     <input type="email" name="email" id="inputEmail" class="form-control" placeholder="Email Address" value="{{ edit_form.initial.email }}" required autofocus>
 
-    <input type="first_name" name="first_name" id="inputFirstName" class="form-control" placeholder="First Name" value="{{ edit_form.initial.first_name }}" required>
+    <input type="text" name="first_name" id="inputFirstName" class="form-control" placeholder="First Name" value="{{ edit_form.initial.first_name }}" required>
 
-    <input type="last_name" name="last_name" id="inputLastName" class="form-control" placeholder="Last Name" value="{{ edit_form.initial.last_name }}" required>
+    <input type="text" name="last_name" id="inputLastName" class="form-control" placeholder="Last Name" value="{{ edit_form.initial.last_name }}" required>
 
     {% for field in edit_form %}
         {% for error in field.errors %}
