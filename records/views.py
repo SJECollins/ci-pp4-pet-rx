@@ -42,7 +42,7 @@ def edit_animal(request, animal_id):
     form = RecordForm(request.POST or None, instance=record)
     if form.is_valid():
         form.save()
-        return redirect('records:animal_profile', id=animal_id)
+        return redirect('records:animal_profile', animal_id=animal_id)
     else:
         form = RecordForm(request.POST or None, instance=record)
     context = {
