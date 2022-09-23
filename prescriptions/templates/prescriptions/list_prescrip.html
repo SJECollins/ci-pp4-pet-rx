@@ -17,7 +17,7 @@
             <td>{{ prescription.vet }}</td>
             <td>{{ prescription.date|date:'d/m/y' }}</td>
             <td><a 
-            hx-get="{% url 'prescriptions:view_prescrip' prescription.id %}"
+            hx-get="{% url 'prescriptions:detail_prescrip' prescrip_id=prescription.id %}"
             hx-target="#modal-dialog">View</a></td>
         </tr>
         {% empty %}

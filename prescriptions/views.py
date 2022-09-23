@@ -44,13 +44,10 @@ def vet_prescrip(request):
     return render(request, 'prescriptions/list_prescrip.html', context)
 
 
-class ViewPrescrip(View):
-
-    def get(self, request, id):
-        queryset = Prescription.objects.all()
-        prescription = get_object_or_404(queryset, id=id)
-        context = {'prescription': prescription, }
-        return render(request, 'prescriptions/view_prescrip.html', context)
+def detail_prescrip(request, prescrip_id):
+    prescription = get_object_or_404(Prescription, id=prescrip_id)
+    context = {'prescription': prescription, }
+    return render(request, 'prescriptions/detail_prescrip.html', context)
 
 
 def delete_prescrip(request, prescrip_id):
