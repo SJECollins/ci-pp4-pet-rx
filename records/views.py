@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse
 from django.views import View
 from django.db.models import Q
-from .forms import RecordForm, WeightForm
+from .forms import RecordForm, WeightForm, NoteForm
 from .models import Record
 
 
@@ -65,6 +65,21 @@ def update_weight(request, animal_id):
         'update_weight': form,
     }
     return render(request, 'records/update_weight.html', context)
+
+
+def edit_notes(request, animal_id):
+    record = Record.objects.get(id=animal_id)
+    form = NoteForm(request.POST or None, instance=record)
+    if form.is_valid():
+        form.save()
+        return HttpResponse(status=204)
+    else:
+        form = NoteForm(request.POST or None, instance=record)
+    context = {
+        'record': record,
+        'edit_notes': form,
+    }
+    return render(request, 'records/edit_notes.html', context)
 
 
 class AnimalRecord(View):

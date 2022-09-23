@@ -18,3 +18,12 @@ class WeightForm(forms.ModelForm):
     class Meta:
         model = Record
         fields = ['weight', ]
+
+
+class NoteForm(forms.ModelForm):
+    class Meta:
+        model = Record
+        fields = ['note', ]
+        widgets = {
+            'note': forms.Textarea(attrs={'cols': 30, 'rows': 10}),
+        }

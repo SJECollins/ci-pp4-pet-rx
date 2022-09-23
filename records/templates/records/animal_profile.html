@@ -53,11 +53,13 @@
                     hx-target="#modal-dialog">Add Prescription</a>
                 </div>
                 <div>
-                    <h4>Warnings:</h4>
-                    <textarea>
+                    <h4>Notes:</h4>
+                    <p>
                         {{ profile.note }}
-                    </textarea>
-                    <button href="#">Edit Warnings</button>
+                    </p>
+                    <a class="pet-btns"
+                    hx-get="{% url 'records:edit_notes' animal_id=profile.id %}"
+                    hx-target="#modal-dialog">Edit Notes</a>
                 </div>
             </div>
         </div>

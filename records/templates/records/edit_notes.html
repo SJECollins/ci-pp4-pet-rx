@@ -1,0 +1,28 @@
+{% block content %}
+
+<form hx-post="{{ request.path }}" class="modal-content">
+    {% csrf_token %}
+    <div class="modal-header">
+        <h3 class="headings">Edit Notes</h3>
+    </div>
+    <div class="modal-body">
+        <label id="note_label">{{ edit_notes.note.label_tag }}</label>
+        <br>
+        {{ edit_notes.note }}
+    </div>
+    {% for field in update_weight %}
+        {% for error in field.errors %}
+            <p>{{ error }}</p>
+        {% endfor %}
+    {% endfor %}
+
+    {% if update_weight.non_field_errors %}
+        <p>{{ update_weight.non_field_errors }}</p>
+    {% endif %}
+    <div class="modal-footer">
+        <input class="pet-btns" type="submit" value="Save">
+    </div>
+</form>
+
+
+{% endblock %}

@@ -9,4 +9,5 @@ urlpatterns = [
     path('animal-profile/<int:animal_id>', views.AnimalRecord.as_view(), name='animal_profile'),
     path('edit-animal/<int:animal_id>', views.edit_animal, name='edit_animal'),
     path('update-weight/<int:animal_id>', views.update_weight, name='update_weight'),
+    path('edit-notes/<int:animal_id>', views.edit_notes, name='edit_notes'),
 ]
