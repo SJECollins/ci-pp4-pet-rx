@@ -7,7 +7,7 @@ from vetprofiles.models import Vet
 
 ROUTES = (('PO', 'PO'), ('IV', 'IV'), ('IM', 'IM'), ('SC', 'SC'), ('Topical', 'Topical'))
 CATEGORIES = (('NSAID', 'NSAID'), ('Antibiotic', 'Antibiotic'), ('Sedative', 'Sedative'), ('Opioid', 'Opioid'))
-FREQUENCY = (('No Repeat', 'No Repeat'), ('SID', 'SID'), ('BID', 'BID'), ('TID', 'TID'), ('Topical', 'Topical'))
+FREQUENCY = (('No Repeat', 'No Repeat'), ('SID', 'SID'), ('BID', 'BID'), ('TID', 'TID'))
 MEASURE = (('ml', 'ml'), ('mg', 'mg'))
 
 
