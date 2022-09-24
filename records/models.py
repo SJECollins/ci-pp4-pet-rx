@@ -18,4 +18,5 @@ class Record(models.Model):
         return self.name + " " + self.surname
 
     class Meta:
+        ordering = ['surname']
         unique_together = ['name', 'surname', 'date_of_birth', 'species', 'breed', 'sex']
