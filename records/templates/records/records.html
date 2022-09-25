@@ -6,6 +6,7 @@
     <h3>Records:</h3>
     <!-- Add record -->
     <a href="{% url 'records:add_animal' %}">Add Record</a>
+    <a href="{% url 'prescriptions:drugs' %}">Available Drugs</a>
     <!-- Record search-->
     <form method="GET" action="{% url 'records:record_search' %}">
         {% csrf_token %}

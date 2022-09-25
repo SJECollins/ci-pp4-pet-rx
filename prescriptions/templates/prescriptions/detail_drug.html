@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<!-- Detailed Drug template -->
+<section>
+    <div class="container">
+        <div class="row">
+            <h3 class="headings">{{ drug.name }}</h3>
+            <div class="col-md-6">
+                <!-- Drug details-->
+                <table>
+                    <tr>
+                        <th>Name:</th>
+                        <td>{{ drug.name }}</td>
+                    </tr>
+                    <tr>
+                        <th>Category:</th>
+                        <td>{{ drug.category }}</td>
+                    </tr>
+                    <tr>
+                        <th>Dose:</th>
+                        <td>{{ drug.dose }}{{ drug.measure }}/kg</td>
+                    </tr>
+                    <tr>
+                        <th>Route:</th>
+                        <td>{{ drug.route }}</td>
+                    </tr>
+                    <tr>
+                        <th>Warnings:</th>
+                        <td>{{ drug.warnings}}</td>
+                    </tr>
+                </table>
+            </div>
+            <hr>
+            <!-- Quick links back -->
+                <a href="{% url 'vetprofiles:profile' %}">Your Profile</a>
+                <a href="{% url 'prescriptions:drugs' %}">Drugs</a>
+                <a href="{% url 'records:records' %}">Records</a>
+        </div>
+    </div>
+</section>
+{% endblock %}

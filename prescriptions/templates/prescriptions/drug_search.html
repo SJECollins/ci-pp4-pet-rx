@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<!-- Drug search page-->
+<h3> Search Results </h3>
+<!-- Search input -->
+<form method="GET" action="{% url 'prescriptions:drug_search' %}">
+    {% csrf_token %}
+    <input type="text" name="search" placeholder="Search by name or category">
+    <input type="submit">
+</form>
+<!-- Display drug list results -->
+{% if drug_list %}
+<table>
+    <tr>
+        <th>Drug</th>
+        <th>Category</th>
+    </tr>
+    {% for drug in drug_list %}
+    <tr>
+        <th><a href="{% url 'prescriptions:drug' drug_id=drug.id %}">{{ drug.name }}</a>
+        <th>{{ drug.category }}</th>
+    <tr>
+        {% endfor %}
+</table>
+{% else %}
+<!-- If no results -->
+<p>No drug found.</p>
+{% endif %}
+
+<!-- Return to drugss page -->
+    <a class="pet-btns" href="{% url 'prescriptions:drugs' %}">Drugss</a>
+    <a class="pet-btns" href="{% url 'records:records' %}">Records</a>
+
+
+{% endblock %}

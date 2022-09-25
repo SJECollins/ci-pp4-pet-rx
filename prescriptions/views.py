@@ -1,11 +1,52 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
+from django.db.models import Q
+from django.core.paginator import Paginator
 from records.models import Record
-from .models import Prescription
+from .models import Drug, Prescription
 from .forms import PrescrForm
 
 
 # Create your views here.
+
+
+def drugs(request):
+    """
+    Retrieve list of drugss to display, paginated
+    Pagination from official docs, see link in README credits
+    """
+    drug_list = Drug.objects.all()
+    paginator = Paginator(drug_list, 10)
+
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+    context = {'page_obj': page_obj}
+    return render(request, 'prescriptions/drugs.html', context)
+
+
+def drug_search(request):
+    """
+    Function to search drugs: retrieves drugss by name or category matching
+    query.
+    From Codemy.com, see link in README credits
+    """
+    query = request.GET.get('search')
+    drug_qs = Drug.objects.all()
+    if query is not None:
+        args = Q(name__icontains=query) | Q(category__icontains=query)
+        drug_qs = Drug.objects.filter(args)
+    context = {'drug_list': drug_qs}
+    return render(request, 'prescriptions/drug_search.html', context)
+
+
+def detail_drug(request, drug_id):
+    """
+    Retrieves drug to display.
+    Args: drug_id - takes id of selected drug to populate page.
+    """
+    drug = get_object_or_404(Drug, id=drug_id)
+    context = {'drug': drug, }
+    return render(request, 'prescriptions/detail_drug.html', context)
 
 
 def add_prescrip(request, animal_id):
