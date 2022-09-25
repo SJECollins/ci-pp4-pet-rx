@@ -4,18 +4,31 @@ from .forms import RegistrationForm, AccountAuthenticationForm, AccountUpdateFor
 
 
 def index(request):
+    """
+    Render index page.
+    """
     return render(request, 'index.html')
 
 
 def about(request):
+    """
+    Render about page.
+    """
     return render(request, 'about.html')
 
 
 def contact(request):
+    """
+    Render contact page.
+    """
     return render(request, 'contact.html')
 
 
 def register(request):
+    """
+    Register new user.
+    Redirects to index.
+    """
     if request.POST:
         form = RegistrationForm(request.POST)
         if form.is_valid():
@@ -31,49 +44,58 @@ def register(request):
             }
     else:   # GET request
         form = RegistrationForm()
-        context = {
-            'registration_form': form
-        }
+        context = {'registration_form': form}
     return render(request, 'vetprofiles/register.html', context)
 
 
 def logout_view(request):
+    """
+    Logs user out.
+    Redirects to index.
+    """
     logout(request)
     return redirect('vetprofiles:index')
 
 
 def login_view(request):
+    """
+    User login.
+    Redirects to user profile.
+    """
     user = request.user
     if user.is_authenticated:
         return redirect('vetprofiles:index')
-
     if request.POST:
         form = AccountAuthenticationForm(request.POST)
         if form.is_valid():
             email = request.POST['email']
             password = request.POST['password']
             user = authenticate(email=email, password=password)
-
             if user:
                 login(request, user)
                 return redirect('vetprofiles:profile')
-
     else:
         form = AccountAuthenticationForm()
-
-    context = {
-        'login_form': form
-    }
+    context = {'login_form': form}
     return render(request, 'vetprofiles/login.html', context)
 
 
 def profile(request):
+    """
+    Renders user profile.
+    Redirects to login page if user not logged in.
+    """
     if not request.user.is_authenticated:
         return redirect('vetprofiles:login')
     return render(request, 'vetprofiles/profile.html')
 
 
 def edit_profile(request):
+    """
+    Edit user profile.
+    Initialises data of current user.
+    Redirects to login page if user not logged in.
+    """
     if not request.user.is_authenticated:
         return redirect('vetprofiles:login')
     if request.POST:
@@ -94,11 +116,12 @@ def edit_profile(request):
                 'last_name': request.user.last_name,
             }
         )
-    context = {
-        'edit_form': form
-    }
+    context = {'edit_form': form}
     return render(request, 'vetprofiles/edit_profile.html', context)
 
 
 def user_restricted(request):
+    """
+    Restricted view - delete??
+    """
     return render(request, 'vetprofiles/restricted.html')
