@@ -1,5 +1,5 @@
 /* import fonts */
-@import url("https://fonts.googleapis.com/css2?family=Lato&family=Montserrat&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Fira+Sans&family=Rubik&display=swap");
 
 /* Site palette */
 :root {
@@ -16,7 +16,7 @@ html {
 
 /* Font styling */
 body {
-    font-family: "Lato", sans-serif;
+    font-family: "Rubik", sans-serif;
     color: var(--site-black);
     font-size: 1rem;
     letter-spacing: 2px;
@@ -24,7 +24,7 @@ body {
 }
 
 h1, h2, h3, h4 {
-    font-family: "Montserrat", "Lato", sans-serif;
+    font-family: "Fira Sans", "Rubik", sans-serif;
     font-weight: 900;
     margin-top: 0.5em;
     margin-bottom: 0.5em;
