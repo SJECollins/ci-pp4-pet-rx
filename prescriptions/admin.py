@@ -1,13 +1,13 @@
 from django.contrib import admin
-from .models import Drugs
+from .models import Drug
 
 # Register your models here.
 
 
-class DrugsAdmin(admin.ModelAdmin):
+class DrugAdmin(admin.ModelAdmin):
     list_display = ('name', 'dose', 'category', )
     list_filter = ('category', )
     search_fields = ('name', 'category', )
 
 
-admin.site.register(Drugs, DrugsAdmin)
+admin.site.register(Drug, DrugAdmin)

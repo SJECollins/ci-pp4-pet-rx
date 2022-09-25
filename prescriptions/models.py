@@ -11,7 +11,14 @@ FREQUENCY = (('No Repeat', 'No Repeat'), ('SID', 'SID'), ('BID', 'BID'), ('TID',
 MEASURE = (('ml', 'ml'), ('mg', 'mg'))
 
 
-class Drugs(models.Model):
+class Drug(models.Model):
+    """
+    Drug model.
+    Registered with admin. Admin to set details to be used in Prescription
+    model by vets.
+    __str__ method: Drug name.
+    Ordered by name by default.
+    """
     name = models.CharField(max_length=50)
     dose = models.DecimalField(max_digits=4, decimal_places=2)
     measure = models.CharField(max_length=2, choices=MEASURE)
@@ -23,14 +30,23 @@ class Drugs(models.Model):
         return self.name
 
     class Meta:
-        verbose_name_plural = 'Drugs'
+        ordering = ['name']
 
 
 class Prescription(models.Model):
+    """
+    Prescription model.
+    Ordered by date by default.
+    __str__ method: animal name, dose, drug and vet name.
+    save method: takes weight from Animal FK and dose from Drug FK, multiplies
+    saves as dose. Also takes route and measure from Drug FK to populate.
+    under_day method: with property decorator, used in prescription templates
+    to allow deleting prescriptions under 24 hours old.
+    """
     animal = models.ForeignKey(Record, on_delete=models.CASCADE, default=1)
     animal_weight = models.DecimalField(max_digits=5, decimal_places=2, blank=True, null=True)
     vet = models.ForeignKey(Vet, on_delete=models.CASCADE, default=1)
-    drug = models.ForeignKey(Drugs, on_delete=models.PROTECT, default=None)
+    drug = models.ForeignKey(Drug, on_delete=models.PROTECT, default=None)
     drug_dose = models.DecimalField(max_digits=4, decimal_places=2, blank=True, null=True)
     dose = models.DecimalField(max_digits=5, decimal_places=2, blank=True, null=True)
     measure = models.CharField(max_length=2, blank=True)
@@ -55,5 +71,8 @@ class Prescription(models.Model):
 
     @property
     def under_day(self):
+        """
+        To identify prescriptions under a day old
+        """
         now = timezone.now()
-        return now-timedelta(hours=12) < self.date <= now
+        return now-timedelta(hours=24) < self.date <= now
