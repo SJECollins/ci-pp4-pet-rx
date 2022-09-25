@@ -8,6 +8,10 @@ from .models import Record
 
 
 def records(request):
+    """
+    Retrieve list of records to display, paginated
+    Pagination from official docs, see link in README credits
+    """
     record_list = Record.objects.all()
     paginator = Paginator(record_list, 10)
 
@@ -18,31 +22,43 @@ def records(request):
 
 
 def record_search(request):
+    """
+    Function to search records: retrieves records by name or surname matching
+    query.
+    From Codemy.com, see link in README credits
+    """
     query = request.GET.get('query')
     record_qs = Record.objects.all()
     if query is not None:
         args = Q(name__icontains=query) | Q(surname__icontains=query)
         record_qs = Record.objects.filter(args)
-    context = {'record_list': record_qs, }
+    context = {'record_list': record_qs}
     return render(request, 'records/record_search.html', context)
 
 
 def add_animal(request):
-
-    context = {}
+    """
+    Create a new animal record.
+    Redirects user back to records page.
+    """
     if request.method == 'POST':
         form = RecordForm(request.POST)
         if form.is_valid():
             form.save()
             return redirect('records:records')
-
     else:
         form = RecordForm()
-    context['record_form'] = form
+    context = {'record_form': form}
     return render(request, 'records/add_animal.html', context)
 
 
 def edit_animal(request, animal_id):
+    """
+    Edit animal record.
+    Args: animal_id - takes id of selected animal's record for initial data
+    on form.
+    Redirects user to animal's profile
+    """
     record = Record.objects.get(id=animal_id)
     form = RecordForm(request.POST or None, instance=record)
     if form.is_valid():
@@ -58,6 +74,13 @@ def edit_animal(request, animal_id):
 
 
 def update_weight(request, animal_id):
+    """
+    Edit animal's weight only.
+    Args: animal_id - takes id of selected animal's record for intial weight
+    on form.
+    Returns a 204 success status as not returning content, user then closes
+    modal to return to profile.
+    """
     record = Record.objects.get(id=animal_id)
     form = WeightForm(request.POST or None, instance=record)
     if form.is_valid():
@@ -73,6 +96,13 @@ def update_weight(request, animal_id):
 
 
 def edit_notes(request, animal_id):
+    """
+    Edit notes for animal on record.
+    Args: animal_id - takes id of selected animal's record for initial data in
+    notes.
+    Returns a 204 success status as not returning content, user then closes
+    modal to return to profile.
+    """
     record = Record.objects.get(id=animal_id)
     form = NoteForm(request.POST or None, instance=record)
     if form.is_valid():
@@ -88,12 +118,13 @@ def edit_notes(request, animal_id):
 
 
 class AnimalRecord(View):
-
+    """
+    Displays animal's record.
+    Args: animal_id - takes id of selected animal to retrieve record.
+    Get method: retrieves record and renders animal's profile
+    """
     def get(self, request, animal_id):
         queryset = Record.objects.all()
         profile = get_object_or_404(queryset, id=animal_id)
-
-        context = {
-            'profile': profile,
-        }
+        context = {'profile': profile}
         return render(request, 'records/animal_profile.html', context)
