@@ -5,6 +5,9 @@ from .models import Record
 
 
 class RecordAdmin(admin.ModelAdmin):
+    """
+    Custom class for Record display in admin panel.
+    """
     list_display = ('name', 'surname', 'date_of_birth', 'species', 'breed', )
     list_filter = ('species', )
     search_fields = ('name', 'surname', 'species', )

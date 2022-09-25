@@ -6,6 +6,9 @@ from .models import Vet
 
 
 class AccountAdmin(UserAdmin):
+    """
+    Class for custom user model in admin panel.
+    """
     list_display = ('email', 'first_name', 'last_name', 'last_login', 'is_admin', 'is_active', 'is_staff')
     list_filter = ('email', 'first_name', 'last_name', )
     search_fields = ('email', 'first_name', 'last_name')

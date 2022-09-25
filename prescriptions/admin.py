@@ -5,6 +5,9 @@ from .models import Drug
 
 
 class DrugAdmin(admin.ModelAdmin):
+    """
+    Custom class for Drug display in admin panel.
+    """
     list_display = ('name', 'dose', 'category', )
     list_filter = ('category', )
     search_fields = ('name', 'category', )
