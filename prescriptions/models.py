@@ -62,6 +62,11 @@ class Prescription(models.Model):
         return self.animal.name + " " + str(self.dose) + " " + str(self.drug) + " " + str(self.vet)
 
     def save(self, *args, **kwargs):
+        """
+        Override the save method to populate weight, dose, route and measure
+        based on animal and drug.
+        Calculates dose by animal weight and drug dose, saves.
+        """
         self.animal_weight = self.animal.weight
         self.drug_dose = self.drug.dose
         self.dose = self.animal_weight * self.drug_dose
