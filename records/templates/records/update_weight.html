@@ -1,5 +1,6 @@
 {% block content %}
 
+<!-- Update animal weight form in modal-->
 <form hx-post="{{ request.path }}" class="modal-content">
     {% csrf_token %}
     <div class="modal-header">
@@ -8,6 +9,8 @@
     <div class="modal-body">
         {{ update_weight.as_p }}
     </div>
+
+    <!-- Form errors-->
     {% for field in update_weight %}
         {% for error in field.errors %}
             <p>{{ error }}</p>

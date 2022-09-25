@@ -1,12 +1,11 @@
 {% extends 'base.html' %}
-
 {% block content %}
 
+<!-- Registration form -->
 <h2>Register</h2>
-
 <form method="POST">
     {% csrf_token %}
-
+    <!-- Takes email, first and last name, and password -->
     <input type="email" name="email" id="inputEmail" class="form-control" placeholder="Email Address" required autofocus>
 
     <input type="first_name" name="first_name" id="inputFirstName" class="form-control" placeholder="First Name" required>
@@ -17,6 +16,7 @@
 
     <input type="password" name="password2" id="inputPassword2" class="form-control" placeholder="Confirm Password" required>
 
+    <!-- Form errors -->
     {% for field in registration_form %}
         {% for error in field.errors %}
             <p>{{ error }}</p>
@@ -27,8 +27,7 @@
         <p>{{ registration_form.non_field_errors }}</p>
     {% endif %}
 
-    <button class="btn btn-lg btn-primary btn-block" type="submit">Register</button>
-
+    <button class="pet-btns" type="submit">Register</button>
 </form>
 
 {% endblock content %}

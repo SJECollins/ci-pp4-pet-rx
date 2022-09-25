@@ -1,5 +1,6 @@
 {% block content %}
 
+<!-- Edit note form in modal-->
 <form hx-post="{{ request.path }}" class="modal-content">
     {% csrf_token %}
     <div class="modal-header">
@@ -10,6 +11,7 @@
         <br>
         {{ edit_notes.note }}
     </div>
+    <!-- Form errors -->
     {% for field in update_weight %}
         {% for error in field.errors %}
             <p>{{ error }}</p>
@@ -23,6 +25,5 @@
         <input class="pet-btns" type="submit" value="Save">
     </div>
 </form>
-
 
 {% endblock %}

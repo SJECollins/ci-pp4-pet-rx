@@ -1,9 +1,12 @@
 {% block content %}
+
+<!-- Add prescription form-->
 <form hx-post="{{ request.path }}" class="modal-content">
   {% csrf_token %}
   <div class="modal-header">
     <h3 class="headings">Add Prescription</h3>
   </div>
+  <!-- Inputs and labels -->
   <div class="modal-body">
     <label for="{{ prescr_form.drug.label }}">Drug:</label>
     {{ prescr_form.drug }}
@@ -15,6 +18,7 @@
     {{ prescr_form.length }}
     <small><em>In days</em></small>
 
+    <!-- Field errors -->
     {% for field in prescr_form %}
     {% for error in field.errors %}
     <p>{{ error }}</p>
@@ -30,7 +34,6 @@
   <div class="modal-footer">
     <input class="pet-btns" type="submit" value="Add">
   </div>
-
 </form>
 
 {% endblock %}

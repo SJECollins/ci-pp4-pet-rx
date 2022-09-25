@@ -1,13 +1,14 @@
 {% extends 'base.html' %}
 {% block content %}
 
-
 {% if user.is_authenticated %}
 <!-- if user is registered: -->
     <section class="container-md">
         <div class="align-middle">
+            <!-- Greet logged in user  -->
             <h1>Welcome, {{ user.first_name }} {{ user.last_name }}</h1>
             <ul>
+                <!-- Quick links to main features -->
                 <li class="list-spacing">
                     <a class="pet-btns" href="{% url 'vetprofiles:profile' %}">Your Profile</a>
                 </li>
@@ -22,6 +23,7 @@
     </section>
     <section class="container-md">
         <div class="row">
+            <!-- Introduction to app -->
             <h3>New to PetRx?</h3>
             <div class="col-lg-4">
                 <h4 class="headings">Your Profile: </h4>
@@ -64,7 +66,6 @@
         <div class="col-lg-4">
             <h3 class="headings">About the site</h3>
             <p>This is a blurb talking about how great the website is.</p>
-
         </div>
         <div class="col-lg-4">
             <h3 class="headings">More About the site</h3>
@@ -79,5 +80,4 @@
 </section>
 
 {% endif %}
-
 {% endblock %}

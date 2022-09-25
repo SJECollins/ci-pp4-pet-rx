@@ -1,7 +1,8 @@
+<!-- Vet's prescription list -->
 <h3>Prescription History:</h3>
 <small><em>You may delete prescriptions up to 24 hours after creation.</em></small>
+<!-- Prescription list table -->
 <div>
-
     <table>
         <tr>
             <th>Animal</th>
@@ -16,13 +17,14 @@
             <td>{{ prescription.dose }}{{ prescription.measure }}</td>
             <td>{{ prescription.drug }}</td>
             <td>{{ prescription.date|date:'d/m/y' }}</td>
+            <!-- Link to detailed view -->
             <td><a 
             hx-get="{% url 'prescriptions:detail_prescrip' prescrip_id=prescription.id %}"
             hx-target="#modal-dialog">View</a></td>
         </tr>
         {% empty %}
+        <!-- If nothing prescribed -->
         <p>No prescriptions</p>
         {% endfor %}
     </table>
-
 </div>

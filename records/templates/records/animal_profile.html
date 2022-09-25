@@ -1,9 +1,11 @@
 {% extends 'base.html' %}
-
 {% block content %}
 
+<!-- Animal profile -->
+<!-- Return to records-->
 <a href="{% url 'records:records' %}">Go To Records</a>
 
+<!-- Animal details -->
 <section>
     <div class="container">
         <div class="row">
@@ -41,6 +43,7 @@
                 </table>
             </div>
             <div class="col-md-6">
+                <!-- Quick links-->
                 <div>
                     <h4>Edit Profile:</h4>
                     <a class="pet-btns" href="{% url 'records:edit_animal' animal_id=profile.id %}">Edit Profile</a>
@@ -53,6 +56,7 @@
                     hx-target="#modal-dialog">Add Prescription</a>
                 </div>
                 <div>
+                    <!-- Notes for animal -->
                     <h4>Notes:</h4>
                     <p>
                         {{ profile.note }}
@@ -65,7 +69,7 @@
         </div>
     </div>
 </section>
-
+<!-- Display prescriptions for animal -->
 <section id="animal-prescrip-list" hx-get="{% url 'prescriptions:list_prescrip' animal_id=profile.id %}" hx-trigger="load">
     {% include 'prescriptions/list_prescrip.html' %}
 </section>

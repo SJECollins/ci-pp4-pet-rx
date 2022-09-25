@@ -1,15 +1,19 @@
 {% extends 'base.html' %}
-
 {% block content %}
+
+<!-- Records page -->
 <section>
     <h3>Records:</h3>
+    <!-- Add record -->
     <a href="{% url 'records:add_animal' %}">Add Record</a>
+    <!-- Record search-->
     <form method="GET" action="{% url 'records:record_search' %}">
         {% csrf_token %}
         <input type="text" name="query" placeholder="Search by name">
         <input type="submit">
     </form>
 </section>
+<!-- Display list of records, paginated -->
 <section>
     <h4>All Records:</h4>
     {% if page_obj %}

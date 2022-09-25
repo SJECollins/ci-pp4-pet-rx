@@ -1,11 +1,15 @@
 {% extends 'base.html' %}
 {% block content %}
+
+<!-- Record search page-->
 <h3> Search Results </h3>
+<!-- Search input -->
 <form method="GET" action="{% url 'records:record_search' %}">
     {% csrf_token %}
     <input type="text" name="query" placeholder="Search by name">
     <input type="submit">
 </form>
+<!-- Display record list results -->
 {% if record_list %}
 <table>
     <tr>
@@ -24,10 +28,11 @@
         {% endfor %}
 </table>
 {% else %}
+<!-- If no results -->
 <p>No record found.</p>
 {% endif %}
 
-<li class="list-spacing">
+<!-- Return to Records page -->
     <a class="pet-btns" href="{% url 'records:records' %}">Records</a>
-</li>
+
 {% endblock %}

@@ -1,21 +1,21 @@
 {% extends 'base.html' %}
 {% block content %}
 
+<!-- Add animal form -->
 <div class="container">
   <div class="row">
     <div class="col-md-8 mt-3 offset-md-2">
-
-
       <h1>Add Record</h1>
     </div>
   </div>
   <div class="row">
     <div class="col-md-8 mt-3 offset-md-2">
-
       <form class="form-text" method="POST" action="{% url 'records:add_animal' %}">
         {% csrf_token %}
+        <!-- Django form -->
         {{ record_form.as_p }}
 
+        <!-- Form errors-->
         {% for field in record_form %}
           {% for error in field.errors %}
           <p>{{ error }}</p>
@@ -27,7 +27,7 @@
           <p> {{error}} </p>
           {% endfor %}
         {% endif %}
-        <button class="blog-links" type="submit">Add</button>
+        <button class="pet-btns" type="submit">Add</button>
       </form>
     </div>
   </div>

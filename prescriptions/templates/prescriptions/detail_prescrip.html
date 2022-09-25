@@ -1,10 +1,14 @@
 {% block content %}
+
+<!-- Detailed prescription template -->
 <div class="modal-content">
     <div class="modal-header">
         <h3 class="headings">Prescription for {{ prescription.animal }}</h3>
+        <!-- Warning user about time limit for deletion-->
         <small><em>You may delete prescriptions up to 24 hours after creating.</em></small>
     </div>
     <div class="modal-body">
+        <!-- Prescription details-->
         <table>
             <tr>
                 <th>Animal:</th>
@@ -47,6 +51,7 @@
                 <td>{{ prescription.date|date:'d/m/y' }}</td>
             </tr>
         </table>
+        <!-- Delete option if user is prescribing vet and within time limit -->
         {% if user == prescription.vet and prescription.under_day %}
         <a class="pet-btns"
         hx-get="{% url 'prescriptions:delete_prescrip' prescrip_id=prescription.id %}"
@@ -55,6 +60,7 @@
         <p>You may not delete this prescription.</p>
         {% endif %}
     </div>
+    <!-- Quick links back -->
     <div class="modal-footer">
         <a href="{% url 'vetprofiles:profile' %}">Your Profile</a>
         <a href="{% url 'records:animal_profile' prescription.animal.id %}">{{ prescription.animal.name }}'s Record</a>
