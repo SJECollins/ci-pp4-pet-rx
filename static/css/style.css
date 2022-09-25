@@ -65,6 +65,7 @@ a {
 }
 
 .pet-links {
+    cursor: pointer;
     display: block;
     padding: 0.25rem 0.5rem;
     color: var(--site-dark-blue);
@@ -78,12 +79,54 @@ a {
     color: var(--site-black);
 }
 
+.page-links {
+    cursor: pointer;
+    display: block;
+    padding: 0.25rem 0.5rem;
+    color: var(--site-dark-blue);
+    font-weight: 600;
+    margin: 1em;
+    transition: color .5s linear;
+}
+
+.page-links:hover {
+    color: var(--site-turquoise);
+}
+
+.record-links {
+    cursor: pointer;
+    color: var(--site-light-blue);
+    font-weight: 600;
+    margin: 0;
+    transition: color .5s linear;
+}
+
+.record-links:hover {
+    color: var(--site-dark-blue);
+}
+
+.prescrip-links {
+    cursor: pointer;
+    color: var(--site-dark-blue);
+    font-weight: 600;
+    margin: 0;
+    transition: color .5s linear;
+}
+
+.prescrip-links:hover {
+    color: var(--site-turquoise);
+}
+
 .pet-btns {
+    cursor: pointer;
+    display: inline-block;
     background-color: var(--site-light-blue);
     color: var(--site-white);
+    letter-spacing: 0px;
     font-weight: 600;
-    padding: 0.75em 2em;
-    /* margin: 4em 2em; */
+    padding: 0.5em 1.5em;
+    margin: 2em;
+    border: none;
     border-radius: 10px;
     box-shadow: 0 2px 4px 0 var(--site-turquoise);
     transition: all .2s linear;
@@ -93,6 +136,17 @@ a {
     background-color: var(--site-dark-blue);
     color: var(--site-white);
     box-shadow: 0 2px 4px 0 var(--site-light-blue);
+}
+
+.sm-btns {
+    font-weight: 400;
+    margin: 0.5em;
+}
+
+/* Table styling */
+
+th, td {
+    padding: 0.5em;
 }
 
 /* Nav styling */

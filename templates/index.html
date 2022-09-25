@@ -10,13 +10,13 @@
             <ul>
                 <!-- Quick links to main features -->
                 <li class="list-spacing">
-                    <a class="pet-btns" href="{% url 'vetprofiles:profile' %}">Your Profile</a>
+                    <a class="pet-links" href="{% url 'vetprofiles:profile' %}" aria-label="Go to your profile">Your Profile</a>
                 </li>
                 <li class="list-spacing">
-                    <a class="pet-btns" href="{% url 'records:add_animal' %}">New Animal</a>
+                    <a class="pet-links" href="{% url 'records:add_animal' %}" aria-label="Go to new animal">New Animal</a>
                 </li>
                 <li class="list-spacing">
-                    <a class="pet-btns" href="{% url 'records:records' %}">Animal Records</a>
+                    <a class="pet-links" href="{% url 'records:records' %}" aria-label="Go to animal records">Animal Records</a>
                 </li>
             </ul>
         </div>
@@ -52,8 +52,8 @@
             <h3>This is a subtitle</h3>
             <p>This is a paragraph of text that welcomes the site user to the page. It encourages the site user to log in or register with the app. It also encourages the user to scroll down if they want to learn more.</p>
             <div>
-                <a class="pet-btns" href="{% url 'vetprofiles:register' %}">Register</a>
-                <a class="pet-btns" href="{% url 'vetprofiles:login' %}">Login</a>
+                <a class="pet-btns" href="{% url 'vetprofiles:login' %}" aria-label="Login">Login</a>
+                <a class="pet-btns" href="{% url 'vetprofiles:register' %}" aria-label="Register">Register</a>
             </div>
         </div>
         <div class="col-md-4 text-center">

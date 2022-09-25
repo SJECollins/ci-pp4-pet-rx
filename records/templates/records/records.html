@@ -5,12 +5,12 @@
 <section>
     <h3>Records:</h3>
     <!-- Add record -->
-    <a href="{% url 'records:add_animal' %}">Add Record</a>
-    <a href="{% url 'prescriptions:drugs' %}">Available Drugs</a>
+    <a class="page-links" href="{% url 'records:add_animal' %}" aria-label="Add a record">Add Record</a>
+    <a class="page-links" href="{% url 'prescriptions:drugs' %}" aria-label="Go to available drugs">To Available Drugs</a>
     <!-- Record search-->
     <form method="GET" action="{% url 'records:record_search' %}">
         {% csrf_token %}
-        <input type="text" name="query" placeholder="Search by name">
+        <input type="text" name="query" placeholder="Search by name" aria-label="Search">
         <input type="submit">
     </form>
 </section>
@@ -19,7 +19,8 @@
     <h4>All Records:</h4>
     {% if page_obj %}
         {% for record in page_obj %}
-        <p><a href="{% url 'records:animal_profile' animal_id=record.id %}">{{ record }}</a></p>
+        <p><a class="record-links"
+            href="{% url 'records:animal_profile' animal_id=record.id %}" aria-label="Go to record">{{ record }}</a></p>
         {% endfor %}
     {% else %}
         <p>No records</p>

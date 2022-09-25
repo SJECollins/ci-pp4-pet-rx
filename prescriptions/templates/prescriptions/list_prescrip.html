@@ -20,7 +20,8 @@
             <!-- Link to detailed view -->
             <td><a 
             hx-get="{% url 'prescriptions:detail_prescrip' prescrip_id=prescription.id %}"
-            hx-target="#modal-dialog">View</a></td>
+            hx-target="#modal-dialog"
+            class="prescrip-links">View</a></td>
         </tr>
         {% empty %}
         <!-- If nothing prescribed -->

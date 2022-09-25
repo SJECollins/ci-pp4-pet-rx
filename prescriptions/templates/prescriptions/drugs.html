@@ -5,9 +5,9 @@
 <section>
     <h3>Available Drugs:</h3>
     <!-- Back to records -->
-    <a href="{% url 'records:records' %}">Record</a>
+    <a class="page-links" href="{% url 'records:records' %}" aria-label="Go to records">To Records</a>
     <!-- Drug search-->
-    <form method="GET" action="{% url 'prescriptions:drug_search' %}">
+    <form method="GET" action="{% url 'prescriptions:drug_search' %}" aria-label="Search">
         {% csrf_token %}
         <input type="text" name="search" placeholder="Search by name or category">
         <input type="submit">
@@ -18,7 +18,8 @@
     <h4>All Drugs</h4>
     {% if page_obj %}
     {% for drug in page_obj %}
-    <p><a href="{% url 'prescriptions:detail_drug' drug_id=drug.id %}">{{ drug }}</a></p>
+    <p><a class="record-links"
+        href="{% url 'prescriptions:detail_drug' drug_id=drug.id %}" aria-label="Go to drug detail">{{ drug }}</a></p>
     {% endfor %}
     {% else %}
     <p>No drugss</p>

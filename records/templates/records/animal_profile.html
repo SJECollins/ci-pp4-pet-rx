@@ -3,7 +3,7 @@
 
 <!-- Animal profile -->
 <!-- Return to records-->
-<a href="{% url 'records:records' %}">Go To Records</a>
+<a class="page-links" href="{% url 'records:records' %}" aria-label="Go to records">Go To Records</a>
 
 <!-- Animal details -->
 <section>
@@ -13,31 +13,31 @@
                 <h3>Record for {{ profile }}</h3>
                 <table>
                     <tr>
-                        <th>Name</th>
+                        <th>Name: </th>
                         <td>{{ profile.name }}</td>
                     </tr>
                     <tr>
-                        <th>Surname</th>
+                        <th>Surname: </th>
                         <td>{{ profile.surname }}</td>
                     </tr>
                     <tr>
-                        <th>DOB</th>
+                        <th>DOB: </th>
                         <td>{{ profile.date_of_birth }}</td>
                     </tr>
                     <tr>
-                        <th>Species</th>
+                        <th>Species: </th>
                         <td>{{ profile.species }}</td>
                     </tr>
                     <tr>
-                        <th>Breed</th>
+                        <th>Breed: </th>
                         <td>{{ profile.breed }}</td>
                     </tr>
                     <tr>
-                        <th>Sex</th>
+                        <th>Sex: </th>
                         <td>{{ profile.sex }}</td>
                     </tr>
                     <tr>
-                        <th>Weight</th>
+                        <th>Weight: </th>
                         <td>{{ profile.weight }}kg</td>
                     </tr>
                 </table>
@@ -45,15 +45,17 @@
             <div class="col-md-6">
                 <!-- Quick links-->
                 <div>
-                    <h4>Edit Profile:</h4>
-                    <a class="pet-btns" href="{% url 'records:edit_animal' animal_id=profile.id %}">Edit Profile</a>
-                    <a class="pet-btns"
-                    hx-get="{% url 'records:update_weight' animal_id=profile.id %}"
-                    hx-target="#modal-dialog">
-                        Update Weight</a>
-                    <a class="pet-btns" 
-                    hx-get="{% url 'prescriptions:add_prescrip' animal_id=profile.id %}"
-                    hx-target="#modal-dialog">Add Prescription</a>
+                    <h4>Options:</h4>
+                    <div class="col-md-6">
+                        <a class="pet-btns sm-btns" href="{% url 'records:edit_animal' animal_id=profile.id %}" aria-label="Edit animal record">Edit Profile</a>
+                        <a class="pet-btns sm-btns" hx-get="{% url 'records:update_weight' animal_id=profile.id %}"
+                            hx-target="#modal-dialog" 
+                            aria-label="Update weight">
+                            Update Weight</a>
+                        <a class="pet-btns sm-btns" hx-get="{% url 'prescriptions:add_prescrip' animal_id=profile.id %}"
+                            hx-target="#modal-dialog"
+                            aria-label="Add new prescription">Add Prescription</a>
+                    </div>
                 </div>
                 <div>
                     <!-- Notes for animal -->
@@ -61,9 +63,10 @@
                     <p>
                         {{ profile.note }}
                     </p>
-                    <a class="pet-btns"
+                    <a class="pet-btns sm-btns"
                     hx-get="{% url 'records:edit_notes' animal_id=profile.id %}"
-                    hx-target="#modal-dialog">Edit Notes</a>
+                    hx-target="#modal-dialog"
+                    aria-label="Edit notes">Edit Notes</a>
                 </div>
             </div>
         </div>

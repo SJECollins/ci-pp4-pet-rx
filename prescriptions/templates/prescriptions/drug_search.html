@@ -18,7 +18,8 @@
     </tr>
     {% for drug in drug_list %}
     <tr>
-        <th><a href="{% url 'prescriptions:drug' drug_id=drug.id %}">{{ drug.name }}</a>
+        <th><a class="prescrip-links"
+            href="{% url 'prescriptions:drug' drug_id=drug.id %}">{{ drug.name }}</a>
         <th>{{ drug.category }}</th>
     <tr>
         {% endfor %}

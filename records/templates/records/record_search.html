@@ -20,7 +20,8 @@
     </tr>
     {% for record in record_list %}
     <tr>
-        <th><a href="{% url 'records:animal_profile' animal_id=record.id %}">{{ record }}</a>
+        <th><a class="prescrip-links"
+            href="{% url 'records:animal_profile' animal_id=record.id %}">{{ record }}</a>
         <th>{{ record.species }}</th>
         <th>{{ record.breed }}</th>
         <th>{{ record.date_of_birth }}</th>
