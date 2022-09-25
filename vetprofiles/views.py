@@ -39,9 +39,7 @@ def register(request):
             login(request, account)
             return redirect('vetprofiles:index')
         else:
-            context = {
-                'registration_form': form
-            }
+            context = {'registration_form': form}
     else:   # GET request
         form = RegistrationForm()
         context = {'registration_form': form}

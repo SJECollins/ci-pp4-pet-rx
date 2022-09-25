@@ -34,8 +34,8 @@ class Prescription(models.Model):
     drug_dose = models.DecimalField(max_digits=4, decimal_places=2, blank=True, null=True)
     dose = models.DecimalField(max_digits=5, decimal_places=2, blank=True, null=True)
     measure = models.CharField(max_length=2, blank=True)
-    frequency = models.CharField(max_length=10, choices=FREQUENCY)
-    length = models.PositiveIntegerField(default=0)
+    frequency = models.CharField(max_length=10, choices=FREQUENCY, blank=True)
+    length = models.PositiveIntegerField(default=0, blank=True)
     route = models.CharField(max_length=8, blank=True)
     date = models.DateTimeField(auto_now_add=True)
 
