@@ -28,19 +28,20 @@
             <!-- Introduction to app -->
             <h2>New to PetRx?</h2>
             <div class="col-lg-4">
-                <h4 class="headings subheadings">Your Profile</h4>
+                <h4 class="subheadings">Your Profile</h4>
                 <p>Go to your profile to view or edit your details.</p>
                 <p>You can also view all your previous prescriptions here.</p>
             </div>
              <div class="col-lg-4">
-                <h4 class="headings subheadings">New Animal</h4>
+                <h4 class="subheadings">New Animal</h4>
                 <p>To register a new animal on the database, fill in their details on the New Animal page.</p>
                 <p>Then you will be able to visit their record to prescribe their medications.</p>
             </div>
              <div class="col-lg-4">
-                <h4 class="headings subheadings">Animal Records</h4>
+                <h4 class="subheadings">Animal Records</h4>
                 <p>You can search the records for existing animal records.</p>
                 <p>On an animal's record you can view or edit their details, prescribe new medications, and view all their previous prescriptions.</p>
+                <p>From records, you can also access a list of all the available drugs in your practice to review.</p>
             </div>
         </div>
     </section>
@@ -51,8 +52,8 @@
     <div class="row align-middle">
         <div id="intro-blurb" class="col-md-8">
             <h1>Welcome to PetR<sub>x</sub></h1>
-            <h3>This is a subtitle</h3>
-            <p>This is a paragraph of text that welcomes the site user to the page. It encourages the site user to log in or register with the app. It also encourages the user to scroll down if they want to learn more.</p>
+            <h3>The safe and easy prescription app.</h3>
+            <p>Add an extra layer of safety to your prescriptions by using PetR<sub>x</sub>.</p>
             <div>
                 <a class="pet-btns" href="{% url 'vetprofiles:login' %}" aria-label="Login">Login</a>
                 <a class="pet-btns" href="{% url 'vetprofiles:register' %}" aria-label="Register">Register</a>
@@ -63,20 +64,22 @@
         </div>
     </div>
 </section>
+<hr>
 <section class="container-md">
     <div class="row">
         <div class="col-lg-4">
-            <h3 class="headings subheadings">About the site</h3>
-            <p>This is a blurb talking about how great the website is.</p>
+            <h3 class="subheadings">About PetR<sub>x</sub></h3>
+            <p>PetR<sub>x</sub> was created with safety in mind. Taking human error out of medication calculations, PetR<sub>x</sub> makes it easy to ensure consistent dosing across your entire clinic.</p>
+            <p>Visit our <a class="record-links" href="{% url 'vetprofiles:about' %}">about page</a> to learn more.</p>
         </div>
         <div class="col-lg-4">
-            <h3 class="headings subheadings">More About the site</h3>
-            <p>More great benefits about the site! Maybe this section is an image?</p>
+            <p>Calculate and record your prescriptions in one easy step!</p>
             <img class="pics" src="#" alt="placeholder image">
         </div>
         <div class="col-lg-4">
-            <h3 class="headings subheadings">Another great reason</h3>
-            <p>More wonderful information about how great the app is!</p>
+            <h3 class="subheadings">Have a Question?</h3>
+            <p>Interested in using PetR<sub>x</sub> in your practice?</p>
+            <p>Visit our <a class="record-links" href="{% url 'vetprofiles:contact' %}">contact page</a> to get in contact and we'll answer any questions you have.</p>
         </div>
     </div>
 </section>

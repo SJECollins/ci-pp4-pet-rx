@@ -50,6 +50,12 @@ h1, h2, h3, h4 {
     letter-spacing: 2px;
 }
 
+/* hr styling */
+
+hr {
+    color: var(--site-black);
+}
+
 /* Link and Button styling*/
 
 button {
