@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
+<a class="page-links" href="{% url 'records:records' %}" aria-label="Go to records">To Records</a>
+<a class="page-links" href="{% url 'prescriptions:drugs' %}" aria-label="Go to available drugs">To Available Drugs</a>
 
 <!-- Record search page-->
 <h3> Search Results </h3>

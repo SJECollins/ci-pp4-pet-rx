@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
-
+<a class="page-links" href="{% url 'records:records' %}" aria-label="Go to records">To Records</a>
+<a class="page-links" href="{% url 'prescriptions:drugs' %}" aria-label="Go to available drugs">To Available Drugs</a>
 <!-- Drug search page-->
 <h3> Search Results </h3>
 <!-- Search input -->
@@ -19,7 +20,7 @@
     {% for drug in drug_list %}
     <tr>
         <th><a class="prescrip-links"
-            href="{% url 'prescriptions:drug' drug_id=drug.id %}">{{ drug.name }}</a>
+            href="{% url 'prescriptions:detail_drug' drug_id=drug.id %}">{{ drug.name }}</a>
         <th>{{ drug.category }}</th>
     <tr>
         {% endfor %}
@@ -28,10 +29,10 @@
 <!-- If no results -->
 <p>No drug found.</p>
 {% endif %}
-
+<hr>
 <!-- Return to drugss page -->
-<a class="pet-btns" href="{% url 'prescriptions:drugs' %}">Drugss</a>
-<a class="pet-btns" href="{% url 'records:records' %}">Records</a>
+<a class="prescrip-links" href="{% url 'prescriptions:drugs' %}">Drugs</a>
+<a class="prescrip-links" href="{% url 'records:records' %}">Records</a>
 
 
 {% endblock %}
