@@ -1,5 +1,7 @@
 {% block content %}
 
+{% load crispy_forms_tags %}
+
 <!-- Add prescription form-->
 <form hx-post="{{ request.path }}" class="modal-content">
   {% csrf_token %}
@@ -7,16 +9,8 @@
     <h3 class="headings">Add Prescription</h3>
   </div>
   <!-- Inputs and labels -->
-  <div class="modal-body">
-    <label for="{{ prescr_form.drug.label }}">Drug:</label>
-    {{ prescr_form.drug }}
-    <br>
-    <label for="{{ prescr_form.frequency.label  }}">Frequency:</label>
-    {{ prescr_form.frequency }}
-    <br>
-    <label for="{{ prescr_form.length.label }}">Length:</label>
-    {{ prescr_form.length }}
-    <small><em>In days</em></small>
+  <div class="modal-body mx-auto">
+    {{ prescr_form|crispy }}
 
     <!-- Field errors -->
     {% for field in prescr_form %}

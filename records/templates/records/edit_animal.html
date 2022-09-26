@@ -1,12 +1,14 @@
 {% extends 'base.html' %}
 {% block content %}
 
+{% load crispy_forms_tags %}
+
 <!-- Edit profile form-->
 <h2>Update Account</h2>
 <form method="POST">
     {% csrf_token %}
     <!-- Django form-->
-    {{ edit_form.as_p }}
+    {{ edit_form|crispy }}
 
     <!-- Form errors-->
     {% for field in edit_form %}

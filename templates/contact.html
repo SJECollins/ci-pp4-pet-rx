@@ -1,13 +1,13 @@
 {% extends 'base.html' %}
-
 {% block content %}
 
 <!-- Contact form -->
 <h1>Contact Us</h1>
-<h4>Have a question about how Pet Rx can improve your practice?</h4>
+<h4>Have a question about how Pet R<sub>x</sub> can improve your practice?</h4>
 <h4>Contact us below:</h4>
 
 <form action="" method="">
+  {% csrf_token %}
     <div class="mb-3">
         <label for="contact_name" class="form-label">Name:</label>
         <input type="text" class="form-control" id="contact_name" placeholder="Your Name" required>

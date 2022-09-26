@@ -1,15 +1,15 @@
 {% block content %}
 
+{% load crispy_forms_tags %}
+
 <!-- Edit note form in modal-->
 <form hx-post="{{ request.path }}" class="modal-content">
     {% csrf_token %}
     <div class="modal-header">
         <h3 class="headings">Edit Notes</h3>
     </div>
-    <div class="modal-body">
-        <label id="note_label">{{ edit_notes.note.label_tag }}</label>
-        <br>
-        {{ edit_notes.note }}
+    <div class="modal-body mx-auto">
+        {{ edit_notes|crispy }}
     </div>
     <!-- Form errors -->
     {% for field in update_weight %}

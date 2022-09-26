@@ -1,13 +1,15 @@
 {% block content %}
 
+{% load crispy_forms_tags %}
+
 <!-- Update animal weight form in modal-->
 <form hx-post="{{ request.path }}" class="modal-content">
     {% csrf_token %}
     <div class="modal-header">
         <h3 class="headings">Update Weight</h3>
     </div>
-    <div class="modal-body">
-        {{ update_weight.as_p }}
+    <div class="modal-body mx-auto">
+        {{ update_weight|crispy }}
     </div>
 
     <!-- Form errors-->

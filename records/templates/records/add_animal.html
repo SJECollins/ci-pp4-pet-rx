@@ -1,6 +1,8 @@
 {% extends 'base.html' %}
 {% block content %}
 
+{% load crispy_forms_tags %}
+
 <!-- Add animal form -->
 <div class="container">
   <div class="row">
@@ -13,7 +15,7 @@
       <form class="form-text" method="POST" action="{% url 'records:add_animal' %}">
         {% csrf_token %}
         <!-- Django form -->
-        {{ record_form.as_p }}
+        {{ record_form|crispy }}
 
         <!-- Form errors-->
         {% for field in record_form %}
