@@ -41,3 +41,9 @@ class AccountUpdateForm(forms.ModelForm):
             except Vet.DoesNotExist:
                 return email
             raise forms.ValidationError('Email "%s" is already in use.' % account.email)
+
+
+class ContactForm(forms.Form):
+    contact_name = forms.CharField(max_length=200)
+    contact_email = forms.EmailField()
+    contact_message = forms.CharField(widget=forms.Textarea)

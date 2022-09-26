@@ -1,6 +1,9 @@
 from django.shortcuts import render, redirect
+from django.contrib import messages
 from django.contrib.auth import login, authenticate, logout
-from .forms import RegistrationForm, AccountAuthenticationForm, AccountUpdateForm
+from django.core.mail import send_mail
+from django.template.loader import render_to_string
+from .forms import RegistrationForm, AccountAuthenticationForm, AccountUpdateForm, ContactForm
 
 
 def index(request):
@@ -21,7 +24,24 @@ def contact(request):
     """
     Render contact page.
     """
-    return render(request, 'contact.html')
+    if request.method == 'POST':
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            name = form.cleaned_data['contact_name']
+            email = form.cleaned_data['contact_email']
+            message = form.cleaned_data['contact_message']
+
+            html = render_to_string('contact/contact_sent.html', {
+                'name': name,
+                'email': email,
+                'message': message
+            })
+            send_mail('Message from PetRx', 'Contact form message', 'noreply@fakemail.com', ['spitspixels@gmail.com'], html_message=html)
+            messages.success(request, 'Message sent.')
+    else:
+        form = ContactForm()
+    context = {'form': form}
+    return render(request, 'contact.html', context)
 
 
 def register(request):
