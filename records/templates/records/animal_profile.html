@@ -61,7 +61,7 @@
                     <!-- Notes for animal -->
                     <h4>Notes:</h4>
                     <p>
-                        {{ profile.note }}
+                        {{ profile.note|default:"No notes or warnings." }}
                     </p>
                     <a class="pet-btns sm-btns"
                     hx-get="{% url 'records:edit_notes' animal_id=profile.id %}"

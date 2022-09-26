@@ -12,7 +12,7 @@ class Record(models.Model):
     breed = models.CharField(max_length=50)
     sex = models.CharField(choices=SEX, max_length=10)
     weight = models.DecimalField(max_digits=5, decimal_places=2)
-    note = models.CharField(max_length=300)
+    note = models.CharField(max_length=300, blank=True)
 
     def __str__(self):
         return self.name + " " + self.surname
