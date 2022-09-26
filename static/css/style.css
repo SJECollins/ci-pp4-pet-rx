@@ -35,9 +35,14 @@ h1, h2, h3, h4 {
 }
 
 .headings {
+
     letter-spacing: 3px;
     margin: 1em auto;
+}
 
+.subheadings {
+    display: inline-block;
+    border-bottom: 4px ridge var(--site-turquoise);
 }
 
 .text {
@@ -49,6 +54,10 @@ h1, h2, h3, h4 {
 
 button {
     border: none;
+}
+
+ul {
+    padding: 0;
 }
 
 li {
@@ -84,6 +93,7 @@ a {
     display: block;
     padding: 0.25rem 0.5rem;
     color: var(--site-dark-blue);
+    font-size: 1.25em;
     font-weight: 600;
     margin: 1em;
     transition: color .5s linear;
@@ -190,4 +200,11 @@ th, td {
 footer {
     background-color: white;
     color: var(--site-dark-blue);
+}
+
+/* Media Queries */
+@media (max-width: 500px) {
+    .lg-prescrip {
+        display: none;
+    }
 }

@@ -6,37 +6,39 @@
     <section class="container-md">
         <div class="align-middle">
             <!-- Greet logged in user  -->
-            <h1>Welcome, {{ user.first_name }} {{ user.last_name }}</h1>
+            <h1>Welcome, {{ user.first_name }} {{ user.last_name }}!</h1>
+            <h4>Go To:</h4>
             <ul>
                 <!-- Quick links to main features -->
-                <li class="list-spacing">
-                    <a class="pet-links" href="{% url 'vetprofiles:profile' %}" aria-label="Go to your profile">Your Profile</a>
+                <li>
+                    <a class="page-links" href="{% url 'vetprofiles:profile' %}" aria-label="Go to your profile">Your Profile</a>
                 </li>
-                <li class="list-spacing">
-                    <a class="pet-links" href="{% url 'records:add_animal' %}" aria-label="Go to new animal">New Animal</a>
+                <li>
+                    <a class="page-links" href="{% url 'records:add_animal' %}" aria-label="Go to new animal">New Animal</a>
                 </li>
-                <li class="list-spacing">
-                    <a class="pet-links" href="{% url 'records:records' %}" aria-label="Go to animal records">Animal Records</a>
+                <li>
+                    <a class="page-links" href="{% url 'records:records' %}" aria-label="Go to animal records">Animal Records</a>
                 </li>
             </ul>
         </div>
     </section>
+    <hr>
     <section class="container-md">
         <div class="row">
             <!-- Introduction to app -->
-            <h3>New to PetRx?</h3>
+            <h2>New to PetRx?</h2>
             <div class="col-lg-4">
-                <h4 class="headings">Your Profile: </h4>
+                <h4 class="headings subheadings">Your Profile</h4>
                 <p>Go to your profile to view or edit your details.</p>
                 <p>You can also view all your previous prescriptions here.</p>
             </div>
              <div class="col-lg-4">
-                <h4 class="headings">New Animal: </h4>
+                <h4 class="headings subheadings">New Animal</h4>
                 <p>To register a new animal on the database, fill in their details on the New Animal page.</p>
                 <p>Then you will be able to visit their record to prescribe their medications.</p>
             </div>
              <div class="col-lg-4">
-                <h4 class="headings">Animal Records: </h4>
+                <h4 class="headings subheadings">Animal Records</h4>
                 <p>You can search the records for existing animal records.</p>
                 <p>On an animal's record you can view or edit their details, prescribe new medications, and view all their previous prescriptions.</p>
             </div>
@@ -64,16 +66,16 @@
 <section class="container-md">
     <div class="row">
         <div class="col-lg-4">
-            <h3 class="headings">About the site</h3>
+            <h3 class="headings subheadings">About the site</h3>
             <p>This is a blurb talking about how great the website is.</p>
         </div>
         <div class="col-lg-4">
-            <h3 class="headings">More About the site</h3>
+            <h3 class="headings subheadings">More About the site</h3>
             <p>More great benefits about the site! Maybe this section is an image?</p>
             <img class="pics" src="#" alt="placeholder image">
         </div>
         <div class="col-lg-4">
-            <h3 class="headings">Another great reason</h3>
+            <h3 class="headings subheadings">Another great reason</h3>
             <p>More wonderful information about how great the app is!</p>
         </div>
     </div>

@@ -45,21 +45,31 @@
             <div class="col-md-6">
                 <!-- Quick links-->
                 <div>
-                    <h4>Options:</h4>
-                    <div class="col-md-6">
-                        <a class="pet-btns sm-btns" href="{% url 'records:edit_animal' animal_id=profile.id %}" aria-label="Edit animal record">Edit Profile</a>
-                        <a class="pet-btns sm-btns" hx-get="{% url 'records:update_weight' animal_id=profile.id %}"
+                    <h4 class="subheadings">Options:</h4>
+                    <div>
+                        <ul>
+                            <li>
+                                <a class="pet-btns sm-btns" 
+                                href="{% url 'records:edit_animal' animal_id=profile.id %}" 
+                                aria-label="Edit animal record">Edit Profile</a>
+                            </li>
+                            <li>
+                                <a class="pet-btns sm-btns" hx-get="{% url 'records:update_weight' animal_id=profile.id %}"
                             hx-target="#modal-dialog" 
                             aria-label="Update weight">
                             Update Weight</a>
-                        <a class="pet-btns sm-btns" hx-get="{% url 'prescriptions:add_prescrip' animal_id=profile.id %}"
+                            </li>
+                            <li>
+                                <a class="pet-btns sm-btns" hx-get="{% url 'prescriptions:add_prescrip' animal_id=profile.id %}"
                             hx-target="#modal-dialog"
                             aria-label="Add new prescription">Add Prescription</a>
+                            </li>
+                        </ul>
                     </div>
                 </div>
                 <div>
                     <!-- Notes for animal -->
-                    <h4>Notes:</h4>
+                    <h4 class="subheadings">Notes:</h4>
                     <p>
                         {{ profile.note|default:"No notes or warnings." }}
                     </p>
