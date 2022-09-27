@@ -172,15 +172,11 @@ th, td {
     object-fit: cover;
 }
 
-/* Home styling */
+/* Index styling */
 #intro-blurb {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-}
-
-.list-spacing {
-    margin-bottom: 3em;
 }
 
 /* Footer styling */

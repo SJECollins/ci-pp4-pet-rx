@@ -2,29 +2,32 @@
 {% block content %}
 
 <!-- Login form -->
-<h2>Login</h2>
-<form method="POST">
-    {% csrf_token %}
-    <div class="mb-3">
-      <!-- Takes email and password -->
-      <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email address" required>
+<section class="container-md d-flex justify-content-center">
+    <div class="col-md-6">
+        <h2>Login</h2>
+        <form method="POST">
+            {% csrf_token %}
+            <div class="mb-3">
+                <!-- Takes email and password -->
+                <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email address" required>
+            </div>
+            <div class="mb-3">
+                <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password" required>
+            </div>
+
+            <!-- Form errors -->
+            {% for field in login_form %}
+                {% for error in field.errors %}
+                    <p>{{ error }}</p>
+                {% endfor %}
+            {% endfor %}
+
+            {% if login_form.non_field_errors %}
+                <p>{{ login_form.non_field_errors }}</p>
+            {% endif %}
+
+            <button type="submit" class="pet-btns">Login</button>
+        </form>
     </div>
-    <div class="mb-3">
-      <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password" required>
-    </div>
-
-    <!-- Form errors -->
-    {% for field in login_form %}
-        {% for error in field.errors %}
-            <p>{{ error }}</p>
-        {% endfor %}
-    {% endfor %}
-
-    {% if login_form.non_field_errors %}
-        <p>{{ login_form.non_field_errors }}</p>
-    {% endif %}
-
-    <button type="submit" class="pet-btns">Submit</button>
-  </form>
-
+</section>
 {% endblock content %}
