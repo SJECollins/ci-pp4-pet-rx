@@ -74,63 +74,44 @@ a {
     text-decoration: none;
 }
 
-.drop-links {
-    padding: 0;
-    text-align: center;
+.list-space {
+    padding: 0.75em 0;
 }
 
-.pet-links {
+.navbar-links {
     cursor: pointer;
     display: block;
     padding: 0.25rem 0.5rem;
     color: var(--site-dark-blue);
-    font-weight: 600;
+    font-weight: 800;
     margin: 1em;
     transition: color .8s linear, box-shadow 1s linear;
 }
 
-.pet-links:hover {
+.navbar-links:hover {
     box-shadow: inset 200px 0 0 0 var(--site-turquoise);
     color: var(--site-black);
 }
 
-.page-links {
-    cursor: pointer;
-    display: block;
-    padding: 0.25rem 0.5rem;
-    color: var(--site-dark-blue);
-    font-size: 1.25em;
-    font-weight: 600;
-    margin: 1em;
-    transition: color .5s linear;
+.nav-drop-link {
+    padding: 0;
+    margin: 0 auto;
 }
 
-.page-links:hover {
-    color: var(--site-turquoise);
-}
-
-.record-links {
+.pet-links {
     cursor: pointer;
     color: var(--site-light-blue);
     font-weight: 600;
-    margin: 0;
     transition: color .5s linear;
 }
 
-.record-links:hover {
+.pet-links:hover {
     color: var(--site-dark-blue);
 }
 
-.prescrip-links {
-    cursor: pointer;
-    color: var(--site-dark-blue);
-    font-weight: 600;
-    margin: 0;
-    transition: color .5s linear;
-}
-
-.prescrip-links:hover {
-    color: var(--site-turquoise);
+.bg-links {
+    font-size: 1.25em;
+    font-weight: 800;
 }
 
 .pet-btns {
@@ -206,6 +187,11 @@ th, td {
 footer {
     background-color: white;
     color: var(--site-dark-blue);
+}
+
+.footer-socials {
+    font-size: 2em;
+    padding-left: 1em;
 }
 
 /* Media Queries */
