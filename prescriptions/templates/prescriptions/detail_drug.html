@@ -4,9 +4,9 @@
 <!-- Detailed Drug template -->
 <section>
     <div class="container">
-        <div class="row">
-            <h3 class="headings">{{ drug.name }}</h3>
-            <div class="col-md-6">
+        <div class="row d-flex justify-content-center">
+            <div class="col-md-8">
+                <h3 class="subheadings">{{ drug.name }}</h3>
                 <!-- Drug details-->
                 <table>
                     <tr>
@@ -30,12 +30,17 @@
                         <td>{{ drug.warnings}}</td>
                     </tr>
                 </table>
+
+                <hr>
+                <!-- Quick links back -->
+                <div class="float-end">
+                    <a class="pet-links" href="{% url 'vetprofiles:profile' %}" aria-label="To your profile">To Your Profile</a>
+                    <span>|</span>
+                    <a class="pet-links" href="{% url 'prescriptions:drugs' %}" aria-label="To available drugs">To Drugs</a>
+                    <span>|</span>
+                    <a class="pet-links" href="{% url 'records:records' %}" aria-label="To records page">To Records</a>
+                </div>
             </div>
-            <hr>
-            <!-- Quick links back -->
-                <a class="prescrip-links" href="{% url 'vetprofiles:profile' %}">Your Profile</a>
-                <a class="prescrip-links" href="{% url 'prescriptions:drugs' %}">Drugs</a>
-                <a class="prescrip-links" href="{% url 'records:records' %}">Records</a>
         </div>
     </div>
 </section>

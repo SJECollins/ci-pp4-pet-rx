@@ -5,8 +5,8 @@
 <!-- Edit note form in modal-->
 <form hx-post="{{ request.path }}" class="modal-content">
     {% csrf_token %}
-    <div class="modal-header">
-        <h3 class="headings">Edit Notes</h3>
+    <div class="modal-header justify-content-center">
+        <h3 class="subheadings">Edit Notes</h3>
     </div>
     <div class="modal-body mx-auto">
         {{ edit_notes|crispy }}

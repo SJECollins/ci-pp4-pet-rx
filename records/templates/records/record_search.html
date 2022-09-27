@@ -15,7 +15,7 @@
         <form method="GET" action="{% url 'records:record_search' %}">
             {% csrf_token %}
             <input type="text" name="query" placeholder="Search by name">
-            <button type="submit" class="pet-btns">Search</button>
+            <button type="submit" class="pet-btns" aria-label="Search">Search</button>
         </form>
     </div>
 </div>

@@ -3,10 +3,9 @@
 <!-- Detailed prescription template -->
 <div class="modal-content">
     <div class="modal-header">
-        <h3 class="headings">Prescription for {{ prescription.animal }}</h3>
-        <!-- Warning user about time limit for deletion-->
-        <small><em>You may delete prescriptions up to 24 hours after creating.</em></small>
+        <h3 class="subheadings">Prescription for {{ prescription.animal }}</h3>
     </div>
+    
     <div class="modal-body">
         <!-- Prescription details-->
         <table>
@@ -51,20 +50,28 @@
                 <td>{{ prescription.date|date:'d/m/y' }}</td>
             </tr>
         </table>
+        <small><em>You may delete your prescriptions up to 24 hours after creation.</em></small>
+        <br>
         <!-- Delete option if user is prescribing vet and within time limit -->
+        <div class="float-end">
         {% if user == prescription.vet and prescription.under_day %}
-        <a class="pet-btns"
+        <a class="pet-btns sm-btns"
         hx-get="{% url 'prescriptions:delete_prescrip' prescrip_id=prescription.id %}"
-        hx-target="#modal-dialog">Delete</a>
+        hx-target="#modal-dialog"
+        aria-label="Delete prescription">Delete</a>
         {% else %}
-        <p>You may not delete this prescription.</p>
+        <small>You may not delete this prescription.</small>
         {% endif %}
+        <button type="button" class="pet-btns sm-btns" data-bs-dismiss="modal">Close</button>
+        </div>
     </div>
     <!-- Quick links back -->
-    <div class="modal-footer">
-        <a href="{% url 'vetprofiles:profile' %}">Your Profile</a>
-        <a href="{% url 'records:animal_profile' prescription.animal.id %}">{{ prescription.animal.name }}'s Record</a>
-        <a href="{% url 'records:records' %}">Records</a>
+    <div class="modal-footer justify-content-center">
+        <a class="pet-links" href="{% url 'vetprofiles:profile' %}" aria-label="Go to your profile">Your Profile</a>
+        <span>|</span>
+        <a class="pet-links" href="{% url 'records:animal_profile' prescription.animal.id %}" aria-label="Go to animal profile">{{ prescription.animal.name }}'s Record</a>
+        <span>|</span>
+        <a class="pet-links" href="{% url 'records:records' %}" aria-label="Go to records page">Records</a>
     </div>
 
     {% endblock %}
