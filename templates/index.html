@@ -3,47 +3,55 @@
 
 {% if user.is_authenticated %}
 <!-- if user is registered: -->
-    <section class="container-md">
-        <div class="align-middle">
-            <!-- Greet logged in user  -->
-            <h1>Welcome, {{ user.first_name }} {{ user.last_name }}!</h1>
-            <h4>Go To:</h4>
-            <ul>
-                <!-- Quick links to main features -->
-                <li class="list-space">
-                    <a class="pet-links bg-links" href="{% url 'vetprofiles:profile' %}" aria-label="Go to your profile">Your Profile</a>
-                </li>
-                <li class="list-space">
-                    <a class="pet-links bg-links" href="{% url 'records:add_animal' %}" aria-label="Go to new animal">Add Animal</a>
-                </li>
-                <li class="list-space">
-                    <a class="pet-links bg-links" href="{% url 'records:records' %}" aria-label="Go to animal records">Animal Records</a>
-                </li>
-            </ul>
+<section class="container-md">
+    <div class="align-middle">
+        <!-- Greet logged in user  -->
+        <h1>Welcome, {{ user.first_name }} {{ user.last_name }}!</h1>
+        <h4>Go To:</h4>
+        <ul>
+            <!-- Quick links to main features -->
+            <li class="list-space">
+                <a class="pet-links bg-links" href="{% url 'vetprofiles:profile' %}"
+                    aria-label="Go to your profile">Your Profile</a>
+            </li>
+            <li class="list-space">
+                <a class="pet-links bg-links" href="{% url 'records:add_animal' %}" aria-label="Go to new animal">Add
+                    Animal</a>
+            </li>
+            <li class="list-space">
+                <a class="pet-links bg-links" href="{% url 'records:records' %}"
+                    aria-label="Go to animal records">Animal Records</a>
+            </li>
+        </ul>
+    </div>
+</section>
+<hr>
+<section class="container-md">
+    <div class="row">
+        <!-- Introduction to app -->
+        <h2>New to PetRx?</h2>
+        <div class="col-lg-4">
+            <h4 class="subheadings">Your Profile</h4>
+            <p>Go to <a class="pet-links" href="{% url 'vetprofiles:profile' %}">your profile</a> to view or edit your
+                details.</p>
+            <p>You can also review all your previous prescriptions here.</p>
         </div>
-    </section>
-    <hr>
-    <section class="container-md">
-        <div class="row">
-            <!-- Introduction to app -->
-            <h2>New to PetRx?</h2>
-            <div class="col-lg-4">
-                <h4 class="subheadings">Your Profile</h4>
-                <p>Go to <a class="pet-links" href="{% url 'vetprofiles:profile' %}">your profile</a> to view or edit your details.</p>
-                <p>You can also review all your previous prescriptions here.</p>
-            </div>
-             <div class="col-lg-4">
-                <h4 class="subheadings">Add Animal</h4>
-                <p>To register a new animal on the database, fill in their details on the <a class="pet-links" href="{% url 'records:add_animal' %}">Add Animal</a> page.</p>
-                <p>Then you will be able to visit their record to prescribe their medications.</p>
-            </div>
-             <div class="col-lg-4">
-                <h4 class="subheadings">Animal Records</h4>
-                <p>Go to the <a class="pet-links" href="{% url 'records:records' %}">Records</a> page to find an animal's record, where you can view or edit their details, add a prescription, and view all their previous medications.</p>
-                <p>From records, you can also access a list of all the <a class="pet-links" href="{% url 'prescriptions:drugs' %}">available drugs</a> in your practice to review.</p>
-            </div>
+        <div class="col-lg-4">
+            <h4 class="subheadings">Add Animal</h4>
+            <p>To register a new animal on the database, fill in their details on the <a class="pet-links"
+                    href="{% url 'records:add_animal' %}">Add Animal</a> page.</p>
+            <p>Then you will be able to visit their record to prescribe their medications.</p>
         </div>
-    </section>
+        <div class="col-lg-4">
+            <h4 class="subheadings">Animal Records</h4>
+            <p>Go to the <a class="pet-links" href="{% url 'records:records' %}">Records</a> page to find an animal's
+                record, where you can view or edit their details, add a prescription, and view all their previous
+                medications.</p>
+            <p>From records, you can also access a list of all the <a class="pet-links"
+                    href="{% url 'prescriptions:drugs' %}">available drugs</a> in your practice to review.</p>
+        </div>
+    </div>
+</section>
 
 {% else %}
 <!-- If user not registered: -->
@@ -68,7 +76,8 @@
     <div class="row">
         <div class="col-lg-4">
             <h3 class="subheadings">About PetR<sub>x</sub></h3>
-            <p>PetR<sub>x</sub> was created with safety in mind. Taking human error out of medication calculations, PetR<sub>x</sub> makes it easy to ensure consistent dosing across your entire clinic.</p>
+            <p>PetR<sub>x</sub> was created with safety in mind. Taking human error out of medication calculations,
+                PetR<sub>x</sub> makes it easy to ensure consistent dosing across your entire clinic.</p>
             <p>Visit our <a class="pet-links" href="{% url 'vetprofiles:about' %}">about page</a> to learn more.</p>
         </div>
         <div class="col-lg-4">
@@ -78,7 +87,8 @@
         <div class="col-lg-4">
             <h3 class="subheadings">Have a Question?</h3>
             <p>Interested in using PetR<sub>x</sub> in your practice?</p>
-            <p>Visit our <a class="pet-links" href="{% url 'vetprofiles:contact' %}">contact page</a> to get in contact and we'll answer any questions you have.</p>
+            <p>Visit our <a class="pet-links" href="{% url 'vetprofiles:contact' %}">contact page</a> to get in contact
+                and we'll answer any questions you have.</p>
         </div>
     </div>
 </section>
