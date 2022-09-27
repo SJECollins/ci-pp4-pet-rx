@@ -74,10 +74,6 @@ a {
     text-decoration: none;
 }
 
-.list-space {
-    padding: 0.75em 0;
-}
-
 .navbar-links {
     cursor: pointer;
     display: block;
@@ -138,6 +134,16 @@ a {
 .sm-btns {
     font-weight: 400;
     margin: 0.5em;
+}
+
+/* Spacing */
+
+.list-space {
+    padding: 0.75em 0;
+}
+
+.bottom-space {
+    padding-bottom: 4em;
 }
 
 /* Nav styling */
