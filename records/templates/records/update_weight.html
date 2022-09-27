@@ -14,13 +14,13 @@
 
     <!-- Form errors-->
     {% for field in update_weight %}
-        {% for error in field.errors %}
-            <p>{{ error }}</p>
-        {% endfor %}
+    {% for error in field.errors %}
+    <p>{{ error }}</p>
+    {% endfor %}
     {% endfor %}
 
     {% if update_weight.non_field_errors %}
-        <p>{{ update_weight.non_field_errors }}</p>
+    <p>{{ update_weight.non_field_errors }}</p>
     {% endif %}
     <div class="modal-footer">
         <input class="pet-btns" type="submit" value="Update">
