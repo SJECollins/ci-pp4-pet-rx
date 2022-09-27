@@ -5,7 +5,7 @@
 <section>
     <div class="container">
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-8">
                 <!-- User details -->
                 <h3 class="headings">Profile for {{ user.first_name }} {{ user.last_name }}</h3>
                 <table>
@@ -23,7 +23,7 @@
                     </tr>
                 </table>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-4">
                 <div>
                     <!-- Links to edit profiles, go to records-->
                     <h4 class="subheadings">Options:</h4>
@@ -43,6 +43,7 @@
         </div>
     </div>
 </section>
+<hr>
 <!-- Display prescriptions of vet -->
 <section hx-get="{% url 'prescriptions:vet_prescrip'%}" hx-trigger="load">
     {% include 'prescriptions/list_prescrip.html' %}

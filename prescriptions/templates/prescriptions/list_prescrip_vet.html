@@ -1,29 +1,32 @@
 <!-- Vet's prescription list -->
 <h3 class="subheadings">Prescription History:</h3>
 <br>
-<p><em>You may delete prescriptions up to 24 hours after creation.</em></p>
+<p><em>You may delete your prescriptions up to 24 hours after creation.</em></p>
 <!-- Prescription list table -->
-<table>
-    <tr>
-        <th>Animal</th>
-        <th class="lg-prescrip">Dose</th>
-        <th class="lg-prescrip">Drug</th>
-        <th>Date</th>
-        <th>View</th>
-    </tr>
-    {% for prescription in prescrip_list %}
-    <tr>
-        <td>{{ prescription.animal }}</td>
-        <td class="lg-prescrip">{{ prescription.dose }}{{ prescription.measure }}</td>
-        <td class="lg-prescrip">{{ prescription.drug }}</td>
-        <td>{{ prescription.date|date:'d/m/y' }}</td>
-        <!-- Link to detailed view -->
-        <td><a hx-get="{% url 'prescriptions:detail_prescrip' prescrip_id=prescription.id %}" hx-target="#modal-dialog"
-                class="prescrip-links">View</a></td>
-    </tr>
-    {% empty %}
-    <!-- If nothing prescribed -->
-    <p>No prescriptions</p>
-    {% endfor %}
-</table>
+<div class="prescrip-contain">
+    <table>
+        <thead>
+            <th>Animal</th>
+            <th class="lg-prescrip">Dose</th>
+            <th class="lg-prescrip">Drug</th>
+            <th>Date</th>
+            <th>View</th>
+        </thead>
+        <tbody>
+            {% for prescription in prescrip_list %}
+            <tr>
+                <td>{{ prescription.animal }}</td>
+                <td class="lg-prescrip">{{ prescription.dose }}{{ prescription.measure }}</td>
+                <td class="lg-prescrip">{{ prescription.drug }}</td>
+                <td>{{ prescription.date|date:'d/m/y' }}</td>
+                <!-- Link to detailed view -->
+                <td><a hx-get="{% url 'prescriptions:detail_prescrip' prescrip_id=prescription.id %}"
+                        hx-target="#modal-dialog" class="pet-links">View</a></td>
+            </tr>
+        </tbody>
+        {% empty %}
+        <!-- If nothing prescribed -->
+        <p>No prescriptions</p>
+        {% endfor %}
+    </table>
 </div>

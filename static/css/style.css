@@ -179,6 +179,23 @@ th, td {
     justify-content: space-evenly;
 }
 
+/* Prescription view styling */
+
+.prescrip-contain {
+    width: 100%;
+    max-height: 300px;
+    overflow-y: scroll;
+}
+
+.prescrip-contain thead th {
+    position: sticky;
+    top: 0;
+}
+
+th {
+    background-color: var(--site-white);
+}
+
 /* Footer styling */
 footer {
     background-color: white;
@@ -191,7 +208,7 @@ footer {
 }
 
 /* Media Queries */
-@media (max-width: 500px) {
+@media (max-width: 575px) {
     .lg-prescrip {
         display: none;
     }
