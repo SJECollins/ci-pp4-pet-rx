@@ -140,12 +140,6 @@ a {
     margin: 0.5em;
 }
 
-/* Table styling */
-
-th, td {
-    padding: 0.5em;
-}
-
 /* Nav styling */
 #navbar {
     margin-bottom: 1em;
@@ -179,7 +173,7 @@ th, td {
     justify-content: space-evenly;
 }
 
-/* Prescription view styling */
+/* Table styling */
 
 .prescrip-contain {
     width: 100%;
@@ -190,6 +184,10 @@ th, td {
 .prescrip-contain thead th {
     position: sticky;
     top: 0;
+}
+
+th, td {
+    padding: 0.5em;
 }
 
 th {

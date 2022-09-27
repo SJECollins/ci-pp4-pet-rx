@@ -30,7 +30,7 @@
     <h4 class="subheadings">All Records:</h4>
     {% if page_obj %}
     {% for record in page_obj %}
-    <p><a class="pet-links" href="{% url 'records:animal_profile' animal_id=record.id %}"
+    <p><a class="pet-links bg-links" href="{% url 'records:animal_profile' animal_id=record.id %}"
             aria-label="Go to record">{{ record }}</a></p>
     {% endfor %}
     {% else %}

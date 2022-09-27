@@ -27,7 +27,7 @@
     <h4 class="subheadings">All Drugs:</h4>
     {% if page_obj %}
     {% for drug in page_obj %}
-    <p><a class="pet-links" href="{% url 'prescriptions:detail_drug' drug_id=drug.id %}"
+    <p><a class="pet-links bg-links" href="{% url 'prescriptions:detail_drug' drug_id=drug.id %}"
             aria-label="Go to drug detail">{{ drug }}</a></p>
     {% endfor %}
     {% else %}
