@@ -5,25 +5,25 @@
 <div class="prescrip-contain">
     <!-- Prescription detail table-->
     <table>
-        <tr>
+        <thead>
             <th class="lg-prescrip">Dose</th>
             <th>Drug</th>
             <th class="lg-prescrip">Vet</th>
             <th>Date</th>
             <th>View</th>
-        </tr>
-        {% for prescription in prescrip_list %}
-        <tr>
-            <td class="lg-prescrip">{{ prescription.dose }}{{ prescription.measure }}</td>
-            <td>{{ prescription.drug }}</td>
-            <td class="lg-prescrip">{{ prescription.vet }}</td>
-            <td>{{ prescription.date|date:'d/m/y' }}</td>
-            <!-- Link to detailed view -->
-            <td><a 
-            hx-get="{% url 'prescriptions:detail_prescrip' prescrip_id=prescription.id %}"
-            hx-target="#modal-dialog"
-            class="pet-links">View</a></td>
-        </tr>
+        </thead>
+        <tbody>
+            {% for prescription in prescrip_list %}
+            <tr>
+                <td class="lg-prescrip">{{ prescription.dose }}{{ prescription.measure }}</td>
+                <td>{{ prescription.drug }}</td>
+                <td class="lg-prescrip">{{ prescription.vet }}</td>
+                <td>{{ prescription.date|date:'d/m/y' }}</td>
+                <!-- Link to detailed view -->
+                <td><a hx-get="{% url 'prescriptions:detail_prescrip' prescrip_id=prescription.id %}"
+                        hx-target="#modal-dialog" class="pet-links" aria-label="View prescription">View</a></td>
+            </tr>
+        </tbody>
         {% empty %}
         <!-- If nothing prescribed -->
         <p>No prescriptions</p>

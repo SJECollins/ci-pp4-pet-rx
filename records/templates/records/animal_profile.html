@@ -3,13 +3,13 @@
 
 <!-- Animal profile -->
 <!-- Return to records-->
-<a class="page-links" href="{% url 'records:records' %}" aria-label="Go to records">Go To Records</a>
+<a class="pet-links" href="{% url 'records:records' %}" aria-label="Go to records">Go To Records</a>
 
 <!-- Animal details -->
 <section>
     <div class="container">
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-8">
                 <h3>Record for {{ profile }}</h3>
                 <table>
                     <tr>
@@ -42,7 +42,7 @@
                     </tr>
                 </table>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-4">
                 <!-- Quick links-->
                 <div>
                     <h4 class="subheadings">Options:</h4>
@@ -67,13 +67,14 @@
                         </ul>
                     </div>
                 </div>
+                <hr>
                 <div>
                     <!-- Notes for animal -->
                     <h4 class="subheadings">Notes:</h4>
                     <p>
                         {{ profile.note|default:"No notes or warnings." }}
                     </p>
-                    <a class="pet-btns sm-btns"
+                    <a class="pet-btns sm-btns float-end"
                     hx-get="{% url 'records:edit_notes' animal_id=profile.id %}"
                     hx-target="#modal-dialog"
                     aria-label="Edit notes">Edit Notes</a>
@@ -82,6 +83,7 @@
         </div>
     </div>
 </section>
+<hr>
 <!-- Display prescriptions for animal -->
 <section id="animal-prescrip-list" hx-get="{% url 'prescriptions:list_prescrip' animal_id=profile.id %}" hx-trigger="load">
     {% include 'prescriptions/list_prescrip.html' %}

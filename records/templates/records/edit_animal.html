@@ -4,26 +4,28 @@
 {% load crispy_forms_tags %}
 
 <!-- Edit profile form-->
-<h2>Update Account</h2>
-<form method="POST">
-    {% csrf_token %}
-    <!-- Django form-->
-    {{ edit_form|crispy }}
+<div class="container-md d-flex justify-content-center">
+    <div class="col-md-4">
+        <h2 class="subheadings">Edit Animal Record</h2>
+        <form method="POST">
+            {% csrf_token %}
+            <!-- Django form-->
+            {{ edit_form|crispy }}
 
-    <!-- Form errors-->
-    {% for field in edit_form %}
-        {% for error in field.errors %}
+            <!-- Form errors-->
+            {% for field in edit_form %}
+            {% for error in field.errors %}
             <p>{{ error }}</p>
-        {% endfor %}
-    {% endfor %}
+            {% endfor %}
+            {% endfor %}
 
-    {% if edit_form.non_field_errors %}
-        <p>{{ edit_form.non_field_errors }}</p>
-    {% endif %}
+            {% if edit_form.non_field_errors %}
+            <p>{{ edit_form.non_field_errors }}</p>
+            {% endif %}
 
-    <input class="pet-btns" type="submit">Update</input>
-
-</form>
-
+            <button class="pet-btns" type="submit">Update</button>
+        </form>
+    </div>
+</div>
 
 {% endblock %}

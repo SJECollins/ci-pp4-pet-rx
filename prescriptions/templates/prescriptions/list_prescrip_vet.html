@@ -21,7 +21,7 @@
                 <td>{{ prescription.date|date:'d/m/y' }}</td>
                 <!-- Link to detailed view -->
                 <td><a hx-get="{% url 'prescriptions:detail_prescrip' prescrip_id=prescription.id %}"
-                        hx-target="#modal-dialog" class="pet-links">View</a></td>
+                        hx-target="#modal-dialog" class="pet-links" aria-label="View prescription">View</a></td>
             </tr>
         </tbody>
         {% empty %}

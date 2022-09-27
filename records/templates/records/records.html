@@ -4,9 +4,9 @@
 <!-- Records page -->
 <section>
     <h3>Records:</h3>
-    <!-- Add record -->
-    <a class="page-links" href="{% url 'records:add_animal' %}" aria-label="Add a record">Add Record</a>
-    <a class="page-links" href="{% url 'prescriptions:drugs' %}" aria-label="Go to available drugs">To Available Drugs</a>
+    <!-- Add record or go to available drugs -->
+    <a class="pet-links" href="{% url 'records:add_animal' %}" aria-label="Add a record">Add Record</a>
+    <a class="pet-links" href="{% url 'prescriptions:drugs' %}" aria-label="Go to available drugs">To Available Drugs</a>
     <!-- Record search-->
     <form method="GET" action="{% url 'records:record_search' %}">
         {% csrf_token %}
@@ -26,11 +26,12 @@
         <p>No records</p>
     {% endif %}
 
+    <!-- Pagination -->
     <div class="pagination">
         <span class="step-links">
             {% if page_obj.has_previous %}
-                <a href="?page=1">&laquo; first</a>
-                <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+                <a href="?page=1" aria-label="First page">&laquo; first</a>
+                <a href="?page={{ page_obj.previous_page_number }}" aria-label="Previous page">previous</a>
             {% endif %}
     
             <span class="current">
@@ -38,13 +39,11 @@
             </span>
     
             {% if page_obj.has_next %}
-                <a href="?page={{ page_obj.next_page_number }}">next</a>
-                <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+                <a href="?page={{ page_obj.next_page_number }}" aria-label="Next page">next</a>
+                <a href="?page={{ page_obj.paginator.num_pages }}" aria-label="Last page">last &raquo;</a>
             {% endif %}
         </span>
     </div>
-    
-
 </section>
 
 {% endblock %}
