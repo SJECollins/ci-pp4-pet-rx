@@ -1,15 +1,24 @@
 {% extends 'base.html' %}
 {% block content %}
-<a class="page-links" href="{% url 'records:records' %}" aria-label="Go to records">To Records</a>
-<a class="page-links" href="{% url 'prescriptions:drugs' %}" aria-label="Go to available drugs">To Available Drugs</a>
-<!-- Drug search page-->
-<h3> Search Results </h3>
-<!-- Search input -->
-<form method="GET" action="{% url 'prescriptions:drug_search' %}">
-    {% csrf_token %}
-    <input type="text" name="search" placeholder="Search by name or category">
-    <input type="submit">
-</form>
+<div class="row">
+    <div class="col-md-8">
+        <a class="pet-links" href="{% url 'records:records' %}" aria-label="Go to records">To Records</a>
+        <span>|</span>
+        <a class="pet-links" href="{% url 'prescriptions:drugs' %}" aria-label="Go to available drugs">To Available
+            Drugs</a>
+        <br>
+        <!-- Drug search page-->
+        <h3 class="subheadings">Search Results:</h3>
+    </div>
+    <div class="col-md-4">
+        <!-- Search input -->
+        <form method="GET" action="{% url 'prescriptions:drug_search' %}">
+            {% csrf_token %}
+            <input type="text" name="search" placeholder="Enter name or category">
+            <input type="submit">
+        </form>
+    </div>
+</div>
 <!-- Display drug list results -->
 {% if drug_list %}
 <table>
@@ -19,8 +28,7 @@
     </tr>
     {% for drug in drug_list %}
     <tr>
-        <th><a class="prescrip-links"
-            href="{% url 'prescriptions:detail_drug' drug_id=drug.id %}">{{ drug.name }}</a>
+        <th><a class="pet-links" href="{% url 'prescriptions:detail_drug' drug_id=drug.id %}">{{ drug.name }}</a>
         <th>{{ drug.category }}</th>
     <tr>
         {% endfor %}
@@ -31,8 +39,10 @@
 {% endif %}
 <hr>
 <!-- Return to drugss page -->
-<a class="prescrip-links" href="{% url 'prescriptions:drugs' %}">Drugs</a>
-<a class="prescrip-links" href="{% url 'records:records' %}">Records</a>
-
+<div class="float-end">
+    <a class="pet-links" href="{% url 'prescriptions:drugs' %}">Back to Drugs</a>
+    <span>|</span>
+    <a class="pet-links" href="{% url 'records:records' %}">To Records</a>
+</div>
 
 {% endblock %}

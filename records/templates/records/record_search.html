@@ -2,45 +2,45 @@
 {% block content %}
 <div class="row">
     <div class="col-md-8">
-<a class="pet-links" href="{% url 'records:records' %}" aria-label="Go to records">To Records</a>
-<span>|</span>
-<a class="pet-links" href="{% url 'prescriptions:drugs' %}" aria-label="Go to available drugs">To Available Drugs</a>
-<br>
-<!-- Record search page-->
-<h3 class="subheadings">Search Results:</h3>
-</div>
-
-<div class="col-md-4">
-<!-- Search input -->
-<form method="GET" action="{% url 'records:record_search' %}">
-    {% csrf_token %}
-    <input type="text" name="query" placeholder="Search by name">
-    <button type="submit" class="pet-btns">Search</button>
-</form>
-</div>
+        <a class="pet-links" href="{% url 'records:records' %}" aria-label="Go to records">To Records</a>
+        <span>|</span>
+        <a class="pet-links" href="{% url 'prescriptions:drugs' %}" aria-label="Go to available drugs">To Available
+            Drugs</a>
+        <br>
+        <!-- Record search page-->
+        <h3 class="subheadings">Search Results:</h3>
+    </div>
+    <div class="col-md-4">
+        <!-- Search input -->
+        <form method="GET" action="{% url 'records:record_search' %}">
+            {% csrf_token %}
+            <input type="text" name="query" placeholder="Search by name">
+            <button type="submit" class="pet-btns">Search</button>
+        </form>
+    </div>
 </div>
 <!-- Display record list results -->
 {% if record_list %}
 <div class="prescrip-contain">
-<table>
-    <thead>
-        <th>Animal</th>
-        <th class="lg-prescrip">Species</th>
-        <th>Breed</th>
-        <th>DOB</th>
-    </thead>
-    <tbody>
-    {% for record in record_list %}
-    <tr>
-        <th><a class="pet-links"
-            href="{% url 'records:animal_profile' animal_id=record.id %}" aria-label="Go to record">{{ record }}</a>
-        <th class="lg-prescrip">{{ record.species }}</th>
-        <th>{{ record.breed }}</th>
-        <th>{{ record.date_of_birth|date:'d/m/y' }}</th>
-        </tr>
-        {% endfor %}
-    </tbody>
-</table>
+    <table>
+        <thead>
+            <th>Animal</th>
+            <th class="lg-prescrip">Species</th>
+            <th>Breed</th>
+            <th>DOB</th>
+        </thead>
+        <tbody>
+            {% for record in record_list %}
+            <tr>
+                <th><a class="pet-links" href="{% url 'records:animal_profile' animal_id=record.id %}"
+                        aria-label="Go to record">{{ record }}</a>
+                <th class="lg-prescrip">{{ record.species }}</th>
+                <th>{{ record.breed }}</th>
+                <th>{{ record.date_of_birth|date:'d/m/y' }}</th>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
 </div>
 {% else %}
 <!-- If no results -->
@@ -48,6 +48,6 @@
 {% endif %}
 <hr>
 <!-- Return to Records page -->
-    <a class="pet-links float-end" href="{% url 'records:records' %}" aria-label="Go to records list">Back to Records</a>
+<a class="pet-links float-end" href="{% url 'records:records' %}" aria-label="Go to records list">Back to Records</a>
 
 {% endblock %}

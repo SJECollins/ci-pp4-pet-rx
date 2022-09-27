@@ -3,23 +3,32 @@
 
 <!-- Drug page -->
 <section>
-    <h3>Available Drugs:</h3>
-    <!-- Back to records -->
-    <a class="page-links" href="{% url 'records:records' %}" aria-label="Go to records">To Records</a>
-    <!-- Drug search-->
-    <form method="GET" action="{% url 'prescriptions:drug_search' %}" aria-label="Search">
-        {% csrf_token %}
-        <input type="text" name="search" placeholder="Search by name or category">
-        <input type="submit">
-    </form>
+    <div class="row">
+        <div class="col-md-8">
+            <h3 class="subheadings">Available Drugs:</h3>
+            <br>
+            <!-- Back to records -->
+            <a class="pet-links" href="{% url 'records:records' %}" aria-label="Go to records">To Records</a>
+        </div>
+
+        <div class="col-md-4">
+            <!-- Drug search-->
+            <form method="GET" action="{% url 'prescriptions:drug_search' %}" aria-label="Search">
+                {% csrf_token %}
+                <input type="text" name="search" placeholder="Enter name or category">
+                <button type="submit" class="pet-btns">Search</button>
+            </form>
+        </div>
+    </div>
 </section>
+<hr>
 <!-- Display list of drugss, paginated -->
 <section>
-    <h4>All Drugs</h4>
+    <h4 class="subheadings">All Drugs:</h4>
     {% if page_obj %}
     {% for drug in page_obj %}
-    <p><a class="record-links"
-        href="{% url 'prescriptions:detail_drug' drug_id=drug.id %}" aria-label="Go to drug detail">{{ drug }}</a></p>
+    <p><a class="pet-links" href="{% url 'prescriptions:detail_drug' drug_id=drug.id %}"
+            aria-label="Go to drug detail">{{ drug }}</a></p>
     {% endfor %}
     {% else %}
     <p>No drugss</p>
@@ -28,8 +37,8 @@
     <div class="pagination">
         <span class="step-links">
             {% if page_obj.has_previous %}
-            <a href="?page=1">&laquo; first</a>
-            <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+            <a href="?page=1" aria-label="First page">&laquo; first</a>
+            <a href="?page={{ page_obj.previous_page_number }}" aria-label="Previous page">previous</a>
             {% endif %}
 
             <span class="current">
@@ -37,8 +46,8 @@
             </span>
 
             {% if page_obj.has_next %}
-            <a href="?page={{ page_obj.next_page_number }}">next</a>
-            <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+            <a href="?page={{ page_obj.next_page_number }}" aria-label="Next page">next</a>
+            <a href="?page={{ page_obj.paginator.num_pages }}" aria-label="Last page">last &raquo;</a>
             {% endif %}
         </span>
     </div>

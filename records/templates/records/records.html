@@ -3,25 +3,25 @@
 
 <!-- Records page -->
 <section>
-    
     <div class="row">
-    <div class="col-md-8">
-        <h3 class="subheadings">Records:</h3>
-        <br>
-    <!-- Add record or go to available drugs -->
-        <a class="pet-links" href="{% url 'records:add_animal' %}" aria-label="Add an">Add Animal</a>
-        <span>|</span>
-        <a class="pet-links" href="{% url 'prescriptions:drugs' %}" aria-label="Go to available drugs">To Available Drugs</a>
-    </div>
+        <div class="col-md-8">
+            <h3 class="subheadings">Records:</h3>
+            <br>
+            <!-- Add record or go to available drugs -->
+            <a class="pet-links" href="{% url 'records:add_animal' %}" aria-label="Add an">Add Animal</a>
+            <span>|</span>
+            <a class="pet-links" href="{% url 'prescriptions:drugs' %}" aria-label="Go to available drugs">To Available
+                Drugs</a>
+        </div>
 
-    <div class="col-md-4">
-    <!-- Record search-->
-    <form method="GET" action="{% url 'records:record_search' %}">
-        {% csrf_token %}
-        <input type="text" name="query" placeholder="Search by name" aria-label="Search">
-        <button type="submit" class="pet-btns">Search</button>
-    </form>
-    </div>
+        <div class="col-md-4">
+            <!-- Record search-->
+            <form method="GET" action="{% url 'records:record_search' %}">
+                {% csrf_token %}
+                <input type="text" name="query" placeholder="Search by name" aria-label="Search">
+                <button type="submit" class="pet-btns">Search</button>
+            </form>
+        </div>
     </div>
 </section>
 <hr>
@@ -29,29 +29,29 @@
 <section>
     <h4 class="subheadings">All Records:</h4>
     {% if page_obj %}
-        {% for record in page_obj %}
-        <p><a class="pet-links"
-            href="{% url 'records:animal_profile' animal_id=record.id %}" aria-label="Go to record">{{ record }}</a></p>
-        {% endfor %}
+    {% for record in page_obj %}
+    <p><a class="pet-links" href="{% url 'records:animal_profile' animal_id=record.id %}"
+            aria-label="Go to record">{{ record }}</a></p>
+    {% endfor %}
     {% else %}
-        <p>No records</p>
+    <p>No records</p>
     {% endif %}
 
     <!-- Pagination -->
     <div class="pagination">
         <span class="step-links">
             {% if page_obj.has_previous %}
-                <a href="?page=1" aria-label="First page">&laquo; first</a>
-                <a href="?page={{ page_obj.previous_page_number }}" aria-label="Previous page">previous</a>
+            <a href="?page=1" aria-label="First page">&laquo; first</a>
+            <a href="?page={{ page_obj.previous_page_number }}" aria-label="Previous page">previous</a>
             {% endif %}
-    
+
             <span class="current">
                 Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
             </span>
-    
+
             {% if page_obj.has_next %}
-                <a href="?page={{ page_obj.next_page_number }}" aria-label="Next page">next</a>
-                <a href="?page={{ page_obj.paginator.num_pages }}" aria-label="Last page">last &raquo;</a>
+            <a href="?page={{ page_obj.next_page_number }}" aria-label="Next page">next</a>
+            <a href="?page={{ page_obj.paginator.num_pages }}" aria-label="Last page">last &raquo;</a>
             {% endif %}
         </span>
     </div>
