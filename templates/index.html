@@ -2,11 +2,14 @@
 {% block content %}
 
 {% if user.is_authenticated %}
+    
 <!-- if user is registered: -->
 <section class="container-md">
     <div class="align-middle">
+        
         <!-- Greet logged in user  -->
         <h1>Welcome, {{ user.first_name }} {{ user.last_name }}!</h1>
+        {% if user.is_active %}
         <h4 class="subheadings">Go To:</h4>
         <ul>
             <!-- Quick links to main features -->
@@ -23,6 +26,13 @@
                     aria-label="Go to animal records">Animal Records</a>
             </li>
         </ul>
+        <!--User registered but not active yet-->
+        {% elif not user.is_active %}
+        <p class="text-center">Your account is pending approval.
+        <br>Please contact your administrator for full access to PetR<sub>x</sub>.
+        <br><a class="pet-links" href="{% url 'vetprofiles:logout' %}">Logout</a>
+        </p>
+        {% endif %}
     </div>
 </section>
 <hr>

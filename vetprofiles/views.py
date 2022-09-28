@@ -103,7 +103,10 @@ def profile(request):
     Renders user profile.
     Redirects to login page if user not logged in.
     """
-    if not request.user.is_authenticated:
+    user = request.user
+    if not user.is_active:
+        return redirect('vetprofiles:index')
+    elif not user.is_authenticated:
         return redirect('vetprofiles:login')
     return render(request, 'vetprofiles/profile.html')
 

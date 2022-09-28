@@ -12,7 +12,8 @@ def records(request):
     Retrieve list of records to display, paginated
     Pagination from official docs, see link in README credits
     """
-    if not request.user.is_authenticated:
+    user = request.user
+    if not user.is_authenticated or not user.is_active:
         return render(request, 'vetprofiles/restricted.html')
     else:
         record_list = Record.objects.all()
@@ -44,6 +45,8 @@ def add_animal(request):
     Create a new animal record.
     Redirects user back to records page.
     """
+    if not request.user.is_active:
+        return render(request, 'vetprofiles/restricted.html')
     if request.method == 'POST':
         form = RecordForm(request.POST)
         if form.is_valid():

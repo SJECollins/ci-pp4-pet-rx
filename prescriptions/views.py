@@ -15,7 +15,8 @@ def drugs(request):
     Retrieve list of drugss to display, paginated
     Pagination from official docs, see link in README credits
     """
-    if not request.user.is_authenticated:
+    user = request.user
+    if not user.is_authenticated or not user.is_active:
         return render(request, 'vetprofiles/restricted.html')
     else:
         drug_list = Drug.objects.all()

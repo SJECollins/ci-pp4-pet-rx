@@ -98,7 +98,7 @@ DATABASES = {
 AUTH_USER_MODEL = 'vetprofiles.Vet'
 
 AUTHENTICATION_BACKENDS = (
-    ('django.contrib.auth.backends.ModelBackend'),
+    ('django.contrib.auth.backends.AllowAllUsersModelBackend'),
 )
 
 LOGIN_REDIRECT_URL = '/'
