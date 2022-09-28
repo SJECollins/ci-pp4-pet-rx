@@ -15,13 +15,16 @@ def drugs(request):
     Retrieve list of drugss to display, paginated
     Pagination from official docs, see link in README credits
     """
-    drug_list = Drug.objects.all()
-    paginator = Paginator(drug_list, 10)
+    if not request.user.is_authenticated:
+        return render(request, 'vetprofiles/restricted.html')
+    else:
+        drug_list = Drug.objects.all()
+        paginator = Paginator(drug_list, 10)
 
-    page_number = request.GET.get('page')
-    page_obj = paginator.get_page(page_number)
-    context = {'page_obj': page_obj}
-    return render(request, 'prescriptions/drugs.html', context)
+        page_number = request.GET.get('page')
+        page_obj = paginator.get_page(page_number)
+        context = {'page_obj': page_obj}
+        return render(request, 'prescriptions/drugs.html', context)
 
 
 def drug_search(request):

@@ -1,10 +1,14 @@
 {% extends 'base.html' %}
-
 {% block content %}
 
-<div class="container-md">
+<div class="container-md d-flex justify-content-center">
 	<div class="col-lg-8">
-		<p class="m-auto">Awaiting approval from administration to access your account.</p>
+		<p class="text-center">You are not authorised to access this page.</p>
+		<p class="text-center">If you have already registered with PetR<sub>x</sub>,
+			<br>please contact your administrator for approval.</p>
+		<p class="text-center">
+			<a class="pet-links" href="{% url 'vetprofiles:index' %}">Return Home</a>
+		</p>
 	</div>
 </div>
 

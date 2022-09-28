@@ -12,13 +12,16 @@ def records(request):
     Retrieve list of records to display, paginated
     Pagination from official docs, see link in README credits
     """
-    record_list = Record.objects.all()
-    paginator = Paginator(record_list, 10)
+    if not request.user.is_authenticated:
+        return render(request, 'vetprofiles/restricted.html')
+    else:
+        record_list = Record.objects.all()
+        paginator = Paginator(record_list, 10)
 
-    page_number = request.GET.get('page')
-    page_obj = paginator.get_page(page_number)
-    context = {'page_obj': page_obj}
-    return render(request, 'records/records.html', context)
+        page_number = request.GET.get('page')
+        page_obj = paginator.get_page(page_number)
+        context = {'page_obj': page_obj}
+        return render(request, 'records/records.html', context)
 
 
 def record_search(request):

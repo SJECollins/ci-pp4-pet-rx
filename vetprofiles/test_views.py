@@ -33,7 +33,7 @@ class TestVetprofiles(TestCase):
         response = self.client.get('/register/')
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'vetprofiles/register.html')
-    
+
     def test_get_login(self):
         response = self.client.get('/login/')
         self.assertEqual(response.status_code, 200)
