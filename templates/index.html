@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
+{% load static %}
 
 {% if user.is_authenticated %}
     
@@ -41,19 +42,19 @@
         <!-- Introduction to app -->
         <h2>New to PetRx?</h2>
         <div class="col-lg-4">
-            <h4 class="subheadings">Your Profile</h4>
+            <h4 class="subheadings"><i class="fa fa-user-doctor"></i> Your Profile</h4>
             <p>Go to <a class="pet-links" href="{% url 'vetprofiles:profile' %}">your profile</a> to view or edit your
                 details.</p>
             <p>You can also review all your previous prescriptions here.</p>
         </div>
         <div class="col-lg-4">
-            <h4 class="subheadings">Add Animal</h4>
+            <h4 class="subheadings"><i class="fa fa-plus"></i> Add Animal</h4>
             <p>To register a new animal on the database, fill in their details on the <a class="pet-links"
                     href="{% url 'records:add_animal' %}">Add Animal</a> page.</p>
             <p>Then you will be able to visit their record to prescribe their medications.</p>
         </div>
         <div class="col-lg-4">
-            <h4 class="subheadings">Animal Records</h4>
+            <h4 class="subheadings"><i class="fa-regular fa-file"></i> Animal Records</h4>
             <p>Go to the <a class="pet-links" href="{% url 'records:records' %}">Records</a> page to find an animal's
                 record, where you can view or edit their details, add a prescription, and view all their previous
                 medications.</p>
@@ -77,7 +78,7 @@
             </div>
         </div>
         <div class="col-md-4 text-center">
-            <img class="pics" src="#" alt="placeholder image">
+            <img class="pics" src="{% static 'images/cat-desktop.webp' %}" alt="placeholder image">
         </div>
     </div>
 </section>
@@ -85,17 +86,17 @@
 <section class="container-md">
     <div class="row">
         <div class="col-lg-4">
-            <h3 class="subheadings">About PetR<sub>x</sub></h3>
+            <h3 class="subheadings"><i class="fa-solid fa-circle-info"></i> About PetR<sub>x</sub></h3>
             <p>PetR<sub>x</sub> was created with safety in mind. Taking human error out of medication calculations,
                 PetR<sub>x</sub> makes it easy to ensure consistent dosing across your entire clinic.</p>
             <p>Visit our <a class="pet-links" href="{% url 'vetprofiles:about' %}">about page</a> to learn more.</p>
         </div>
         <div class="col-lg-4">
-            <p>Calculate and record your prescriptions in one easy step!</p>
-            <img class="pics" src="#" alt="placeholder image">
+            <img class="pics" src="{% static 'images/pom-tablet.webp' %}" alt="placeholder image">
+            <p class="text-center small"><em>Calculate and record your prescriptions in one easy step!</em></p>
         </div>
         <div class="col-lg-4">
-            <h3 class="subheadings">Have a Question?</h3>
+            <h3 class="subheadings"><i class="fa-solid fa-circle-question"></i> Have a Question?</h3>
             <p>Interested in using PetR<sub>x</sub> in your practice?</p>
             <p>Visit our <a class="pet-links" href="{% url 'vetprofiles:contact' %}">contact page</a> to get in contact
                 and we'll answer any questions you have.</p>
