@@ -23,6 +23,8 @@ def about(request):
 def contact(request):
     """
     Render contact page.
+    Using django's send_mail for testing in development.
+    From Code With Stein, see link in README credits.
     """
     if request.method == 'POST':
         form = ContactForm(request.POST)
@@ -143,6 +145,6 @@ def edit_profile(request):
 
 def user_restricted(request):
     """
-    Restricted view - delete??
+    Rrnders restricted view.
     """
     return render(request, 'vetprofiles/restricted.html')
