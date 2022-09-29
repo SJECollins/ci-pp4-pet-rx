@@ -22,3 +22,6 @@ urlpatterns = [
     path('prescriptions/', include('prescriptions.urls'), name='prescriptions_urls'),
     path('records/', include('records.urls'), name='records_urls'),
 ]
+
+
+handler404 = "vetprofiles.views.handle_not_found"

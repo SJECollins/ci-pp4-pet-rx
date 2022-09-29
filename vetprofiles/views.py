@@ -148,3 +148,7 @@ def user_restricted(request):
     Renders restricted view.
     """
     return render(request, 'vetprofiles/restricted.html')
+
+
+def handle_not_found(request, exception):
+    return render(request, 'not_found.html')
