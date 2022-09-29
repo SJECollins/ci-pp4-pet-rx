@@ -1,32 +1,31 @@
 {% block content %}
-
 {% load crispy_forms_tags %}
 
 <!-- Add prescription form-->
 <form hx-post="{{ request.path }}" class="modal-content">
   {% csrf_token %}
   <div class="modal-header justify-content-center">
-    <h3 class="subheadings">Add Prescription</h3>
+    <h3 class="subheadings">Edit Prescription</h3>
   </div>
   <!-- Inputs and labels -->
   <div class="modal-body mx-auto">
-    {{ prescr_form|crispy }}
+    {{ edit_prescrip_form|crispy }}
 
     <!-- Field errors -->
-    {% for field in prescr_form %}
+    {% for field in edit_prescrip_form %}
     {% for error in field.errors %}
     <p>{{ error }}</p>
     {% endfor %}
     {% endfor %}
 
-    {% if prescr_form.non_field_errors %}
-    {% for error in prescr_form.non_field_errors %}
+    {% if edit_prescrip_form.non_field_errors %}
+    {% for error in edit_prescrip_form.non_field_errors %}
     <p> {{error}} </p>
     {% endfor %}
     {% endif %}
   </div>
   <div class="modal-footer">
-    <button class="pet-btns" type="submit">Add</button>
+    <button class="pet-btns" type="submit">Update</button>
   </div>
 </form>
 

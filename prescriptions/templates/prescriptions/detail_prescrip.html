@@ -57,6 +57,8 @@
             {% if user == prescription.vet and prescription.under_day %}
             <a class="pet-btns sm-btns" hx-get="{% url 'prescriptions:delete_prescrip' prescrip_id=prescription.id %}"
                 hx-target="#modal-dialog" aria-label="Delete prescription">Delete</a>
+            <a class="pet-btns sm-btns" hx-get="{% url 'prescriptions:edit_prescrip' prescrip_id=prescription.id %}"
+                hx-target="#modal-dialog" aria-label="Edit prescription">Edit</a>
             {% else %}
             <small>You may not delete this prescription.</small>
             {% endif %}

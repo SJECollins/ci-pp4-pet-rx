@@ -83,6 +83,24 @@ def add_prescrip(request, animal_id):
     return render(request, 'prescriptions/add_prescrip.html', context)
 
 
+def edit_prescrip(request, prescrip_id):
+    """
+    Edit existing prescription.
+    """
+    presc = Prescription.objects.get(id=prescrip_id)
+    form = PrescrForm(request.POST or None, instance=presc)
+    if form.is_valid():
+        form.save()
+        return render(request, 'prescriptions/edit_confirm.html')
+    else:
+        form = PrescrForm(request.POST or None, instance=presc)
+    context = {
+            'presc': presc,
+            'edit_prescrip_form': form,
+        }
+    return render(request, 'prescriptions/edit_prescrip.html', context)
+
+
 def list_prescrip(request, animal_id):
     """
     Retrieves list of prescriptions to display.
