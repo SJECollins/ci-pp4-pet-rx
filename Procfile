@@ -1,1 +1,1 @@
-web: gunicorn petrx.wsgi
+web: gunicorn petrx.wsgi:application
