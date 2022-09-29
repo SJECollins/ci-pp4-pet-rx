@@ -8,10 +8,12 @@
             <h3 class="subheadings">Records:</h3>
             <br>
             <!-- Add record or go to available drugs -->
-            <a class="pet-links" href="{% url 'records:add_animal' %}" aria-label="Add an">Add Animal</a>
-            <span>|</span>
-            <a class="pet-links" href="{% url 'prescriptions:drugs' %}" aria-label="Go to available drugs">To Available
-                Drugs</a>
+            <div class="link-space">
+                <a class="pet-links" href="{% url 'records:add_animal' %}" aria-label="Add an">Add Animal</a>
+                <span>|</span>
+                <a class="pet-links" href="{% url 'prescriptions:drugs' %}" aria-label="Go to available drugs">To
+                    Available Drugs</a>
+            </div>
         </div>
 
         <div class="col-md-4">
@@ -19,7 +21,7 @@
             <form method="GET" action="{% url 'records:record_search' %}">
                 {% csrf_token %}
                 <input type="text" name="query" placeholder="Search by name" aria-label="Search">
-                <button type="submit" class="pet-btns" aria-label="Search">Search</button>
+                <button type="submit" class="pet-btns sm-btns" aria-label="Search">Search</button>
             </form>
         </div>
     </div>

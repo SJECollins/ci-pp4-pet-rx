@@ -132,6 +132,7 @@ a {
 }
 
 .sm-btns {
+    padding: 0.5em 1em;
     font-weight: 400;
     margin: 0.5em;
 }
@@ -140,6 +141,10 @@ a {
 
 .list-space {
     padding: 0.75em 0;
+}
+
+.link-space {
+    margin: 0.75em 0;
 }
 
 .bottom-space {

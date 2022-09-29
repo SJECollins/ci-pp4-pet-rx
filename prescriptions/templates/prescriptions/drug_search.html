@@ -15,7 +15,7 @@
         <form method="GET" action="{% url 'prescriptions:drug_search' %}">
             {% csrf_token %}
             <input type="text" name="search" placeholder="Enter name or category">
-            <input type="submit">
+            <button type="submit" class="pet-btns sm-btns">Search</button>
         </form>
     </div>
 </div>

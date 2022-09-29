@@ -8,7 +8,9 @@
             <h3 class="subheadings">Available Drugs:</h3>
             <br>
             <!-- Back to records -->
-            <a class="pet-links" href="{% url 'records:records' %}" aria-label="Go to records">To Records</a>
+            <div class="link-space">
+                <a class="pet-links" href="{% url 'records:records' %}" aria-label="Go to records">To Records</a>
+            </div>
         </div>
 
         <div class="col-md-4">
@@ -16,7 +18,7 @@
             <form method="GET" action="{% url 'prescriptions:drug_search' %}" aria-label="Search">
                 {% csrf_token %}
                 <input type="text" name="search" placeholder="Enter name or category">
-                <button type="submit" class="pet-btns">Search</button>
+                <button type="submit" class="pet-btns sm-btns">Search</button>
             </form>
         </div>
     </div>
