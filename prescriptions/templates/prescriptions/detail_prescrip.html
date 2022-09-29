@@ -50,17 +50,17 @@
                 <td>{{ prescription.date|date:'d/m/y' }}</td>
             </tr>
         </table>
-        <small><em>You may delete your prescriptions up to 24 hours after creation.</em></small>
+        <small><em>You may edit or delete your prescriptions up to 24 hours after creation.</em></small>
         <br>
         <!-- Delete option if user is prescribing vet and within time limit -->
         <div class="float-end">
             {% if user == prescription.vet and prescription.under_day %}
-            <a class="pet-btns sm-btns" hx-get="{% url 'prescriptions:delete_prescrip' prescrip_id=prescription.id %}"
-                hx-target="#modal-dialog" aria-label="Delete prescription">Delete</a>
             <a class="pet-btns sm-btns" hx-get="{% url 'prescriptions:edit_prescrip' prescrip_id=prescription.id %}"
                 hx-target="#modal-dialog" aria-label="Edit prescription">Edit</a>
+            <a class="pet-btns sm-btns" hx-get="{% url 'prescriptions:delete_prescrip' prescrip_id=prescription.id %}"
+                hx-target="#modal-dialog" aria-label="Delete prescription">Delete</a>
             {% else %}
-            <small>You may not delete this prescription.</small>
+            <small>You may not edit or delete this prescription.</small>
             {% endif %}
             <button type="button" class="pet-btns sm-btns" data-bs-dismiss="modal">Close</button>
         </div>
