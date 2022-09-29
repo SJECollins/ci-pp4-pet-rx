@@ -145,6 +145,6 @@ def edit_profile(request):
 
 def user_restricted(request):
     """
-    Rrnders restricted view.
+    Renders restricted view.
     """
     return render(request, 'vetprofiles/restricted.html')
