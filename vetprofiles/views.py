@@ -30,16 +30,7 @@ def contact(request):
     if request.method == 'POST':
         form = ContactForm(request.POST)
         if form.is_valid():
-            name = form.cleaned_data['contact_name']
-            email = form.cleaned_data['contact_email']
-            message = form.cleaned_data['contact_message']
-
-            html = render_to_string('contact/contact_sent.html', {
-                'name': name,
-                'email': email,
-                'message': message
-            })
-            send_mail('Message from PetRx', 'Contact form message', 'noreply@fakemail.com', ['portprojtest@gmail.com'], html_message=html)
+            form.save()
             messages.success(request, 'Message sent.')
             return redirect('vetprofiles:contact')
     else:

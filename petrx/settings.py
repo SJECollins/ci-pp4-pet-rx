@@ -161,12 +161,3 @@ DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-# Email
-
-if development:
-    # Mailtrap
-    EMAIL_HOST = 'smtp.mailtrap.io'
-    EMAIL_HOST_USER = 'd849abfeb7e68f'
-    EMAIL_HOST_PASSWORD = 'b1b08e76afebbb'
-    EMAIL_PORT = '2525'
