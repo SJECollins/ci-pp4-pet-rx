@@ -30,7 +30,6 @@ def contact(request):
     if request.method == 'POST':
         form = ContactForm(request.POST)
         if form.is_valid():
-            form.save()
             messages.success(request, 'Message sent.')
             return redirect('vetprofiles:contact')
     else:
