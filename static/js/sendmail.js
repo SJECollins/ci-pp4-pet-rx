@@ -17,5 +17,4 @@ function sendMail() {
             console.log("FAILED", error);
         }
     );
-    return false;
 }
