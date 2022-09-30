@@ -22,21 +22,21 @@
                         <td>{{ user.email }}</td>
                     </tr>
                 </table>
+                <a class="pet-btns" href="{% url 'vetprofiles:edit_profile' %}" aria-label="Edit your profile">Edit
+                    Profile</a>
             </div>
             <div class="col-md-4">
                 <div>
                     <!-- Links to edit profiles, go to records-->
-                    <h4 class="subheadings">Options:</h4>
-                    <ul>
-                        <li class="list-space">
-                            <a class="pet-links bg-links" href="{% url 'vetprofiles:edit_profile' %}" aria-label="Edit your profile">Edit Profile</a>
-                        </li>
-                        <li class="list-space">
-                            <a class="pet-links bg-links" href="{% url 'records:records' %}" aria-label="Go to animal records">Animal Records</a>
-                        </li>
-                        <li class="list-space">
-                            <a class="pet-links bg-links" href="{% url 'prescriptions:drugs' %}" aria-label="Go to available drugs">Available Drugs</a>
-                        </li>
+                    <h4 class="subheadings">Go To:</h4>
+                    <li class="list-space">
+                        <a class="pet-links bg-links" href="{% url 'records:records' %}"
+                            aria-label="Go to animal records">Animal Records</a>
+                    </li>
+                    <li class="list-space">
+                        <a class="pet-links bg-links" href="{% url 'prescriptions:drugs' %}"
+                            aria-label="Go to available drugs">Available Drugs</a>
+                    </li>
                     </ul>
                 </div>
             </div>

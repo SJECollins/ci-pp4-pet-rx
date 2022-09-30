@@ -41,6 +41,8 @@
                         <td>{{ profile.weight }}kg</td>
                     </tr>
                 </table>
+                <a class="pet-btns sm-btns" href="{% url 'records:edit_animal' animal_id=profile.id %}"
+                    aria-label="Edit animal record">Edit Profile</a>
             </div>
             <div class="col-md-4">
                 <!-- Quick links-->
@@ -49,20 +51,15 @@
                     <div>
                         <ul>
                             <li>
-                                <a class="pet-btns sm-btns" 
-                                href="{% url 'records:edit_animal' animal_id=profile.id %}" 
-                                aria-label="Edit animal record">Edit Profile</a>
+                                <a class="pet-btns sm-btns"
+                                    hx-get="{% url 'records:update_weight' animal_id=profile.id %}"
+                                    hx-target="#modal-dialog" aria-label="Update weight">
+                                    Update Weight</a>
                             </li>
                             <li>
-                                <a class="pet-btns sm-btns" hx-get="{% url 'records:update_weight' animal_id=profile.id %}"
-                            hx-target="#modal-dialog" 
-                            aria-label="Update weight">
-                            Update Weight</a>
-                            </li>
-                            <li>
-                                <a class="pet-btns sm-btns" hx-get="{% url 'prescriptions:add_prescrip' animal_id=profile.id %}"
-                            hx-target="#modal-dialog"
-                            aria-label="Add new prescription">Add Prescription</a>
+                                <a class="pet-btns sm-btns"
+                                    hx-get="{% url 'prescriptions:add_prescrip' animal_id=profile.id %}"
+                                    hx-target="#modal-dialog" aria-label="Add new prescription">Add Prescription</a>
                             </li>
                         </ul>
                     </div>
@@ -74,10 +71,8 @@
                     <p>
                         {{ profile.note|default:"No notes or warnings." }}
                     </p>
-                    <a class="pet-btns sm-btns float-end"
-                    hx-get="{% url 'records:edit_notes' animal_id=profile.id %}"
-                    hx-target="#modal-dialog"
-                    aria-label="Edit notes">Edit Notes</a>
+                    <a class="pet-btns sm-btns float-end" hx-get="{% url 'records:edit_notes' animal_id=profile.id %}"
+                        hx-target="#modal-dialog" aria-label="Edit notes">Edit Notes</a>
                 </div>
             </div>
         </div>
@@ -85,7 +80,8 @@
 </section>
 <hr>
 <!-- Display prescriptions for animal -->
-<section id="animal-prescrip-list" hx-get="{% url 'prescriptions:list_prescrip' animal_id=profile.id %}" hx-trigger="load">
+<section id="animal-prescrip-list" hx-get="{% url 'prescriptions:list_prescrip' animal_id=profile.id %}"
+    hx-trigger="load">
     {% include 'prescriptions/list_prescrip.html' %}
 </section>
 {% endblock %}

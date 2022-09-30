@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse
+from django.utils.decorators import method_decorator
 from django.views import View
 from django.db.models import Q
 from django.core.paginator import Paginator
@@ -136,7 +137,7 @@ class AnimalRecord(View):
     Args: animal_id - takes id of selected animal to retrieve record.
     Get method: retrieves record and renders animal's profile
     """
-    @vet_login_and_active
+    @method_decorator(vet_login_and_active)
     def get(self, request, animal_id):
         queryset = Record.objects.all()
         profile = get_object_or_404(queryset, id=animal_id)
