@@ -39,7 +39,7 @@ def contact(request):
                 'email': email,
                 'message': message
             })
-            send_mail('Message from PetRx', 'Contact form message', 'noreply@fakemail.com', ['spitspixels@gmail.com'], html_message=html)
+            send_mail('Message from PetRx', 'Contact form message', 'noreply@fakemail.com', ['portprojtest@gmail.com'], html_message=html)
             messages.success(request, 'Message sent.')
     else:
         form = ContactForm()
