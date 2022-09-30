@@ -32,6 +32,7 @@ def contact(request):
         if form.is_valid():
             form.save()
             messages.success(request, 'Message sent.')
+            return redirect('vetprofiles:index')
     else:
         form = ContactForm()
     context = {'form': form}
