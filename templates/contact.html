@@ -13,9 +13,10 @@
         document.getElementById('contact-form').addEventListener('submit', function(event) {
             event.preventDefault();
             // these IDs from the previous steps
-            emailjs.sendForm('contact_service', 'contact_form', this)
+            emailjs.sendForm('contact_service', 'contact_form')
                 .then(function() {
-                    console.log('SUCCESS!');
+                    document.getElementById('contact-form').submit();
+                    console.log('SUCCESS!', response.status, response.text);
                 }, function(error) {
                     console.log('FAILED...', error);
                 });
@@ -26,7 +27,7 @@
 <!-- Contact form -->
 <h1>Contact Us</h1>
 <h4>Have a question about how Pet R<sub>x</sub> can improve your practice?</h4>
-<h4>Contact us below:</h4>
+<h4>Contact us below</h4>
 
 <form id="contact-form" action="{% url 'vetprofiles:contact' %}" method="POST">
     {% csrf_token %}
