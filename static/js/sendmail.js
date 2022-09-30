@@ -12,7 +12,7 @@ sendMail.addEventListener('click', function(event){
     })
         .then(
             function (response) {
-                console.log("SUCCESS", response);
+                console.log("SUCCESS", response.status);
             },
             function (error) {
                 console.log("FAILED", error);  
