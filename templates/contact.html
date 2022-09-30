@@ -30,7 +30,7 @@
 <h4>Have a question about how Pet R<sub>x</sub> can improve your practice?</h4>
 <h4>Contact us below:</h4>
 
-<form action="{% url 'vetprofiles:contact' %}" method="POST">
+<form id="contact-form" action="{% url 'vetprofiles:contact' %}" method="POST">
     {% csrf_token %}
     <div class="mb-3">
         <label for="contact_name" class="form-label">Name:</label>
