@@ -3,10 +3,12 @@ from django.http import HttpResponse
 from django.views import View
 from django.db.models import Q
 from django.core.paginator import Paginator
+from petrx.decorators import vet_login_and_active
 from .forms import RecordForm, WeightForm, NoteForm
 from .models import Record
 
 
+@vet_login_and_active
 def records(request):
     """
     Retrieve list of records to display, paginated
@@ -25,6 +27,7 @@ def records(request):
         return render(request, 'records/records.html', context)
 
 
+@vet_login_and_active
 def record_search(request):
     """
     Function to search records: retrieves records by name or surname matching
@@ -40,6 +43,7 @@ def record_search(request):
     return render(request, 'records/record_search.html', context)
 
 
+@vet_login_and_active
 def add_animal(request):
     """
     Create a new animal record.
@@ -58,6 +62,7 @@ def add_animal(request):
     return render(request, 'records/add_animal.html', context)
 
 
+@vet_login_and_active
 def edit_animal(request, animal_id):
     """
     Edit animal record.
@@ -79,6 +84,7 @@ def edit_animal(request, animal_id):
     return render(request, 'records/edit_animal.html', context)
 
 
+@vet_login_and_active
 def update_weight(request, animal_id):
     """
     Edit animal's weight only.
@@ -101,6 +107,7 @@ def update_weight(request, animal_id):
     return render(request, 'records/update_weight.html', context)
 
 
+@vet_login_and_active
 def edit_notes(request, animal_id):
     """
     Edit notes for animal on record.
@@ -129,6 +136,7 @@ class AnimalRecord(View):
     Args: animal_id - takes id of selected animal to retrieve record.
     Get method: retrieves record and renders animal's profile
     """
+    @vet_login_and_active
     def get(self, request, animal_id):
         queryset = Record.objects.all()
         profile = get_object_or_404(queryset, id=animal_id)

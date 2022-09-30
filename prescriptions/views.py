@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
 from django.db.models import Q
 from django.core.paginator import Paginator
+from petrx.decorators import vet_login_and_active
 from records.models import Record
 from .models import Drug, Prescription
 from .forms import PrescrForm
@@ -10,24 +11,22 @@ from .forms import PrescrForm
 # Create your views here.
 
 
+@vet_login_and_active
 def drugs(request):
     """
     Retrieve list of drugss to display, paginated
     Pagination from official docs, see link in README credits
     """
-    user = request.user
-    if not user.is_authenticated or not user.is_active:
-        return render(request, 'vetprofiles/restricted.html')
-    else:
-        drug_list = Drug.objects.all()
-        paginator = Paginator(drug_list, 10)
+    drug_list = Drug.objects.all()
+    paginator = Paginator(drug_list, 10)
 
-        page_number = request.GET.get('page')
-        page_obj = paginator.get_page(page_number)
-        context = {'page_obj': page_obj}
-        return render(request, 'prescriptions/drugs.html', context)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+    context = {'page_obj': page_obj}
+    return render(request, 'prescriptions/drugs.html', context)
 
 
+@vet_login_and_active
 def drug_search(request):
     """
     Function to search drugs: retrieves drugss by name or category matching
@@ -43,6 +42,7 @@ def drug_search(request):
     return render(request, 'prescriptions/drug_search.html', context)
 
 
+@vet_login_and_active
 def detail_drug(request, drug_id):
     """
     Retrieves drug to display.
@@ -53,6 +53,7 @@ def detail_drug(request, drug_id):
     return render(request, 'prescriptions/detail_drug.html', context)
 
 
+@vet_login_and_active
 def add_prescrip(request, animal_id):
     """
     Create a new prescription.
@@ -83,6 +84,7 @@ def add_prescrip(request, animal_id):
     return render(request, 'prescriptions/add_prescrip.html', context)
 
 
+@vet_login_and_active
 def edit_prescrip(request, prescrip_id):
     """
     Edit existing prescription.
@@ -101,6 +103,7 @@ def edit_prescrip(request, prescrip_id):
     return render(request, 'prescriptions/edit_prescrip.html', context)
 
 
+@vet_login_and_active
 def list_prescrip(request, animal_id):
     """
     Retrieves list of prescriptions to display.
@@ -111,6 +114,7 @@ def list_prescrip(request, animal_id):
     return render(request, 'prescriptions/list_prescrip.html', context)
 
 
+@vet_login_and_active
 def vet_prescrip(request):
     """
     Retrieves list of prescriptions to display for current user on profile.
@@ -120,6 +124,7 @@ def vet_prescrip(request):
     return render(request, 'prescriptions/list_prescrip_vet.html', context)
 
 
+@vet_login_and_active
 def detail_prescrip(request, prescrip_id):
     """
     Retrieves prescription to display.
@@ -130,6 +135,7 @@ def detail_prescrip(request, prescrip_id):
     return render(request, 'prescriptions/detail_prescrip.html', context)
 
 
+@vet_login_and_active
 def delete_prescrip(request, prescrip_id):
     """
     Deletes prescription.

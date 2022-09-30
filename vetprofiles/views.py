@@ -3,6 +3,7 @@ from django.contrib import messages
 from django.contrib.auth import login, authenticate, logout
 from django.core.mail import send_mail
 from django.template.loader import render_to_string
+from petrx.decorators import vet_login_and_active
 from .forms import RegistrationForm, AccountAuthenticationForm, AccountUpdateForm, ContactForm
 
 
@@ -82,8 +83,7 @@ def login_view(request):
     User login.
     Redirects to user profile.
     """
-    user = request.user
-    if user.is_authenticated:
+    if request.user.is_authenticated:
         return redirect('vetprofiles:index')
     if request.POST:
         form = AccountAuthenticationForm(request.POST)
@@ -100,27 +100,22 @@ def login_view(request):
     return render(request, 'vetprofiles/login.html', context)
 
 
+@vet_login_and_active
 def profile(request):
     """
     Renders user profile.
     Redirects to login page if user not logged in.
     """
-    user = request.user
-    if not user.is_active:
-        return redirect('vetprofiles:index')
-    elif not user.is_authenticated:
-        return redirect('vetprofiles:login')
     return render(request, 'vetprofiles/profile.html')
 
 
+@vet_login_and_active
 def edit_profile(request):
     """
     Edit user profile.
     Initialises data of current user.
     Redirects to login page if user not logged in.
     """
-    if not request.user.is_authenticated:
-        return redirect('vetprofiles:login')
     if request.POST:
         form = AccountUpdateForm(request.POST, instance=request.user)
         if form.is_valid():
