@@ -24,4 +24,7 @@ urlpatterns = [
 ]
 
 
-handler404 = "vetprofiles.views.handle_not_found"
+handler403 = "vetprofiles.views.handle_403"
+handler404 = "vetprofiles.views.handle_404"
+handler405 = "vetprofiles.views.handle_405"
+handler500 = "vetprofiles.views.handle_500"

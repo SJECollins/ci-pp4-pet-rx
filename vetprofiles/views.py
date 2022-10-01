@@ -1,8 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth import login, authenticate, logout
-from django.core.mail import send_mail
-from django.template.loader import render_to_string
 from petrx.decorators import vet_login_and_active
 from .forms import RegistrationForm, AccountAuthenticationForm, AccountUpdateForm, ContactForm
 
@@ -136,5 +134,29 @@ def user_restricted(request):
     return render(request, 'vetprofiles/restricted.html')
 
 
-def handle_not_found(request, exception):
-    return render(request, 'not_found.html')
+def handle_403(request, exception):
+    """
+    Renders custom 403 page.
+    """
+    return render(request, 'errors/403.html')
+
+
+def handle_404(request, exception):
+    """
+    Renders custom 404 page.
+    """
+    return render(request, 'errors/404.html')
+
+
+def handle_405(request, exception):
+    """
+    Renders custom 405 page.
+    """
+    return render(request, 'errors/405.html')
+
+
+def handle_500(request):
+    """
+    Renders custom 500 page.
+    """
+    return render(request, 'errors/500.html')

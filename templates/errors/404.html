@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<section class="d-flex justify-content-center">
+    <div class="col-md-6 align-middle ">
+        <h1 class="text-center">Whoops!</h1>
+        <h4 class="text-center">404</h4>
+        <p class="text-center">Page not found.
+            <br>
+            <a class="pet-ptns" href="{% url 'vetprofiles:index' %}" aria-label="Go home">Go Home</a>
+        </p>
+    </div>
+</section>
+
+{% endblock %}
