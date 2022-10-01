@@ -15,17 +15,13 @@ def records(request):
     Retrieve list of records to display, paginated
     Pagination from official docs, see link in README credits
     """
-    user = request.user
-    if not user.is_authenticated or not user.is_active:
-        return render(request, 'vetprofiles/restricted.html')
-    else:
-        record_list = Record.objects.all()
-        paginator = Paginator(record_list, 10)
+    record_list = Record.objects.all()
+    paginator = Paginator(record_list, 10)
 
-        page_number = request.GET.get('page')
-        page_obj = paginator.get_page(page_number)
-        context = {'page_obj': page_obj}
-        return render(request, 'records/records.html', context)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+    context = {'page_obj': page_obj}
+    return render(request, 'records/records.html', context)
 
 
 @vet_login_and_active
@@ -50,8 +46,6 @@ def add_animal(request):
     Create a new animal record.
     Redirects user back to records page.
     """
-    if not request.user.is_active:
-        return render(request, 'vetprofiles/restricted.html')
     if request.method == 'POST':
         form = RecordForm(request.POST)
         if form.is_valid():
