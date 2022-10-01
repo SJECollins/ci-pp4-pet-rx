@@ -3,7 +3,17 @@ from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
 
 
 class AccountsManager(BaseUserManager):
+    """
+    Custom user manager.
+    From CodingWithMitch, see link in credits of readme.
+    """
     def create_user(self, email, first_name, last_name, password=None):
+        """
+        Django defaults to username, but in this case want to use email as more
+        appropriate.
+        Also want to require first and last name as app used in professional
+        setting.
+        """
         if not email:
             raise ValueError("Email required")
         if not first_name:
@@ -21,6 +31,9 @@ class AccountsManager(BaseUserManager):
         return user
 
     def create_superuser(self, email, first_name, last_name, password):
+        """
+        Custom superuser.
+        """
         user = self.create_user(
             email=self.normalize_email(email),
             password=password,
@@ -36,12 +49,17 @@ class AccountsManager(BaseUserManager):
 
 
 class Vet(AbstractBaseUser):
+    """
+    Custom user object.
+    From CodingWithMitch, see link in credist of readme.
+    """
     email = models.EmailField(verbose_name="email", max_length=80, unique=True)
     first_name = models.CharField(max_length=30, blank=False)
     last_name = models.CharField(max_length=30, blank=False)
     last_login = models.DateTimeField(verbose_name='last login', auto_now=True)
     # Have to be added for custom user models
     is_admin = models.BooleanField(default=False)
+    # is_active initially False, admin to set to True in admin panel
     is_active = models.BooleanField(default=False)
     is_staff = models.BooleanField(default=False)
     is_superuser = models.BooleanField(default=False)
@@ -51,10 +69,12 @@ class Vet(AbstractBaseUser):
     # Mandatory fields
     REQUIRED_FIELDS = ['first_name', 'last_name', ]
 
+    # The objects param references the Accountsmanager to tell the object to use that
     objects = AccountsManager()
 
+    # Return a string of first and last name
     def __str__(self):
-        return self.first_name + "." + self.last_name
+        return self.first_name + " " + self.last_name
 
     # Required permissions
     def has_perm(self, perm, obj=None):

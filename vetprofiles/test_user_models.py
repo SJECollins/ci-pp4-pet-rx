@@ -3,17 +3,27 @@ from django.test import TestCase
 
 
 class UsersManagersTests(TestCase):
+    """
+    Testing custom user models.
+    From Michael Herman on testdriven.io, see link in credits of readme.
+    """
 
     def test_create_user(self):
+        """
+        Testing for creating a user.
+
+        """
         User = get_user_model()
         user = User.objects.create_user(email='normal@user.com', first_name='bob', last_name='bobberson', password='foo')
+        user_string = 'bob bobberson'
         self.assertEqual(user.email, 'normal@user.com')
         self.assertEqual(user.first_name, 'bob')
         self.assertEqual(user.last_name, 'bobberson')
         self.assertFalse(user.is_admin)
-        self.assertTrue(user.is_active)
+        self.assertFalse(user.is_active)
         self.assertFalse(user.is_staff)
         self.assertFalse(user.is_superuser)
+        self.assertEqual(user_string, str(user))
         try:
             # username is None for the AbstractUser option
             # username does not exist for the AbstractBaseUser option
