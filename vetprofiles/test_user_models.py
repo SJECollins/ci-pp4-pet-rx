@@ -2,7 +2,7 @@ from django.contrib.auth import get_user_model
 from django.test import TestCase
 
 
-class UsersManagersTests(TestCase):
+class TestUsersManagers(TestCase):
     """
     Testing custom user models.
     From Michael Herman on testdriven.io, see link in credits of readme.

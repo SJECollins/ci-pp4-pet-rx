@@ -43,7 +43,7 @@ class TestVetprofilesBase(TestCase):
 
     def test_get_login(self):
         """
-        Get index page. Test correct template.
+        Get login page. Test correct template.
         """
         response = self.client.get('/login/')
         self.assertEqual(response.status_code, 200)
@@ -82,6 +82,14 @@ class TestUserNotActive(TestCase):
         self.user_a.save()
         self.client.login(email='test@email.com', password='12345')
 
+    def test_get_login(self):
+        """
+        Get login page as logged in user, but not active.
+        Logged in so should render restricted template.
+        """
+        response = self.client.get('/login/')
+        self.assertRedirects(response, '/', status_code=302, target_status_code=200, fetch_redirect_response=True)
+
     def test_get_profile(self):
         """
         Get profile page as logged in user, but not active
@@ -116,6 +124,13 @@ class TestUserIsActive(TestCase):
         self.user_b.is_active = True
         self.user_b.save()
         self.client.login(email='tester@email.com', password='12345678')
+
+    def test_get_login(self):
+        """
+        Get login page. Test correct template.
+        """
+        response = self.client.get('/login/')
+        self.assertRedirects(response, '/', status_code=302, target_status_code=200, fetch_redirect_response=True)
 
     def test_get_profile(self):
         """
