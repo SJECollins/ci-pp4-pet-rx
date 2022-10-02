@@ -1,5 +1,4 @@
 from django.test import TestCase
-from django.core.exceptions import ValidationError
 from .models import Vet
 from .forms import ContactForm, RegistrationForm, AccountAuthenticationForm, AccountUpdateForm
 
