@@ -1,11 +1,10 @@
 import datetime
-from django.test import TestCase, RequestFactory
+from django.test import TestCase
 from django.urls import reverse
 import pytz
 from vetprofiles.models import Vet
 from records.models import Record
 from .models import Drug, Prescription
-from .views import vet_prescrip
 
 
 class TestPrescriptionsNotRegistered(TestCase):
@@ -260,7 +259,6 @@ class TestPrescriptionsIsActive(TestCase):
     Testing for views if logged in and is_active.
     """
     def setUp(self):
-        self.factory = RequestFactory()
         self.user_a = Vet.objects.create_user(
             email='test@email.com',
             first_name='test',
