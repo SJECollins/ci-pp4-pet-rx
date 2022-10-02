@@ -1,4 +1,5 @@
 from django.test import TestCase
+from django.core.exceptions import ValidationError
 from .models import Vet
 from .forms import ContactForm, RegistrationForm, AccountAuthenticationForm, AccountUpdateForm
 
@@ -121,6 +122,25 @@ class TestAccountUpdateForm(TestCase):
     """
     Testing edit form for required fields.
     """
+    def setUp(self):
+        self.user_a = Vet.objects.create_user(
+            email='tester@email.com',
+            first_name='testing',
+            last_name='users',
+            password='12345678'
+            )
+        self.user_a.is_active = True
+        self.user_a.save()
+        self.client.login(email='tester@email.com', password='12345678')
+        self.user_b = Vet.objects.create_user(
+            email='testing@email.com',
+            first_name='tested',
+            last_name='useragain',
+            password='12345678910'
+            )
+        self.user_b.is_active = True
+        self.user_b.save()
+
     def test_empty_fields(self):
         """
         Empty fields should return error.
@@ -134,6 +154,18 @@ class TestAccountUpdateForm(TestCase):
         self.assertEqual(form.errors['email'][0], 'This field is required.')
         self.assertEqual(form.errors['first_name'][0], 'This field is required.')
         self.assertEqual(form.errors['last_name'][0], 'This field is required.')
+
+    def test_form_email_error(self):
+        """
+        Form raises validation error if tries to use existing email.
+        """
+        form = AccountUpdateForm(data={
+                'email': 'tester@email.com',
+                'first_name': 'Test',
+                'last_name': 'User',
+        })
+        self.assertFalse(form.is_valid())
+        self.assertEqual(form.errors['email'], ['Email "tester@email.com" is already in use.'])
 
     def test_valid_form(self):
         """
