@@ -1,4 +1,6 @@
-from django.test import TestCase, RequestFactory
+from django.test import TestCase
+from django.http import HttpResponseForbidden, HttpResponseServerError
+from petrx.decorators import permission_denied_test
 from .models import Vet
 
 # Create your tests here.
@@ -8,7 +10,6 @@ class TestVetprofilesBase(TestCase):
     """
     Testing views for a user who is not logged in.
     """
-
     def test_get_index(self):
         """
         Get index page. Test correct template.
@@ -158,3 +159,15 @@ class TestUserIsActive(TestCase):
         response = self.client.get('/logout/')
         self.assertRedirects(response, '/', status_code=302, target_status_code=200, fetch_redirect_response=True)
 
+
+class TestErrorHandlers(TestCase):
+    """
+    Testing error handler views.
+    """
+    def test_custom_404(self):
+        """
+        Going to a page that doesn't exist should render the custom 404 template.
+        """
+        response = self.client.get('/thisisnonsense/')
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'errors/404.html')
