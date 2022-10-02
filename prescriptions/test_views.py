@@ -131,7 +131,6 @@ class TestPrescriptionsNotIsActive(TestCase):
     Should all render restricted.html.
     """
     def setUp(self):
-        self.factory = RequestFactory()
         self.user_a = Vet.objects.create_user(
             email='test@email.com',
             first_name='test',
