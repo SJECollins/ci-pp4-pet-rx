@@ -33,6 +33,14 @@ class TestVetprofilesBase(TestCase):
         response = self.client.get('/contact/')
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'contact.html')
+    
+    def test_submit_contact_form(self):
+        response = self.client.post(reverse('vetprofiles:contact'), data={
+            'contact_name': 'TestingContact',
+            'contact_email': 'testing@contact.com',
+            'contact_message': 'This is a test message for the contact form!'
+        })
+        self.assertRedirects(response, '/contact/', status_code=302, target_status_code=200, fetch_redirect_response=True)
 
     def test_get_register(self):
         """
@@ -170,13 +178,15 @@ class TestUserIsActive(TestCase):
         self.assertTemplateUsed(response, 'vetprofiles/edit_profile.html')
 
     def test_submit_edit_profile(self):
+        """
+        Test submitted edit form redirects to profile.
+        """
         response = self.client.post(reverse('vetprofiles:edit_profile'), data={
             'email': 'tested@email.com',
             'first_name': 'Tester',
             'last_name': 'User',
         })
         self.assertRedirects(response, '/profile/', status_code=302, target_status_code=200, fetch_redirect_response=True)
-
 
     def test_logout(self):
         """
@@ -205,17 +215,7 @@ class TestLogin(TestCase):
         }, follow=True)
         self.assertTrue(response.context['user'].is_authenticated)
         self.assertRedirects(response, '/profile/', status_code=302, target_status_code=200, fetch_redirect_response=True)
-
-
-class TestContactForm(TestCase):
-    def test_contact_form(self):
-        response = self.client.post(reverse('vetprofiles:contact'), data={
-            'contact_name': 'TestingContact',
-            'contact_email': 'testing@contact.com',
-            'contact_message': 'This is a test message for the contact form!'
-        })
-        self.assertRedirects(response, '/contact/', status_code=302, target_status_code=200, fetch_redirect_response=True)
-    
+ 
 
 class TestErrorHandlers(TestCase):
     """

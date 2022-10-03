@@ -4,6 +4,7 @@ from django.urls import reverse
 import pytz
 from vetprofiles.models import Vet
 from .models import Record
+from .forms import RecordForm
 
 # Create your tests here.
 
@@ -217,6 +218,18 @@ class TestRecordViews(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'records/add_animal.html')
 
+    def test_add_animal(self):
+        response = self.client.post(reverse('records:add_animal'), data={
+            'name': 'Fluff',
+            'surname': 'Flufferson',
+            'date_of_birth': '02/02/2020',
+            'species': 'Feline',
+            'breed': 'DLH',
+            'sex': 'FN',
+            'weight': 3
+        })
+        self.assertRedirects(response, '/records/records/', status_code=302, target_status_code=200, fetch_redirect_response=True)
+
     def test_get_animal_profile(self):
         """
         Try to go to animal record.
@@ -234,6 +247,22 @@ class TestRecordViews(TestCase):
         response = self.client.get(reverse('records:edit_animal', args=[animal_id]))
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'records/edit_animal.html')
+
+    def test_edit_animal(self):
+        """
+        Test post redirects to animal's record.
+        """
+        animal_id = self.animal.id
+        response = self.client.post(reverse('records:edit_animal', args=[animal_id]), data={
+            'name': 'Bob',
+            'surname': 'Bobberson',
+            'date_of_birth': '12/12/2012',
+            'species': 'Canine',
+            'breed': 'JRT',
+            'sex': 'MN',
+            'weight': 12
+        })
+        self.assertRedirects(response, '/records/animal-profile/1', status_code=302, target_status_code=200, fetch_redirect_response=True)
 
     def test_get_update_weight(self):
         """
