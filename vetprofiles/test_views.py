@@ -198,7 +198,14 @@ class TestUserIsActive(TestCase):
 
 
 class TestLogin(TestCase):
+    """
+    Testing login view.
+    """
     def setUp(self):
+        """
+        Set up.
+        Create user to work with.
+        """
         self.user_c = Vet.objects.create_user(
             email='testinglogin@email.com',
             first_name='testing',
@@ -209,6 +216,9 @@ class TestLogin(TestCase):
         self.user_c.save()
 
     def test_login_user(self):
+        """
+        Logging in should redirect to profile.
+        """
         response = self.client.post(reverse('vetprofiles:login'), data={
             'email': 'testinglogin@email.com',
             'password': 'ThisIsAREalPW1232!!'

@@ -42,6 +42,9 @@ class TestUsersManagers(TestCase):
 
 
     def test_create_superuser(self):
+        """
+        Testing for creating a superuser
+        """
         User = get_user_model()
         admin_user = User.objects.create_superuser(email='super@user.com', first_name='bob', last_name='bobberson', password='foo')
         self.assertEqual(admin_user.email, 'super@user.com')
