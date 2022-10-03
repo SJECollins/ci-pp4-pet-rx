@@ -3,7 +3,7 @@
 {% load crispy_forms_tags %}
 
 <!-- Edit note form in modal-->
-<form hx-post="{{ request.path }}" class="modal-content">
+<form data-hx-post="{{ request.path }}" class="modal-content">
     {% csrf_token %}
     <div class="modal-header justify-content-center">
         <h3 class="subheadings">Edit Notes</h3>

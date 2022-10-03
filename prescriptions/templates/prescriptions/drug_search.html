@@ -28,9 +28,9 @@
     </tr>
     {% for drug in drug_list %}
     <tr>
-        <th><a class="pet-links" href="{% url 'prescriptions:detail_drug' drug_id=drug.id %}">{{ drug.name }}</a>
-        <th>{{ drug.category }}</th>
-    <tr>
+        <td><a class="pet-links" href="{% url 'prescriptions:detail_drug' drug_id=drug.id %}">{{ drug.name }}</a></td>
+        <td>{{ drug.category }}</td>
+    </tr>
         {% endfor %}
 </table>
 {% else %}

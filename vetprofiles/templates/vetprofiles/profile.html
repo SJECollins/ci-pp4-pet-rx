@@ -29,14 +29,15 @@
                 <div>
                     <!-- Links to edit profiles, go to records-->
                     <h4 class="subheadings">Go To:</h4>
-                    <li class="list-space">
-                        <a class="pet-links bg-links" href="{% url 'records:records' %}"
-                            aria-label="Go to animal records">Animal Records</a>
-                    </li>
-                    <li class="list-space">
-                        <a class="pet-links bg-links" href="{% url 'prescriptions:drugs' %}"
-                            aria-label="Go to available drugs">Available Drugs</a>
-                    </li>
+                    <ul>
+                        <li class="list-space">
+                            <a class="pet-links bg-links" href="{% url 'records:records' %}"
+                                aria-label="Go to animal records">Animal Records</a>
+                        </li>
+                        <li class="list-space">
+                            <a class="pet-links bg-links" href="{% url 'prescriptions:drugs' %}"
+                                aria-label="Go to available drugs">Available Drugs</a>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -45,7 +46,7 @@
 </section>
 <hr>
 <!-- Display prescriptions of vet -->
-<section hx-get="{% url 'prescriptions:vet_prescrip'%}" hx-trigger="load">
+<section data-hx-get="{% url 'prescriptions:vet_prescrip'%}" data-hx-trigger="load">
     {% include 'prescriptions/list_prescrip.html' %}
 </section>
 {% endblock %}

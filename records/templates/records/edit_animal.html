@@ -3,13 +3,13 @@
 
 {% load crispy_forms_tags %}
 
-<!-- Edit profile form-->
+<!-- Edit animal form-->
 <div class="container-md d-flex justify-content-center">
     <div class="col-md-4">
         <h2 class="subheadings">Edit Animal Record</h2>
         <form method="POST">
             {% csrf_token %}
-            <!-- Django form-->
+            <!-- Crispy form-->
             {{ edit_form|crispy }}
 
             <!-- Form errors-->

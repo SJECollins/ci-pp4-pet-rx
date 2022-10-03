@@ -6,11 +6,13 @@
 <div class="prescrip-contain">
     <table>
         <thead>
-            <th>Animal</th>
-            <th class="lg-prescrip">Dose</th>
-            <th class="lg-prescrip">Drug</th>
-            <th>Date</th>
-            <th>View</th>
+            <tr>
+                <th>Animal</th>
+                <th class="lg-prescrip">Dose</th>
+                <th class="lg-prescrip">Drug</th>
+                <th>Date</th>
+                <th>View</th>
+            </tr>
         </thead>
         <tbody>
             {% for prescription in prescrip_list %}
@@ -20,13 +22,19 @@
                 <td class="lg-prescrip">{{ prescription.drug }}</td>
                 <td>{{ prescription.date|date:'d/m/y' }}</td>
                 <!-- Link to detailed view -->
-                <td><a hx-get="{% url 'prescriptions:detail_prescrip' prescrip_id=prescription.id %}"
-                        hx-target="#modal-dialog" class="pet-links" aria-label="View prescription">View</a></td>
+                <td><a data-hx-get="{% url 'prescriptions:detail_prescrip' prescrip_id=prescription.id %}"
+                        data-hx-target="#modal-dialog" class="pet-links" aria-label="View prescription">View</a></td>
             </tr>
         </tbody>
         {% empty %}
         <!-- If nothing prescribed -->
-        <p>No prescriptions</p>
+        <tr>
+            <td>No prescriptions</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
         {% endfor %}
     </table>
 </div>
