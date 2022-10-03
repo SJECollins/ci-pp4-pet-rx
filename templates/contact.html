@@ -3,14 +3,14 @@
 
 {% load static %}
 
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-<script type="text/javascript">
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+<script>
     (function() {
         // https://dashboard.emailjs.com/admin/account
         emailjs.init('F_YvCXRIHdsqedv5S');
     })();
 </script>
-<script type="text/javascript">
+<script>
     window.onload = function () {
         document.getElementById('contact-form').addEventListener('submit', function (event) {
             event.preventDefault();
@@ -26,35 +26,37 @@
 </script>
 
 <!-- Contact form -->
-<h1>Contact Us</h1>
-<h4>Have a question about how Pet R<sub>x</sub> can improve your practice?</h4>
-<h4>Contact us below</h4>
+<section>
+    <h1>Contact Us</h1>
+    <p>Have a question about how Pet R<sub>x</sub> can improve your practice?</p>
+    <p>Contact us below.</p>
 
-<form id="contact-form" method="POST">
-    {% csrf_token %}
-    <div class="mb-3">
-        <label for="contact_name" class="form-label">Name:</label>
-        <input type="text" name="contact_name" class="form-control" id="contact_name" placeholder="Your Name" required>
-    </div>
-    <div class="mb-3">
-        <label for="contact_email" class="form-label">Email address:</label>
-        <input type="email" name="contact_email" class="form-control" id="contact_email" placeholder="name@example.com"
-          required>
-    </div>
-    <div class="mb-3">
-        <label for="contact_message" class="form-label">Your Message:</label>
-        <textarea name="contact_message" class="form-control" id="contact_message" rows="3"></textarea>
-    </div>
-    <button type="submit" class="pet-btns">Send Message</button>
-</form>
+    <form id="contact-form" method="POST">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="contact_name" class="form-label">Name:</label>
+            <input type="text" name="contact_name" class="form-control" id="contact_name" placeholder="Your Name" required>
+        </div>
+        <div class="mb-3">
+            <label for="contact_email" class="form-label">Email address:</label>
+            <input type="email" name="contact_email" class="form-control" id="contact_email" placeholder="name@example.com"
+            required>
+        </div>
+        <div class="mb-3">
+            <label for="contact_message" class="form-label">Your Message:</label>
+            <textarea name="contact_message" class="form-control" id="contact_message" rows="3"></textarea>
+        </div>
+        <button type="submit" class="pet-btns">Send Message</button>
+    </form>
 
-{% if messages %}
-<ul class="messages">
-    {% for message in messages %}
-    <li {% if message.tags %} class=" {{ message.tags }} " {% endif %}> {{ message }} </li>
-    {% endfor %}
-</ul>
-{% endif %}
+    {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+        <li {% if message.tags %} class=" {{ message.tags }} " {% endif %}> {{ message }} </li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+</section>
 
 <script src="{% static 'js/sendmail.js' %}"></script>
 {% endblock %}
