@@ -7,7 +7,6 @@ class TestUsersManagers(TestCase):
     Testing custom user models.
     From Michael Herman on testdriven.io, see link in credits of readme.
     """
-
     def test_create_user(self):
         """
         Testing for creating a user.
@@ -39,7 +38,6 @@ class TestUsersManagers(TestCase):
             User.objects.create_user(email='normal@user.com', first_name='', last_name='bobberson', password="foo")
         with self.assertRaises(ValueError):
             User.objects.create_user(email='normal@user.com', first_name='bob', last_name='', password="foo")
-
 
     def test_create_superuser(self):
         """
