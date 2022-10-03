@@ -1,4 +1,5 @@
 from django.test import TestCase
+from django.urls import reverse
 from .models import Vet
 from .forms import RegistrationForm
 
@@ -44,8 +45,20 @@ class TestVetprofilesBase(TestCase):
     def test_register_user(self):
         """
         User registers.
-
+        Test redirects to index page.
+        Also test increases user count.
         """
+        users = Vet.objects.all()
+        self.assertEqual(users.count(), 0)
+        response = self.client.post(reverse('vetprofiles:register'), data={
+            'email': 'testingregistration@email.com',
+            'first_name': 'Notregistered',
+            'last_name': 'Buthopefullywillbe',
+            'password1': 'AGoodPassw0rd!21dsa',
+            'password2': 'AGoodPassw0rd!21dsa'
+        })
+        self.assertRedirects(response, '/', status_code=302, target_status_code=200, fetch_redirect_response=True)
+        self.assertEqual(users.count(), 1)
 
     def test_get_login(self):
         """
@@ -156,6 +169,15 @@ class TestUserIsActive(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'vetprofiles/edit_profile.html')
 
+    def test_submit_edit_profile(self):
+        response = self.client.post(reverse('vetprofiles:edit_profile'), data={
+            'email': 'tested@email.com',
+            'first_name': 'Tester',
+            'last_name': 'User',
+        })
+        self.assertRedirects(response, '/profile/', status_code=302, target_status_code=200, fetch_redirect_response=True)
+
+
     def test_logout(self):
         """
         Logout as logged in user.
@@ -164,6 +186,36 @@ class TestUserIsActive(TestCase):
         response = self.client.get('/logout/')
         self.assertRedirects(response, '/', status_code=302, target_status_code=200, fetch_redirect_response=True)
 
+
+class TestLogin(TestCase):
+    def setUp(self):
+        self.user_c = Vet.objects.create_user(
+            email='testinglogin@email.com',
+            first_name='testing',
+            last_name='users',
+            password='ThisIsAREalPW1232!!'
+            )
+        self.user_c.is_active = True
+        self.user_c.save()
+
+    def test_login_user(self):
+        response = self.client.post(reverse('vetprofiles:login'), data={
+            'email': 'testinglogin@email.com',
+            'password': 'ThisIsAREalPW1232!!'
+        }, follow=True)
+        self.assertTrue(response.context['user'].is_authenticated)
+        self.assertRedirects(response, '/profile/', status_code=302, target_status_code=200, fetch_redirect_response=True)
+
+
+class TestContactForm(TestCase):
+    def test_contact_form(self):
+        response = self.client.post(reverse('vetprofiles:contact'), data={
+            'contact_name': 'TestingContact',
+            'contact_email': 'testing@contact.com',
+            'contact_message': 'This is a test message for the contact form!'
+        })
+        self.assertRedirects(response, '/contact/', status_code=302, target_status_code=200, fetch_redirect_response=True)
+    
 
 class TestErrorHandlers(TestCase):
     """

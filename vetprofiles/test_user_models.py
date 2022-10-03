@@ -11,7 +11,6 @@ class TestUsersManagers(TestCase):
     def test_create_user(self):
         """
         Testing for creating a user.
-
         """
         User = get_user_model()
         user = User.objects.create_user(email='normal@user.com', first_name='bob', last_name='bobberson', password='foo')
@@ -36,6 +35,11 @@ class TestUsersManagers(TestCase):
             User.objects.create_user(email='')
         with self.assertRaises(ValueError):
             User.objects.create_user(email='', first_name='bob', last_name='bobberson', password="foo")
+        with self.assertRaises(ValueError):
+            User.objects.create_user(email='normal@user.com', first_name='', last_name='bobberson', password="foo")
+        with self.assertRaises(ValueError):
+            User.objects.create_user(email='normal@user.com', first_name='bob', last_name='', password="foo")
+
 
     def test_create_superuser(self):
         User = get_user_model()
