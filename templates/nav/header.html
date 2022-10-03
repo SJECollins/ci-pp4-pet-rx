@@ -33,7 +33,7 @@
           {% else %}
           <li class="nav-item">
             <div class="dropdown show">
-              <a class="dropdown-toggle navbar-links" href="#" role="button" id="dropdownMenuLink"
+              <a class="dropdown-toggle navbar-links" href="#" role="button"
                 data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Sign In / Sign Up
               </a>
@@ -61,27 +61,32 @@
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
               <li class="nav-item">
                 <div class="dropdown show">
-                  <a class="dropdown-toggle pet-links" href="#" role="button" id="dropdownMenuLink"
+                  <a class="dropdown-toggle pet-links" href="#" role="button"
                     data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Sign In / Sign Up
                   </a>
-                  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                    <ul class="drop-links">
-                      <li><a class="dropdown-item" href="{% url 'vetprofiles:login' %}" aria-label="Login">Sign In</a>
+                  <div class="dropdown-menu">
+                    <ul >
+                      <li>
+                        <a class="dropdown-item" href="{% url 'vetprofiles:login' %}" aria-label="Login">Sign In</a>
                       </li>
                       <li>
                         <hr class="dropdown-divider">
                       </li>
-                      <li><a class="dropdown-item" href="{% url 'vetprofiles:register' %}" aria-label="Register">Sign
-                          Up</a></li>
+                      <li>
+                        <a class="dropdown-item" href="{% url 'vetprofiles:register' %}" aria-label="Register">Sign Up</a>
+                        </li>
                     </ul>
                   </div>
                 </div>
               </li>
-              <li><a class="dropdown-item" href="{% url 'vetprofiles:about' %}" aria-label="Go to about page">About</a>
+              <li>
+                <a class="dropdown-item" href="{% url 'vetprofiles:about' %}" aria-label="Go to about page">About</a>
               </li>
-              <li><a class="dropdown-item" href="{% url 'vetprofiles:contact' %}"
-                  aria-label="Go to contact page">Contact Us</a></li>
+              <li>
+                <a class="dropdown-item" href="{% url 'vetprofiles:contact' %}"
+                  aria-label="Go to contact page">Contact Us</a>
+              </li>
             </ul>
           </li>
           {% endif %}
