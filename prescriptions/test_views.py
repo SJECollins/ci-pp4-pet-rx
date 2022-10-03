@@ -13,6 +13,10 @@ class TestPrescriptionsNotRegistered(TestCase):
     Should all redirect to login.
     """
     def setUp(self):
+        """
+        Set up.
+        Create user, drug, animal and prescription to work with.
+        """
         self.user_a = Vet.objects.create_user(
             email='test@email.com',
             first_name='test',
@@ -258,6 +262,10 @@ class TestPrescriptionsIsActive(TestCase):
     Testing for views if logged in and is_active.
     """
     def setUp(self):
+        """
+        Set up.
+        Create user, drug, animal and prescription to work with.
+        """
         self.user_a = Vet.objects.create_user(
             email='test@email.com',
             first_name='test',

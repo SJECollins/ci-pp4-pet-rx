@@ -8,6 +8,9 @@ from .models import Drug, Prescription
 
 
 class TestDrug(TestCase):
+    """
+    Testing drug model.
+    """
     def test_drug(self):
         """
         Testing for creating a drug.
@@ -31,7 +34,13 @@ class TestDrug(TestCase):
 
 
 class TestPrescription(TestCase):
+    """
+    Testing prescription model.
+    """
     def setUp(self):
+        """
+        Set up. Create user and animal to work with.
+        """
         self.user_a = Vet.objects.create_user(
             email='test@email.com',
             first_name='test',
@@ -62,6 +71,10 @@ class TestPrescription(TestCase):
         self.animal.save()
 
     def test_prescription(self):
+        """
+        Test creating a prescription.
+        Need to mock time as have auto_add_now in date field.
+        """
         mocked = datetime.datetime(2022, 10, 10, 0, 0, 0, tzinfo=pytz.utc)
         with mock.patch('django.utils.timezone.now', mock.Mock(return_value=mocked)):
             prescription = Prescription.objects.create(

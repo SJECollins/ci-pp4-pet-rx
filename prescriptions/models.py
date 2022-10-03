@@ -27,6 +27,9 @@ class Drug(models.Model):
     warnings = models.CharField(max_length=300)
 
     def __str__(self):
+        """
+        Returns string.
+        """
         return self.name
 
     class Meta:
@@ -56,6 +59,9 @@ class Prescription(models.Model):
     date = models.DateTimeField(auto_now_add=True)
 
     class Meta:
+        """
+        Default order is date, descending
+        """
         ordering = ['-date']
 
     def __str__(self):
