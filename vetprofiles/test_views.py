@@ -1,7 +1,6 @@
 from django.test import TestCase
-from django.http import HttpResponseForbidden, HttpResponseServerError
-from petrx.decorators import permission_denied_test
 from .models import Vet
+from .forms import RegistrationForm
 
 # Create your tests here.
 
@@ -41,6 +40,12 @@ class TestVetprofilesBase(TestCase):
         response = self.client.get('/register/')
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'vetprofiles/register.html')
+
+    def test_register_user(self):
+        """
+        User registers.
+
+        """
 
     def test_get_login(self):
         """
