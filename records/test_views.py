@@ -4,7 +4,6 @@ from django.urls import reverse
 import pytz
 from vetprofiles.models import Vet
 from .models import Record
-from .forms import RecordForm
 
 # Create your tests here.
 
@@ -15,6 +14,10 @@ class TestRecordsNotRegistered(TestCase):
     Should all redirect to login.
     """
     def setUp(self):
+        """
+        Set up.
+        Create animal object to work with.
+        """
         self.animal = Record.objects.create(
             name='Bob',
             surname='Bobberson',
@@ -86,6 +89,10 @@ class TestRecordsNotIsActive(TestCase):
     Should all render restricted.html.
     """
     def setUp(self):
+        """
+        Set up.
+        Create user and animal to work with.
+        """
         self.user_b = Vet.objects.create_user(
             email='test@email.com',
             first_name='test',
@@ -173,6 +180,10 @@ class TestRecordViews(TestCase):
     Testing views for user who is logged in and is active.
     """
     def setUp(self):
+        """
+        Set up.
+        Create user and animal to work with.
+        """
         self.user_a = Vet.objects.create_user(
             email='tester@email.com',
             first_name='testing',
@@ -219,6 +230,9 @@ class TestRecordViews(TestCase):
         self.assertTemplateUsed(response, 'records/add_animal.html')
 
     def test_add_animal(self):
+        """
+        Test adding animal redirects to record list.
+        """
         response = self.client.post(reverse('records:add_animal'), data={
             'name': 'Fluff',
             'surname': 'Flufferson',

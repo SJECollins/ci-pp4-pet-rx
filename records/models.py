@@ -5,6 +5,9 @@ SEX = (('M', 'M'), ('MN', 'MN'), ('F', 'F'), ('FN', 'FN'))
 
 
 class Record(models.Model):
+    """
+    Record model for animals.
+    """
     name = models.CharField(max_length=50)
     surname = models.CharField(max_length=50)
     date_of_birth = models.DateField()
@@ -18,5 +21,9 @@ class Record(models.Model):
         return self.name + " " + self.surname
 
     class Meta:
+        """
+        Default ordering by alphabetically by surname.
+        Add unique_together constraint to hopefully avoid duplicates.
+        """
         ordering = ['surname']
         unique_together = ['name', 'surname', 'date_of_birth', 'species', 'breed', 'sex']

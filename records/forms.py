@@ -8,7 +8,13 @@ class DateInput(forms.DateInput):
 
 
 class RecordForm(forms.ModelForm):
+    """
+    Modelform for Record.
+    """
     class Meta:
+        """
+        Add non_field_error for unique_together constraint.
+        """
         model = Record
         fields = ['name', 'surname', 'date_of_birth', 'species', 'breed', 'sex', 'weight']
         widgets = {
@@ -22,13 +28,25 @@ class RecordForm(forms.ModelForm):
 
 
 class WeightForm(forms.ModelForm):
+    """
+    ModelForm for weight so user can update.
+    """
     class Meta:
+        """
+        Only want weight field.
+        """
         model = Record
         fields = ['weight', ]
 
 
 class NoteForm(forms.ModelForm):
+    """
+    ModelForm for note on animal's record.
+    """
     class Meta:
+        """
+        Add widget for textarea.
+        """
         model = Record
         fields = ['note', ]
         widgets = {
