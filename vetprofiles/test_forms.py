@@ -1,12 +1,13 @@
 from django.test import TestCase
 from .models import Vet
-from .forms import ContactForm, RegistrationForm, AccountAuthenticationForm, AccountUpdateForm
+from .forms import ContactForm, RegistrationForm, AccountAuthenticationForm, AccountUpdateForm  # noqa
 
 
 class TestContactForm(TestCase):
     """
     Testing contact form for required fields.
     """
+
     def test_empty_fields(self):
         """
         Empty fields should return error.
@@ -17,9 +18,12 @@ class TestContactForm(TestCase):
             'contact_message': '',
         })
         self.assertFalse(form.is_valid())
-        self.assertEqual(form.errors['contact_name'][0], 'This field is required.')
-        self.assertEqual(form.errors['contact_email'][0], 'This field is required.')
-        self.assertEqual(form.errors['contact_message'][0], 'This field is required.')
+        self.assertEqual(form.errors['contact_name'][0],
+                         'This field is required.')
+        self.assertEqual(form.errors['contact_email'][0],
+                         'This field is required.')
+        self.assertEqual(form.errors['contact_message'][0],
+                         'This field is required.')
 
     def test_valid_form(self):
         """
@@ -37,6 +41,7 @@ class TestRegistrationForm(TestCase):
     """
     Testing registration form for required fields.
     """
+
     def test_empty_fields(self):
         """
         Empty fields should return error.
@@ -50,10 +55,14 @@ class TestRegistrationForm(TestCase):
         })
         self.assertFalse(form.is_valid())
         self.assertEqual(form.errors['email'][0], 'This field is required.')
-        self.assertEqual(form.errors['first_name'][0], 'This field is required.')
-        self.assertEqual(form.errors['last_name'][0], 'This field is required.')
-        self.assertEqual(form.errors['password1'][0], 'This field is required.')
-        self.assertEqual(form.errors['password2'][0], 'This field is required.')
+        self.assertEqual(form.errors['first_name'][0],
+                         'This field is required.')
+        self.assertEqual(form.errors['last_name'][0],
+                         'This field is required.')
+        self.assertEqual(form.errors['password1'][0],
+                         'This field is required.')
+        self.assertEqual(form.errors['password2'][0],
+                         'This field is required.')
 
     def test_valid_form(self):
         """
@@ -73,13 +82,14 @@ class TestAccountAuthenticationForm(TestCase):
     """
     Testing login form for required fields.
     """
+
     def setUp(self):
         self.user_a = Vet.objects.create_user(
             email='tester@email.com',
             first_name='testing',
             last_name='users',
             password='12345678'
-            )
+        )
         self.user_a.is_active = True
         self.user_a.save()
         self.client.login(email='tester@email.com', password='12345678')
@@ -121,13 +131,14 @@ class TestAccountUpdateForm(TestCase):
     """
     Testing edit form for required fields.
     """
+
     def setUp(self):
         self.user_a = Vet.objects.create_user(
             email='tester@email.com',
             first_name='testing',
             last_name='users',
             password='12345678'
-            )
+        )
         self.user_a.is_active = True
         self.user_a.save()
         self.client.login(email='tester@email.com', password='12345678')
@@ -136,7 +147,7 @@ class TestAccountUpdateForm(TestCase):
             first_name='tested',
             last_name='useragain',
             password='12345678910'
-            )
+        )
         self.user_b.is_active = True
         self.user_b.save()
 
@@ -151,20 +162,23 @@ class TestAccountUpdateForm(TestCase):
         })
         self.assertFalse(form.is_valid())
         self.assertEqual(form.errors['email'][0], 'This field is required.')
-        self.assertEqual(form.errors['first_name'][0], 'This field is required.')
-        self.assertEqual(form.errors['last_name'][0], 'This field is required.')
+        self.assertEqual(form.errors['first_name'][0],
+                         'This field is required.')
+        self.assertEqual(form.errors['last_name'][0],
+                         'This field is required.')
 
     def test_form_email_error(self):
         """
         Form raises validation error if tries to use existing email.
         """
         form = AccountUpdateForm(data={
-                'email': 'tester@email.com',
-                'first_name': 'Test',
-                'last_name': 'User',
+            'email': 'tester@email.com',
+            'first_name': 'Test',
+            'last_name': 'User',
         })
         self.assertFalse(form.is_valid())
-        self.assertEqual(form.errors['email'], ['Email "tester@email.com" is already in use.'])
+        self.assertEqual(form.errors['email'],
+                         ['Email "tester@email.com" is already in use.'])
 
     def test_valid_form(self):
         """

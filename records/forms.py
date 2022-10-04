@@ -16,15 +16,21 @@ class RecordForm(forms.ModelForm):
         Add non_field_error for unique_together constraint.
         """
         model = Record
-        fields = ['name', 'surname', 'date_of_birth', 'species', 'breed', 'sex', 'weight']
+        fields = [
+            'name',
+            'surname',
+            'date_of_birth',
+            'species',
+            'breed',
+            'sex',
+            'weight']
         widgets = {
             'date_of_birth': DateInput(),
         }
         error_messages = {
             NON_FIELD_ERRORS: {
-                'unique_together': "A record already exists with the same %(field_labels)s.",
-            }
-        }
+                'unique_together': "A record already exists with the same %(field_labels)s.",  # noqa
+            }}
 
 
 class WeightForm(forms.ModelForm):

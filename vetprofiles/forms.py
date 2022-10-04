@@ -8,7 +8,8 @@ class RegistrationForm(UserCreationForm):
     """
     Custom user creation form as we have custom user models.
     """
-    email = forms.EmailField(max_length=100, help_text='Required. Add a valid email address')
+    email = forms.EmailField(max_length=100,
+                             help_text='Required. Add a valid email address')
 
     class Meta:
         model = Vet
@@ -47,10 +48,14 @@ class AccountUpdateForm(forms.ModelForm):
         if self.is_valid():
             email = self.cleaned_data['email']
             try:
-                account = Vet.objects.exclude(pk=self.instance.pk).get(email=email)
+                account = Vet.objects.exclude(
+                    pk=self.instance.pk).get(
+                    email=email)
             except Vet.DoesNotExist:
                 return email
-            raise forms.ValidationError('Email "%s" is already in use.' % account.email)
+            raise forms.ValidationError(
+                'Email "%s" is already in use.' %
+                account.email)
 
 
 class ContactForm(forms.Form):

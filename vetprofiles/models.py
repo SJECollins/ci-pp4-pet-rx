@@ -7,6 +7,7 @@ class AccountsManager(BaseUserManager):
     Custom user manager.
     From CodingWithMitch, see link in credits of readme.
     """
+
     def create_user(self, email, first_name, last_name, password=None):
         """
         Django defaults to username, but in this case want to use email as more
@@ -69,7 +70,8 @@ class Vet(AbstractBaseUser):
     # Mandatory fields
     REQUIRED_FIELDS = ['first_name', 'last_name', ]
 
-    # The objects param references the Accountsmanager to tell the object to use that
+    # The objects param references the Accountsmanager to tell the object to
+    # use that
     objects = AccountsManager()
 
     # Return a string of first and last name

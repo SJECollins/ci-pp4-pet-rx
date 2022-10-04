@@ -13,6 +13,7 @@ class TestRecordsNotRegistered(TestCase):
     Testing for views if not logged in.
     Should all redirect to login.
     """
+
     def setUp(self):
         """
         Set up.
@@ -21,7 +22,14 @@ class TestRecordsNotRegistered(TestCase):
         self.animal = Record.objects.create(
             name='Bob',
             surname='Bobberson',
-            date_of_birth=datetime.datetime(2012, 12, 12, 0, 0, 0, tzinfo=pytz.utc),
+            date_of_birth=datetime.datetime(
+                2012,
+                12,
+                12,
+                0,
+                0,
+                0,
+                tzinfo=pytz.utc),
             species='Canine',
             breed='JRT',
             weight=12.5,
@@ -34,53 +42,92 @@ class TestRecordsNotRegistered(TestCase):
         Try to go to records list.
         """
         response = self.client.get('/records/records/', follow=True)
-        self.assertRedirects(response, '/login/', status_code=302, target_status_code=200, fetch_redirect_response=True)
+        self.assertRedirects(
+            response,
+            '/login/',
+            status_code=302,
+            target_status_code=200,
+            fetch_redirect_response=True)
 
     def test_get_records_search(self):
         """
         Try to go to records search.
         """
         response = self.client.get('/records/record-search/', follow=True)
-        self.assertRedirects(response, '/login/', status_code=302, target_status_code=200, fetch_redirect_response=True)
+        self.assertRedirects(
+            response,
+            '/login/',
+            status_code=302,
+            target_status_code=200,
+            fetch_redirect_response=True)
 
     def test_get_add_animal(self):
         """
         Try to go to add animal.
         """
         response = self.client.get('/records/add-animal/', follow=True)
-        self.assertRedirects(response, '/login/', status_code=302, target_status_code=200, fetch_redirect_response=True)
+        self.assertRedirects(
+            response,
+            '/login/',
+            status_code=302,
+            target_status_code=200,
+            fetch_redirect_response=True)
 
     def test_get_animal_profile(self):
         """
         Try to go to animal record.
         """
         animal_id = self.animal.id
-        response = self.client.get(reverse('records:animal_profile', args=[animal_id]))
-        self.assertRedirects(response, '/login/', status_code=302, target_status_code=200, fetch_redirect_response=True)
+        response = self.client.get(
+            reverse('records:animal_profile', args=[animal_id]))
+        self.assertRedirects(
+            response,
+            '/login/',
+            status_code=302,
+            target_status_code=200,
+            fetch_redirect_response=True)
 
     def test_get_edit_animal(self):
         """
         Try to go to edit animal.
         """
         animal_id = self.animal.id
-        response = self.client.get(reverse('records:edit_animal', args=[animal_id]))
-        self.assertRedirects(response, '/login/', status_code=302, target_status_code=200, fetch_redirect_response=True)
+        response = self.client.get(
+            reverse('records:edit_animal', args=[animal_id]))
+        self.assertRedirects(
+            response,
+            '/login/',
+            status_code=302,
+            target_status_code=200,
+            fetch_redirect_response=True)
 
     def test_get_update_weight(self):
         """
         Try to go to update weight.
         """
         animal_id = self.animal.id
-        response = self.client.get(reverse('records:update_weight', args=[animal_id]))
-        self.assertRedirects(response, '/login/', status_code=302, target_status_code=200, fetch_redirect_response=True)
+        response = self.client.get(
+            reverse('records:update_weight', args=[animal_id]))
+        self.assertRedirects(
+            response,
+            '/login/',
+            status_code=302,
+            target_status_code=200,
+            fetch_redirect_response=True)
 
     def test_get_edit_notes(self):
         """
         Try to go to edit notes.
         """
         animal_id = self.animal.id
-        response = self.client.get(reverse('records:edit_notes', args=[animal_id]))
-        self.assertRedirects(response, '/login/', status_code=302, target_status_code=200, fetch_redirect_response=True)
+        response = self.client.get(
+            reverse('records:edit_notes', args=[animal_id]))
+        self.assertRedirects(
+            response,
+            '/login/',
+            status_code=302,
+            target_status_code=200,
+            fetch_redirect_response=True)
 
 
 class TestRecordsNotIsActive(TestCase):
@@ -88,6 +135,7 @@ class TestRecordsNotIsActive(TestCase):
     Testing for views if logged in, but not is_active.
     Should all render restricted.html.
     """
+
     def setUp(self):
         """
         Set up.
@@ -98,7 +146,7 @@ class TestRecordsNotIsActive(TestCase):
             first_name='test',
             last_name='user',
             password='12345'
-            )
+        )
         self.user_b.is_active = False
         self.user_b.save()
         self.client.login(email='test@email.com', password='12345')
@@ -106,7 +154,14 @@ class TestRecordsNotIsActive(TestCase):
         self.animal = Record.objects.create(
             name='Bob',
             surname='Bobberson',
-            date_of_birth=datetime.datetime(2012, 12, 12, 0, 0, 0, tzinfo=pytz.utc),
+            date_of_birth=datetime.datetime(
+                2012,
+                12,
+                12,
+                0,
+                0,
+                0,
+                tzinfo=pytz.utc),
             species='Canine',
             breed='JRT',
             weight=12.5,
@@ -143,7 +198,8 @@ class TestRecordsNotIsActive(TestCase):
         Try to go to animal record.
         """
         animal_id = self.animal.id
-        response = self.client.get(reverse('records:animal_profile', args=[animal_id]))
+        response = self.client.get(
+            reverse('records:animal_profile', args=[animal_id]))
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'vetprofiles/restricted.html')
 
@@ -152,7 +208,8 @@ class TestRecordsNotIsActive(TestCase):
         Try to go to edit animal.
         """
         animal_id = self.animal.id
-        response = self.client.get(reverse('records:edit_animal', args=[animal_id]))
+        response = self.client.get(
+            reverse('records:edit_animal', args=[animal_id]))
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'vetprofiles/restricted.html')
 
@@ -161,7 +218,8 @@ class TestRecordsNotIsActive(TestCase):
         Try to go to update weight.
         """
         animal_id = self.animal.id
-        response = self.client.get(reverse('records:update_weight', args=[animal_id]))
+        response = self.client.get(
+            reverse('records:update_weight', args=[animal_id]))
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'vetprofiles/restricted.html')
 
@@ -170,7 +228,8 @@ class TestRecordsNotIsActive(TestCase):
         Try to go to edit notes.
         """
         animal_id = self.animal.id
-        response = self.client.get(reverse('records:edit_notes', args=[animal_id]))
+        response = self.client.get(
+            reverse('records:edit_notes', args=[animal_id]))
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'vetprofiles/restricted.html')
 
@@ -179,6 +238,7 @@ class TestRecordViews(TestCase):
     """
     Testing views for user who is logged in and is active.
     """
+
     def setUp(self):
         """
         Set up.
@@ -197,7 +257,14 @@ class TestRecordViews(TestCase):
         self.animal = Record.objects.create(
             name='Bob',
             surname='Bobberson',
-            date_of_birth=datetime.datetime(2012, 12, 12, 0, 0, 0, tzinfo=pytz.utc),
+            date_of_birth=datetime.datetime(
+                2012,
+                12,
+                12,
+                0,
+                0,
+                0,
+                tzinfo=pytz.utc),
             species='Canine',
             breed='JRT',
             weight=12.5,
@@ -242,14 +309,20 @@ class TestRecordViews(TestCase):
             'sex': 'FN',
             'weight': 3
         })
-        self.assertRedirects(response, '/records/records/', status_code=302, target_status_code=200, fetch_redirect_response=True)
+        self.assertRedirects(
+            response,
+            '/records/records/',
+            status_code=302,
+            target_status_code=200,
+            fetch_redirect_response=True)
 
     def test_get_animal_profile(self):
         """
         Try to go to animal record.
         """
         animal_id = self.animal.id
-        response = self.client.get(reverse('records:animal_profile', args=[animal_id]))
+        response = self.client.get(
+            reverse('records:animal_profile', args=[animal_id]))
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'records/animal_profile.html')
 
@@ -258,7 +331,8 @@ class TestRecordViews(TestCase):
         Try to go to edit animal.
         """
         animal_id = self.animal.id
-        response = self.client.get(reverse('records:edit_animal', args=[animal_id]))
+        response = self.client.get(
+            reverse('records:edit_animal', args=[animal_id]))
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'records/edit_animal.html')
 
@@ -267,23 +341,30 @@ class TestRecordViews(TestCase):
         Test post redirects to animal's record.
         """
         animal_id = self.animal.id
-        response = self.client.post(reverse('records:edit_animal', args=[animal_id]), data={
-            'name': 'Bob',
-            'surname': 'Bobberson',
-            'date_of_birth': '12/12/2012',
-            'species': 'Canine',
-            'breed': 'JRT',
-            'sex': 'MN',
-            'weight': 12
-        })
-        self.assertRedirects(response, '/records/animal-profile/1', status_code=302, target_status_code=200, fetch_redirect_response=True)
+        response = self.client.post(
+            reverse('records:edit_animal', args=[animal_id]),
+            data={
+                'name': 'Bob',
+                'surname': 'Bobberson',
+                'date_of_birth': '12/12/2012',
+                'species': 'Canine',
+                'breed': 'JRT',
+                'sex': 'MN',
+                'weight': 12})
+        self.assertRedirects(
+            response,
+            '/records/animal-profile/1',
+            status_code=302,
+            target_status_code=200,
+            fetch_redirect_response=True)
 
     def test_get_update_weight(self):
         """
         Try to go to update weight.
         """
         animal_id = self.animal.id
-        response = self.client.get(reverse('records:update_weight', args=[animal_id]))
+        response = self.client.get(
+            reverse('records:update_weight', args=[animal_id]))
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'records/update_weight.html')
 
@@ -292,6 +373,7 @@ class TestRecordViews(TestCase):
         Try to go to edit notes.
         """
         animal_id = self.animal.id
-        response = self.client.get(reverse('records:edit_notes', args=[animal_id]))
+        response = self.client.get(
+            reverse('records:edit_notes', args=[animal_id]))
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'records/edit_notes.html')

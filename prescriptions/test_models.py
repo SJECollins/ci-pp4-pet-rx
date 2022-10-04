@@ -11,6 +11,7 @@ class TestDrug(TestCase):
     """
     Testing drug model.
     """
+
     def test_drug(self):
         """
         Testing for creating a drug.
@@ -37,6 +38,7 @@ class TestPrescription(TestCase):
     """
     Testing prescription model.
     """
+
     def setUp(self):
         """
         Set up. Create user and animal to work with.
@@ -46,7 +48,7 @@ class TestPrescription(TestCase):
             first_name='test',
             last_name='user',
             password='12345'
-            )
+        )
         self.user_a.is_active = True
         self.user_a.save()
         self.client.login(email='test@email.com', password='12345')
@@ -62,7 +64,14 @@ class TestPrescription(TestCase):
         self.animal = Record.objects.create(
             name='Bob',
             surname='Bobberson',
-            date_of_birth=datetime.datetime(2012, 12, 12, 0, 0, 0, tzinfo=pytz.utc),
+            date_of_birth=datetime.datetime(
+                2012,
+                12,
+                12,
+                0,
+                0,
+                0,
+                tzinfo=pytz.utc),
             species='Canine',
             breed='JRT',
             weight=12.5,

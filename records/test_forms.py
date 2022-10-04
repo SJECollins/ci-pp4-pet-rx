@@ -6,6 +6,7 @@ class TestRecordForm(TestCase):
     """
     Testing record form for required fields.
     """
+
     def test_empty_fields(self):
         """
         Empty fields should return error.
@@ -22,7 +23,9 @@ class TestRecordForm(TestCase):
         self.assertFalse(form.is_valid())
         self.assertEqual(form.errors['name'][0], 'This field is required.')
         self.assertEqual(form.errors['surname'][0], 'This field is required.')
-        self.assertEqual(form.errors['date_of_birth'][0], 'This field is required.')
+        self.assertEqual(
+            form.errors['date_of_birth'][0],
+            'This field is required.')
         self.assertEqual(form.errors['species'][0], 'This field is required.')
         self.assertEqual(form.errors['breed'][0], 'This field is required.')
         self.assertEqual(form.errors['sex'][0], 'This field is required.')
@@ -40,7 +43,7 @@ class TestRecordForm(TestCase):
             'breed': 'JRT',
             'sex': 'MN',
             'weight': 12.5
-            })
+        })
         self.assertTrue(form.is_valid())
 
 
@@ -48,10 +51,11 @@ class TestWeightForm(TestCase):
     """
     Testing weight form for required fields.
     """
+
     def test_empty_fields(self):
         form = WeightForm(data={
             'weight': '',
-        })
+            })
         self.assertFalse(form.is_valid())
         self.assertEqual(form.errors['weight'][0], 'This field is required.')
 
@@ -67,6 +71,7 @@ class TestNoteForm(TestCase):
     Testing note form.
     Not required. blank=True in model.
     """
+
     def test_empty_fields(self):
         """
         Test can be blank.
@@ -93,4 +98,3 @@ class TestNoteForm(TestCase):
             'note': 'Test message'
         })
         self.assertTrue(form.is_valid())
-

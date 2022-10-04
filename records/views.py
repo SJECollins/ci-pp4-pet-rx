@@ -75,7 +75,7 @@ def edit_animal(request, animal_id):
     context = {
         'record': record,
         'edit_form': form
-        }
+    }
     return render(request, 'records/edit_animal.html', context)
 
 

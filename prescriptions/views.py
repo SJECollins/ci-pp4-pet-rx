@@ -97,9 +97,9 @@ def edit_prescrip(request, prescrip_id):
     else:
         form = PrescrForm(request.POST or None, instance=presc)
     context = {
-            'presc': presc,
-            'edit_prescrip_form': form,
-        }
+        'presc': presc,
+        'edit_prescrip_form': form,
+    }
     return render(request, 'prescriptions/edit_prescrip.html', context)
 
 

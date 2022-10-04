@@ -7,12 +7,17 @@ class TestUsersManagers(TestCase):
     Testing custom user models.
     From Michael Herman on testdriven.io, see link in credits of readme.
     """
+
     def test_create_user(self):
         """
         Testing for creating a user.
         """
         User = get_user_model()
-        user = User.objects.create_user(email='normal@user.com', first_name='bob', last_name='bobberson', password='foo')
+        user = User.objects.create_user(
+            email='normal@user.com',
+            first_name='bob',
+            last_name='bobberson',
+            password='foo')
         user_string = 'bob bobberson'
         self.assertEqual(user.email, 'normal@user.com')
         self.assertEqual(user.first_name, 'bob')
@@ -33,18 +38,34 @@ class TestUsersManagers(TestCase):
         with self.assertRaises(TypeError):
             User.objects.create_user(email='')
         with self.assertRaises(ValueError):
-            User.objects.create_user(email='', first_name='bob', last_name='bobberson', password="foo")
+            User.objects.create_user(
+                email='',
+                first_name='bob',
+                last_name='bobberson',
+                password="foo")
         with self.assertRaises(ValueError):
-            User.objects.create_user(email='normal@user.com', first_name='', last_name='bobberson', password="foo")
+            User.objects.create_user(
+                email='normal@user.com',
+                first_name='',
+                last_name='bobberson',
+                password="foo")
         with self.assertRaises(ValueError):
-            User.objects.create_user(email='normal@user.com', first_name='bob', last_name='', password="foo")
+            User.objects.create_user(
+                email='normal@user.com',
+                first_name='bob',
+                last_name='',
+                password="foo")
 
     def test_create_superuser(self):
         """
         Testing for creating a superuser
         """
         User = get_user_model()
-        admin_user = User.objects.create_superuser(email='super@user.com', first_name='bob', last_name='bobberson', password='foo')
+        admin_user = User.objects.create_superuser(
+            email='super@user.com',
+            first_name='bob',
+            last_name='bobberson',
+            password='foo')
         self.assertEqual(admin_user.email, 'super@user.com')
         self.assertEqual(admin_user.first_name, 'bob')
         self.assertEqual(admin_user.last_name, 'bobberson')

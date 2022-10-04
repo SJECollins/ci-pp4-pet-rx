@@ -5,9 +5,12 @@ from records.models import Record
 from vetprofiles.models import Vet
 
 
-ROUTES = (('PO', 'PO'), ('IV', 'IV'), ('IM', 'IM'), ('SC', 'SC'), ('Topical', 'Topical'))
-CATEGORIES = (('NSAID', 'NSAID'), ('Antibiotic', 'Antibiotic'), ('Sedative', 'Sedative'), ('Opioid', 'Opioid'))
-FREQUENCY = (('No Repeat', 'No Repeat'), ('SID', 'SID'), ('BID', 'BID'), ('TID', 'TID'))
+ROUTES = (('PO', 'PO'), ('IV', 'IV'), ('IM', 'IM'),
+          ('SC', 'SC'), ('Topical', 'Topical'))
+CATEGORIES = (('NSAID', 'NSAID'), ('Antibiotic', 'Antibiotic'),
+              ('Sedative', 'Sedative'), ('Opioid', 'Opioid'))
+FREQUENCY = (('No Repeat', 'No Repeat'), ('SID', 'SID'),
+             ('BID', 'BID'), ('TID', 'TID'))
 MEASURE = (('ml', 'ml'), ('mg', 'mg'))
 
 
@@ -28,7 +31,7 @@ class Drug(models.Model):
 
     def __str__(self):
         """
-        Returns string.
+        Returns name of drug.
         """
         return self.name
 
@@ -47,11 +50,14 @@ class Prescription(models.Model):
     to allow deleting prescriptions under 24 hours old.
     """
     animal = models.ForeignKey(Record, on_delete=models.CASCADE, default=1)
-    animal_weight = models.DecimalField(max_digits=5, decimal_places=2, blank=True, null=True)
+    animal_weight = models.DecimalField(
+        max_digits=5, decimal_places=2, blank=True, null=True)
     vet = models.ForeignKey(Vet, on_delete=models.CASCADE, default=1)
     drug = models.ForeignKey(Drug, on_delete=models.PROTECT, default=None)
-    drug_dose = models.DecimalField(max_digits=4, decimal_places=2, blank=True, null=True)
-    dose = models.DecimalField(max_digits=5, decimal_places=2, blank=True, null=True)
+    drug_dose = models.DecimalField(
+        max_digits=4, decimal_places=2, blank=True, null=True)
+    dose = models.DecimalField(
+        max_digits=5, decimal_places=2, blank=True, null=True)
     measure = models.CharField(max_length=2, blank=True)
     frequency = models.CharField(max_length=10, choices=FREQUENCY, blank=True)
     length = models.PositiveIntegerField(default=0, blank=True)
@@ -65,7 +71,8 @@ class Prescription(models.Model):
         ordering = ['-date']
 
     def __str__(self):
-        return self.animal.name + " " + str(self.dose) + " " + str(self.drug) + " " + str(self.vet)
+        return self.animal.name + " " + \
+            str(self.dose) + " " + str(self.drug) + " " + str(self.vet)
 
     def save(self, *args, **kwargs):
         """
@@ -86,4 +93,4 @@ class Prescription(models.Model):
         To identify prescriptions under a day old
         """
         now = timezone.now()
-        return now-timedelta(hours=24) < self.date <= now
+        return now - timedelta(hours=24) < self.date <= now

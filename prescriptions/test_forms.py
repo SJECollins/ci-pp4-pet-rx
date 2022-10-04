@@ -7,6 +7,7 @@ class TestPrescrForm(TestCase):
     """
     Testing prescription form for required fields.
     """
+
     def setUp(self):
         self.drug = Drug.objects.create(
             name='Amoxiclav',

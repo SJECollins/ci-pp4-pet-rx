@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth import login, authenticate, logout
 from petrx.decorators import vet_login_and_active
-from .forms import RegistrationForm, AccountAuthenticationForm, AccountUpdateForm, ContactForm
+from .forms import RegistrationForm, AccountAuthenticationForm, AccountUpdateForm, ContactForm  # noqa
 
 
 def index(request):
