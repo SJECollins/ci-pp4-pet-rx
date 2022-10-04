@@ -20,9 +20,14 @@
             <!-- Record search-->
             <form method="GET" action="{% url 'records:record_search' %}">
                 {% csrf_token %}
-                <input type="text" name="query" placeholder="Search by name" aria-label="Search">
+                <input type="text" list="animals" name="query" placeholder="Search by surname" aria-label="Search">
                 <button type="submit" class="pet-btns sm-btns" aria-label="Search">Search</button>
             </form>
+            <datalist id="animals">
+                {% for record in record_list %}
+                    <option value="{{ record.surname }}"></option>
+                {% endfor %}
+            </datalist>
         </div>
     </div>
 </section>

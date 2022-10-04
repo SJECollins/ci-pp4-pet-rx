@@ -14,13 +14,18 @@
         <!-- Search input -->
         <form method="GET" action="{% url 'records:record_search' %}">
             {% csrf_token %}
-            <input type="text" name="query" placeholder="Search by name">
+            <input type="text" list="animals" name="query" placeholder="Search by surname">
             <button type="submit" class="pet-btns sm-btns" aria-label="Search">Search</button>
         </form>
+        <datalist id="animals">
+            {% for record in record_list %}
+                <option value="{{ record.surname }}"></option>
+            {% endfor %}
+        </datalist>
     </div>
 </div>
 <!-- Display record list results -->
-{% if record_list %}
+{% if record_search %}
 <div class="prescrip-contain">
     <table>
         <thead>
@@ -32,7 +37,7 @@
             </tr>
         </thead>
         <tbody>
-            {% for record in record_list %}
+            {% for record in record_search %}
             <tr>
                 <th><a class="pet-links" href="{% url 'records:animal_profile' animal_id=record.id %}"
                         aria-label="Go to record">{{ record }}</a>

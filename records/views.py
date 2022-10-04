@@ -20,7 +20,10 @@ def records(request):
 
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
-    context = {'page_obj': page_obj}
+    context = {
+        'record_list': record_list,
+        'page_obj': page_obj
+        }
     return render(request, 'records/records.html', context)
 
 
@@ -32,11 +35,13 @@ def record_search(request):
     From Codemy.com, see link in README credits
     """
     query = request.GET.get('query')
-    record_qs = Record.objects.all()
+    record_list = Record.objects.all()
     if query is not None:
         args = Q(name__icontains=query) | Q(surname__icontains=query)
         record_qs = Record.objects.filter(args)
-    context = {'record_list': record_qs}
+    context = {
+        'record_list': record_list,
+        'record_search': record_qs}
     return render(request, 'records/record_search.html', context)
 
 
