@@ -22,7 +22,9 @@ def drugs(request):
 
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
-    context = {'page_obj': page_obj}
+    context = {
+        'drug_list': drug_list,
+        'page_obj': page_obj}
     return render(request, 'prescriptions/drugs.html', context)
 
 
@@ -31,14 +33,17 @@ def drug_search(request):
     """
     Function to search drugs: retrieves drugss by name or category matching
     query.
-    From Codemy.com, see link in README credits
+    Search page prompts to search by drug name.
+    From Codemy.com, see link in README credits.
     """
     query = request.GET.get('search')
-    drug_qs = Drug.objects.all()
+    drug_list = Drug.objects.all()
     if query is not None:
         args = Q(name__icontains=query) | Q(category__icontains=query)
         drug_qs = Drug.objects.filter(args)
-    context = {'drug_list': drug_qs}
+    context = {
+        'drug_list': drug_list,
+        'drug_search': drug_qs}
     return render(request, 'prescriptions/drug_search.html', context)
 
 

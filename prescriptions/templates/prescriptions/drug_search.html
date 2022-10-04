@@ -14,19 +14,24 @@
         <!-- Search input -->
         <form method="GET" action="{% url 'prescriptions:drug_search' %}">
             {% csrf_token %}
-            <input type="text" name="search" placeholder="Enter name or category">
+            <input type="text" list="drugs" name="search" placeholder="Enter name or category">
             <button type="submit" class="pet-btns sm-btns">Search</button>
         </form>
+        <datalist id="drugs">
+            {% for drug in drug_list %}
+                <option value="{{ drug.name }}"></option>
+            {% endfor %}
+        </datalist>
     </div>
 </div>
 <!-- Display drug list results -->
-{% if drug_list %}
+{% if drug_search %}
 <table>
     <tr>
         <th>Drug</th>
         <th>Category</th>
     </tr>
-    {% for drug in drug_list %}
+    {% for drug in drug_search %}
     <tr>
         <td><a class="pet-links" href="{% url 'prescriptions:detail_drug' drug_id=drug.id %}">{{ drug.name }}</a></td>
         <td>{{ drug.category }}</td>

@@ -17,9 +17,14 @@
             <!-- Drug search-->
             <form method="GET" action="{% url 'prescriptions:drug_search' %}" aria-label="Search">
                 {% csrf_token %}
-                <input type="text" name="search" placeholder="Enter name or category">
+                <input type="text" list="drugs" name="search" placeholder="Enter name or category">
                 <button type="submit" class="pet-btns sm-btns">Search</button>
             </form>
+            <datalist id="drugs">
+                {% for drug in drug_list %}
+                    <option value="{{ drug.name }}"></option>
+                {% endfor %}
+            </datalist>
         </div>
     </div>
 </section>
