@@ -26,4 +26,4 @@ class Record(models.Model):
         Add unique_together constraint to hopefully avoid duplicates.
         """
         ordering = ['surname']
-        unique_together = ['name', 'surname', 'date_of_birth', 'species', 'breed', 'sex']
+        unique_together = ['name', 'surname', 'date_of_birth', 'species', 'sex']
