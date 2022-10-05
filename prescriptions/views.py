@@ -37,10 +37,11 @@ def drug_search(request):
     From Codemy.com, see link in README credits.
     """
     query = request.GET.get('search')
+    drug_qs = []
     drug_list = Drug.objects.all()
     if query is not None:
         args = Q(name__icontains=query)
-        drug_qs = Drug.objects.filter(args)
+        drug_qs = drug_list.filter(args)
     context = {
         'drug_list': drug_list,
         'drug_search': drug_qs}

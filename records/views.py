@@ -35,6 +35,7 @@ def record_search(request):
     From Codemy.com, see link in README credits
     """
     query = request.GET.get('query')
+    record_qs = []
     record_list = Record.objects.all()
     if query is not None:
         args = Q(name__icontains=query) | Q(surname__icontains=query)
