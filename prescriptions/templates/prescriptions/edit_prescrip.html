@@ -1,5 +1,5 @@
 {% block content %}
-{% load crispy_forms_tags %}
+{% load widget_tweaks %}
 
 <!-- Add prescription form-->
 <form hx-post="{{ request.path }}" class="modal-content">
@@ -8,8 +8,20 @@
     <h3 class="subheadings">Edit Prescription</h3>
   </div>
   <!-- Inputs and labels -->
-  <div class="modal-body mx-auto">
-    {{ edit_prescrip_form|crispy }}
+  <div class="modal-body col-sm-6  mx-auto">
+    <div>
+      {{ edit_prescrip_form.category.label_tag }}
+      {% render_field edit_prescrip_form.category class="form-select mb-3" data-hx-get="/prescriptions/drug-choices/" data-hx-target="#id_drug" %}
+      
+      {{ edit_prescrip_form.drug.label_tag }}
+      {% render_field edit_prescrip_form.drug class="form-select mb-3" %}
+
+      {{ edit_prescrip_form.frequency.label_tag }}
+      {% render_field edit_prescrip_form.frequency class="form-select mb-3" %}
+
+      {{ edit_prescrip_form.length.label_tag }}
+      {% render_field edit_prescrip_form.length class="form-select mb-3" %}
+  </div>
   </div>
   <div class="modal-footer">
     <button class="pet-btns" type="submit">Update</button>

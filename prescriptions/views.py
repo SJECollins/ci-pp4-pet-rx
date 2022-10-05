@@ -4,7 +4,7 @@ from django.db.models import Q
 from django.core.paginator import Paginator
 from petrx.decorators import vet_login_and_active
 from records.models import Record
-from .models import Drug, Prescription
+from .models import Category, Drug, Prescription
 from .forms import PrescrForm
 
 
@@ -102,7 +102,8 @@ def edit_prescrip(request, prescrip_id):
     """
     Edit existing prescription.
     """
-    presc = Prescription.objects.get(id=prescrip_id)
+    presc = get_object_or_404(Prescription, id=prescrip_id)
+    category = get_object_or_404(Category, id=presc.drug.category.id)
     form = PrescrForm(request.POST or None, instance=presc)
     if form.is_valid():
         form.save()
@@ -110,6 +111,7 @@ def edit_prescrip(request, prescrip_id):
     else:
         form = PrescrForm(request.POST or None, instance=presc)
     context = {
+        'category': category,
         'presc': presc,
         'edit_prescrip_form': form,
     }

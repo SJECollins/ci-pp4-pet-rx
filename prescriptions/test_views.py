@@ -4,7 +4,7 @@ from django.urls import reverse
 import pytz
 from vetprofiles.models import Vet
 from records.models import Record
-from .models import Drug, Prescription
+from .models import Category, Drug, Prescription
 
 
 class TestPrescriptionsNotRegistered(TestCase):
@@ -26,11 +26,15 @@ class TestPrescriptionsNotRegistered(TestCase):
         )
         self.user_a.is_active = False
         self.user_a.save()
+        self.category = Category.objects.create(
+            name='Antibiotic'
+        )
+        self.category.save()
         self.drug = Drug.objects.create(
             name='Amoxiclav',
             dose=12.5,
             measure='mg',
-            category='Antibiotic',
+            category=self.category,
             route='PO',
             warnings='None'
         )
@@ -203,12 +207,16 @@ class TestPrescriptionsNotIsActive(TestCase):
         )
         self.user_a.is_active = False
         self.user_a.save()
+        self.category = Category.objects.create(
+            name='Antibiotic'
+        )
+        self.category.save()
         self.client.login(email='test@email.com', password='12345')
         self.drug = Drug.objects.create(
             name='Amoxiclav',
             dose=12.5,
             measure='mg',
-            category='Antibiotic',
+            category=self.category,
             route='PO',
             warnings='None'
         )
@@ -349,11 +357,15 @@ class TestPrescriptionsIsActive(TestCase):
         self.user_a.is_active = True
         self.user_a.save()
         self.client.login(email='test@email.com', password='12345')
+        self.category = Category.objects.create(
+            name='Antibiotic'
+        )
+        self.category.save()
         self.drug = Drug.objects.create(
             name='Amoxiclav',
             dose=12.5,
             measure='mg',
-            category='Antibiotic',
+            category=self.category,
             route='PO',
             warnings='None'
         )
