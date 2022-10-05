@@ -4,7 +4,7 @@
 <!-- Drug page -->
 <section>
     <div class="row">
-        <div class="col-md-8">
+        <div class="col-sm-6">
             <h3 class="subheadings">Available Drugs:</h3>
             <br>
             <!-- Back to records -->
@@ -13,11 +13,11 @@
             </div>
         </div>
 
-        <div class="col-md-4">
+        <div class="col-sm-6">
             <!-- Drug search-->
-            <form method="GET" action="{% url 'prescriptions:drug_search' %}" aria-label="Search">
+            <form method="GET" class="float-end" action="{% url 'prescriptions:drug_search' %}" aria-label="Search">
                 {% csrf_token %}
-                <input type="text" list="drugs" name="search" placeholder="Enter name or category">
+                <input type="text" list="drugs" name="search" placeholder="Search drug name">
                 <button type="submit" class="pet-btns sm-btns">Search</button>
             </form>
             <datalist id="drugs">

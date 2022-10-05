@@ -4,7 +4,7 @@
 <!-- Records page -->
 <section>
     <div class="row">
-        <div class="col-md-8">
+        <div class="col-sm-6">
             <h3 class="subheadings">Records:</h3>
             <br>
             <!-- Add record or go to available drugs -->
@@ -16,9 +16,9 @@
             </div>
         </div>
 
-        <div class="col-md-4">
+        <div class="col-sm-6">
             <!-- Record search-->
-            <form method="GET" action="{% url 'records:record_search' %}">
+            <form method="GET" class="float-end" action="{% url 'records:record_search' %}">
                 {% csrf_token %}
                 <input type="text" list="animals" name="query" placeholder="Search by surname" aria-label="Search">
                 <button type="submit" class="pet-btns sm-btns" aria-label="Search">Search</button>

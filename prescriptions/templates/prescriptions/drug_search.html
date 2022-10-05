@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
 <div class="row">
-    <div class="col-md-8">
+    <div class="col-sm-6">
         <a class="pet-links" href="{% url 'records:records' %}" aria-label="Go to records">To Records</a>
         <span>|</span>
         <a class="pet-links" href="{% url 'prescriptions:drugs' %}" aria-label="Go to available drugs">To Available
@@ -10,11 +10,11 @@
         <!-- Drug search page-->
         <h3 class="subheadings">Search Results:</h3>
     </div>
-    <div class="col-md-4">
+    <div class="col-sm-6">
         <!-- Search input -->
-        <form method="GET" action="{% url 'prescriptions:drug_search' %}">
+        <form method="GET" class="float-end" action="{% url 'prescriptions:drug_search' %}">
             {% csrf_token %}
-            <input type="text" list="drugs" name="search" placeholder="Enter name or category">
+            <input type="text" list="drugs" name="search" placeholder="Search drug name">
             <button type="submit" class="pet-btns sm-btns">Search</button>
         </form>
         <datalist id="drugs">
