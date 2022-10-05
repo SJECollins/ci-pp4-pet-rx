@@ -9,13 +9,20 @@ FREQUENCY = (('No Repeat', 'No Repeat'), ('SID', 'SID'),
 
 class PrescrForm(DynamicFormMixin, forms.ModelForm):
     """
-    Model form for prescriptions
+    Model form for prescriptions.
+    From BugBytes, see link in credits of readme.
     """
     def drug_choices(self):
+        """
+        Method to filter drugs by category.
+        """
         category = self['category'].value()
         return Drug.objects.filter(category=category)
 
     def initial_drug(self):
+        """
+        Method to display first drug in category
+        """
         category = self['category'].value()
         return Drug.objects.filter(category=category).first()
 
