@@ -7,8 +7,6 @@ from vetprofiles.models import Vet
 
 ROUTES = (('PO', 'PO'), ('IV', 'IV'), ('IM', 'IM'),
           ('SC', 'SC'), ('Topical', 'Topical'))
-CATEGORIES = (('NSAID', 'NSAID'), ('Antibiotic', 'Antibiotic'),
-              ('Sedative', 'Sedative'), ('Opioid', 'Opioid'))
 FREQUENCY = (('No Repeat', 'No Repeat'), ('SID', 'SID'),
              ('BID', 'BID'), ('TID', 'TID'))
 MEASURE = (('ml', 'ml'), ('mg', 'mg'))
@@ -69,7 +67,7 @@ class Prescription(models.Model):
     animal_weight = models.DecimalField(
         max_digits=5, decimal_places=2, blank=True, null=True)
     vet = models.ForeignKey(Vet, on_delete=models.CASCADE, default=1)
-    drug = models.ForeignKey(Drug, on_delete=models.PROTECT, default=None)
+    drug = models.ForeignKey(Drug, on_delete=models.CASCADE, default=None)
     drug_dose = models.DecimalField(
         max_digits=4, decimal_places=2, blank=True, null=True)
     dose = models.DecimalField(

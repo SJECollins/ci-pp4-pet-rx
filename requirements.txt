@@ -1,10 +1,13 @@
 asgiref==3.5.2
 cloudinary==1.30.0
 coverage==6.4.4
+crispy-bootstrap5==0.7
 dj-database-url==1.0.0
 dj3-cloudinary-storage==0.0.6
 Django==3.2.15
 django-crispy-forms==1.14.0
+django-forms-dynamic==1.0.0
+django-widget-tweaks==1.4.12
 gunicorn==20.1.0
 psycopg2==2.9.3
 pytz==2022.2.1
