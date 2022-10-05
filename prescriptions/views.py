@@ -92,7 +92,7 @@ def add_prescrip(request, animal_id):
 
 def drug_choices(request):
     """
-    View for drug choices to dynamically update prescriptin form.
+    View for drug choices to dynamically update prescription form.
     """
     form = PrescrForm(request.GET)
     return HttpResponse(form['drug'])

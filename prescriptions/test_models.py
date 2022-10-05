@@ -4,13 +4,18 @@ from unittest import mock
 import pytz
 from vetprofiles.models import Vet
 from records.models import Record
-from .models import Drug, Prescription
+from .models import Category, Drug, Prescription
 
 
 class TestDrug(TestCase):
     """
     Testing drug model.
     """
+    def setUp(self):
+        self.category = Category.objects.create(
+            name='Antibiotic'
+        )
+        self.category.save()
 
     def test_drug(self):
         """
@@ -20,7 +25,7 @@ class TestDrug(TestCase):
             name='Amoxiclav',
             dose=12.5,
             measure='mg',
-            category='Antibiotic',
+            category=self.category,
             route='PO',
             warnings='None'
         )
@@ -28,7 +33,7 @@ class TestDrug(TestCase):
         self.assertEqual(drug.name, 'Amoxiclav')
         self.assertEqual(drug.dose, 12.5)
         self.assertEqual(drug.measure, 'mg')
-        self.assertEqual(drug.category, 'Antibiotic')
+        self.assertEqual(str(drug.category), 'Antibiotic')
         self.assertEqual(drug.route, 'PO')
         self.assertEqual(drug.warnings, 'None')
         self.assertEqual(drug_string, str(drug))
@@ -52,11 +57,15 @@ class TestPrescription(TestCase):
         self.user_a.is_active = True
         self.user_a.save()
         self.client.login(email='test@email.com', password='12345')
+        self.category = Category.objects.create(
+            name='Antibiotic'
+        )
+        self.category.save()
         self.drug = Drug.objects.create(
             name='Amoxiclav',
             dose=12.5,
             measure='mg',
-            category='Antibiotic',
+            category=self.category,
             route='PO',
             warnings='None'
         )

@@ -1,5 +1,5 @@
 from django.test import TestCase
-from .models import Drug
+from .models import Category, Drug
 from .forms import PrescrForm
 
 
@@ -9,11 +9,15 @@ class TestPrescrForm(TestCase):
     """
 
     def setUp(self):
+        self.category = Category.objects.create(
+            name='Antibiotic'
+        )
+        self.category.save()
         self.drug = Drug.objects.create(
             name='Amoxiclav',
             dose=12.5,
             measure='mg',
-            category='Antibiotic',
+            category=self.category,
             route='PO',
             warnings='None'
         )
@@ -38,6 +42,7 @@ class TestPrescrForm(TestCase):
         Form can be valid if frequency and length not selected.
         """
         form = PrescrForm(data={
+            'category': self.drug.category,
             'drug': self.drug,
             'frequency': '',
             'length': '',
