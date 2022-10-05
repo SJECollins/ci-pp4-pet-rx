@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'cloudinary',
     'crispy_forms',
+    'crispy_bootstrap5',
     'prescriptions',
     'vetprofiles',
     'records',
@@ -96,6 +97,11 @@ SITE_ID = 1
 
 LOGIN_REDIRECT_URL = '/'
 LOGIN_URL = 'login'
+
+# Crispy Template Packs
+CRISPY_ALLOWED_TEMPLATE_PACKS = 'bootstrap5'
+
+CRISPY_TEMPLATE_PACK = 'bootstrap5'
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
