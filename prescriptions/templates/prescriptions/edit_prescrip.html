@@ -10,19 +10,6 @@
   <!-- Inputs and labels -->
   <div class="modal-body mx-auto">
     {{ edit_prescrip_form|crispy }}
-
-    <!-- Field errors -->
-    {% for field in edit_prescrip_form %}
-    {% for error in field.errors %}
-    <p>{{ error }}</p>
-    {% endfor %}
-    {% endfor %}
-
-    {% if edit_prescrip_form.non_field_errors %}
-    {% for error in edit_prescrip_form.non_field_errors %}
-    <p> {{error}} </p>
-    {% endfor %}
-    {% endif %}
   </div>
   <div class="modal-footer">
     <button class="pet-btns" type="submit">Update</button>
