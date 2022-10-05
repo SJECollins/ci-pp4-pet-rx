@@ -17,5 +17,5 @@ urlpatterns = [
           name='list_prescrip'),
      path('vet-prescrip/', views.vet_prescrip, name='vet_prescrip'),
      path('detail-prescrip/<int:prescrip_id>', views.detail_prescrip,
-         name='detail_prescrip'),
+          name='detail_prescrip'),
 ]
