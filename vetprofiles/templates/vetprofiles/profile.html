@@ -8,7 +8,7 @@
             <div class="col-md-8">
                 <!-- User details -->
                 <h3 class="headings">Profile for {{ user.first_name }} {{ user.last_name }}</h3>
-                <table>
+                <table class="table-responsive">
                     <tr>
                         <th>Name: </th>
                         <td>{{ user.first_name }}</td>
@@ -19,7 +19,7 @@
                     </tr>
                     <tr>
                         <th>Email Address: </th>
-                        <td>{{ user.email }}</td>
+                        <td class="text-break">{{ user.email }}</td>
                     </tr>
                 </table>
                 <a class="pet-btns" href="{% url 'vetprofiles:edit_profile' %}" aria-label="Edit your profile">Edit
