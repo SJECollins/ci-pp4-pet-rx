@@ -1,20 +1,30 @@
 {% block content %}
-
-{% load crispy_forms_tags %}
+{% load widget_tweaks %}
 
 <!-- Add prescription form-->
 <form hx-post="{{ request.path }}" class="modal-content">
-  {% csrf_token %}
-  <div class="modal-header justify-content-center">
-    <h3 class="subheadings">Add Prescription</h3>
-  </div>
-  <!-- Inputs and labels -->
-  <div class="modal-body mx-auto">
-    {{ prescr_form|crispy }}
-  </div>
-  <div class="modal-footer">
-    <button class="pet-btns" type="submit">Add</button>
-  </div>
+    {% csrf_token %}
+    <div class="modal-header justify-content-center">
+        <h3 class="subheadings">Add Prescription</h3>
+    </div>
+    <!-- Inputs and labels -->
+    <div class="modal-body col-sm-6 mx-auto">
+      <div 
+        {{ prescr_form.category.label_tag }}
+        {% render_field prescr_form.category class="form-select mb-3" data-hx-get="/prescriptions/drug-choices/" data-hx-target="#id_drug" %}
+        
+        {{ prescr_form.drug.label_tag }}
+        {% render_field prescr_form.drug class="form-select mb-3" %}
+
+        {{ prescr_form.frequency.label_tag }}
+        {% render_field prescr_form.frequency class="form-select mb-3" %}
+
+        {{ prescr_form.length.label_tag }}
+        {% render_field prescr_form.length class="form-select mb-3" %}
+    </div>
+    <div class="modal-footer">
+        <button class="pet-btns" type="submit">Add</button>
+    </div>
 </form>
 
 {% endblock %}

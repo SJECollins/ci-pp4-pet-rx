@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Drug
+from .models import Drug, Category
 
 # Register your models here.
 
@@ -14,3 +14,4 @@ class DrugAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Drug, DrugAdmin)
+admin.site.register(Category)

@@ -39,7 +39,7 @@ def drug_search(request):
     query = request.GET.get('search')
     drug_list = Drug.objects.all()
     if query is not None:
-        args = Q(name__icontains=query) | Q(category__icontains=query)
+        args = Q(name__icontains=query)
         drug_qs = Drug.objects.filter(args)
     context = {
         'drug_list': drug_list,
@@ -87,6 +87,14 @@ def add_prescrip(request, animal_id):
         'prescr_form': prescr_form
     }
     return render(request, 'prescriptions/add_prescrip.html', context)
+
+
+def drug_choices(request):
+    """
+    View for drug choices to dynamically update prescriptin form.
+    """
+    form = PrescrForm(request.GET)
+    return HttpResponse(form['drug'])
 
 
 @vet_login_and_active

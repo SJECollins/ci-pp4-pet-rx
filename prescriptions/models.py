@@ -14,6 +14,22 @@ FREQUENCY = (('No Repeat', 'No Repeat'), ('SID', 'SID'),
 MEASURE = (('ml', 'ml'), ('mg', 'mg'))
 
 
+class Category(models.Model):
+    """
+    Drug categories for Admin to add to site.
+    """
+    name = models.CharField(max_length=30)
+
+    def __str__(self):
+        """
+        Returns name of category.
+        """
+        return self.name
+
+    class Meta:
+        verbose_name_plural = 'Categories'
+
+
 class Drug(models.Model):
     """
     Drug model.
@@ -25,7 +41,7 @@ class Drug(models.Model):
     name = models.CharField(max_length=50)
     dose = models.DecimalField(max_digits=4, decimal_places=2)
     measure = models.CharField(max_length=2, choices=MEASURE)
-    category = models.CharField(max_length=20, choices=CATEGORIES)
+    category = models.ForeignKey(Category, on_delete=models.CASCADE)
     route = models.CharField(max_length=8, choices=ROUTES)
     warnings = models.CharField(max_length=300)
 
