@@ -10,7 +10,8 @@ ROUTES = (('PO', 'PO'), ('IV', 'IV'), ('IM', 'IM'),
 FREQUENCY = (('No Repeat', 'No Repeat'), ('SID', 'SID'),
              ('BID', 'BID'), ('TID', 'TID'))
 MEASURE = (('ml', 'ml'), ('mg', 'mg'))
-TYPES = (('Injectable', 'Injectable'), ('Liquid', 'Liquid'), ('Tablet', 'Tablet'))
+TYPES = (('Injectable', 'Injectable'), ('Liquid', 'Liquid'),
+         ('Tablet', 'Tablet'))
 
 
 class Category(models.Model):
@@ -40,8 +41,13 @@ class Drug(models.Model):
     name = models.CharField(max_length=50)
     type = models.CharField(max_length=10, choices=TYPES, default='Injectable')
     dose = models.DecimalField(max_digits=4, decimal_places=2)
-    high_dose = models.DecimalField(max_digits=4, decimal_places=2, blank=True, null=True, help_text='Add high dose for tablets only.')
-    tablet_strength = models.CharField(max_length=100, blank=True, help_text='Add tablet strength in numbers, separated by commas.')
+    high_dose = models.DecimalField(max_digits=4, decimal_places=2, blank=True,
+                                    null=True,
+                                    help_text='Add high dose for tablets \
+                                    only.')
+    tablet_strength = models.CharField(max_length=100, blank=True,
+                                       help_text='Add tablet strength in \
+                                       numbers, separated by commas.')
     measure = models.CharField(max_length=2, choices=MEASURE)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     route = models.CharField(max_length=8, choices=ROUTES)
@@ -75,7 +81,8 @@ class Prescription(models.Model):
     type = models.CharField(max_length=10, blank=True)
     drug_dose = models.DecimalField(
         max_digits=4, decimal_places=2, blank=True, null=True)
-    drug_dose_high = models.DecimalField(max_digits=4, decimal_places=2, blank=True, null=True)
+    drug_dose_high = models.DecimalField(max_digits=4, decimal_places=2,
+                                         blank=True, null=True)
     dose = models.CharField(max_length=100, blank=True, null=True)
     measure = models.CharField(max_length=2, blank=True)
     frequency = models.CharField(max_length=10, choices=FREQUENCY, blank=True)
@@ -109,7 +116,9 @@ class Prescription(models.Model):
         if self.type == 'Injectable' or self.type == 'Liquid':
             self.dose = f"{self.animal_weight * self.drug_dose}"
         elif self.type == 'Tablet':
-            strengths = [int(num) for num in self.drug.tablet_strength.split(',') if num.strip().isdigit()]
+            strengths = [int(num) for num in 
+                         self.drug.tablet_strength.split(',')
+                         if num.strip().isdigit()]
             quartstrengths = [strength / 4 for strength in strengths]
             low = int(self.drug_dose * self.animal_weight)
             high = int(self.drug_dose_high * self.animal_weight)
@@ -123,7 +132,8 @@ class Prescription(models.Model):
                         if results['numtabs'] == 0 or smallest < results['numtabs']:
                             results['numtabs'] = smallest
                             results['strength'] = quart
-            self.dose = f"{results['numtabs'] / 4}tabs x {int(results['strength'] * 4)}"
+            self.dose = f"{results['numtabs'] / 4}tabs x \
+                          {int(results['strength'] * 4)}"
         super().save(*args, **kwargs)
 
     @property
