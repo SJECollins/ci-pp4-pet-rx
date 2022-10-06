@@ -9,7 +9,7 @@
     </div>
     <!-- Inputs and labels -->
     <div class="modal-body col-sm-6 mx-auto">
-      <div>
+        <div>
         {{ prescr_form.category.label_tag }}
         {% render_field prescr_form.category class="form-select mb-3" data-hx-get="/prescriptions/drug-choices/" data-hx-target="#id_drug" %}
         
@@ -21,10 +21,11 @@
 
         {{ prescr_form.length.label_tag }}
         {% render_field prescr_form.length class="form-select mb-3" %}
+        </div>
     </div>
     <div class="modal-footer">
         <button class="pet-btns" type="submit">Add</button>
-        <button type="button" class="pet-btns" data-bs-dismiss="modal">Close</button>
+        <button class="pet-btns" data-bs-dismiss="modal">Close</button>
     </div>
 </form>
 
