@@ -116,7 +116,7 @@ class Prescription(models.Model):
         if self.type == 'Injectable' or self.type == 'Liquid':
             self.dose = f"{round(self.animal_weight * self.drug_dose, 2)}"
         elif self.type == 'Tablet':
-            strengths = [int(num) for num in 
+            strengths = [int(num) for num in
                          self.drug.tablet_strength.split(',')
                          if num.strip().isdigit()]
             quartstrengths = [strength * 25 for strength in strengths]
