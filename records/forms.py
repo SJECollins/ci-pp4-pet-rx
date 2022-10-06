@@ -56,5 +56,5 @@ class NoteForm(forms.ModelForm):
         model = Record
         fields = ['note', ]
         widgets = {
-            'note': forms.Textarea(attrs={'cols': 30, 'rows': 10}),
+            'note': forms.Textarea(attrs={'cols': 30, 'rows': 6}),
         }
