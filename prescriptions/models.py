@@ -40,12 +40,12 @@ class Drug(models.Model):
     name = models.CharField(max_length=50)
     type = models.CharField(max_length=10, choices=TYPES, default='Injectable')
     dose = models.DecimalField(max_digits=4, decimal_places=2)
-    high_dose = models.DecimalField(max_digits=4, decimal_places=2, blank=True, null=True)
-    tablet_strength = models.CharField(max_length=100, blank=True)
+    high_dose = models.DecimalField(max_digits=4, decimal_places=2, blank=True, null=True, help_text='Add high dose for tablets only.')
+    tablet_strength = models.CharField(max_length=100, blank=True, help_text='Add tablet strength in numbers, separated by commas.')
     measure = models.CharField(max_length=2, choices=MEASURE)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     route = models.CharField(max_length=8, choices=ROUTES)
-    warnings = models.CharField(max_length=300)
+    warnings = models.CharField(max_length=300, default='None')
 
     def __str__(self):
         """
