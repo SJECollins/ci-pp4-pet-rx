@@ -114,7 +114,7 @@ class Prescription(models.Model):
         self.measure = self.drug.measure
 
         if self.type == 'Injectable' or self.type == 'Liquid':
-            self.dose = f"{self.animal_weight * self.drug_dose}"
+            self.dose = f"{round(self.animal_weight * self.drug_dose, 2)}"
         elif self.type == 'Tablet':
             strengths = [int(num) for num in 
                          self.drug.tablet_strength.split(',')
@@ -132,8 +132,7 @@ class Prescription(models.Model):
                         if results['numtabs'] == 0 or smallest < results['numtabs']:
                             results['numtabs'] = smallest
                             results['strength'] = quart
-            self.dose = f"{results['numtabs'] / 4}tabs x \
-                          {int(results['strength'] * 4)}"
+            self.dose = f"{results['numtabs'] / 4}tabs x {int(results['strength'] * 4)}"
         super().save(*args, **kwargs)
 
     @property

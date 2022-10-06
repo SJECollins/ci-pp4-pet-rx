@@ -69,6 +69,17 @@ class TestPrescription(TestCase):
             route='PO',
             warnings='None'
         )
+        self.drug_b = Drug.objects.create(
+            name='Amoxiclav',
+            type='Tablet',
+            dose=12.5,
+            high_dose=15,
+            tablet_strength='50',
+            measure='mg',
+            category=self.category,
+            route='PO',
+            warnings='None'
+        )
         self.drug.save()
         self.animal = Record.objects.create(
             name='Bob',
@@ -101,7 +112,7 @@ class TestPrescription(TestCase):
                 vet=self.user_a,
                 drug=self.drug,
                 drug_dose=12.5,
-                dose=156.25,
+                dose='156.25',
                 measure='mg',
                 frequency='BID',
                 length=5,
@@ -113,7 +124,44 @@ class TestPrescription(TestCase):
         self.assertEqual(prescription.animal_weight, 12.5)
         self.assertEqual(str(prescription.drug), 'Amoxiclav')
         self.assertEqual(prescription.drug_dose, 12.5)
-        self.assertEqual(prescription.dose, 156.25)
+        self.assertEqual(prescription.dose, '156.25')
+        self.assertEqual(prescription.measure, 'mg')
+        self.assertEqual(prescription.frequency, 'BID')
+        self.assertEqual(prescription.length, 5)
+        self.assertEqual(prescription.route, 'PO')
+        self.assertEqual(str(prescription.date), '2022-10-10 00:00:00+00:00')
+        self.assertEqual(prescription_string, str(prescription))
+
+    def test_tab_prescription(self):
+        """
+        Test creating a prescription for tablets.
+        Need to mock time as have auto_add_now in date field.
+        """
+        mocked = datetime.datetime(2022, 10, 10, 0, 0, 0, tzinfo=pytz.utc)
+        with mock.patch('django.utils.timezone.now', mock.Mock(return_value=mocked)):
+            prescription = Prescription.objects.create(
+                animal=self.animal,
+                animal_weight=12.5,
+                vet=self.user_a,
+                drug=self.drug_b,
+                type=self.drug_b.type,
+                drug_dose=self.drug_b.dose,
+                drug_dose_high=self.drug_b.high_dose,
+                dose='3.5tabs x 50',
+                measure='mg',
+                frequency='BID',
+                length=5,
+                route='PO',
+                date=mocked,
+            )
+        prescription_string = 'Bob 3.5tabs x 50 Amoxiclav test user'
+        self.assertEqual(str(prescription.animal), 'Bob Bobberson')
+        self.assertEqual(prescription.animal_weight, 12.5)
+        self.assertEqual(str(prescription.drug), 'Amoxiclav')
+        self.assertEqual(prescription.type, 'Tablet')
+        self.assertEqual(prescription.drug_dose, 12.5)
+        self.assertEqual(prescription.drug_dose_high, 15)
+        self.assertEqual(prescription.dose, '3.5tabs x 50')
         self.assertEqual(prescription.measure, 'mg')
         self.assertEqual(prescription.frequency, 'BID')
         self.assertEqual(prescription.length, 5)
