@@ -119,9 +119,11 @@ class Prescription(models.Model):
             strengths = [int(num) for num in 
                          self.drug.tablet_strength.split(',')
                          if num.strip().isdigit()]
-            quartstrengths = [strength / 4 for strength in strengths]
-            low = int(self.drug_dose * self.animal_weight)
-            high = int(self.drug_dose_high * self.animal_weight)
+            quartstrengths = [strength * 25 for strength in strengths]
+            lowd = (self.drug_dose * self.animal_weight) * 100
+            highd = ((self.drug_dose_high * self.animal_weight) * 100) + 1
+            low = int(lowd)
+            high = int(highd)
             results = {'numtabs': 0, 'strength': 0}
             for num in range(low, high):
                 size_list = []
@@ -132,7 +134,7 @@ class Prescription(models.Model):
                         if results['numtabs'] == 0 or smallest < results['numtabs']:
                             results['numtabs'] = smallest
                             results['strength'] = quart
-            self.dose = f"{results['numtabs'] / 4}tabs x {int(results['strength'] * 4)}"
+            self.dose = f"{results['numtabs'] / 4}tabs x {int(results['strength'] / 25)}"
         super().save(*args, **kwargs)
 
     @property
