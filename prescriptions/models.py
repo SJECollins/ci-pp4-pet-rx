@@ -74,13 +74,13 @@ class Prescription(models.Model):
     to allow deleting prescriptions under 24 hours old.
     """
     animal = models.ForeignKey(Record, on_delete=models.CASCADE, default=1)
-    animal_weight = models.DecimalField(
-        max_digits=5, decimal_places=2, blank=True, null=True)
+    animal_weight = models.DecimalField(max_digits=5, decimal_places=2,
+                                        blank=True, null=True)
     vet = models.ForeignKey(Vet, on_delete=models.CASCADE, default=1)
     drug = models.ForeignKey(Drug, on_delete=models.CASCADE, default=None)
     type = models.CharField(max_length=10, blank=True)
-    drug_dose = models.DecimalField(
-        max_digits=4, decimal_places=2, blank=True, null=True)
+    drug_dose = models.DecimalField(max_digits=4, decimal_places=2,
+                                    blank=True, null=True)
     drug_dose_high = models.DecimalField(max_digits=4, decimal_places=2,
                                          blank=True, null=True)
     dose = models.CharField(max_length=100, blank=True, null=True)
@@ -152,7 +152,9 @@ class Prescription(models.Model):
         self.route = self.drug.route
         strengths = self.drug.tablet_strength
 
-        self.dose = self.find_dose(self.type, self.animal_weight, self.drug_dose, self.drug_dose_high, strengths)
+        self.dose = self.find_dose(self.type, self.animal_weight,
+                                   self.drug_dose, self.drug_dose_high,
+                                   strengths)
         if self.dose == "No tablets in range.":
             self.measure = ''
         else:
