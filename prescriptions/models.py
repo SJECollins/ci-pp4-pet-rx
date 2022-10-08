@@ -100,32 +100,33 @@ class Prescription(models.Model):
         return self.animal.name + " " + \
             str(self.dose) + " " + str(self.drug) + " " + str(self.vet)
 
-    def save(self, *args, **kwargs):
+    def find_dose(self, group, weight, low, high, tablets):
         """
-        Override the save method to populate weight, dose, route and measure
-        based on animal and drug.
-        Calculates dose by animal weight and drug dose, saves.
+        To find dose to administer.
+        Args:
+            self
+            group = which type or group, ie "Injectable" vs "Tablet"
+            weight = animal weight
+            low = the lowest dosage in the range to administer
+            high = the highest dosage in the range to administer
+            tablets = the tablet strengths available
+        Returns:
+            if Injectable or Liquid - dosage that will be administered in mls
+            if Tablet - number of tablets in quarters to be administered for
+            tablet of given strength. Want smallest amount of tablets for 
+            easier administration
         """
-        self.type = self.drug.type
-        self.drug_dose = self.drug.dose
-        self.drug_dose_high = self.drug.high_dose
-        self.animal_weight = self.animal.weight
-        self.route = self.drug.route
-        self.measure = self.drug.measure
-
-        if self.type == 'Injectable' or self.type == 'Liquid':
-            self.dose = f"{round(self.animal_weight * self.drug_dose, 2)}"
-        elif self.type == 'Tablet':
+        if group == 'Injectable' or group == 'Liquid':
+            return f"{round(weight * low, 2)}"
+        elif group == 'Tablet':
             strengths = [int(num) for num in
-                         self.drug.tablet_strength.split(',')
+                         tablets.split(',')
                          if num.strip().isdigit()]
             quartstrengths = [strength * 25 for strength in strengths]
-            lowd = (self.drug_dose * self.animal_weight) * 100
-            highd = ((self.drug_dose_high * self.animal_weight) * 100) + 1
-            low = int(lowd)
-            high = int(highd)
+            lowd = int((low * weight) * 100)
+            highd = int((high * weight) * 100) + 1
             results = {'numtabs': 0, 'strength': 0}
-            for num in range(low, high):
+            for num in range(lowd, highd):
                 size_list = []
                 for quart in quartstrengths:
                     if num % quart == 0:
@@ -134,7 +135,28 @@ class Prescription(models.Model):
                         if results['numtabs'] == 0 or smallest < results['numtabs']:
                             results['numtabs'] = smallest
                             results['strength'] = quart
-            self.dose = f"{results['numtabs'] / 4}tabs x {int(results['strength'] / 25)}"
+            if results['numtabs'] == 0:
+                return "No tablets in range."
+            else:
+                return f"{results['numtabs'] / 4}tabs x {int(results['strength'] / 25)}"
+
+    def save(self, *args, **kwargs):
+        """
+        Override the save method to populate weight, doses, route and measure
+        based on animal and drug.
+        """
+        self.type = self.drug.type
+        self.drug_dose = self.drug.dose
+        self.drug_dose_high = self.drug.high_dose
+        self.animal_weight = self.animal.weight
+        self.route = self.drug.route
+        strengths = self.drug.tablet_strength
+
+        self.dose = self.find_dose(self.type, self.animal_weight, self.drug_dose, self.drug_dose_high, strengths)
+        if self.dose == "No tablets in range.":
+            self.measure = ''
+        else:
+            self.measure = self.drug.measure
         super().save(*args, **kwargs)
 
     @property
