@@ -29,7 +29,7 @@ The live site can be found here: [PetRx](https://ci-pp4-petrx.herokuapp.com/)
 - [Deployment](https://github.com/SJECollins/ci-pp4-petrx#deployment)
 - [Credits](https://github.com/SJECollins/ci-pp4-petrx#credits)
 
-## User Experience
+# User Experience
 
 ### User Stories
 - As a site user I can register on the site so that have access to the features for animal profiles and prescriptions
@@ -56,10 +56,12 @@ The live site can be found here: [PetRx](https://ci-pp4-petrx.herokuapp.com/)
 - As a site admin I can delete a medication so that it can no longer be prescribed
 - As a site admin I can delete a user profile so that they are no longer able to access the site
 
-## Features
-### General
-#### Navigation Bar
- <summary>Navbar</summary>
+# Features
+## General
+### Navigation Bar
+
+<details>
+<summary>Navbar</summary>
 
 ![Navbar](readme-docs/navbar.webp)
 </details>
@@ -82,12 +84,14 @@ The navbar is a slightly modified version of the first example from [Bootstrap's
 On the left hand side of the screen, there are the logo and "PetRx" title which act as links to the index page.
 On smaller screens, the title is displayed centrally to make the navbar look balanced.
 
-#### Footer
+### Footer
+
 <details>
 <summary>Footer</summary>
 
 ![Footer](readme-docs/footer.webp)
 </details>
+
 The footer is featured across all pages.
 
 The footer features three small sections. The first has the company name and a short tagline for the app. The second features contact 
@@ -95,12 +99,15 @@ information and a link to the contact page so that company contact information i
 website. The final small section features social media links. On large screens, the sections are presented side by
 side as columns, but collapse into rows on smaller screens with the company name and tagline on top.
 
-#### Index Page
+### Index Page
+
+<details>
 <summary>Index Page Unregistered</summary>
 
 ![Index Page](readme-docs/index.webp)
 </details>
 
+<details>
 <summary>Index Page Logged In</summary>
 
 ![Index Page](readme-docs/index-logged.webp)
@@ -128,7 +135,9 @@ as for users who are registered but not active, however they can follow the link
 On larger screens, the index sections are displayed as rows with their contents displayed as columns. On smaller
 screens, the contents of the sections are displayed as rows in one column.
 
-#### About Page
+### About Page
+
+<details>
 <summary>About Page</summary>
 
 ![About Page](readme-docs/about.webp)
@@ -144,7 +153,9 @@ benefits.
 On larger screens, the about page is displayed in rows with the contents displayed as alternating columns of text
 and promotional material. On smaller screens, page is displayed as alternating rows of text and promotional material. 
 
-#### Contact Page
+### Contact Page
+
+<details>
 <summary>Contact Page</summary>
 
 ![Contact Page](readme-docs/contact.webp)
@@ -155,10 +166,11 @@ the footer. It features a simple form that requires the name, email and message
 from the user. It sends the message to the site owner and provides the user with feedback by displaying "Message
 sent."
 
-### Vet Profiles
+## Vet Profiles
 
-#### Registration Page
+### Registration Page
 
+<details>
 <summary>Registration Page</summary>
 
 ![Registration](readme-docs/register.webp)
@@ -176,8 +188,9 @@ they given a message that the password fields don't match.
 When the user registers, they are logged in and redirected to the index page where they are informed their account 
 is awaiting approval.
 
-#### Login Page
+### Login Page
 
+<details>
 <summary>Login Page</summary>
 
 ![Login](readme-docs/login.webp)
@@ -191,8 +204,9 @@ invalid, they are given a message that their login is invalid.
 When the user logs in, they are redirected to their profile if their account is active. If their account is not 
 active, the user is redirected to the index page informing them that their account is awaiting approval.
 
-#### Profile
+### Profile
 
+<details>
 <summary>Profile</summary>
 
 ![Profile](readme-docs/vet-profile.webp)
@@ -219,8 +233,9 @@ and "View" is a link to the full details of the prescription. The details provid
 provide just enough context so that user can find previous prescriptions. They can then click "View" to review the 
 prescription in more details.
 
-#### Edit Profile
+### Edit Profile
 
+<details>
 <summary>Edit Profile</summary>
 
 ![Edit Profile](readme-docs/edit-vet-profile.webp)
@@ -233,8 +248,9 @@ user is capable of changing their email, but only to another email which is not 
 will receive a message that the email is already in use if they attempt to do so and the form will reset to their
 current details.
 
-### Records
+## Records
 
+<details>
 <summary>Records</summary>
 
 ![Records](readme-docs/records.webp)
@@ -250,8 +266,9 @@ Below, all the current records are displayed in a list beneath the "All Records:
 alphabetically by surname. The list features pagination so that ten records are displayed per page so that as the
 records grow the 
 
-#### Search Records
+### Search Records
 
+<details>
 <summary>Search Records</summary>
 
 ![Search Records](readme-docs/record-search.webp)
@@ -269,8 +286,9 @@ Available Drugs" with the search bar. Below "Search Results:" are the list of re
 the details "Animal", "Species", "Breed", and "DOB" to help the user narrow down the record they are looking for.
 Below the results is another link "Back to Records".
 
-#### Add Animal
+### Add Animal
 
+<details>
 <summary>Add Animal</summary>
 
 ![Add Animal](readme-docs/add-animal.webp)
@@ -286,8 +304,9 @@ filled.
 
 Upon submitting the form, the user is redirected to the Records page.
 
-#### Animal Record
+### Animal Record
 
+<details>
 <summary>Animal Record</summary>
 
 ![Animal Record](readme-docs/animal-record.webp)
@@ -318,9 +337,9 @@ and "View" is a link to the full details of the prescription. The details provid
 provide just enough context so that user can find previous prescriptions. They can then click "View" to review the 
 prescription in more details.
 
+### Add Prescription
 
-#### Add Prescription
-
+<details>
 <summary>Add Prescription</summary>
 
 ![Add Prescription](readme-docs/add-prescription.webp)
@@ -346,8 +365,9 @@ the animal receives. This is one of the main features, that the user does not ha
 The output in the prescription is the dose to administer in either millilitres or milligrams, or number of tablets 
 of a given strength.
 
-#### Edit Record
+### Edit Record
 
+<details>
 <summary>Edit Record</summary>
 
 ![Edit Record](readme-docs/edit-animal.webp)
@@ -360,8 +380,9 @@ fields.
 
 Upon submitting the form, the user is brought back to the animal's profile.
 
-#### Update Weight
+### Update Weight
 
+<details>
 <summary>Update Weight</summary>
 
 ![Update Weight](readme-docs/update-weight.webp)
@@ -374,8 +395,9 @@ way to update it without opening the whole "Edit Record" form. The field takes a
 
 If the user changes their mind, they can click away from the modal or click the "Close" button to close the modal.
 
-#### Notes
+### Notes
 
+<details>
 <summary>Notes</summary>
 
 ![Notes](readme-docs/edit-notes.webp)
@@ -389,10 +411,11 @@ may decide to leave a note on the record that the dog should have its bloodwork 
 of NSAIDs. Any vet can edit the notes. They are not required and can be left blank. If empty, "No notes or warnings"
 is displayed on the animal's profile.
 
-### Prescriptions - Vet
+## Prescriptions - Vet
 
-#### Available Drugs
+### Available Drugs
 
+<details>
 <summary>Available Drugs</summary>
 
 ![Drugs](readme-docs/drugs.webp)
@@ -407,8 +430,9 @@ is below the link.
 Below, all the medications currently available are listed alphabetically below the "All Drugs:" heading. Like the Records
 page, the list of medications features pagination with ten medications per page. 
 
-#### Search Drugs
+### Search Drugs
 
+<details>
 <summary>Search Drugs</summary>
 
 ![Search Drugs](readme-docs/drug-search.webp)
@@ -424,8 +448,9 @@ Available Drugs" with the search bar. Below "Search Results:" are the list of re
 the details "Drug" and "Category to help the user narrow down the medication they are looking for.
 Below the results is are the links "Back to Drugs" and "To Records".
 
-#### Detailed Drug View
+### Detailed Drug View
 
+<details>
 <summary>Detail Drug View</summary>
 
 ![Detailed Drug](readme-docs/detail-drug.webp)
@@ -438,13 +463,15 @@ user to review.
 
 Below are the links "Your Profile", "Drugs", and "Records".
 
-#### Detailed Prescription
+### Detailed Prescription
 
+<details>
 <summary>Detailed Prescription</summary>
 
 ![Detail Prescription](readme-docs/detail-prescription-prescriber.webp)
 </details>
 
+<details>
 <summary>Detailed Prescription - Can't Edit</summary>
 
 ![Detail Prescription](readme-docs/detail-prescription.webp)
@@ -466,11 +493,12 @@ the prescription has been deleted. A "Close" button is always available to dismi
 
 At the bottom of the modal, links to "Your Profile", "{animal}'s Record", and "Records" are available.
 
-#### Edit Prescription
+### Edit Prescription
 
-<summary>Example Title</summary>
+<details>
+<summary>Edit Prescription</summary>
 
-![Title](readme-docs/)
+![Edit Prescription](readme-docs/edit-prescription.webp)
 </details>
 
 If the user selects "Edit Prescripton" on the prescription modal, a modal displays with a form that's identical to
@@ -478,18 +506,26 @@ the form to add a prescription. It is prepopulated with the previously selected 
 closes and the list of prescriptions on the user's profile and the animal's records are updated. A "Close" button is
 also present on the modal so that the user can close the modal without submitting the form. 
 
-### Prescriptions - Admin
+## Prescriptions - Admin
 
-#### Category
+### Category
+
+<details>
+<summary>Admin - Category</summary>
+
+![Admin - Category](readme-docs/admin-category.webp)
+</details>
 
 From the admin panel, the admin user is able to create, update and delete categories for medications. There is a
 single "Name" field required to create a category. The categories are displayed as a list alphabetically.
 
-<summary>Example Title</summary>
+### Drug
 
-![Title](readme-docs/)
+<details>
+<summary>Admin - Drug</summary>
+
+![Admin-Drug](readme-docs/admin-drug.webp)
 </details>
-#### Drug
 
 From the admin panel, the admin user is able to create, update and delete medications. The medications are displayed 
 alphabetically, with their dose and category.
@@ -529,15 +565,12 @@ page.
 The admin user is also able to edit any of these details. They are also capable of deleting a drug entry. However, 
 this will then destroy any associated prescriptions.
 
-<summary>Example Title</summary>
+### Records
 
-![Title](readme-docs/)
-</details>
+<details>
+<summary>Admin - Record</summary>
 
-#### Records
-<summary>Example Title</summary>
-
-![Title](readme-docs/)
+![Admin - Record](readme-docs/admin-record.webp)
 </details>
 
 From the admin panel, the admin user is able to create, update and delete records. The records are displayed
@@ -548,10 +581,12 @@ The admin user can add a new animal record in much the same way as vet user, tho
 when adding the record. They are also capable of editing an animal's record. Unlike the vet users, the admin user
 has the ability to delete an animal's record.
 
-#### VetProfiles
-<summary>Example Title</summary>
+### VetProfiles
 
-![Title](readme-docs/)
+<details>
+<summary>Admin - VetProfiles</summary>
+
+![Admin - VetProfiles](readme-docs/admin-vetprofile.webp)
 </details>
 
 From the admin panel, the admin user is able to create, update and delete user profiles. User profilse are displayed
@@ -566,84 +601,130 @@ accessing restricted content without approval.
 The admin user is also capable of deleting user profiles.
 
 
-### Restricted
+## Restricted
+<details>
 <summary>Example Title</summary>
 
 ![Title](readme-docs/)
 </details>
 
-### Error Pages
+## Error Pages
+<details>
 <summary>Example Title</summary>
 
 ![Title](readme-docs/)
 </details>
 
-#### 403
+### 403
+<details>
 <summary>Example Title</summary>
 
 ![Title](readme-docs/)
 </details>
 
-#### 404
+### 404
+<details>
 <summary>Example Title</summary>
 
 ![Title](readme-docs/)
 </details>
 
-#### 405
+### 405
+<details>
 <summary>Example Title</summary>
 
 ![Title](readme-docs/)
 </details>
 
-#### 500
+### 500
+<details>
 <summary>Example Title</summary>
 
 ![Title](readme-docs/)
 </details>
 
-### Future Features
+## Future Features
 
 1. __Owner Profiles__. 
 2. __Improved Search Functionality__. 
 3. __Improved Dosing__. 
 4. __Prescription Warnings__. 
 
-## Design
+# Design
 
-### Colour
-
-
-### Typography
+## Colour
 
 
-### Buttons and Links
+## Typography
 
 
-### ERD
+## Buttons and Links
 
-### Wireframes
+
+## ERD
+<details>
+<summary>ERD</summary>
+
+![ERD](readme-docs/petrx-erd.webp)
+</details>
+
+## Wireframes
 Wireframes were created in Balsamiq.
+
 
 <details>
 <summary>Index Wireframe</summary>
 
-![Index Wireframe](readme-docs/index.png)
+![Index Wireframe](readme-docs/index-wf.webp)
 </details>
 
 <details>
 <summary>About Wireframe</summary>
 
-![About Wireframe](readme-docs/help.png)
+![About Wireframe](readme-docs/about-wf.webp)
 </details>
 
 <details>
 <summary>Contact Wireframe</summary>
 
-![Contact Wireframe](readme-docs/contact.png)
+![Contact Wireframe](readme-docs/contact-wf.webp)
 </details>
 
+<details>
+<summary>Register Wireframe</summary>
 
+![Register Wireframe](readme-docs/register-wf.webp)
+</details>
+
+<details>
+<summary>Login Wireframe</summary>
+
+![Login Wireframe](readme-docs/signin-wf.webp)
+</details>
+
+<details>
+<summary>Vet Profile Wireframe</summary>
+
+![Vet Profile Wireframe](readme-docs/user-profile-wf.webp)
+</details>
+
+<details>
+<summary>Records Wireframe</summary>
+
+![Records Wireframe](readme-docs/records-wf.webp)
+</details>
+
+<details>
+<summary>Animal Record Wireframe</summary>
+
+![Animal Record Wireframe](readme-docs/animal-profile-wf.webp)
+</details>
+
+<details>
+<summary>Prescribe Wireframe</summary>
+
+![Prescribe Wireframe](readme-docs/prescribe-wf.webp)
+</details>
 
 ## Technologies Used
 
