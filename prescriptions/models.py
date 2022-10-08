@@ -113,7 +113,7 @@ class Prescription(models.Model):
         Returns:
             if Injectable or Liquid - dosage that will be administered in mls
             if Tablet - number of tablets in quarters to be administered for
-            tablet of given strength. Want smallest amount of tablets for 
+            tablet of given strength. Want smallest amount of tablets for
             easier administration
         """
         if group == 'Injectable' or group == 'Liquid':
