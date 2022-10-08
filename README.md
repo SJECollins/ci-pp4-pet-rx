@@ -653,6 +653,7 @@ The admin user is also capable of deleting user profiles.
 # Design
 
 ## Colour
+![Colour Palette](readme-docs/palette.webp)
 
 
 ## Typography
