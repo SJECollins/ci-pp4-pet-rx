@@ -22,8 +22,7 @@ def about(request):
 def contact(request):
     """
     Render contact page.
-    Using django's send_mail for testing in development.
-    From Code With Stein, see link in README credits.
+    Using EmailJs in template.
     """
     if request.method == 'POST':
         form = ContactForm(request.POST)
