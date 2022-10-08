@@ -18,7 +18,7 @@
             <form method="GET" class="float-end" action="{% url 'prescriptions:drug_search' %}" aria-label="Search">
                 {% csrf_token %}
                 <input type="text" list="drugs" name="search" placeholder="Search drug name">
-                <button type="submit" class="pet-btns sm-btns">Search</button>
+                <button type="submit" class="pet-btns sm-btns" aria-label="Search">Search</button>
             </form>
             <datalist id="drugs">
                 {% for drug in drug_list %}
