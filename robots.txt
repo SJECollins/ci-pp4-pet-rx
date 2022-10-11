@@ -1,4 +1,6 @@
 User-agent: *
+Disallow: /vetprofiles/profile
+Disallow: /vetprofiles/edit-profile
 Disallow: /records/
 Disallow: /prescriptions/
 Sitemap: https://ci-pp4-petrx.herokuapp.com/sitemap.xml
