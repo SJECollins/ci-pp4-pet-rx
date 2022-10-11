@@ -652,15 +652,18 @@ The admin user is also capable of deleting user profiles.
 
 # Design
 
+## Planning
+
 ## Colour
 ![Colour Palette](readme-docs/palette.webp)
 
+A blue colour palette was used for this project based on the association of the colour with healthcare. The main background colour is a white with a hint of blue to give a clean appearance. The main font colour is almost black to aid readability. 
+
+A secondary font colour of dark blue was used for text in the header and footer to keep with the style. Buttons and links are styled in lighter shades of blue to stand out and indicate interactivity.
 
 ## Typography
 
-
-## Buttons and Links
-
+Fira Sans and Rubik were imported from Google Fonts. They were chosen for their readability and similarity, to create easily legible content that is pleasant to read without being distracting.
 
 ## ERD
 <details>
@@ -743,21 +746,111 @@ Wireframes were created in Balsamiq.
 ## Testing
 
 ### [HTML Validator](https://validator.w3.org/)
-- Index.html:
-  - ![Index results](readme-docs/html-val-index.png)
-  - [Link to HTML Validator](https://validator.w3.org/nu/?showsource=yes&showoutline=yes&showimagereport=yes&doc=https%3A%2F%2Fsjecollins.github.io%2Fci-pp1-hoggy-hospital)
+
+HTML was tested by coping the page source and pasting into the validator.
+
+- <details>
+  <summary>Index Results</summary>
+
+    ![Index results](readme-docs/index-html-val.webp)
+  </details>
+
+- <details>
+  <summary>About Results</summary>
+
+  ![About results](readme-docs/about-html-val.webp)
+  </details>
+
+- <details>
+  <summary>Contact Results</summary>
+
+  ![Contact results](readme-docs/contact-html-val.webp)
+  </details>
+
+- <details>
+  <summary>Register Results</summary>
+
+  ![Register results](readme-docs/register-html-val.webp)
+  </details>
+
+- <details>
+  <summary>Login Results</summary>
+
+  ![Login results](readme-docs/login-html-val.webp)
+  </details>
+
+- <details>
+  <summary>Records Results</summary>
+
+  ![Records results](readme-docs/records-html-val.webp)
+  </details>
+
+- <details>
+  <summary>Record Search Results</summary>
+
+  ![Record Search results](readme-docs/record-search-html-val.webp)
+  </details>
+
+- <details>
+  <summary>Animal Record Results</summary>
+
+  ![Animal Record results](readme-docs/animal-record-html-val.webp)
+  </details>
+
+- <details>
+  <summary>Add Animal Record Results</summary>
+
+  ![Add Animal Record results](readme-docs/add-animal-html-val.webp)
+  </details>
+
+- <details>
+  <summary>Edit Animal Record Results</summary>
+
+  ![Edit Animal Record results](readme-docs/edit-animal-html-val.webp)
+  </details>
+
+- <details>
+  <summary>Profile Results</summary>
+
+  ![Profile results](readme-docs/profile-html-val.webp)
+  </details>
+
+- <details>
+  <summary>Edit Profile Results</summary>
+
+  ![Edit Profile results](readme-docs/edit-profile-html-val.webp)
+  </details>
+
+- <details>
+  <summary>Drugs Results</summary>
+
+  ![Drugs results](readme-docs/drugs-html-val.webp)
+  </details>
+
+- <details>
+  <summary>Drug Search Results</summary>
+
+  ![Drug Search results](readme-docs/drug-search-html-val.webp)
+  </details>
+
+- <details>
+  <summary>Detailed Drug View Results</summary>
+
+  ![Detail Drug View results](readme-docs/detail-drug-html-val.webp)
+  </details>
 
 
 ### [CSS Validator](https://jigsaw.w3.org/css-validator/)
+
+CSS was tested by coping the CSS file into the validator.
+
 - Results for style.css:
-  - ![CSS results](readme-docs/css-validator.png)
+  - ![CSS results](readme-docs/css-validator.webp)
   - <p>
-        <a href="https://jigsaw.w3.org/css-validator/check/referer">
-            <img style="border:0;width:88px;height:31px"
-                src="https://jigsaw.w3.org/css-validator/images/vcss-blue"
-                alt="Valid CSS!" />
-        </a>
-    </p>
+        <a href="http://jigsaw.w3.org/css-validator/check/referer">
+          <img style="border:0;width:88px;height:31px" src="http://jigsaw.w3.org/css-validator/images/vcss-blue" alt="Valid CSS!">
+          </a>
+      </p>
      
 
 ### Lighthouse
