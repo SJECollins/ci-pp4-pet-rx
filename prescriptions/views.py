@@ -82,10 +82,10 @@ def add_prescrip(request, animal_id):
             instance.save()
             return HttpResponse(status=204)
     else:
-        prescr_form = PrescrForm()
+        form = PrescrForm()
     context = {
         'animal': animal,
-        'prescr_form': prescr_form
+        'prescr_form': form
     }
     return render(request, 'prescriptions/add_prescrip.html', context)
 

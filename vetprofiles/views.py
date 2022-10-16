@@ -133,25 +133,38 @@ def user_restricted(request):
     return render(request, 'vetprofiles/restricted.html')
 
 
-def handle_403(request, exception):
-    """
-    Renders custom 403 page.
-    """
-    return render(request, 'errors/403.html')
+# def handle_403(request, exception):
+#     """
+#     Renders custom 403 page.
+#     """
+#     return render(request, 'errors/403.html')
 
 
-def handle_404(request, exception):
+def handle_403(request, exception, template_name="errors/403.html"):
     """
-    Renders custom 404 page.
+    Renders custom 404 page
     """
-    return render(request, 'errors/404.html')
+    response = render(request, template_name)
+    response.status_code = 403
+    return response
 
 
-def handle_405(request, exception):
+def handle_404(request, exception, template_name="errors/404.html"):
     """
-    Renders custom 405 page.
+    Renders custom 404 page
     """
-    return render(request, 'errors/405.html')
+    response = render(request, template_name)
+    response.status_code = 404
+    return response
+
+
+def handle_405(request, exception, template_name="errors/405.html"):
+    """
+    Renders custom 404 page
+    """
+    response = render(request, template_name)
+    response.status_code = 405
+    return response
 
 
 def handle_500(request):

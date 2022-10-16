@@ -74,7 +74,7 @@ class TestPrescription(TestCase):
             type='Tablet',
             dose=12.5,
             high_dose=15,
-            tablet_strength='50',
+            tablet_strength='50, 250, 500',
             measure='mg',
             category=self.category,
             route='PO',
@@ -98,6 +98,23 @@ class TestPrescription(TestCase):
             note='No notes',
         )
         self.animal.save()
+        self.animal_b = Record.objects.create(
+            name='Fluff',
+            surname='Flufferson',
+            date_of_birth=datetime.datetime(
+                2020,
+                10,
+                10,
+                0,
+                0,
+                0,
+                tzinfo=pytz.utc),
+            species='Feline',
+            breed='DLH',
+            weight=3.2,
+            note='No notes',
+        )
+        self.animal_b.save()
 
     def test_prescription(self):
         """
@@ -108,15 +125,15 @@ class TestPrescription(TestCase):
         with mock.patch('django.utils.timezone.now', mock.Mock(return_value=mocked)):
             prescription = Prescription.objects.create(
                 animal=self.animal,
-                animal_weight=12.5,
+                animal_weight=self.animal.weight,
                 vet=self.user_a,
                 drug=self.drug,
-                drug_dose=12.5,
-                dose='156.25',
-                measure='mg',
+                drug_dose=self.drug.dose,
+                dose='',
+                measure='',
                 frequency='BID',
                 length=5,
-                route='PO',
+                route='',
                 date=mocked,
             )
         prescription_string = 'Bob 156.25 Amoxiclav test user'
@@ -141,30 +158,55 @@ class TestPrescription(TestCase):
         with mock.patch('django.utils.timezone.now', mock.Mock(return_value=mocked)):
             prescription = Prescription.objects.create(
                 animal=self.animal,
-                animal_weight=12.5,
+                animal_weight=self.animal.weight,
                 vet=self.user_a,
                 drug=self.drug_b,
                 type=self.drug_b.type,
                 drug_dose=self.drug_b.dose,
                 drug_dose_high=self.drug_b.high_dose,
-                dose='3.5tabs x 50',
-                measure='mg',
+                dose='',
+                measure='',
                 frequency='BID',
                 length=5,
-                route='PO',
+                route='',
                 date=mocked,
             )
-        prescription_string = 'Bob 3.5tabs x 50 Amoxiclav test user'
+        prescription_string = 'Bob 0.75tabs x 250 Amoxiclav test user'
         self.assertEqual(str(prescription.animal), 'Bob Bobberson')
         self.assertEqual(prescription.animal_weight, 12.5)
         self.assertEqual(str(prescription.drug), 'Amoxiclav')
         self.assertEqual(prescription.type, 'Tablet')
         self.assertEqual(prescription.drug_dose, 12.5)
         self.assertEqual(prescription.drug_dose_high, 15)
-        self.assertEqual(prescription.dose, '3.5tabs x 50')
+        self.assertEqual(prescription.dose, '0.75tabs x 250')
         self.assertEqual(prescription.measure, 'mg')
         self.assertEqual(prescription.frequency, 'BID')
         self.assertEqual(prescription.length, 5)
         self.assertEqual(prescription.route, 'PO')
         self.assertEqual(str(prescription.date), '2022-10-10 00:00:00+00:00')
         self.assertEqual(prescription_string, str(prescription))
+
+    def test_tab_prescription_out_of_range(self):
+        """
+        Test creating a prescription for tablets, but not in range.
+        Need to mock time as have auto_add_now in date field.
+        """
+        mocked = datetime.datetime(2022, 10, 10, 0, 0, 0, tzinfo=pytz.utc)
+        with mock.patch('django.utils.timezone.now', mock.Mock(return_value=mocked)):
+            prescription = Prescription.objects.create(
+                animal=self.animal_b,
+                animal_weight=self.animal_b.weight,
+                vet=self.user_a,
+                drug=self.drug_b,
+                type=self.drug_b.type,
+                drug_dose=self.drug_b.dose,
+                drug_dose_high=self.drug_b.high_dose,
+                dose='',
+                measure='',
+                frequency='BID',
+                length=5,
+                route='',
+                date=mocked,
+            )
+        self.assertEqual(prescription.dose, 'No tablets in range.')
+        self.assertEqual(prescription.measure, '')

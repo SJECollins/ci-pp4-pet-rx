@@ -279,6 +279,17 @@ class TestLogin(TestCase):
             fetch_redirect_response=True)
 
 
+class TestRestricted(TestCase):
+    """
+    Testing viewing restricted.html
+    """
+
+    def test_restricted(self):
+        response = self.client.get('/restricted/')
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'vetprofiles/restricted.html')
+
+
 class TestErrorHandlers(TestCase):
     """
     Testing error handler views.
@@ -290,5 +301,5 @@ class TestErrorHandlers(TestCase):
         template.
         """
         response = self.client.get('/thisisnonsense/')
-        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.status_code, 404)
         self.assertTemplateUsed(response, 'errors/404.html')
