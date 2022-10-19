@@ -3,7 +3,7 @@
 
 ## [HTML Validator](https://validator.w3.org/)
 
-HTML was tested by coping the page source and pasting into the validator.
+HTML was validated by copying the page source and pasting into the validator.
 
 - <details>
   <summary>Index Results</summary>
@@ -98,7 +98,7 @@ HTML was tested by coping the page source and pasting into the validator.
 
 ## [CSS Validator](https://jigsaw.w3.org/css-validator/)
 
-CSS was tested by copying the CSS file into the validator.
+CSS was validated by copying the CSS file into the validator.
 
 - Results for style.css:
   - ![CSS results](readme-docs/testing/css-validator.webp)
@@ -111,12 +111,13 @@ CSS was tested by copying the CSS file into the validator.
 
 ## JavaScript Testing
 
-JSHint was used for testing the JavaScript for the modals and email. 
+JSHint was used for validating the JavaScript for the modals and email. 
 
 
 ## Python Testing
 
 The project was tested for pep8 compliance using pycodestyle. [autopep8](https://pypi.org/project/autopep8/) was used to aid compliance. # noqa was used in a small number of cases where necessary. At time of writing no problems or errors were found.
+
 
 ## Lighthouse
 <summary>Example Title</summary>
@@ -149,34 +150,43 @@ The project was tested for pep8 compliance using pycodestyle. [autopep8](https:/
 
 
 ## Manual Testing
-<summary>Example Title</summary>
 
-![Title](readme-docs/)
+Below the steps for manual testing of the site have been arranged into tables. User stories which were fulfilled can be matched by their keys in the next section.
+
+<details>
+<summary>Testing Registration & Login</summary>
+
+![Testing Registration & Login](readme-docs/testing/testing-registration-login.png)
 </details>
 
-<summary>Example Title</summary>
+<details>
+<summary>Testing VetProfiles</summary>
 
-![Title](readme-docs/)
+![Testing VetProfiles](readme-docs/testing/testing-vetprofiles.png)
 </details>
 
-<summary>Example Title</summary>
+<details>
+<summary>Testing Records</summary>
 
-![Title](readme-docs/)
+![Testing Records](readme-docs/testing/testing-records.png)
 </details>
 
-<summary>Example Title</summary>
+<details>
+<summary>Testing Prescriptions</summary>
 
-![Title](readme-docs/)
+![Testing Prescriptions](readme-docs/testing/testing-prescriptions.png)
 </details>
 
-<summary>Example Title</summary>
+<details>
+<summary>Testing Admin</summary>
 
-![Title](readme-docs/)
+![Testing Admin](readme-docs/testing/testing-prescriptions.png)
 </details>
+
 
 ## User Story Testing
 
-The user stories were tested as part of the manual testing above and can matched by their key.
+The user stories were tested as part of the manual testing above and can be matched by their key.
 
 - US1:
   - As a site user I can register on the site so that have access to the features for animal profiles and prescriptions
@@ -221,6 +231,7 @@ The user stories were tested as part of the manual testing above and can matched
 - US21:
   - As a site admin I can delete a user profile so that they are no longer able to access the site
 
+
 ## Browser Compatibility
 The website was tested on:
 - Chrome Version 101.0.4951.67
@@ -236,15 +247,18 @@ The website was tested on:
   - **Description:** On larger screens, it was possible to close modals that don't have close buttons by tapping elsewhere on the screen. However, certain modals (e.g. adding prescription) were too large on a mobile screen to be able to tap away if a suer changes their mind and wants to back out.
   - **Fix:** add close button to all modals.
 
+
 - Mobile Layout - User Email:
   - **Issue:** long user emails cause layout shifts.
   - **Description:** On very small screen sizes, the email displayed in the user's profile causes the page layout to break.
   - **Fix:** add "text-break" Bootstrap class.
 
+
 - Contact Form - No Feedback:
   - **Issue:** no feedback when message sent from form.
   - **Description:** On initial deploy of live site, form was sending message but giving user no feedback - form not refreshing and no success message displayed. Accidentaly included form.save(), which is a not a valid method for a Form class and no necessary.
   - **Fix:** remove form.save()
+
 
 - Tablet Calculation:
   - **Issue:** tablet doses not calculating correctly.
