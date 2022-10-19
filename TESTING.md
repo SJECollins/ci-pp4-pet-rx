@@ -270,7 +270,9 @@ The website was tested on:
     The prescription model's save function should have chosen 0.75mg, but instead was picking 3.5 x 50mg tablets. This is a perfectly valid dose, but not the smallest amount of quarters or even the smallest dose for that strength.
   Two things were happening related to Python's range() function: range works with integers, not floats, and range stops at -1.
   ![Tablet Error](readme-docs/testing/tab-error.webp)
-  *The above image shows the incorrect dosage pre-fix (bottom) and the corrected dosage post-fix (top)*
+
+
+    *The above image shows the incorrect dosage pre-fix (bottom) and the corrected dosage post-fix (top)*
   - **Fix:** To fix the first issue, the doses were multiplied by 100 and converted to integers, and the strengths multiplied by 25 for the calculation.
   
     To fix the second issue, +1 was added to the high dose.
