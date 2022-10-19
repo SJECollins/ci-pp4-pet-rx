@@ -16,8 +16,8 @@ class AccountAdmin(UserAdmin):
         'last_login',
         'is_admin',
         'is_active',
-        'is_staff')
-    list_filter = ('email', 'first_name', 'last_name', 'is_active', )
+        )
+    list_filter = ('is_active', )
     search_fields = ('email', 'first_name', 'last_name')
     readonly_fields = ('last_login', )
 

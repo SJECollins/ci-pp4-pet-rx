@@ -8,91 +8,91 @@ HTML was tested by coping the page source and pasting into the validator.
 - <details>
   <summary>Index Results</summary>
 
-    ![Index results](readme-docs/index-html-val.webp)
+    ![Index results](readme-docs/testing/index-html-val.webp)
   </details>
 
 - <details>
   <summary>About Results</summary>
 
-  ![About results](readme-docs/about-html-val.webp)
+  ![About results](readme-docs/testing/about-html-val.webp)
   </details>
 
 - <details>
   <summary>Contact Results</summary>
 
-  ![Contact results](readme-docs/contact-html-val.webp)
+  ![Contact results](readme-docs/testing/ontact-html-val.webp)
   </details>
 
 - <details>
   <summary>Register Results</summary>
 
-  ![Register results](readme-docs/register-html-val.webp)
+  ![Register results](readme-docs/testing/register-html-val.webp)
   </details>
 
 - <details>
   <summary>Login Results</summary>
 
-  ![Login results](readme-docs/login-html-val.webp)
+  ![Login results](readme-docs/testing/login-html-val.webp)
   </details>
 
 - <details>
   <summary>Records Results</summary>
 
-  ![Records results](readme-docs/records-html-val.webp)
+  ![Records results](readme-docs/testing/records-html-val.webp)
   </details>
 
 - <details>
   <summary>Record Search Results</summary>
 
-  ![Record Search results](readme-docs/record-search-html-val.webp)
+  ![Record Search results](readme-docs/testing/record-search-html-val.webp)
   </details>
 
 - <details>
   <summary>Animal Record Results</summary>
 
-  ![Animal Record results](readme-docs/animal-record-html-val.webp)
+  ![Animal Record results](readme-docs/testing/animal-record-html-val.webp)
   </details>
 
 - <details>
   <summary>Add Animal Record Results</summary>
 
-  ![Add Animal Record results](readme-docs/add-animal-html-val.webp)
+  ![Add Animal Record results](readme-docs/testing/add-animal-html-val.webp)
   </details>
 
 - <details>
   <summary>Edit Animal Record Results</summary>
 
-  ![Edit Animal Record results](readme-docs/edit-animal-html-val.webp)
+  ![Edit Animal Record results](readme-docs/testing/edit-animal-html-val.webp)
   </details>
 
 - <details>
   <summary>Profile Results</summary>
 
-  ![Profile results](readme-docs/profile-html-val.webp)
+  ![Profile results](readme-docs/testing/profile-html-val.webp)
   </details>
 
 - <details>
   <summary>Edit Profile Results</summary>
 
-  ![Edit Profile results](readme-docs/edit-profile-html-val.webp)
+  ![Edit Profile results](readme-docs/testing/edit-profile-html-val.webp)
   </details>
 
 - <details>
   <summary>Drugs Results</summary>
 
-  ![Drugs results](readme-docs/drugs-html-val.webp)
+  ![Drugs results](readme-docs/testing/drugs-html-val.webp)
   </details>
 
 - <details>
   <summary>Drug Search Results</summary>
 
-  ![Drug Search results](readme-docs/drug-search-html-val.webp)
+  ![Drug Search results](readme-docs/testing/drug-search-html-val.webp)
   </details>
 
 - <details>
   <summary>Detailed Drug View Results</summary>
 
-  ![Detail Drug View results](readme-docs/detail-drug-html-val.webp)
+  ![Detail Drug View results](readme-docs/testing/detail-drug-html-val.webp)
   </details>
 
 
@@ -101,7 +101,7 @@ HTML was tested by coping the page source and pasting into the validator.
 CSS was tested by copying the CSS file into the validator.
 
 - Results for style.css:
-  - ![CSS results](readme-docs/css-validator.webp)
+  - ![CSS results](readme-docs/testing/css-validator.webp)
   - <p>
         <a href="http://jigsaw.w3.org/css-validator/check/referer">
           <img style="border:0;width:88px;height:31px" src="http://jigsaw.w3.org/css-validator/images/vcss-blue" alt="Valid CSS!">
@@ -116,7 +116,7 @@ JSHint was used for testing the JavaScript for the modals and email.
 
 ## Python Testing
 
-The project was tested for pep8 compliance using pycodestyle.
+The project was tested for pep8 compliance using pycodestyle. [autopep8](https://pypi.org/project/autopep8/) was used to aid compliance. # noqa was used in a small number of cases where necessary. At time of writing no problems or errors were found.
 
 ## Lighthouse
 <summary>Example Title</summary>
