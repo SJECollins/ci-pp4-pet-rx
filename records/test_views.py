@@ -282,7 +282,14 @@ class TestRecordViews(TestCase):
         """
         Try to go to records search.
         """
-        response = self.client.get('/records/record-search/', follow=True)
+        response = self.client.get('/records/record-search/', q=['bob'],
+                                   follow=True)
+        self.assertQuerysetEqual(
+            Record.objects.filter(surname__icontains='bob'),
+            ['<Record: Bob Bobberson>'])
+        self.assertQuerysetEqual(
+            Record.objects.filter(name__icontains='bob'),
+            ['<Record: Bob Bobberson>'])
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'records/record_search.html')
 
@@ -362,9 +369,21 @@ class TestRecordViews(TestCase):
         """
         animal_id = self.animal.id
         response = self.client.get(
-            reverse('records:update_weight', args=[animal_id]))
+            reverse('records:update_weight', args=[animal_id])
+        )
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'records/update_weight.html')
+
+    def test_update_weight(self):
+        """
+        Try to update animal's weight.
+        """
+        animal_id = self.animal.id
+        response = self.client.post(
+            reverse('records:update_weight', args=[animal_id]), data={
+                'weight': 11
+            })
+        self.assertEqual(response.status_code, 204)
 
     def test_get_edit_notes(self):
         """
@@ -375,3 +394,14 @@ class TestRecordViews(TestCase):
             reverse('records:edit_notes', args=[animal_id]))
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'records/edit_notes.html')
+
+    def test_edit_notes(self):
+        """
+        Try to edit notes.
+        """
+        animal_id = self.animal.id
+        response = self.client.post(
+            reverse('records:edit_notes', args=[animal_id]), data={
+                'note': 'This is a new note'
+            })
+        self.assertEqual(response.status_code, 204)
