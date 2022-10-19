@@ -3,7 +3,7 @@ from . import views
 
 app_name = 'records'
 urlpatterns = [
-    path('records/', views.records, name='records'),
+    path('', views.records, name='records'),
     path('record-search/', views.record_search, name='record_search'),
     path('add-animal/', views.add_animal, name='add_animal'),
     path('animal-profile/<int:animal_id>', views.AnimalRecord.as_view(),
