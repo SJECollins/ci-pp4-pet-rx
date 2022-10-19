@@ -441,18 +441,29 @@ class TestPrescriptionsIsActive(TestCase):
 
     def test_add_prescrip_submit(self):
         animal_id = self.animal.id
-        response = self.client.post(reverse('prescriptions:add_prescrip', args=[animal_id]), data={
-            'animal': self.animal,
-            'animal_weight': 12.5,
-            'vet': self.user_a,
-            'drug': self.drug,
-            'drug_dose': 12.5,
-            'dose': 156.25,
-            'measure': 'mg',
-            'frequency': '',
-            'length': '',
-            'route': 'PO',
-            'date': datetime.datetime(2022, 10, 10, 0, 0, 0, tzinfo=pytz.utc),
+        response = self.client.post(
+            reverse(
+                'prescriptions:add_prescrip',
+                args=[animal_id]),
+            data={
+                'animal': self.animal,
+                'animal_weight': 12.5,
+                'vet': self.user_a,
+                'drug': self.drug,
+                'drug_dose': 12.5,
+                'dose': 156.25,
+                'measure': 'mg',
+                'frequency': '',
+                'length': '',
+                'route': 'PO',
+                'date': datetime.datetime(
+                    2022,
+                    10,
+                    10,
+                    0,
+                    0,
+                    0,
+                    tzinfo=pytz.utc),
             })
         self.assertEqual(response.status_code, 200)
 

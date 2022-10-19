@@ -8,9 +8,6 @@ from .models import Category, Drug, Prescription
 from .forms import PrescrForm
 
 
-# Create your views here.
-
-
 @vet_login_and_active
 def drugs(request):
     """

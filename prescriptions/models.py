@@ -132,13 +132,13 @@ class Prescription(models.Model):
                     if num % quart == 0:
                         size_list.append(num)
                         smallest = min(size_list) / quart
-                        if results['numtabs'] == 0 or smallest < results['numtabs']:
+                        if results['numtabs'] == 0 or smallest < results['numtabs']:  # noqa
                             results['numtabs'] = smallest
                             results['strength'] = quart
             if results['numtabs'] == 0:
                 return "No tablets in range."
             else:
-                return f"{results['numtabs'] / 4}tabs x {int(results['strength'] / 25)}"
+                return f"{results['numtabs'] / 4}tabs x {int(results['strength'] / 25)}"  # noqa
 
     def save(self, *args, **kwargs):
         """

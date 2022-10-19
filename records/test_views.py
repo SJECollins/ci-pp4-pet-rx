@@ -5,8 +5,6 @@ import pytz
 from vetprofiles.models import Vet
 from .models import Record
 
-# Create your tests here.
-
 
 class TestRecordsNotRegistered(TestCase):
     """

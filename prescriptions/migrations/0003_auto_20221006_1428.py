@@ -13,16 +13,26 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='drug',
             name='high_dose',
-            field=models.DecimalField(blank=True, decimal_places=2, help_text='Add high dose for tablets                                     only.', max_digits=4, null=True),
+            field=models.DecimalField(
+                blank=True,
+                decimal_places=2,
+                help_text='Add high dose for tablets                                     only.',
+                max_digits=4,
+                null=True),
         ),
         migrations.AlterField(
             model_name='drug',
             name='tablet_strength',
-            field=models.CharField(blank=True, help_text='Add tablet strength in                                        numbers, separated by commas.', max_length=100),
+            field=models.CharField(
+                blank=True,
+                help_text='Add tablet strength in                                        numbers, separated by commas.',
+                max_length=100),
         ),
         migrations.AlterField(
             model_name='drug',
             name='warnings',
-            field=models.CharField(default='None', max_length=300),
+            field=models.CharField(
+                default='None',
+                max_length=300),
         ),
     ]

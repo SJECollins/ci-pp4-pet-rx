@@ -55,7 +55,7 @@ class TestWeightForm(TestCase):
     def test_empty_fields(self):
         form = WeightForm(data={
             'weight': '',
-            })
+        })
         self.assertFalse(form.is_valid())
         self.assertEqual(form.errors['weight'][0], 'This field is required.')
 

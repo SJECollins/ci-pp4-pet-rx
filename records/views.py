@@ -23,7 +23,7 @@ def records(request):
     context = {
         'record_list': record_list,
         'page_obj': page_obj
-        }
+    }
     return render(request, 'records/records.html', context)
 
 

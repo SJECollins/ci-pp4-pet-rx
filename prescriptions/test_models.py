@@ -11,6 +11,7 @@ class TestDrug(TestCase):
     """
     Testing drug model.
     """
+
     def setUp(self):
         self.category = Category.objects.create(
             name='Antibiotic'
@@ -122,7 +123,7 @@ class TestPrescription(TestCase):
         Need to mock time as have auto_add_now in date field.
         """
         mocked = datetime.datetime(2022, 10, 10, 0, 0, 0, tzinfo=pytz.utc)
-        with mock.patch('django.utils.timezone.now', mock.Mock(return_value=mocked)):
+        with mock.patch('django.utils.timezone.now', mock.Mock(return_value=mocked)):  # noqa
             prescription = Prescription.objects.create(
                 animal=self.animal,
                 animal_weight=self.animal.weight,
@@ -155,7 +156,7 @@ class TestPrescription(TestCase):
         Need to mock time as have auto_add_now in date field.
         """
         mocked = datetime.datetime(2022, 10, 10, 0, 0, 0, tzinfo=pytz.utc)
-        with mock.patch('django.utils.timezone.now', mock.Mock(return_value=mocked)):
+        with mock.patch('django.utils.timezone.now', mock.Mock(return_value=mocked)):  # noqa
             prescription = Prescription.objects.create(
                 animal=self.animal,
                 animal_weight=self.animal.weight,
@@ -192,7 +193,7 @@ class TestPrescription(TestCase):
         Need to mock time as have auto_add_now in date field.
         """
         mocked = datetime.datetime(2022, 10, 10, 0, 0, 0, tzinfo=pytz.utc)
-        with mock.patch('django.utils.timezone.now', mock.Mock(return_value=mocked)):
+        with mock.patch('django.utils.timezone.now', mock.Mock(return_value=mocked)):  # noqa
             prescription = Prescription.objects.create(
                 animal=self.animal_b,
                 animal_weight=self.animal_b.weight,

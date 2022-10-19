@@ -12,6 +12,7 @@ class PrescrForm(DynamicFormMixin, forms.ModelForm):
     Model form for prescriptions.
     From BugBytes, see link in credits of readme.
     """
+
     def drug_choices(self):
         """
         Method to filter drugs by category.
@@ -45,7 +46,7 @@ class PrescrForm(DynamicFormMixin, forms.ModelForm):
 
     length = forms.IntegerField(
         initial=0,
-        widget=forms.NumberInput(attrs={'min': 0,'max': 7, 'step_size': 1}),
+        widget=forms.NumberInput(attrs={'min': 0, 'max': 7, 'step_size': 1}),
         required=False
     )
 
