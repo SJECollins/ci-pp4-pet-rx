@@ -2,7 +2,7 @@
 {% load widget_tweaks %}
 
 <!-- Add prescription form-->
-<form hx-post="{{ request.path }}" class="modal-content">
+<form data-hx-post="{{ request.path }}" class="modal-content">
     {% csrf_token %}
     <div class="modal-header justify-content-center">
         <h3 class="subheadings">Add Prescription</h3>
