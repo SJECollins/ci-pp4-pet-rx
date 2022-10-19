@@ -240,6 +240,8 @@ The website was tested on:
 - Safari iOS Version 15.4.1
 
 
+## Bugs
+
 ### Fixed Bugs
 
 - Mobile Layout - Modals:
