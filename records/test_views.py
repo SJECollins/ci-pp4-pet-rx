@@ -39,7 +39,7 @@ class TestRecordsNotRegistered(TestCase):
         """
         Try to go to records list.
         """
-        response = self.client.get('/records/records/', follow=True)
+        response = self.client.get('/records/', follow=True)
         self.assertRedirects(
             response,
             '/login/',
@@ -171,7 +171,7 @@ class TestRecordsNotIsActive(TestCase):
         """
         Try to go to records list.
         """
-        response = self.client.get('/records/records/', follow=True)
+        response = self.client.get('/records/', follow=True)
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'vetprofiles/restricted.html')
 
@@ -274,7 +274,7 @@ class TestRecordViews(TestCase):
         """
         Try to go to records list.
         """
-        response = self.client.get('/records/records/', follow=True)
+        response = self.client.get('/records/', follow=True)
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'records/records.html')
 
@@ -309,7 +309,7 @@ class TestRecordViews(TestCase):
         })
         self.assertRedirects(
             response,
-            '/records/records/',
+            '/records/',
             status_code=302,
             target_status_code=200,
             fetch_redirect_response=True)
