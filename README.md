@@ -37,6 +37,9 @@ The live site can be found here: [PetRx](https://ci-pp4-petrx.herokuapp.com/)
 # User Experience
 
 ### User Stories
+
+The user stories used as part of the planning for the website have been consolidated here.
+
 - As a site user I can register on the site so that have access to the features for animal profiles and prescriptions
 - As a site user I can edit my profile so that I can change my registered name or email
 - As a site user I can create a new animal profile so that register a new animal's details in the database
@@ -605,18 +608,16 @@ The admin user is also capable of deleting user profiles.
 
 
 ## Restricted
-<details>
-<summary>Example Title</summary>
 
-![Title](readme-docs/)
+<details>
+<summary>Restricted</summary>
+
+![Restricted](readme-docs/restricted.webp)
 </details>
+
+For users who have registered but whose account is awaiting approval, the restricted view informs them that they do not have access when they attempt to navigate to certain parts of the website (e.g. their profile). This prevents users from registering accounts and immediately having access to the features and information on the site by allowing the admin to screen user accounts.
 
 ## Error Pages
-<details>
-<summary>Example Title</summary>
-
-![Title](readme-docs/)
-</details>
 
 ### 403
 <details>
@@ -647,37 +648,17 @@ The admin user is also capable of deleting user profiles.
 </details>
 
 ## Future Features
+1. __Improved Dosing__. In the future it may be beneficial to allow the prescribing vet options of doses to prescribe for a given drug, or in some cases to enter their own dose for administration. 
+2. __Prescription Warnings__. 
+3. __Owner Profiles__. A potential future feature to allow animal owners to view their animal's record, review the prescription history and request prescription renewals.  
+4. __Improved Search Functionality__. Extending search functionality. Particularly with the addition of owner details, as record numbers grow it would make search records easier to be able to search with a combination of details, e.g. owner's phone number, address, etc.
 
-1. __Owner Profiles__. 
-2. __Improved Search Functionality__. 
-3. __Improved Dosing__. 
-4. __Prescription Warnings__. 
 
 # Design
 
-## Planning
-
-## Colour
-![Colour Palette](readme-docs/palette.webp)
-
-A blue colour palette was used for this project based on the association of the colour with healthcare. The main background colour is a white with a hint of blue to give a clean appearance. The main font colour is almost black to aid readability. 
-
-A secondary font colour of dark blue was used for text in the header and footer to keep with the style. Buttons and links are styled in lighter shades of blue to stand out and indicate interactivity.
-
-## Typography
-
-Fira Sans and Rubik were imported from Google Fonts. They were chosen for their readability and similarity, to create easily legible content that is pleasant to read without being distracting.
-
-## ERD
-<details>
-<summary>ERD</summary>
-
-![ERD](readme-docs/petrx-erd.webp)
-</details>
-
 ## Wireframes
-Wireframes were created in Balsamiq.
 
+Wireframes were created in Balsamiq. They were used for initial planning of template layouts.
 
 <details>
 <summary>Index Wireframe</summary>
@@ -732,6 +713,38 @@ Wireframes were created in Balsamiq.
 
 ![Prescribe Wireframe](readme-docs/prescribe-wf.webp)
 </details>
+
+
+## Colour
+![Colour Palette](readme-docs/palette.webp)
+
+A blue colour palette was used for this project based on the association of the colour with healthcare. The main background colour is a white with a hint of blue to give a clean appearance. The main font colour is almost black to aid readability. 
+
+A secondary font colour of dark blue was used for text in the header and footer to keep with the style. Buttons and links are styled in lighter shades of blue to stand out and indicate interactivity.
+
+
+## Typography
+
+Fira Sans and Rubik were imported from Google Fonts. They were chosen for their readability and similarity, to create easily legible content that is pleasant to read without being distracting.
+
+
+## Agile Methodology
+
+[GitHub Projects Page](https://github.com/users/SJECollins/projects/3/views/1)
+
+GitHub Projects was used in part for the planning of this website to create and track User Stories as they were implemented and fulfilled.
+
+
+## ERD
+
+The below Entity Relationship Diagram was created on [diagrams.net](https://www.diagrams.net/). It illustrates the relationships between the 5 models present in the project: Vet, Record, Category, Drug and Prescription.
+
+<details>
+<summary>ERD</summary>
+
+![ERD](readme-docs/petrx-erd.webp)
+</details>
+
 
 ## Technologies Used
 
