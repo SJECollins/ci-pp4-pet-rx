@@ -41,6 +41,7 @@ def record_search(request):
         args = Q(name__icontains=query) | Q(surname__icontains=query)
         record_qs = Record.objects.filter(args)
     context = {
+        'query': query,
         'record_list': record_list,
         'record_search': record_qs}
     return render(request, 'records/record_search.html', context)

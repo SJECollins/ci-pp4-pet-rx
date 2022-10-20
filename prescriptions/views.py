@@ -40,6 +40,7 @@ def drug_search(request):
         args = Q(name__icontains=query)
         drug_qs = drug_list.filter(args)
     context = {
+        'query': query,
         'drug_list': drug_list,
         'drug_search': drug_qs}
     return render(request, 'prescriptions/drug_search.html', context)

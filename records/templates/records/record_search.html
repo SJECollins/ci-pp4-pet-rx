@@ -1,7 +1,8 @@
 {% extends 'base.html' %}
 {% block content %}
+
 <div class="row">
-    <div class="col-sm-6">
+    <div class="col-md-6">
         <a class="pet-links" href="{% url 'records:records' %}" aria-label="Go to records">To Records</a>
         <span>|</span>
         <a class="pet-links" href="{% url 'prescriptions:drugs' %}" aria-label="Go to available drugs">To Available
@@ -9,21 +10,26 @@
         <br>
         <!-- Record search page-->
         <h3 class="subheadings">Search Results:</h3>
+        <p>
+            {{ record_search|length }} result{% if record_search|length > 1 %}s{% endif %} found containing {% if query %}
+            "{{ query }}"{% endif %}
+        </p>
     </div>
-    <div class="col-sm-6">
+    <div class="col-md-6">
         <!-- Search input -->
-        <form method="GET" class="float-end" action="{% url 'records:record_search' %}">
+        <form method="GET" class="float-md-end" action="{% url 'records:record_search' %}">
             {% csrf_token %}
             <input type="text" list="animals" name="query" placeholder="Search by surname">
-            <button type="submit" class="pet-btns sm-btns float-end" aria-label="Search">Search</button>
+            <button type="submit" class="pet-btns sm-btns" aria-label="Search">Search</button>
         </form>
         <datalist id="animals">
             {% for record in record_list %}
-                <option value="{{ record.surname }}"></option>
+            <option value="{{ record.surname }}"></option>
             {% endfor %}
         </datalist>
     </div>
 </div>
+
 <!-- Display record list results -->
 {% if record_search %}
 <div class="prescrip-contain">
