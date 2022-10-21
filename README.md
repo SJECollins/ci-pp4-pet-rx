@@ -74,21 +74,13 @@ The user stories used as part of the planning for the website have been consolid
 
 The navigation bar is featured across all pages.
 
-For unregistered or logged out users of the site, the navbar displays links to "Sign In / Sign Up", "About" and "Contact", with
-the "Sign In / Sign Up" link opening a dropdown when clicked on, listing the two pages. On large screens, the 
-links are visible on the right hand side of the navbar. The list collapses into a dropdown menu on smaller screens 
-which can be toggled by clicking the bars icon.
+For unregistered or logged out users of the site, the navbar displays links to "Sign In / Sign Up", "About" and "Contact", with the "Sign In / Sign Up" link opening a dropdown when clicked on, listing the two pages. On large screens, the links are visible on the right hand side of the navbar. The list collapses into a dropdown menu on smaller screens which can be toggled by clicking the bars icon.
 
-For registered users of the site, the navbar displays links to "Profile", "Records" and "Logout". If a user is
-registered by not active, the "Profile" and "Records" links redirected to a restricted page that alerts the user
-that their account is awaiting approval. Once approved, the "Profile" link navigates to the current users profile
-page, and the "Records" link navigates to the main records page. Similarly to unregistered users, the navbar 
-collapses on smaller screens.
+For registered users of the site, the navbar displays links to "Profile", "Records" and "Logout". If a user is registered by not active, the "Profile" and "Records" links redirected to a restricted page that alerts the user that their account is awaiting approval. Once approved, the "Profile" link navigates to the current users profile page, and the "Records" link navigates to the main records page. Similarly to unregistered users, the navbar collapses on smaller screens.
 
 The navbar is a slightly modified version of the first example from [Bootstrap's navbar documentation](https://getbootstrap.com/docs/5.2/components/navbar/).
 
-On the left hand side of the screen, there are the logo and "PetRx" title which act as links to the index page.
-On smaller screens, the title is displayed centrally to make the navbar look balanced.
+On the left hand side of the screen, there are the logo and "PetRx" title which act as links to the index page. On smaller screens, the title is displayed centrally to make the navbar look balanced.
 
 ### Footer
 
@@ -100,10 +92,7 @@ On smaller screens, the title is displayed centrally to make the navbar look bal
 
 The footer is featured across all pages.
 
-The footer features three small sections. The first has the company name and a short tagline for the app. The second features contact 
-information and a link to the contact page so that company contact information is available on all pages of the
-website. The final small section features social media links. On large screens, the sections are presented side by
-side as columns, but collapse into rows on smaller screens with the company name and tagline on top.
+The footer features three small sections. The first has the company name and a short tagline for the app. The second features contact information and a link to the contact page so that company contact information is available on all pages of the website. The final small section features social media links. On large screens, the sections are presented side by side as columns, but collapse into rows on smaller screens with the company name and tagline on top.
 
 ### Index Page
 
@@ -121,25 +110,13 @@ side as columns, but collapse into rows on smaller screens with the company name
 
 The index page has three states depending on the user.
 
-For unregistered or logged out users, the index page displays a short welcome and two call-to-action buttons for 
-"Login" and "Register" in the first section. The second section contains a brief "About PetRx" blurb about the site that
-directs the user to the about page with an inline link, and a short "Have a Question?" segment directing the user to the contact page
-to get in touch with an inline link. There are also images in both section intended to feature promotional images,
-though currently contain placeholders.
+For unregistered or logged out users, the index page displays a short welcome and two call-to-action buttons for "Login" and "Register" in the first section. The second section contains a brief "About PetRx" blurb about the site that directs the user to the about page with an inline link, and a short "Have a Question?" segment directing the user to the contact page to get in touch with an inline link. There are also images in both section intended to feature promotional images, though currently contain placeholders.
 
-For users who are registered but not active, the first section welcomes the user by name, but beneath that is text
-explaining to the user that their account is pending approval with a link to logout. The second section contains
-three segments of text: "Your Profile", "Add Animal", and "Animal Records". These give a brief introduction to the
-user on how to use the site and the features available, with inline links to the referenced pages. However, these 
-links navigate to a restricted page advising the user their account is awaiting approval, until the admin activates 
-the account.
+For users who are registered but not active, the first section welcomes the user by name, but beneath that is text explaining to the user that their account is pending approval with a link to logout. The second section contains three segments of text: "Your Profile", "Add Animal", and "Animal Records". These give a brief introduction to the user on how to use the site and the features available, with inline links to the referenced pages. However, these links navigate to a restricted page advising the user their account is awaiting approval, until the admin activates the account.
 
-For users who are registered and are active, the first section welcomes the user by name and features a list of the
-most important links: "Your Profile", "Add Animal" and "Animal Records". The second section of the page is the same
-as for users who are registered but not active, however they can follow the links to the correct pages.
+For users who are registered and are active, the first section welcomes the user by name and features a list of the most important links: "Your Profile", "Add Animal" and "Animal Records". The second section of the page is the same as for users who are registered but not active, however they can follow the links to the correct pages.
 
-On larger screens, the index sections are displayed as rows with their contents displayed as columns. On smaller
-screens, the contents of the sections are displayed as rows in one column.
+On larger screens, the index sections are displayed as rows with their contents displayed as columns. On smaller screens, the contents of the sections are displayed as rows in one column.
 
 ### About Page
 
@@ -150,14 +127,10 @@ screens, the contents of the sections are displayed as rows in one column.
 </details>
 
 The about page is available for users who are not registered or who are not logged in through a link in the navbar. 
-The primary purpose is to 
-act as marketing for the site for users who are learning about the site. The first section features 
-a paragraph of text describing the site and it's worth to the user, and a list of "Benefists". The second section
-features more indepth descriptions about the benefits of the site and explains how the site's features meet those
-benefits.
 
-On larger screens, the about page is displayed in rows with the contents displayed as alternating columns of text
-and promotional material. On smaller screens, page is displayed as alternating rows of text and promotional material. 
+The primary purpose is to act as marketing for the site for users who are learning about the site. The first section features a paragraph of text describing the site and it's worth to the user, and a list of "Benefits". The second section features more in depth descriptions about the benefits of the site and explains how the site's features meet those benefits.
+
+On larger screens, the about page is displayed in rows with the contents displayed as alternating columns of text and promotional material. On smaller screens, page is displayed as alternating rows of text and promotional material. 
 
 ### Contact Page
 
@@ -167,10 +140,7 @@ and promotional material. On smaller screens, page is displayed as alternating r
 ![Contact Page](readme-docs/contact.webp)
 </details>
 
-The contact page is available to all users through a link in the navbar for users who are not logged in or a link in
-the footer. It features a simple form that requires the name, email and message
-from the user. It sends the message to the site owner and provides the user with feedback by displaying "Message
-sent."
+The contact page is available to all users through a link in the navbar for users who are not logged in or a link in the footer. It features a simple form that requires the name, email and message from the user. It sends the message to the site owner and provides the user with feedback by displaying "Message sent."
 
 ## Vet Profiles
 
@@ -182,17 +152,11 @@ sent."
 ![Registration](readme-docs/register.webp)
 </details>
 
-The registration page is accessible through a "Sign Up" link in the navbar or "Register" CTA button on the index page
-for users who are not logged in. The page features a simple form that requires the users "Email", "First Name", "Last
-Name", "Password" and "Confirm Password". 
+The registration page is accessible through a "Sign Up" link in the navbar or "Register" CTA button on the index page for users who are not logged in. The page features a simple form that requires the users "Email", "First Name", "Last Name", "Password" and "Confirm Password". 
 
-If the user attempts to register while leaving any of the fields blank, they are prompted to fill in the missing 
-field. If the user attempts to register with an email that is already registered, they are given
-a message that the email is already in use. If the user attempts to register without the passwords matching, 
-they given a message that the password fields don't match. 
+If the user attempts to register while leaving any of the fields blank, they are prompted to fill in the missing field. If the user attempts to register with an email that is already registered, they are given a message that the email is already in use. If the user attempts to register without the passwords matching, they are given a message that the password fields don't match. 
 
-When the user registers, they are logged in and redirected to the index page where they are informed their account 
-is awaiting approval.
+When the user registers, they are logged in and redirected to the index page where they are informed their account is awaiting approval.
 
 ### Login Page
 
@@ -202,13 +166,9 @@ is awaiting approval.
 ![Login](readme-docs/login.webp)
 </details>
 
-The login page is accessible through a "Sign In" link in the navbar or "Login" CTA button on the index page for users
-who are not logged in. The page features a simple form that requires the user's "Email" and "Password". If the user
-attempts to submit an empty field, they are prompted to fill in the required field. If the user's credentials are 
-invalid, they are given a message that their login is invalid.
+The login page is accessible through a "Sign In" link in the navbar or "Login" CTA button on the index page for users who are not logged in. The page features a simple form that requires the user's "Email" and "Password". If the user attempts to submit an empty field, they are prompted to fill in the required field. If the user's credentials are invalid, they are given a message that their login is invalid.
 
-When the user logs in, they are redirected to their profile if their account is active. If their account is not 
-active, the user is redirected to the index page informing them that their account is awaiting approval.
+When the user logs in, they are redirected to their profile if their account is active. If their account is not active, the user is redirected to the index page informing them that their account is awaiting approval.
 
 ### Profile
 
@@ -218,26 +178,13 @@ active, the user is redirected to the index page informing them that their accou
 ![Profile](readme-docs/vet-profile.webp)
 </details>
 
-The user profile page is available for users who are registered and who's account has been set to active by the admin.
-Each user can only view their own profile. The profile page features two sections.
+The user profile page is available for users who are registered and whose account has been set to active by the admin. Each user can only view their own profile. The profile page features two sections.
 
-The first section includes the heading "Profile for {user name}", where the user's first and last name are present to
-provide feedback to the user that they are viewing their own profile. Below the heading, the user's details are
-displayed: "Name", "Surname" and "Email Address". Below this, an "Edit Profile" button allows the user to edit their
-details. On large screens, "Go To:" with links to "Animal Records" and "Available Drugs" is displayed on the right
-of the screen next to the user's details. On smaller screens, the links are present below the "Edit Profile" button.
+The first section includes the heading "Profile for {user name}", where the user's first and last name are present to provide feedback to the user that they are viewing their own profile. Below the heading, the user's details are displayed: "Name", "Surname" and "Email Address". Below this, an "Edit Profile" button allows the user to edit their details. On large screens, "Go To:" with links to "Animal Records" and "Available Drugs" is displayed on the right of the screen next to the user's details. On smaller screens, the links are present below the "Edit Profile" button.
 
-The second section features the user's "Prescription History" which displays the list of their prescriptions. Below
-the "Prescription History" heading, there is a line of text that explains to the user the restrictions on editing
-and deleting prescriptions. Below this, the prescriptions are presented in a table ordered by date, starting with
-the most recent. 
+The second section features the user's "Prescription History" which displays the list of their prescriptions. Below the "Prescription History" heading, there is a line of text that explains to the user the restrictions on editing and deleting prescriptions. Below this, the prescriptions are presented in a table ordered by date, starting with the most recent. 
 
-On larger screens, the table includes the details "Animal", "Dose", "Drug", "Date" and "View". On smaller screens,
-the details on the table include "Animal", "Date" and "View". "Animal" is the animal's full name, "Dose" is the 
-dosage of the drug that was administered, "Drug" is the drug's name, "Date" is the date the prescription was created
-and "View" is a link to the full details of the prescription. The details provided in the table are intended to 
-provide just enough context so that user can find previous prescriptions. They can then click "View" to review the 
-prescription in more details.
+On larger screens, the table includes the details "Animal", "Dose", "Drug", "Date" and "View". On smaller screens, the details on the table include "Animal", "Date" and "View". "Animal" is the animal's full name, "Dose" is the dosage of the drug that was administered, "Drug" is the drug's name, "Date" is the date the prescription was created and "View" is a link to the full details of the prescription. The details provided in the table are intended to provide just enough context so that user can find previous prescriptions. They can then click "View" to review the prescription in more details.
 
 ### Edit Profile
 
@@ -247,11 +194,9 @@ prescription in more details.
 ![Edit Profile](readme-docs/edit-vet-profile.webp)
 </details>
 
-The edit profile button on the user's profile navigates to the "Edit Profile" form which is prepopulated with the 
-current user's details. The user is able to change their email, name and surname through this form. All fields are
-required and the user is prompted to fill an empty field if they attempt to submit the form with empty fields. The 
-user is capable of changing their email, but only to another email which is not currently registered on the site. They
-will receive a message that the email is already in use if they attempt to do so and the form will reset to their
+The edit profile button on the user's profile navigates to the "Edit Profile" form which is prepopulated with the current user's details. The user is able to change their email, name and surname through this form. All fields are required and the user is prompted to fill an empty field if they attempt to submit the form with empty fields. 
+
+The user is able to change their email, but only to another email which is not currently registered on the site. They will receive a message that the email is already in use if they attempt to do so and the form will reset to their
 current details.
 
 ## Records
@@ -264,13 +209,9 @@ current details.
 
 The "Records" page is available to all who are registered and whose account is active. 
 
-At the top of the page, below the "Records" title, there is a link to the "Add Animal" page and a link "To Available
-Drugs". On larger screens, a search bar is available on the right of the page. On smaller screens, the search bar
-is available below the links.
+At the top of the page, below the "Records" title, there is a link to the "Add Animal" page and a link "To Available Drugs". On larger screens, a search bar is available on the right of the page. On smaller screens, the search bar is available below the links.
 
-Below, all the current records are displayed in a list beneath the "All Records:" title. The records are ordered 
-alphabetically by surname. The list features pagination so that ten records are displayed per page so that as the
-records grow the 
+Below, all the current records are displayed in a list beneath the "All Records:" title. The records are ordered alphabetically by surname. The list features pagination with ten records displayed per page so that as the number of records increases, the user does not have to scroll too far.
 
 ### Search Records
 
@@ -282,15 +223,9 @@ records grow the
 
 On the "Records" page, a search bar is available for the user to search the available records.
 
-The search function searches by the animal's name or the surname. The placeholder text prompts the user to search by
-the surname as it features a rudimentary autocomplete with a dropdown for the field that is populated with animal's
-surnames. However, if a user enters a piece of text that is contained in one animal's name and another animal's
-surname, both animals will be returned in the results.
+The search function searches by the animal's name or the surname. The placeholder text prompts the user to search by the surname as it features a rudimentary autocomplete with a dropdown for the field that is populated with animal's surnames. However, if a user enters a piece of text that is contained in one animal's name and another animal's surname, both animals will be returned in the results.
 
-Upon searching, the user is brought to the search results. At the top of the page are links "To Records" and "To
-Available Drugs" with the search bar. Below "Search Results:" are the list of results presented in a table with 
-the details "Animal", "Species", "Breed", and "DOB" to help the user narrow down the record they are looking for.
-Below the results is another link "Back to Records".
+Upon searching, the user is brought to the search results. At the top of the page are links "To Records" and "To Available Drugs" with the search bar. Below "Search Results:" are the list of results presented in a table with the details "Animal", "Species", "Breed", and "DOB" to help the user narrow down the record they are looking for. Below the results is another link "Back to Records".
 
 ### Add Animal
 
@@ -302,11 +237,7 @@ Below the results is another link "Back to Records".
 
 The "Add Animal" page is available to users who are registered and whose account is active.
 
-The form requires the animal's "Name", "Surname", "Date of birth", "Species", "Breed", "Sex" and "Weight". The Date
-of birth field provides the user with a datepicker to make input easier and prevent user error. The fields for 
-Species and Sex provide dropdown menus with options for the user. The field for weight takes a number. As all fields
-are required, the user is prompted to fill any empty fields if they attempt to submit the form without all fields
-filled. 
+The form requires the animal's "Name", "Surname", "Date of birth", "Species", "Breed", "Sex" and "Weight". The Date of birth field provides the user with a date picker to make input easier and prevent user error. The fields for Species and Sex provide dropdown menus with options for the user. The field for weight takes a number. As all fields are required, the user is prompted to fill any empty fields if they attempt to submit the form without all fields filled. 
 
 Upon submitting the form, the user is redirected to the Records page.
 
@@ -320,28 +251,15 @@ Upon submitting the form, the user is redirected to the Records page.
 
 The page for an animal's record is laid out very similarly to the user profile with some slight changes to the features.
 
-At the top of the page, above the "Record for {animal name}" where {animal name} is the name and surname of the animal,
-a "Go To Records" link is provided. The animal's details are presented and include all the details provided when
-the record was created. Like the user profile, it features an "Edit Profile" below the animal's details.
+At the top of the page, above the "Record for {animal name}" where {animal name} is the name and surname of the animal, a "Go To Records" link is provided. The animal's details are presented and include all the details provided when the record was created. Like the user profile, it features an "Edit Profile" below the animal's details.
 
-On larger screens, to the right is the "Options:" which includes two buttons. The "Update Weight" button opens a modal
-with a field for weight and the "Add Prescription" opens a modal to add a prescription. Below these options is a 
-segment for "Notes:" which can be edited through the "Edit Notes" button that opens a modal with a textarea with the
-current notes.
+On larger screens, to the right is the "Options:" which includes two buttons. The "Update Weight" button opens a modal with a field for weight and the "Add Prescription" opens a modal to add a prescription. Below these options is a segment for "Notes:" which can be edited through the "Edit Notes" button that opens a modal with a textarea with the current notes.
 
 On smaller screens, "Options:" and "Notes:" are displayed below the "Edit Profile" details.
 
-Like the user's profile, second section features the user's "Prescription History" which displays the list of 
-the animal's prevoius prescriptions. Below the "Prescription History" heading, there is a line of text that explains
-to the user the restrictions on editing and deleting prescriptions. Below this, the prescriptions are presented 
-in a table ordered by date, starting with the most recent. 
+Like the user's profile, second section features the user's "Prescription History" which displays the list of the animal's previous prescriptions. Below the "Prescription History" heading, there is a line of text that explains to the user the restrictions on editing and deleting prescriptions. Below this, the prescriptions are presented in a table ordered by date, starting with the most recent. 
 
-On larger screens, the table includes the details "Dose", "Drug", "Vet", "Date" and "View". On smaller screens,
-the details on the table include "Drug", "Date" and "View". "Dose" is the dosage of the drug that was administered, 
-"Drug" is the drug's name, "Vet" is the name of the prescribing vet, "Date" is the date the prescription was created
-and "View" is a link to the full details of the prescription. The details provided in the table are intended to 
-provide just enough context so that user can find previous prescriptions. They can then click "View" to review the 
-prescription in more details.
+On larger screens, the table includes the details "Dose", "Drug", "Vet", "Date" and "View". On smaller screens, the details on the table include "Drug", "Date" and "View". "Dose" is the dosage of the drug that was administered, "Drug" is the drug's name, "Vet" is the name of the prescribing vet, "Date" is the date the prescription was created and "View" is a link to the full details of the prescription. The details provided in the table are intended to provide just enough context so that user can find previous prescriptions. They can then click "View" to review the prescription in more details.
 
 ### Add Prescription
 
@@ -353,23 +271,13 @@ prescription in more details.
 
 The "Add Prescription" button on an animal's record opens a modal displaying the prescription form.
 
-The form contains four fields: "Category", "Drug", "Frequency" and "Length". The first two fields are chained drop
-menus. When the user selects a category (e.g. "Antibiotic"), the drug field is then populated by all associated
-drugs to make finding the desired drug easier. Both of these fields are required.
+The form contains four fields: "Category", "Drug", "Frequency" and "Length". The first two fields are chained drop menus. When the user selects a category (e.g. "Antibiotic"), the drug field is then populated by all associated drugs to make finding the desired drug easier. Both of these fields are required.
 
-The field for frequency of dosing is not a required field. The user has the option to select from list a of
-dosing intervals if they would like. Similarly, the field for the length of the prescription is optional. It defaults
-to 0 days for the case that the user does not wish to give more than one dose.
+The field for frequency of dosing is not a required field. The user has the option to select from list a of dosing intervals if they would like. Similarly, the field for the length of the prescription is optional. It defaults to 0 days for the case that the user does not wish to give more than one dose.
 
-Upon submitting the new prescription, the modal closes and the animal's prescription history is update to include
-the new prescription. The user can also change their mind and click away from the modal or click the "Close" button
-to close the modal.
+Upon submitting the new prescription, the modal closes and the animal's prescription history is update to include the new prescription. The user can also change their mind and click away from the modal or click the "Close" button to close the modal.
 
-When a user submits a prescription, the dose given to the animal is calculated as part of the model's save method. The model
-takes the animal's weight and the dose of the drug and depending on the type of the drug, calculates what dosage the
-the animal receives. This is one of the main features, that the user does not have to do the calculations themselves.
-The output in the prescription is the dose to administer in either millilitres or milligrams, or number of tablets 
-of a given strength.
+When a user submits a prescription, the dose given to the animal is calculated as part of the model's save method. The model takes the animal's weight and the dose of the drug and depending on the type of the drug, calculates what dosage the the animal receives. This is one of the main features, that the user does not have to do the calculations themselves. The output in the prescription is the dose to administer in either millilitres or milligrams, or number of tablets of a given strength.
 
 ### Edit Record
 
@@ -379,10 +287,7 @@ of a given strength.
 ![Edit Record](readme-docs/edit-animal.webp)
 </details>
 
-The "Edit Record" button beneath the animal's details brings the user to the edit record form. It is prepopulated
-with the current animal's details. The user is able to change all of the animal's details through this form. All 
-fields are required and the user is prompted to fill an empty field if they attempt to submit the form with empty 
-fields. 
+The "Edit Record" button beneath the animal's details brings the user to the edit record form. It is prepopulated with the current animal's details. The user is able to change all of the animal's details through this form. All fields are required and the user is prompted to fill an empty field if they attempt to submit the form with empty fields. 
 
 Upon submitting the form, the user is brought back to the animal's profile.
 
@@ -394,10 +299,7 @@ Upon submitting the form, the user is brought back to the animal's profile.
 ![Update Weight](readme-docs/update-weight.webp)
 </details>
 
-The "Update Weight" button opens a modal which features a single field to update the animal's weight. It is
-prepopulated with the animal's current weight. As the weight
-is one of the most important factors in calculating the correct dosage for medication, this adds a quick and easy
-way to update it without opening the whole "Edit Record" form. The field takes a decimal input and is required. 
+The "Update Weight" button opens a modal which features a single field to update the animal's weight. It is prepopulated with the animal's current weight. As the weight is one of the most important factors in calculating the correct dosage for medication, this adds a quick and easy way to update it without opening the whole "Edit Record" form. The field takes a decimal input and is required. 
 
 If the user changes their mind, they can click away from the modal or click the "Close" button to close the modal.
 
@@ -411,11 +313,7 @@ If the user changes their mind, they can click away from the modal or click the 
 
 The "Edit Notes" button opens a modal with a text field. 
 
-Notes are not mandatory for the animal's record, but provide a way for a vet to leave a quick note on an animal's 
-record for any details or considerations they feel are important. For example, if the animal is elderly, the vet
-may decide to leave a note on the record that the dog should have its bloodwork checked before it's next prescription
-of NSAIDs. Any vet can edit the notes. They are not required and can be left blank. If empty, "No notes or warnings"
-is displayed on the animal's profile.
+Notes are not mandatory for the animal's record, but provide a way for a vet to leave a quick note on an animal's record for any details or considerations they feel are important. For example, if the animal is elderly, the vet may decide to leave a note on the record that the dog should have its blood work checked before it's next prescription of NSAIDs. Any vet can edit the notes. They are not required and can be left blank. If empty, "No notes or warnings" is displayed on the animal's profile.
 
 ## Prescriptions - Vet
 
@@ -429,12 +327,9 @@ is displayed on the animal's profile.
 
 The "Available Drugs" page is accessible to users who are registered and whose account is active.
 
-The page is similarly structured to the Records page. At the top, there is a link "To Records" beneath the "Available
-Drugs" heading. On large screens, a search bar is available to the right side. On smaller screens, the search bar
-is below the link.
+The page is similarly structured to the Records page. At the top, there is a link "To Records" beneath the "Available Drugs" heading. On large screens, a search bar is available to the right side. On smaller screens, the search bar is below the link.
 
-Below, all the medications currently available are listed alphabetically below the "All Drugs:" heading. Like the Records
-page, the list of medications features pagination with ten medications per page. 
+Below, all the medications currently available are listed alphabetically below the "All Drugs:" heading. Like the Records page, the list of medications features pagination with ten medications per page. 
 
 ### Search Drugs
 
@@ -446,13 +341,9 @@ page, the list of medications features pagination with ten medications per page.
 
 On the "Available Drugs" page, a search bar is available for the user to search the available medications.
 
-The search function searches by the medication's name. The placeholder text prompts the user to search by
-the name as it features a rudimentary autocomplete with a dropdown for the field that is populated with medication's name.
+The search function searches by the medication's name. The placeholder text prompts the user to search by the name as it features a rudimentary autocomplete with a dropdown for the field that is populated with medication's name.
 
-Upon searching, the user is brought to the search results. At the top of the page are links "To Records" and "To
-Available Drugs" with the search bar. Below "Search Results:" are the list of results presented in a table with 
-the details "Drug" and "Category to help the user narrow down the medication they are looking for.
-Below the results is are the links "Back to Drugs" and "To Records".
+Upon searching, the user is brought to the search results. At the top of the page are links "To Records" and "To Available Drugs" with the search bar. Below "Search Results:" are the list of results presented in a table with the details "Drug" and "Category to help the user narrow down the medication they are looking for. Below the results is are the links "Back to Drugs" and "To Records".
 
 ### Detailed Drug View
 
@@ -462,10 +353,7 @@ Below the results is are the links "Back to Drugs" and "To Records".
 ![Detailed Drug](readme-docs/detail-drug.webp)
 </details>
 
-On the "Available Drugs" and "Search Results" pages, the medication's names link to their page which features the
-details of the medication. This page provides the medications name, category, dosage, route and warnings. This
-information is inputted in the admin panel by a senior member of staff and is available for any registered, active
-user to review.
+On the "Available Drugs" and "Search Results" pages, the medication's names link to their page which features the details of the medication. This page provides the medications name, category, dosage, route and warnings. This information is inputted in the admin panel by a senior member of staff and is available for any registered, active user to review.
 
 Below are the links "Your Profile", "Drugs", and "Records".
 
@@ -483,19 +371,11 @@ Below are the links "Your Profile", "Drugs", and "Records".
 ![Detail Prescription](readme-docs/detail-prescription.webp)
 </details>
 
-When the user clicks "View" on a prescription on either their own profile or on an animal's record, a modal is 
-displayed which shows the prescription.
+When the user clicks "View" on a prescription on either their own profile or on an animal's record, a modal is displayed which shows the prescription.
 
-This modal provides a detailed breakdown of the prescription, including the animal, it's weight, the category of the
-drug prescribed, the name of the drug prescribed, the dosage given, the route, the frequency and length of dosing,
-the name of the prescribing vet and the date the prescription was created. Included is text advising the user of
-the restricitions for editing and deleting the prescription.
+This modal provides a detailed breakdown of the prescription, including the animal, it's weight, the category of the drug prescribed, the name of the drug prescribed, the dosage given, the route, the frequency and length of dosing, the name of the prescribing vet and the date the prescription was created. Included is text advising the user of the restrictions for editing and deleting the prescription.
 
-If the user is the prescribing vet and it is within 24 hours from the creation of the prescription, "Edit" and "Delete"
-buttons are displayed. However, if it has been more than 24 hours or the vet viewing the prescription is not the
-prescribing vet, these buttons are not accessible. If the user chooses to edit the prescription, the "Edit Prescription"
-modal is then displayed. If the user chooses to delete the prescription, the modal then displays confirmation that
-the prescription has been deleted. A "Close" button is always available to dismiss the modal.
+If the user is the prescribing vet and it is within 24 hours from the creation of the prescription, "Edit" and "Delete" buttons are displayed. However, if it has been more than 24 hours or the vet viewing the prescription is not the prescribing vet, these buttons are not accessible. If the user chooses to edit the prescription, the "Edit Prescription" modal is then displayed. If the user chooses to delete the prescription, the modal then displays confirmation that the prescription has been deleted. A "Close" button is always available to dismiss the modal.
 
 At the bottom of the modal, links to "Your Profile", "{animal}'s Record", and "Records" are available.
 
@@ -507,10 +387,7 @@ At the bottom of the modal, links to "Your Profile", "{animal}'s Record", and "R
 ![Edit Prescription](readme-docs/edit-prescription.webp)
 </details>
 
-If the user selects "Edit Prescripton" on the prescription modal, a modal displays with a form that's identical to
-the form to add a prescription. It is prepopulated with the previously selected details. Upon submitting, the modal
-closes and the list of prescriptions on the user's profile and the animal's records are updated. A "Close" button is
-also present on the modal so that the user can close the modal without submitting the form. 
+If the user selects "Edit Prescription" on the prescription modal, a modal displays with a form that's identical to the form to add a prescription. It is prepopulated with the previously selected details. Upon submitting, the modal closes and the list of prescriptions on the user's profile and the animal's records are updated. A "Close" button is also present on the modal so that the user can close the modal without submitting the form. 
 
 ## Prescriptions - Admin
 
@@ -522,8 +399,7 @@ also present on the modal so that the user can close the modal without submittin
 ![Admin - Category](readme-docs/admin-category.webp)
 </details>
 
-From the admin panel, the admin user is able to create, update and delete categories for medications. There is a
-single "Name" field required to create a category. The categories are displayed as a list alphabetically.
+From the admin panel, the admin user is able to create, update and delete categories for medications. There is a single "Name" field required to create a category. The categories are displayed as a list alphabetically.
 
 ### Drug
 
@@ -533,43 +409,22 @@ single "Name" field required to create a category. The categories are displayed 
 ![Admin-Drug](readme-docs/admin-drug.webp)
 </details>
 
-From the admin panel, the admin user is able to create, update and delete medications. The medications are displayed 
-alphabetically, with their dose and category.
+From the admin panel, the admin user is able to create, update and delete medications. The medications are displayed alphabetically, with their dose and category.
 
-When adding a new medication, the admin user is required to fill in the fields "Name", "Type", "Dose", "Measure",
-"Category", "Route" and "Warnings". "High dose" and "Tablet strength" are not required fields. 
+When adding a new medication, the admin user is required to fill in the fields "Name", "Type", "Dose", "Measure", "Category", "Route" and "Warnings". "High dose" and "Tablet strength" are not required fields. 
 
-- The "Name" field is required. It takes a text input and will be displayed in the string representation of the model.
-The medications are default ordered alphabetically by their name.
-- The "Type" field is required and provides a dropdown list of options including "Injectable", "Liquid" and "Tablet" 
-which relates to the save method for prescriptions and decides how the dosage will be calculated. 
-- The "Dose" field is required. It takes a decimal input. It is used for calculating the dose administered to an 
-animal as part of the Prescription model.
-- The "High dose" field is not required. It takes a decimal input. It is used in the case of "Tablet" type medications
-which require a safe range of doses for prescriptions. There is helper text displayed below the field to advise users
-of this. It is used along with the "Dose" for calculating the number and strength of tablets administered to an 
-animal as part of the Prescription model.
-- The "Tablet strength" field is not required. It takes a text input. It is used in the case of "Tablet" type medications
-to provide the tablet strengths available for administration. Helper text advises the user to add the numbers of the
-strengths separated by commas. As part of the save method in the Prescription model, the strengths are separated and
-then converted to integers. The dose administered to an animal is then expressed as quarters of a tablet of a given 
-strength. It aims to provide whichever dose would be easiest to administer
-within the safe dose range. Quarters were chosen as the smallest unit as most tablets can be easily quartered, but 
-cannot be easily broken smaller. If there are no available doses in that range for any tablet strengths provided,
-"No tablet dose in range" is returned in the prescription.
-- The "Measure" field is required and provides a dropdown list of options. It is used to display the strength or size
-of a medication in a prescription.
-- The "Category" field is required and provides a dropdown list of options. It is used for the chained dropdown menus
-on the "Add Prescription" and "Edit Prescription" forms to aid the user in selecting the medication they wish to
-prescribe.
-- The "Route" field is required and provides a dropdown list of options. It is used to display the route by which the
-medication is administered in a prescription.
-The "Warnings" field is required and provides a text input. It is used to display any warnings the admin user wishes
-to associate with the drug that they feel are necessary to highlight. It is displayed as part of the detailed drug
-page.
+- The "Name" field is required. It takes a text input and will be displayed in the string representation of the model. The medications are default ordered alphabetically by their name.
+- The "Type" field is required and provides a dropdown list of options including "Injectable", "Liquid" and "Tablet" which relates to the save method for prescriptions and decides how the dosage will be calculated. 
+- The "Dose" field is required. It takes a decimal input. It is used for calculating the dose administered to an animal as part of the Prescription model.
+- The "High dose" field is not required. It takes a decimal input. It is used in the case of "Tablet" type medications which require a safe range of doses for prescriptions. There is helper text displayed below the field to advise users
+of this. It is used along with the "Dose" for calculating the number and strength of tablets administered to an animal as part of the Prescription model.
+- The "Tablet strength" field is not required. It takes a text input. It is used in the case of "Tablet" type medications to provide the tablet strengths available for administration. Helper text advises the user to add the numbers of the strengths separated by commas. As part of the save method in the Prescription model, the strengths are separated and then converted to integers. The dose administered to an animal is then expressed as quarters of a tablet of a given strength. It aims to provide whichever dose would be easiest to administer within the safe dose range. Quarters were chosen as the smallest unit as most tablets can be easily quartered, but  cannot be easily broken smaller. If there are no available doses in that range for any tablet strengths provided, "No tablet dose in range" is returned in the prescription.
+- The "Measure" field is required and provides a dropdown list of options. It is used to display the strength or size of a medication in a prescription.
+- The "Category" field is required and provides a dropdown list of options. It is used for the chained dropdown menus on the "Add Prescription" and "Edit Prescription" forms to aid the user in selecting the medication they wish to prescribe.
+- The "Route" field is required and provides a dropdown list of options. It is used to display the route by which the medication is administered in a prescription.
+- The "Warnings" field is required and provides a text input. It is used to display any warnings the admin user wishes to associate with the drug that they feel are necessary to highlight. It is displayed as part of the detailed drug page.
 
-The admin user is also able to edit any of these details. They are also capable of deleting a drug entry. However, 
-this will then destroy any associated prescriptions.
+The admin user is also able to edit any of these details. They are also capable of deleting a drug entry. However, this will then destroy any associated prescriptions.
 
 ### Records
 
@@ -579,13 +434,9 @@ this will then destroy any associated prescriptions.
 ![Admin - Record](readme-docs/admin-record.webp)
 </details>
 
-From the admin panel, the admin user is able to create, update and delete records. The records are displayed
-as a list with the animal name, surname, date of birth, species and breed. They are ordered alphabetically by 
-default by their surname.
+From the admin panel, the admin user is able to create, update and delete records. The records are displayed as a list with the animal name, surname, date of birth, species and breed. They are ordered alphabetically by default by their surname.
 
-The admin user can add a new animal record in much the same way as vet user, though the "Note" field is available
-when adding the record. They are also capable of editing an animal's record. Unlike the vet users, the admin user
-has the ability to delete an animal's record.
+The admin user can add a new animal record in much the same way as vet user, though the "Note" field is available when adding the record. They are also capable of editing an animal's record. Unlike the vet users, the admin user has the ability to delete an animal's record.
 
 ### VetProfiles
 
@@ -595,14 +446,9 @@ has the ability to delete an animal's record.
 ![Admin - VetProfiles](readme-docs/admin-vetprofile.webp)
 </details>
 
-From the admin panel, the admin user is able to create, update and delete user profiles. User profilse are displayed
-as a list with the email, first name, last name, last login, is admin, is active and is staff. They are ordered 
-alphabetically by default by their email.
+From the admin panel, the admin user is able to create, update and delete user profiles. User profilse are displayed as a list with the email, first name, last name, last login, is admin, is active and is staff. They are ordered alphabetically by default by their email.
 
-The admin user can add a new user profile by simply adding an email and password. After, they can edit the profile
-and add the first and last names. The admin is able to activate a profile by editing an existing profile, checking
-"is active" and saving the profile. This is the current process for activating a profile to prevent users from
-accessing restricted content without approval.
+The admin user can add a new user profile by simply adding an email and password. After, they can edit the profile and add the first and last names. The admin is able to activate a profile by editing an existing profile, checking "is active" and saving the profile. This is the current process for activating a profile to prevent users from accessing restricted content without approval.
 
 The admin user is also capable of deleting user profiles.
 
