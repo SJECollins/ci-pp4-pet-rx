@@ -465,33 +465,31 @@ For users who have registered but whose account is awaiting approval, the restri
 
 ## Error Pages
 
-### 403
-<details>
-<summary>Example Title</summary>
 
-![Title](readme-docs/)
+<details>
+<summary>403</summary>
+
+![403](readme-docs/403.webp)
 </details>
 
-### 404
 <details>
-<summary>Example Title</summary>
+<summary>404</summary>
 
-![Title](readme-docs/)
+![404](readme-docs/404.webp)
 </details>
 
-### 405
 <details>
-<summary>Example Title</summary>
+<summary>405</summary>
 
-![Title](readme-docs/)
+![405](readme-docs/405.webp)
 </details>
 
-### 500
 <details>
-<summary>Example Title</summary>
+<summary>500</summary>
 
-![Title](readme-docs/)
+![500](readme-docs/500.webp)
 </details>
+
 
 ## Future Features
 1. __Improved Dosing__. In the future it may be beneficial to allow the prescribing vet options of doses to prescribe for a given drug, or in some cases to enter their own dose for administration. 
@@ -581,7 +579,7 @@ Fira Sans and Rubik were imported from Google Fonts. They were chosen for their 
 GitHub Projects was used in part for the planning of this website to create and track User Stories as they were implemented and fulfilled.
 
 
-## ERD
+## Entity Relationship Diagram
 
 The below Entity Relationship Diagram was created on [diagrams.net](https://www.diagrams.net/). It illustrates the relationships between the 5 models present in the project: Vet, Record, Category, Drug and Prescription.
 
@@ -613,6 +611,7 @@ The below Entity Relationship Diagram was created on [diagrams.net](https://www.
 - [Google Fonts](https://fonts.google.com/): to import fonts.
 - [Font Awesome](https://fontawesome.com/): to import icons.
 - [Balsamiq](https://balsamiq.com/): to create wireframes.
+- [Diagrams.net](https://www.diagrams.net/): for Entity Relationship Diagram.
 - [GIMP](https://www.gimp.org/): to edit images and create colour palette.
 - [Inkscape](https://inkscape.org/): to create the logo.
 
