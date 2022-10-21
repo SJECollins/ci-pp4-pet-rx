@@ -463,33 +463,6 @@ The admin user is also capable of deleting user profiles.
 
 For users who have registered but whose account is awaiting approval, the restricted view informs them that they do not have access when they attempt to navigate to certain parts of the website (e.g. their profile). This prevents users from registering accounts and immediately having access to the features and information on the site by allowing the admin to screen user accounts.
 
-## Error Pages
-
-
-<details>
-<summary>403</summary>
-
-![403](readme-docs/403.webp)
-</details>
-
-<details>
-<summary>404</summary>
-
-![404](readme-docs/404.webp)
-</details>
-
-<details>
-<summary>405</summary>
-
-![405](readme-docs/405.webp)
-</details>
-
-<details>
-<summary>500</summary>
-
-![500](readme-docs/500.webp)
-</details>
-
 
 ## Future Features
 1. __Improved Dosing__. In the future it may be beneficial to allow the prescribing vet options of doses to prescribe for a given drug, or in some cases to enter their own dose for administration. 
