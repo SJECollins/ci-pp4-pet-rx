@@ -131,13 +131,6 @@ def user_restricted(request):
     return render(request, 'vetprofiles/restricted.html')
 
 
-# def handle_403(request, exception):
-#     """
-#     Renders custom 403 page.
-#     """
-#     return render(request, 'errors/403.html')
-
-
 def handle_403(request, exception, template_name="errors/403.html"):
     """
     Renders custom 404 page
