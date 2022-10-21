@@ -750,13 +750,24 @@ The below Entity Relationship Diagram was created on [diagrams.net](https://www.
 
 - [HTML5](https://en.wikipedia.org/wiki/HTML5): mark-up language.
 - [CSS3](https://en.wikipedia.org/wiki/CSS): styling.
+- [JavaScript](https://www.javascript.com/): programming language.
+- [Python 3](https://www.python.org/): programming language.
+- [Django 3.2](https://www.djangoproject.com/)
+  - [Django Crispy Forms](https://pypi.org/project/django-crispy-forms/): for forms.
+  - [Crispy Bootstrap5](https://pypi.org/project/crispy-bootstrap5/): bootstrap5 template pack for crispy forms.
+  - [Django Forms Dynamic](https://github.com/dabapps/django-forms-dynamic): for the dynamic form using HTMX.
+  - [Django Widget Tweaks](https://pypi.org/project/django-widget-tweaks/): for the dynamic form.
+  - [Coverage](https://github.com/nedbat/coveragepy/tree/6.5.0): for measuring code coverage of Python tests.
+- [HTMX](https://htmx.org/): UI.
+- [Bootstrap](https://getbootstrap.com/): styling.
+- [Cloudinary](https://cloudinary.com/): store static and media files.
 - [GIT](https://git-scm.com/): for version control.
 - [GitHub](https://github.com/): for host repository.
 - [Gitpod](https://www.gitpod.io/): online IDE.
 - [Google Fonts](https://fonts.google.com/): to import fonts.
 - [Font Awesome](https://fontawesome.com/): to import icons.
 - [Balsamiq](https://balsamiq.com/): to create wireframes.
-- [GIMP](https://www.gimp.org/): to edit images, create a mockup and select colours.
+- [GIMP](https://www.gimp.org/): to edit images and create colour palette.
 - [Inkscape](https://inkscape.org/): to create the logo.
 
 ## Testing
@@ -767,15 +778,112 @@ Testing for the site can be found at the below link:
 
 
 ## Deployment
-### Steps to deploy site:
-- In the GitHub repository, navigate to the "Settings" tab.
-- Scroll down to "Pages" in the menu on the left hand side.
-- Under the heading "Source", click the drop-down menu and select "main" branch.
-- The page will automatically refresh with a link to the deployed website.
-- It may not go live for a few minutes, refresh the page to update the link.
-- Once deployed, the live website will automatically update when commits are made to the main branch.
+### Steps to deploy site using Heroku:
+- Assuming gunicorn, dj_database_url, psycopg2 and dj3-cloudinary-storage have been installed
+- On the Heroku dashboard, select "New" and click "Create new app"
+  - Create a unique app name - this will be added to allowed hosts in the project settings
+  - Select your region
+  - Click "Create app"
+- Go to the Resources tab:
+  - Search for "postgres" in the add-ons search bar and select "Heroku Postgres"
+  - Click "Submit Order Form"
+- Go to the settings tab:
+  - Scroll down to the config vars section and select "Reveal Config Vars"
+  - DATABASE_URL will be set after adding Heroku Postgres - this will be copied to the project
+  - Add a new config var for SECRET_KEY - create your own or use a django secret key generator
+  - Add a new config var for CLOUDINARY_URL - copy the "API Environment variable" from your cloudinary dashboard, remove "CLOUDINARY_URL="
+  - Add a new config var for DISABLE_COLLECTSTATIC, with the value 1 - this will be removed before deployment
+- In your project, for your environment variables:
+  - Create a new env.py file in the top level directory
+  - In env.py:
+    - Import os
+    - Add 'os.environ["DATABASE_URL"] = "Paste the DATABASE_URL from the Heroku app here"'
+    - Add 'os.environ["SECRET_KEY"] = "Paste your new secret key here"'
+    - Add 'os.environ["CLOUDINARY_URL"] = "Paste your CLOUDINARY_URL as in the Heroku app here"'
+  ```
+  import os
 
-The live site can be found here: [The Hoggy Hospital](https://sjecollins.github.io/ci-pp1-hoggy-hospital)
+  os.environ['DATABASE_URL'] = 'postgres://exampledatabaseurl'
+  os.environ['SECRET_KEY'] = 'examplesecretkey'
+  os.environ['CLOUDINARY_URL'] = 'cloudinary://examplecloudinaryurl'
+  ```
+  - If not already present, create a .gitignore file and add env.py to it
+
+- In your project, in settings.py:
+  - Import os
+  - Import dj_database_url
+  - if os.path.isfile('env.py'):
+	import env
+  ```
+  import os
+  import dj_database_url
+  if os.path.isfile('env.py'):
+      import env
+  ```
+  - Replace the insecure secret key with "SECRET_KEY = os.environ.get('SECRET_KEY')"
+  ```
+  SECRET_KEY = os.environ.get('SECRET_KEY')
+  ```
+  - Link new database by commenting out old DATABASES section and adding:
+	DATABASES = {
+			'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
+			}
+  ```
+  DATABASES = {
+        'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
+    }
+  ```
+  - Add Heroku to the allowed hosts: "ALLOWED_HOSTS = ['the_app_name_from_heroku.herokuapp.com']
+  ```
+  ALLOWED_HOSTS = ['example-heroku-app-name.herokuapp.com', 'localhost']
+  ```
+  - Add 'cloudinary_storage' (above 'django.contrib.staticfiles') and 'cloudinary' (below) to INSTALLED_APPS
+  ```
+  ...
+  'cloudinary_storage',
+  'django.contrib.staticfiles',
+  'cloudinary',
+  ...
+  ```
+  - Setup Cloudinary to store static and media files
+  ```
+  STATIC_URL = '/static/'
+	STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
+	STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+	STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+	MEDIA_URL = '/media/'
+	DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+  ```
+  - Run 'python3 manage.py collectstatic' to collect static files
+- In your project:
+  - Create a Procfile in the top level directory and add 'web: gunicorn project_name.wsgi' to tell 
+  ```
+  web: gunicorn project_name.wsgi
+  ```
+  - Create a requirements file with 'pip3 freeze --local > requirements.txt' for Heroku to install required packages
+  ```
+  pip3 freeze --local > requirements.txt
+  ```
+  - Make migrations with 'python3 manage.py migrate'
+  ```
+  python3 manage.py migrate
+  ```
+  - Commit and push to GitHub
+- Prior to final deployment:
+  - Set DEBUG = False in project settings.py
+  - Remove DISABLE_COLLECTSTATIC config var from Heroku
+- Go to the Deploy tab:
+  - Select GitHub and confirm connection to GitHub account
+  - Search for the repository and click "Connect"
+  - Scroll down to the deploy options
+  - Select automatic deploys if you would like automatic deployment with each new push to the GitHub repository
+  - In manual deploy, select which branch to deploy and click "Deploy Branch"
+  - Heroku will start building the app
+- The link to the app can be found at the top of the page by clicking "Open app"
+
+The live site can be found here: [PetRx](https://ci-pp4-petrx.herokuapp.com/)
+
 
 ### Steps to clone site:
 - In the GitHub repository, click the "Code" button.
@@ -783,6 +891,7 @@ The live site can be found here: [The Hoggy Hospital](https://sjecollins.github.
 - Open Git Bash and navigate to the repository where you would like to locate the cloned repository.
 - Type "git clone" followed by the copied URL.
 - Press enter to create the clone.
+- Install required packages with the command "pip3 install -r requirements.txt"
 
 ## Credits
 ### Code
@@ -795,6 +904,7 @@ The live site can be found here: [The Hoggy Hospital](https://sjecollins.github.
 - The code for a custom error handlers is based on this tutorial by [Cryce Truly](https://www.youtube.com/watch?v=3SKjPppM_DU&ab_channel=CryceTruly)
 
 ### Media
+- The logo was created in Inkscape
 - Icons are from [Font Awesome](https://fontawesome.com)
 - The  fonts are imported from [Google Fonts](https://fonts.google.com)
 
