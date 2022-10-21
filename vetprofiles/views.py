@@ -49,9 +49,7 @@ def register(request):
             account = authenticate(email=email, password=raw_password)
             login(request, account)
             return redirect('vetprofiles:index')
-        else:
-            context = {'registration_form': form}
-    else:   # GET request
+    else:
         form = RegistrationForm()
         context = {'registration_form': form}
     return render(request, 'vetprofiles/register.html', context)
