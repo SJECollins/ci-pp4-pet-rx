@@ -480,55 +480,55 @@ Wireframes were created in Balsamiq. They were used for initial planning of temp
 <details>
 <summary>Index Wireframe</summary>
 
-![Index Wireframe](readme-docs/index-wf.webp)
+![Index Wireframe](readme-docs/wireframe/index-wf.webp)
 </details>
 
 <details>
 <summary>About Wireframe</summary>
 
-![About Wireframe](readme-docs/about-wf.webp)
+![About Wireframe](readme-docs/wireframe/about-wf.webp)
 </details>
 
 <details>
 <summary>Contact Wireframe</summary>
 
-![Contact Wireframe](readme-docs/contact-wf.webp)
+![Contact Wireframe](readme-docs/wireframe/contact-wf.webp)
 </details>
 
 <details>
 <summary>Register Wireframe</summary>
 
-![Register Wireframe](readme-docs/register-wf.webp)
+![Register Wireframe](readme-docs/wireframe/register-wf.webp)
 </details>
 
 <details>
 <summary>Login Wireframe</summary>
 
-![Login Wireframe](readme-docs/signin-wf.webp)
+![Login Wireframe](readme-docs/wireframe/signin-wf.webp)
 </details>
 
 <details>
 <summary>Vet Profile Wireframe</summary>
 
-![Vet Profile Wireframe](readme-docs/user-profile-wf.webp)
+![Vet Profile Wireframe](readme-docs/wireframe/user-profile-wf.webp)
 </details>
 
 <details>
 <summary>Records Wireframe</summary>
 
-![Records Wireframe](readme-docs/records-wf.webp)
+![Records Wireframe](readme-docs/wireframe/records-wf.webp)
 </details>
 
 <details>
 <summary>Animal Record Wireframe</summary>
 
-![Animal Record Wireframe](readme-docs/animal-profile-wf.webp)
+![Animal Record Wireframe](readme-docs/wireframe/animal-profile-wf.webp)
 </details>
 
 <details>
 <summary>Prescribe Wireframe</summary>
 
-![Prescribe Wireframe](readme-docs/prescribe-wf.webp)
+![Prescribe Wireframe](readme-docs/wireframe/prescribe-wf.webp)
 </details>
 
 

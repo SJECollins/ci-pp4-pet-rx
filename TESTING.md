@@ -98,7 +98,7 @@ HTML was validated by copying the page source and pasting into the validator.
 
 ## [CSS Validator](https://jigsaw.w3.org/css-validator/)
 
-CSS was validated by copying the CSS file into the validator.
+CSS was validated by copying the CSS file into the validator. No errors were reported. There were 220 warnings related to vendor extensions and bootstrap classes.
 
 - Results for style.css:
   - ![CSS results](readme-docs/testing/css-validator.webp)
@@ -120,33 +120,121 @@ The project was tested for pep8 compliance using pycodestyle. [autopep8](https:/
 
 
 ## Lighthouse
-<summary>Example Title</summary>
 
-![Title](readme-docs/)
+The site was tested using Lighthouse in Chrome DevTools to check performance, accessibiltiy, best practices and SEO. The final testing on Lighthouse was run on incognito mode. The results are below.
+
+<details>
+<summary>Index - Not Logged In</summary>
+
+![Index - Not logged in](readme-docs/lighthouse/index.webp)
 </details>
 
-<summary>Example Title</summary>
+<details>
+<summary>About</summary>
 
-![Title](readme-docs/)
+![About](readme-docs/lighthouse/about.webp)
 </details>
 
-<summary>Example Title</summary>
+<details>
+<summary>Contact</summary>
 
-![Title](readme-docs/)
+![Contact](readme-docs/lighthouse/contact.webp)
 </details>
 
-<summary>Example Title</summary>
+<details>
+<summary>Register</summary>
 
-![Title](readme-docs/)
+![Register](readme-docs/lighthouse/register.webp)
 </details>
 
-<summary>Example Title</summary>
+<details>
+<summary>Login</summary>
 
-![Title](readme-docs/)
+![Login](readme-docs/lighthouse/login.webp)
+</details>
+
+<details>
+<summary>Index - Logged In</summary>
+
+![Index - Logged in](readme-docs/lighthouse/index-loggedin.webp)
+</details>
+
+<details>
+<summary>User Profile</summary>
+
+![User Profile](readme-docs/lighthouse/user-profile.webp)
+</details>
+
+<details>
+<summary>Edit Profile</summary>
+
+![Edit Profile](readme-docs/lighthouse/edit-profile.webp)
+</details>
+
+<details>
+<summary>Records</summary>
+
+![Records](readme-docs/lighthouse/records.webp)
+</details>
+
+<details>
+<summary>Record Search</summary>
+
+![Record Search](readme-docs/lighthouse/records-search.webp)
+</details>
+
+<details>
+<summary>Animal Record</summary>
+
+![Animal Record](readme-docs/lighthouse/animal-record.webp)
+</details>
+
+<details>
+<summary>Edit Record</summary>
+
+![Edit Record](readme-docs/lighthouse/edit-record.webp)
+</details>
+
+<details>
+<summary>Drugs</summary>
+
+![Drugs](readme-docs/lighthouse/drugs.webp)
+</details>
+
+<details>
+<summary>Drug Search</summary>
+
+![Drug Search](readme-docs/lighthouse/drugs-search.webp)
+</details>
+
+<details>
+<summary>Detailed Drug View</summary>
+
+![Detailed Drug View](readme-docs/lighthouse/drug-detail.webp)
 </details>
 
 
 ## Automated Testing
+
+Automated testing was performed using Django's testing tools for the VetProfiles, Records and Prescriptions apps. Coverage reports are below.
+
+<details>
+<summary>VetProfiles Coverage</summary>
+
+![Vetprofiles](readme-docs/testing/coverage-vetprofiles.webp)
+</details>
+
+<details>
+<summary>Records Coverage</summary>
+
+![Records](readme-docs/testing/coverage-records.webp)
+</details>
+
+<details>
+<summary>Prescriptions Coverage</summary>
+
+![Prescriptions](readme-docs/testing/coverage-prescriptions.webp)
+</details>
 
 
 ## Manual Testing
@@ -186,7 +274,7 @@ Below the steps for manual testing of the site have been arranged into tables. U
 
 ## User Story Testing
 
-The user stories were tested as part of the manual testing above and can be matched by their key.
+The user stories were tested as part of the manual testing above and can be matched to the manuals tests fulfilling them by their keys which have been added below.
 
 - US1:
   - As a site user I can register on the site so that have access to the features for animal profiles and prescriptions
@@ -234,10 +322,10 @@ The user stories were tested as part of the manual testing above and can be matc
 
 ## Browser Compatibility
 The website was tested on:
-- Chrome Version 101.0.4951.67
-- Firefox Version 101.0.4951.67
-- Edge Version 101.0.1210.53
-- Safari iOS Version 15.4.1
+- Chrome Version 106.0.5249.119
+- Firefox Version 106.0.1
+- Edge Version 106.0.1370.52
+- Safari iOS Version 15.6.1
 
 
 ## Bugs
