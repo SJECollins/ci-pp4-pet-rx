@@ -7,7 +7,7 @@
 <div class="container-md d-flex justify-content-center">
     <div class="col-md-4">
         <h2 class="subheadings">Add Animal</h2>
-        <form class="form-text" method="POST" action="{% url 'records:add_animal' %}">
+        <form method="POST" action="{% url 'records:add_animal' %}">
             {% csrf_token %}
             <!-- Django form -->
             {{ record_form|crispy }}
