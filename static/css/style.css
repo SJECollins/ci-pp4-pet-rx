@@ -75,17 +75,18 @@ a {
 
 .navbar-links {
     cursor: pointer;
-    display: block;
+    display: inline-block;
     padding: 0.25rem 0.5rem;
     color: var(--site-dark-blue);
     font-weight: 800;
     margin: 1em;
-    transition: color .8s linear, box-shadow 1s linear;
+    border-radius: 4px;
+    transition: color .4s linear, box-shadow .8s linear;
 }
 
 .navbar-links:hover {
-    box-shadow: inset 200px 0 0 0 var(--site-turquoise);
-    color: var(--site-black);
+    box-shadow: inset 200px 0 0 0 var(--site-turquoise), 0 4px 8px 0 var(--site-light-blue);
+    color: var(--site-white);
 }
 
 .nav-drop-link {
@@ -155,13 +156,13 @@ a {
     margin-bottom: 1em;
     background-color: #fff;
     color: var(--site-dark-blue);
-    box-shadow: 0 1px 6px 0 var(--site-light-blue);
+    box-shadow: 0 2px 8px 0 var(--site-light-blue);
 }
 
 .navbar-toggler {
     color: var(--site-dark-blue);
-    font-size: 2rem;
-    line-height: 1.3;
+    font-size: 1.75rem;
+    line-height: 1.5;
 }
 
 /* Image styling */
