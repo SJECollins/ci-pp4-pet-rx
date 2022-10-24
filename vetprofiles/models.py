@@ -76,7 +76,7 @@ class Vet(AbstractBaseUser):
 
     # Return a string of first and last name
     def __str__(self):
-        return self.first_name + " " + self.last_name
+        return f"{self.first_name} {self.last_name}"
 
     # Required permissions
     def has_perm(self, perm, obj=None):

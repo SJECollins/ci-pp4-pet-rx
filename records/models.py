@@ -18,7 +18,7 @@ class Record(models.Model):
     note = models.CharField(max_length=300, blank=True)
 
     def __str__(self):
-        return self.name + " " + self.surname
+        return f"{self.name} {self.surname}"
 
     class Meta:
         """
