@@ -348,7 +348,7 @@ Upon searching, the user is brought to the search results. At the top of the pag
 ### Detailed Drug View
 
 <details>
-<summary>Detail Drug View</summary>
+<summary>Detailed Drug View</summary>
 
 ![Detailed Drug](readme-docs/detail-drug.webp)
 </details>
