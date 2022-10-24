@@ -140,7 +140,7 @@ On larger screens, the about page is displayed in rows with the contents display
 ![Contact Page](readme-docs/contact.webp)
 </details>
 
-The contact page is available to all users through a link in the navbar for users who are not logged in or a link in the footer. It features a simple form that requires the name, email and message from the user. It sends the message to the site owner and provides the user with feedback by displaying "Message sent."
+The contact page is available to all users through a link in the navbar for users who are not logged in or a link in the footer for those who are It features a simple form that requires the name, email and message from the user. It sends the message to the site owner and provides the user with feedback by displaying "Message sent."
 
 ## Vet Profiles
 
@@ -313,7 +313,7 @@ If the user changes their mind, they can click away from the modal or click the 
 
 The "Edit Notes" button opens a modal with a text field. 
 
-Notes are not mandatory for the animal's record, but provide a way for a vet to leave a quick note on an animal's record for any details or considerations they feel are important. For example, if the animal is elderly, the vet may decide to leave a note on the record that the dog should have its blood work checked before it's next prescription of NSAIDs. Any vet can edit the notes. They are not required and can be left blank. If empty, "No notes or warnings" is displayed on the animal's profile.
+Notes are not mandatory for the animal's record, but provide a way for a vet to leave a quick note on an animal's record for any details or considerations they feel are important. For example, if the animal is elderly, the vet may decide to leave a note on the record that the dog should have its blood work checked before its next prescription of NSAIDs. Any vet can edit the notes. They are not required and can be left blank. If empty, "No notes or warnings" is displayed on the animal's profile.
 
 ## Prescriptions - Vet
 
@@ -373,7 +373,7 @@ Below are the links "Your Profile", "Drugs", and "Records".
 
 When the user clicks "View" on a prescription on either their own profile or on an animal's record, a modal is displayed which shows the prescription.
 
-This modal provides a detailed breakdown of the prescription, including the animal, it's weight, the category of the drug prescribed, the name of the drug prescribed, the dosage given, the route, the frequency and length of dosing, the name of the prescribing vet and the date the prescription was created. Included is text advising the user of the restrictions for editing and deleting the prescription.
+This modal provides a detailed breakdown of the prescription, including the animal, its weight, the category of the drug prescribed, the name of the drug prescribed, the dosage given, the route, the frequency and length of dosing, the name of the prescribing vet and the date the prescription was created. Included is text advising the user of the restrictions for editing and deleting the prescription.
 
 If the user is the prescribing vet and it is within 24 hours from the creation of the prescription, "Edit" and "Delete" buttons are displayed. However, if it has been more than 24 hours or the vet viewing the prescription is not the prescribing vet, these buttons are not accessible. If the user chooses to edit the prescription, the "Edit Prescription" modal is then displayed. If the user chooses to delete the prescription, the modal then displays confirmation that the prescription has been deleted. A "Close" button is always available to dismiss the modal.
 
@@ -466,7 +466,7 @@ For users who have registered but whose account is awaiting approval, the restri
 
 ## Future Features
 1. __Improved Dosing__. In the future it may be beneficial to allow the prescribing vet options of doses to prescribe for a given drug, or in some cases to enter their own dose for administration. 
-2. __Prescription Warnings__. 
+2. __Prescription Warnings__. For extra safty, (although it is ultimately at the discretion of the prescribing veterinarian) warnings/alerts when prescribing particular medications where extra caution may necessary. For example, prescribing non-steroidal anti-inflammatories to animals over or under a certain age, or who have previously had a reaction to the medication being prescribed.
 3. __Owner Profiles__. A potential future feature to allow animal owners to view their animal's record, review the prescription history and request prescription renewals.  
 4. __Improved Search Functionality__. Extending search functionality. Particularly with the addition of owner details, as record numbers grow it would make search records easier to be able to search with a combination of details, e.g. owner's phone number, address, etc.
 
@@ -535,9 +535,7 @@ Wireframes were created in Balsamiq. They were used for initial planning of temp
 ## Colour
 ![Colour Palette](readme-docs/palette.webp)
 
-A blue colour palette was used for this project based on the association of the colour with healthcare. The main background colour is a white with a hint of blue to give a clean appearance. The main font colour is almost black to aid readability. 
-
-A secondary font colour of dark blue was used for text in the header and footer to keep with the style. Buttons and links are styled in lighter shades of blue to stand out and indicate interactivity.
+A blue colour palette was used for this project based on the association of the colour with healthcare. The main background colour is a white with a hint of blue to give a clean appearance. The main font colour is almost black to aid readability. A secondary font colour of dark blue was used for text in the header and footer to keep with the style. Buttons and links are styled in lighter shades of blue to stand out and indicate interactivity.
 
 
 ## Typography
@@ -549,7 +547,7 @@ Fira Sans and Rubik were imported from Google Fonts. They were chosen for their 
 
 [GitHub Projects Page](https://github.com/users/SJECollins/projects/3/views/1)
 
-GitHub Projects was used in part for the planning of this website to create and track User Stories as they were implemented and fulfilled.
+GitHub Projects was used in part for the planning of this website to create and track User Stories as they were implemented and fulfilled. One week was spent on project planning, including the first mentor meeting where we planned the project timeline. The initial "sprint" took three weeks, culminating in the second mentor meeting where we reviewed the project and discussed fixes and improvements. Then another roughly three weeks on implementing further features, testing, fixes, documentation, and the final mentor meeting for the project.
 
 
 ## Entity Relationship Diagram
@@ -563,7 +561,7 @@ The below Entity Relationship Diagram was created on [diagrams.net](https://www.
 </details>
 
 
-## Technologies Used
+# Technologies Used
 
 - [HTML5](https://en.wikipedia.org/wiki/HTML5): mark-up language.
 - [CSS3](https://en.wikipedia.org/wiki/CSS): styling.
@@ -589,15 +587,15 @@ The below Entity Relationship Diagram was created on [diagrams.net](https://www.
 - [GIMP](https://www.gimp.org/): to edit images and create colour palette.
 - [Inkscape](https://inkscape.org/): to create the logo.
 
-## Testing
+# Testing
 
 Testing for the site can be found at the below link:
 
 [Link to TESTING.md](TESTING.md)
 
 
-## Deployment
-### Steps to deploy site using Heroku:
+# Deployment
+## Steps to deploy site using Heroku:
 - Assuming gunicorn, dj_database_url, psycopg2 and dj3-cloudinary-storage have been installed
 - On the Heroku dashboard, select "New" and click "Create new app"
   - Create a unique app name - this will be added to allowed hosts in the project settings
@@ -704,7 +702,7 @@ Testing for the site can be found at the below link:
 The live site can be found here: [PetRx](https://ci-pp4-petrx.herokuapp.com/)
 
 
-### Steps to clone site:
+## Steps to clone site:
 - In the GitHub repository, click the "Code" button.
 - Select "HTTPS" and copy the URL.
 - Open Git Bash and navigate to the repository where you would like to locate the cloned repository.
@@ -712,8 +710,8 @@ The live site can be found here: [PetRx](https://ci-pp4-petrx.herokuapp.com/)
 - Press enter to create the clone.
 - Install required packages with the command "pip3 install -r requirements.txt"
 
-## Credits
-### Code
+# Credits
+## Code
 - The code for the custom user model allowing registering with email based on tutorial by [Coding With Mitch](https://www.youtube.com/watch?v=eCeRC7E8Z7Y&ab_channel=CodingWithMitch)
 - The code for testing cutsom user models is based on this tutorial by [Michael Herman on testdriven.io](https://testdriven.io/blog/django-custom-user-model/)
 - The code for pagination is from the [Official Django Documentation](https://docs.djangoproject.com/en/4.1/topics/pagination/)
@@ -722,7 +720,7 @@ The live site can be found here: [PetRx](https://ci-pp4-petrx.herokuapp.com/)
 - The code for using htmx to display prescription lists and modals is based on this tutorial by [Benoit Blanchon](https://www.youtube.com/watch?v=3dyQigrEj8A&ab_channel=BenoitBlanchon)
 - The code for a custom error handlers is based on this tutorial by [Cryce Truly](https://www.youtube.com/watch?v=3SKjPppM_DU&ab_channel=CryceTruly)
 
-### Media
+## Media
 - The logo was created in Inkscape
 - Icons are from [Font Awesome](https://fontawesome.com)
 - The  fonts are imported from [Google Fonts](https://fonts.google.com)
@@ -735,5 +733,5 @@ The live site can be found here: [PetRx](https://ci-pp4-petrx.herokuapp.com/)
   - [Safe cat](https://unsplash.com/photos/A7nK49HCqSI) by Aleksandar Cvetanovic
   - [Pom at tablet](https://unsplash.com/photos/gySMaocSdqs) by Cookie the Pom
 
-### Acknowledgement
+## Acknowledgement
 I'd like to thank my mentor, Brian Macharia, for providing very good advice, tips and feedback, as well as excellent resources that aided greatly in organising and implementing this project.
