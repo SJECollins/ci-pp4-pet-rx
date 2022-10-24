@@ -97,8 +97,7 @@ class Prescription(models.Model):
         ordering = ['-date']
 
     def __str__(self):
-        return self.animal.name + " " + \
-            str(self.dose) + " " + str(self.drug) + " " + str(self.vet)
+        return f"Prescription for {self.animal}"
 
     def find_dose(self, group, weight, low, high, tablets):
         """
