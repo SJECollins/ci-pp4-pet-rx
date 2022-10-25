@@ -63,8 +63,7 @@ def add_prescrip(request, animal_id):
     Create a new prescription.
     Args: animal_id - takes id of selected animal for ForeignKey in model.
     Saves current user as vet for ForeignKey in model.
-    Returns a 204 success status as not returning content, user then closes
-    modal to return to profile.
+    Returns a 204 success status.
     """
     animal = get_object_or_404(Record, id=animal_id)
     if request.method == 'POST':
@@ -91,6 +90,7 @@ def add_prescrip(request, animal_id):
 def drug_choices(request):
     """
     View for drug choices to dynamically update prescription form.
+    From BugBytes dynamic forms tutorial, see link in README.
     """
     form = PrescrForm(request.GET)
     return HttpResponse(form['drug'])
