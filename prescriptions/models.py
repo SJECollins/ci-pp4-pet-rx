@@ -7,8 +7,6 @@ from vetprofiles.models import Vet
 
 ROUTES = (('PO', 'PO'), ('IV', 'IV'), ('IM', 'IM'),
           ('SC', 'SC'), ('Topical', 'Topical'))
-FREQUENCY = (('No Repeat', 'No Repeat'), ('SID', 'SID'),
-             ('BID', 'BID'), ('TID', 'TID'))
 MEASURE = (('ml', 'ml'), ('mg', 'mg'))
 TYPES = (('Injectable', 'Injectable'), ('Liquid', 'Liquid'),
          ('Tablet', 'Tablet'))
@@ -85,7 +83,7 @@ class Prescription(models.Model):
                                          blank=True, null=True)
     dose = models.CharField(max_length=100, blank=True, null=True)
     measure = models.CharField(max_length=2, blank=True)
-    frequency = models.CharField(max_length=10, choices=FREQUENCY, blank=True)
+    frequency = models.CharField(max_length=10, blank=True)
     length = models.PositiveIntegerField(default=0, blank=True)
     route = models.CharField(max_length=8, blank=True)
     date = models.DateTimeField(auto_now_add=True)
