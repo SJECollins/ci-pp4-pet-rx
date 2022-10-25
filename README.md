@@ -2,18 +2,11 @@
 
 PetRx is a web app designed for veterinarians to prescribe and record medications for their patients, quickly and safely.
 
-Unregistered users can view the index, about and contact pages to learn about the product and send a message. Users
-can sign up for the site from the registration form, but need to wait for approval from the admin before being able
-to access the features. 
+Unregistered users can view the index, about and contact pages to learn about the product and send a message. Users can sign up for the site from the registration form, but need to wait for approval from the admin before being able to access the features. 
 
-Registered vets can create a new animal record, browse a list of existing records, or search for a specific record. From the
-animal's record, a vet can edit the animal's details, update the weight only, and leave notes or warnings on the
-animal's record. They can add a prescription easily by clicking on the "Add Prescription" button and selecting the
-medication they wish to prescribe. Prescriptions can then be easily viewed in a list on the animal's profile.
+Registered vets can create a new animal record, browse a list of existing records, or search for a specific record. From the animal's record, a vet can edit the animal's details, update the weight only, or leave notes or warnings on the animal's record. They can add a prescription easily by clicking on the "Add Prescription" button and selecting the medication they wish to prescribe. Prescriptions can then be viewed in a list on the animal's profile.
 
-The medications available for prescription are controlled from the admin panel, restricting who can create, update 
-and delete medications from the site. The admin user can also create, update and delete animal records and vet
-profiles.
+The medications available for prescription are controlled from the admin panel, restricting who can create, update and delete medications from the site. The admin user can also create, update and delete animal records and vet profiles.
 
 
 ![PetRx](readme-docs/amiresponsive.webp)
@@ -469,9 +462,29 @@ For users who have registered but whose account is awaiting approval, the restri
 2. __Prescription Warnings__. For extra safty, (although it is ultimately at the discretion of the prescribing veterinarian) warnings/alerts when prescribing particular medications where extra caution may necessary. For example, prescribing non-steroidal anti-inflammatories to animals over or under a certain age, or who have previously had a reaction to the medication being prescribed.
 3. __Owner Profiles__. A potential future feature to allow animal owners to view their animal's record, review the prescription history and request prescription renewals.  
 4. __Improved Search Functionality__. Extending search functionality. Particularly with the addition of owner details, as record numbers grow it would make search records easier to be able to search with a combination of details, e.g. owner's phone number, address, etc.
+5. __Archived Records__. An important future feature would be to allow archiving rather than deleting of prescriptions, records and users, as this information should be preserved for medical records. However, this would technically remove CRUD functionality from the current project and so is not within the scope of the project currently.
 
 
 # Design
+
+The concept for PetRx was a professional site for veterinarians to prescribe medication for their patients. As such, the aim of the design was a clean, easy to use site where information was clearly displayed and easy to understand.
+
+
+## CRUD Functionality
+
+While trying to stay as true to life as possible, regular registered users have the ability to create, view, edit and delete prescriptions for animals. In real life, these types of records are protected and, once administered, a vet would not be allowed to alter or delete an existing prescription as it is an important part of an animal's medical history. As a middle ground, it was decided to provide users the ability to edit and delete prescriptions within a 24 hour window to provide CRUD functionality while maintaining an air of realism. As mentioned in "Future Features", this is something to be addressed in future iterations.
+
+
+## Colour
+![Colour Palette](readme-docs/palette.webp)
+
+A blue colour palette was used for this project based on the association of the colour with healthcare. The main background colour is a white with a hint of blue to give a clean appearance. The main font colour is almost black to aid readability. A secondary font colour of dark blue was used for text in the header and footer to keep with the style. Buttons and links are styled in lighter shades of blue to stand out and indicate interactivity.
+
+
+## Typography
+
+Fira Sans and Rubik were imported from Google Fonts. They were chosen for their readability and similarity, to create easily legible content that is pleasant to read without being distracting.
+
 
 ## Wireframes
 
@@ -530,17 +543,6 @@ Wireframes were created in Balsamiq. They were used for initial planning of temp
 
 ![Prescribe Wireframe](readme-docs/wireframe/prescribe-wf.webp)
 </details>
-
-
-## Colour
-![Colour Palette](readme-docs/palette.webp)
-
-A blue colour palette was used for this project based on the association of the colour with healthcare. The main background colour is a white with a hint of blue to give a clean appearance. The main font colour is almost black to aid readability. A secondary font colour of dark blue was used for text in the header and footer to keep with the style. Buttons and links are styled in lighter shades of blue to stand out and indicate interactivity.
-
-
-## Typography
-
-Fira Sans and Rubik were imported from Google Fonts. They were chosen for their readability and similarity, to create easily legible content that is pleasant to read without being distracting.
 
 
 ## Agile Methodology
@@ -713,12 +715,12 @@ The live site can be found here: [PetRx](https://ci-pp4-petrx.herokuapp.com/)
 # Credits
 ## Code
 - The code for the custom user model allowing registering with email based on tutorial by [Coding With Mitch](https://www.youtube.com/watch?v=eCeRC7E8Z7Y&ab_channel=CodingWithMitch)
-- The code for testing cutsom user models is based on this tutorial by [Michael Herman on testdriven.io](https://testdriven.io/blog/django-custom-user-model/)
+- The code for testing custom user models is based on this tutorial by [Michael Herman on testdriven.io](https://testdriven.io/blog/django-custom-user-model/)
 - The code for pagination is from the [Official Django Documentation](https://docs.djangoproject.com/en/4.1/topics/pagination/)
-- The code for search is based on tutorial by [Codemy.com](https://www.youtube.com/watch?v=AGtae4L5BbI&ab_channel=Codemy.com)
+- The code for search is based on this tutorial by [Codemy.com](https://www.youtube.com/watch?v=AGtae4L5BbI&ab_channel=Codemy.com)
 - The code for chained dropdown in the prescription form is from this tutorial by [BugBytes](https://www.youtube.com/watch?v=uU1uLYaNr9U&ab_channel=BugBytes)
 - The code for using htmx to display prescription lists and modals is based on this tutorial by [Benoit Blanchon](https://www.youtube.com/watch?v=3dyQigrEj8A&ab_channel=BenoitBlanchon)
-- The code for a custom error handlers is based on this tutorial by [Cryce Truly](https://www.youtube.com/watch?v=3SKjPppM_DU&ab_channel=CryceTruly)
+- The code for custom error handlers is based on this tutorial by [Cryce Truly](https://www.youtube.com/watch?v=3SKjPppM_DU&ab_channel=CryceTruly)
 
 ## Media
 - The logo was created in Inkscape
