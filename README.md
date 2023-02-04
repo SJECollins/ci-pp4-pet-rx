@@ -14,18 +14,18 @@ The medications available for prescription are controlled from the admin panel, 
 The live site can be found here: [PetRx](https://ci-pp4-petrx.herokuapp.com/)
 
 # Table of Contents
-- [User Experience](https://github.com/SJECollins/ci-pp14-petrx#user-experience)
-- [Features](https://github.com/SJECollins/ci-pp4-petrx#features)
+- [User Experience](https://github.com/SJECollins/ci-pp14-pet-rx#user-experience)
+- [Features](https://github.com/SJECollins/ci-pp4-pet-rx#features)
   - [General](https://github.com/SJECollins/ci-pp4-pet-rx#general)
   - [VetProfiles](https://github.com/SJECollins/ci-pp4-pet-rx#vet-profiles)
   - [Records](https://github.com/SJECollins/ci-pp4-pet-rx#records)
   - [Prescriptions - Vet](https://github.com/SJECollins/ci-pp4-pet-rx#prescriptions---vet)
   - [Prescriptions - Admin](https://github.com/SJECollins/ci-pp4-pet-rx#prescriptions---admin)
-- [Design](https://github.com/SJECollins/ci-pp4-petrx#design)
-- [Technologies Used](https://github.com/SJECollins/ci-pp4-petrx#technologies-used)
+- [Design](https://github.com/SJECollins/ci-pp4-pet-rx#design)
+- [Technologies Used](https://github.com/SJECollins/ci-pp4-pet-rx#technologies-used)
 - [Testing](TESTING.md)
-- [Deployment](https://github.com/SJECollins/ci-pp4-petrx#deployment)
-- [Credits](https://github.com/SJECollins/ci-pp4-petrx#credits)
+- [Deployment](https://github.com/SJECollins/ci-pp4-pet-rx#deployment)
+- [Credits](https://github.com/SJECollins/ci-pp4-pet-rx#credits)
 
 # User Experience
 
