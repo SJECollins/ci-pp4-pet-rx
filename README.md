@@ -714,7 +714,7 @@ The live site can be found here: [PetRx](https://ci-pp4-petrx.herokuapp.com/)
 
 # Credits
 ## Code
-- The code for the custom user model allowing registering with email based on tutorial by [Coding With Mitch](https://www.youtube.com/watch?v=eCeRC7E8Z7Y&ab_channel=CodingWithMitch)
+- The code for the custom user model is based on tutorial by [Coding With Mitch](https://www.youtube.com/watch?v=eCeRC7E8Z7Y&ab_channel=CodingWithMitch)
 - The code for testing custom user models is based on this tutorial by [Michael Herman on testdriven.io](https://testdriven.io/blog/django-custom-user-model/)
 - The code for pagination is from the [Official Django Documentation](https://docs.djangoproject.com/en/4.1/topics/pagination/)
 - The code for search is based on this tutorial by [Codemy.com](https://www.youtube.com/watch?v=AGtae4L5BbI&ab_channel=Codemy.com)
