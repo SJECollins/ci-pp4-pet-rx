@@ -616,9 +616,9 @@ Testing for the site can be found at the below link:
   - Create a new env.py file in the top level directory
   - In env.py:
     - Import os
-    - Add 'os.environ["DATABASE_URL"] = "Paste the DATABASE_URL from the Heroku app here"'
-    - Add 'os.environ["SECRET_KEY"] = "Paste your new secret key here"'
-    - Add 'os.environ["CLOUDINARY_URL"] = "Paste your CLOUDINARY_URL as in the Heroku app here"'
+    - Add 'os.environ["DATABASE_URL"] = "Enter the DATABASE_URL from the Heroku app here"'
+    - Add 'os.environ["SECRET_KEY"] = "Enter your new secret key here"'
+    - Add 'os.environ["CLOUDINARY_URL"] = "Enter your CLOUDINARY_URL as in the Heroku app here"'
   ```
   import os
 
@@ -631,8 +631,7 @@ Testing for the site can be found at the below link:
 - In your project, in settings.py:
   - Import os
   - Import dj_database_url
-  - if os.path.isfile('env.py'):
-	import env
+  - Import env file
   ```
   import os
   import dj_database_url
@@ -643,7 +642,7 @@ Testing for the site can be found at the below link:
   ```
   SECRET_KEY = os.environ.get('SECRET_KEY')
   ```
-  - Link new database by commenting out old DATABASES section and adding:
+  - Link new database by commenting out/replacing old DATABASES setting and adding:
 	DATABASES = {
 			'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
 			}
@@ -692,7 +691,7 @@ Testing for the site can be found at the below link:
 - Prior to final deployment:
   - Set DEBUG = False in project settings.py
   - Remove DISABLE_COLLECTSTATIC config var from Heroku
-- Go to the Deploy tab:
+- Go to the Deploy tab on Heroku:
   - Select GitHub and confirm connection to GitHub account
   - Search for the repository and click "Connect"
   - Scroll down to the deploy options
